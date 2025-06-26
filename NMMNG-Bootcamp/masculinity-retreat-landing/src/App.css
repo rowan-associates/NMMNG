@@ -377,15 +377,18 @@
 .pricing-card.featured::before {
   content: 'MOST POPULAR';
   position: absolute;
-  top: 18px;
-  right: -20px;
+  top: 40px;
+  right: -48px;
   background: var(--primary);
   color: var(--primary-foreground);
-  padding: 6px 36px;
-  font-size: 0.85rem;
+  padding: 8px 48px;
+  font-size: 1rem;
   font-weight: bold;
-  transform: rotate(45deg);
+  transform: rotate(36deg);
   z-index: 10;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 4px 24px rgba(0,255,136,0.15);
+  letter-spacing: 0.08em;
 }
 
 /* Responsive Design */
