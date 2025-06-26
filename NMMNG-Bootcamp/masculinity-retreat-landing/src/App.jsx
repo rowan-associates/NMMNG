@@ -466,19 +466,11 @@ function App() {
             ))}
           </div>
           <div className="text-center">
-            <div className="relative max-w-4xl mx-auto">
-              <img 
-                src={brotherhoodImage} 
-                alt="Brotherhood of men supporting each other" 
-                className="w-full rounded-3xl shadow-2xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent rounded-3xl"></div>
-              <div className="absolute bottom-8 left-8 right-8">
-                <div className="glass rounded-2xl p-6 text-center">
-                  <p className="text-lg font-medium text-white">
-                    Join a brotherhood of men committed to authentic transformation and mutual support
-                  </p>
-                </div>
+            <div className="max-w-4xl mx-auto flex justify-center">
+              <div className="glass rounded-2xl p-6 text-center w-full">
+                <p className="text-lg font-medium text-white">
+                  Join a brotherhood of men committed to authentic transformation and mutual support
+                </p>
               </div>
             </div>
           </div>
