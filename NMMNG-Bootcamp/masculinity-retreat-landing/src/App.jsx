@@ -139,7 +139,9 @@ function App() {
         <nav className="nav-sticky">
           <div className="container mx-auto px-6 py-4 flex justify-between items-center">
             <div className="flex items-center gap-3">
-              <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ height: 40, marginRight: 12 }} />
+              <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer">
+                <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ height: 40, marginRight: 12 }} />
+              </a>
               <h2 className="text-xl font-bold gradient-text">NMMNG Bootcamp</h2>
             </div>
             <Button 
@@ -648,22 +650,17 @@ function App() {
         </div>
       </section>
 
-      <footer className="py-20 border-t border-border/20">
-        <div className="container mx-auto px-6 text-center">
-          <div className="reveal max-w-3xl mx-auto">
-            <h3 className="text-subheading mb-6 gradient-text-primary">Ready to Transform Your Life?</h3>
-            <p className="text-body-large mb-10 text-muted-foreground">
-              Join 16 men on a journey to reclaim your authentic masculine power. 
-              Limited spaces available.
-            </p>
-            <Button 
-              onClick={() => scrollToSection('pricing')}
-              className="btn-primary text-xl px-12 py-6 animate-pulse-glow"
-            >
-              SECURE YOUR PLACE TODAY
-              <ArrowRight className="w-6 h-6 ml-3" />
-            </Button>
+      {/* Sexy Footer */}
+      <footer className="py-16 border-t border-border/20 bg-background/80">
+        <div className="container mx-auto px-6 flex flex-col items-center">
+          <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center">
+            <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ height: 56 }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
+          </a>
+          <div className="flex gap-8 mb-4">
+            <a href="https://rowan-associates.com" target="_blank" rel="noreferrer" className="text-lg font-semibold text-primary hover:underline transition-colors duration-200">rowan-associates.com</a>
+            <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="text-lg font-semibold text-primary hover:underline transition-colors duration-200">nomoremrniceguy.co.uk</a>
           </div>
+          <div className="text-muted-foreground text-sm">&copy; {new Date().getFullYear()} NMMNG Bootcamp. All rights reserved.</div>
         </div>
       </footer>
     </div>
