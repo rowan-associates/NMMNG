@@ -275,7 +275,7 @@ function App() {
               {benefits.map((benefit, index) => (
                 <div 
                   key={index} 
-                  className="bento-item"
+                  className={`bento-item${index === 7 ? ' col-span-3' : ''}`}
                   style={{animationDelay: benefit.delay}}
                 >
                   <div className="mb-6 animate-float" style={{animationDelay: benefit.delay}}>
