@@ -14,6 +14,7 @@ import brotherhoodImage from './assets/0fbac460-657d-4ced-a33b-23d3e90c68c2.png'
 import transformationImage from './assets/c62c282-e402-71bf-a78b-474e3e43747f_ChatGPT_Image_Jun_6_2025_02_03_52_AM.png'
 import venueImage from './assets/venue_conference_room.png'
 import quoteIcon from './assets/DlaV2Rk1Qg2GdhkpshNw_icon-quote.png'
+import nmmngLogo from './assets/nmmng-logo.png'
 import './App.css'
 
 function App() {
@@ -137,7 +138,10 @@ function App() {
       {isScrolled && (
         <nav className="nav-sticky">
           <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h2 className="text-xl font-bold gradient-text">Authentic Masculinity</h2>
+            <div className="flex items-center gap-3">
+              <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ height: 40, marginRight: 12 }} />
+              <h2 className="text-xl font-bold gradient-text">NMMNG Bootcamp</h2>
+            </div>
             <Button 
               onClick={() => scrollToSection('pricing')}
               className="btn-primary"
