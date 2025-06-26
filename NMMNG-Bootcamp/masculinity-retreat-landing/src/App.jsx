@@ -373,8 +373,8 @@ function App() {
           </div>
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <div className="relative">
+              <div className="flex justify-center items-center">
+                <div className="relative w-full">
                   <img 
                     src={rowanAndRobert} 
                     alt="Rowan Andrews with Dr. Robert Glover" 
@@ -388,7 +388,7 @@ function App() {
                   </div>
                 </div>
               </div>
-              <div className="space-y-8">
+              <div className="space-y-8 flex flex-col justify-center h-full">
                 <div className="text-body-large space-y-6 text-muted-foreground">
                   <p>
                     Rowan Andrews has spent over twelve years guiding men through this exact journey. After his own awakening from the "nice guy" trap following his marriage breakdown, he trained with Dr. Robert Glover (author of "No More Mr. Nice Guy"), spiritual teachers David Deida and Rupert Spira, and created one of the UK's most successful men's groups.
@@ -407,14 +407,14 @@ function App() {
               </div>
             </div>
             {/* Workshop Gallery */}
-            <div>
+            <div className="mt-24">
               <h3 className="text-subheading text-center mb-12 gradient-text-primary">Real Workshop Experiences</h3>
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 {[
-                  { img: workshopScene1, caption: "Authentic conversations and breakthrough moments" },
+                  { img: groupWorkshop, caption: "Collective growth and shared experiences" },
                   { img: workshopScene2, caption: "Guided exercises for personal transformation" },
                   { img: workshopScene3, caption: "Brotherhood support and connection" },
-                  { img: groupWorkshop, caption: "Collective growth and shared experiences" }
+                  { img: workshopScene1, caption: "Authentic conversations and breakthrough moments" }
                 ].map((scene, index) => (
                   <div key={index} className="group cursor-pointer">
                     <div className="relative overflow-hidden rounded-2xl">
