@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent } from '@/components/ui/card.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
-import { CheckCircle, Shield, Target, Users, Heart, Brain, Compass, Star, Quote, MapPin, ArrowRight, Play } from 'lucide-react'
+import { CheckCircle, Shield, Target, Users, Heart, Brain, Compass, Star, Quote, MapPin, ArrowRight, Play, X } from 'lucide-react'
 import heroBackground from './assets/8d6e8f-2c5c-d32a-115f-2432568ecf8_ChatGPT_Image_May_16_2025_01_36_29_PM.png'
 import rowanAndRobert from './assets/2142387-8c6b-b7ec-0b0b-f24133d11b1_rowan_and_robert_glover-2.png'
 import workshopScene1 from './assets/CF3DF794-1254-4708-90B7-0AF5F2F10CEB_1_102_o.jpeg'
@@ -304,19 +304,19 @@ function App() {
                   <h3 className="text-2xl font-bold mb-8 text-destructive">Don't attend if you:</h3>
                   <ul className="space-y-6 text-lg">
                     <li className="flex items-start gap-4">
-                      <div className="w-2 h-2 bg-destructive rounded-full mt-3 flex-shrink-0"></div>
+                      <X className="w-6 h-6 text-[#D4E04F] mt-1 flex-shrink-0" />
                       <span>Think you've got it all figured out</span>
                     </li>
                     <li className="flex items-start gap-4">
-                      <div className="w-2 h-2 bg-destructive rounded-full mt-3 flex-shrink-0"></div>
+                      <X className="w-6 h-6 text-[#D4E04F] mt-1 flex-shrink-0" />
                       <span>Are looking for a quick fix or magic bullet</span>
                     </li>
                     <li className="flex items-start gap-4">
-                      <div className="w-2 h-2 bg-destructive rounded-full mt-3 flex-shrink-0"></div>
+                      <X className="w-6 h-6 text-[#D4E04F] mt-1 flex-shrink-0" />
                       <span>Aren't willing to look honestly at your patterns</span>
                     </li>
                     <li className="flex items-start gap-4">
-                      <div className="w-2 h-2 bg-destructive rounded-full mt-3 flex-shrink-0"></div>
+                      <X className="w-6 h-6 text-[#D4E04F] mt-1 flex-shrink-0" />
                       <span>Expect transformation without doing the work</span>
                     </li>
                   </ul>
