@@ -15,6 +15,7 @@ import transformationImage from './assets/c62c282-e402-71bf-a78b-474e3e43747f_Ch
 import venueImage from './assets/venue_conference_room.png'
 import quoteIcon from './assets/DlaV2Rk1Qg2GdhkpshNw_icon-quote.png'
 import nmmngLogo from './assets/nmmng-logo.png'
+import memberDiscountImage from './assets/venue_conference_room.png'
 import './App.css'
 
 function App() {
@@ -138,11 +139,11 @@ function App() {
       {isScrolled && (
         <nav className="nav-sticky">
           <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div className="flex items-center gap-3 relative" style={{ alignItems: 'flex-end' }}>
+            <div className="flex items-center gap-3 relative" style={{ alignItems: 'center' }}>
               <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" style={{ position: 'relative', zIndex: 10 }}>
-                <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ height: 53, marginRight: 12, position: 'relative', top: '-18px', left: 0, zIndex: 11, background: 'none' }} />
+                <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ height: 56, marginRight: 18, position: 'relative', top: 0, left: 0, zIndex: 11, background: 'none' }} />
               </a>
-              <h2 className="text-xl font-bold gradient-text nmmng-glow" style={{ marginLeft: 70, zIndex: 1 }}>NMMNG Bootcamp</h2>
+              <h2 className="text-xl font-bold gradient-text nmmng-glow" style={{ marginLeft: 0, zIndex: 1, lineHeight: 1.1 }}>NMMNG Bootcamp</h2>
             </div>
             <Button 
               onClick={() => scrollToSection('pricing')}
@@ -584,13 +585,14 @@ function App() {
               onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.1)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
               onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04) inset'; e.currentTarget.style.transform = 'none'; }}
             >
-              <CardContent className="p-8 flex flex-col items-center justify-center h-full" style={{ padding: '2.5rem 2rem' }}>
-                <div style={{ fontSize: '2rem', marginBottom: 8 }}>💡</div>
-                <h4 className="text-xl font-bold mb-4 icon-brass" style={{ color: '#A67C52' }}>Advanced & Growth Plus Member Discount</h4>
-                <p className="text-lg text-[#0F4F40] text-center mb-4" style={{ fontWeight: 600 }}>
-                  If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <span style={{ color: '#D4E04F', fontWeight: 700 }}>ten per cent discount</span> as part of your membership.
+              <CardContent className="p-8 flex flex-col items-center justify-center h-full w-full" style={{ padding: '2.5rem 2rem' }}>
+                <img src={memberDiscountImage} alt="Member Discount" style={{ width: '100%', maxWidth: 260, borderRadius: 18, marginBottom: 24, boxShadow: '0 6px 32px rgba(0,0,0,0.10)' }} />
+                <div style={{ fontSize: '2.5rem', marginBottom: 8 }}>💡</div>
+                <h4 className="text-2xl font-extrabold mb-4 icon-brass" style={{ color: '#A67C52', fontSize: '2rem', lineHeight: 1.2 }}>Advanced & Growth Plus Member Discount</h4>
+                <p className="text-xl text-[#0F4F40] text-center mb-4" style={{ fontWeight: 700, lineHeight: 1.4 }}>
+                  If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <span style={{ color: '#D4E04F', fontWeight: 800, fontSize: '1.2em' }}>ten per cent discount</span> as part of your membership.
                 </p>
-                <a href="#" className="text-sm underline text-[#0F4F40] hover:text-[#A67C52] transition-colors">Learn More about Membership</a>
+                <a href="#" className="text-lg underline text-[#0F4F40] hover:text-[#A67C52] transition-colors">Learn More about Membership</a>
               </CardContent>
             </Card>
           </div>
@@ -643,10 +645,13 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
         <h3 className="text-2xl font-bold mb-6" style={{ color: '#0F4F40', letterSpacing: '0.06em' }}>{title}</h3>
         <div className="mb-6 flex flex-col items-center">
           <div className="flex items-center gap-3 mb-2">
-            <span className="text-4xl font-black" style={{ color: '#D4E04F' }}>£{price}</span>
+            <span className="text-5xl font-black animate-pulse-glow" style={{ color: '#D4E04F', textShadow: '0 0 12px #D4E04F99, 0 2px 8px #fff2' }}>
+              £{price}
+            </span>
             <span
               ref={priceRef}
-              className={`text-xl font-semibold price-slash price-original text-muted-foreground${slashAnimated ? ' animated' : ''}`}
+              className={`text-2xl font-bold price-slash price-original${slashAnimated ? ' animated' : ''}`}
+              style={{ color: '#D32F2F', background: 'rgba(255,255,255,0.7)', borderRadius: 6, padding: '0 8px', marginLeft: 4, textDecoration: 'line-through', position: 'relative', zIndex: 2, fontWeight: 800 }}
               onMouseEnter={() => setSlashAnimated(true)}
             >
               £{original}
