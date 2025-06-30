@@ -291,7 +291,7 @@ function App() {
       </section>
 
       {/* Qualification Section */}
-      <section className="py-32">
+      <section className="py-32 nmmng-not-for-everyone">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-headline mb-8 gradient-text-primary">

@@ -1,54 +1,52 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Open+Sans:wght@400;600&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
+  --color-primary-dark: #0D212D;
+  --color-deep-green: #0F4F40;
+  --color-neon-lemon: #D4E04F;
+  --color-warm-brass: #A67C52;
+  --color-light-neutral: #F5F5F5;
+  --color-background: var(--color-primary-dark);
+  --color-foreground: var(--color-light-neutral);
+  --color-card: var(--color-deep-green);
+  --color-card-foreground: var(--color-light-neutral);
+  --color-popover: var(--color-primary-dark);
+  --color-popover-foreground: var(--color-light-neutral);
+  --color-primary: var(--color-neon-lemon);
+  --color-primary-foreground: var(--color-deep-green);
+  --color-secondary: var(--color-deep-green);
+  --color-secondary-foreground: var(--color-neon-lemon);
+  --color-accent: var(--color-warm-brass);
+  --color-accent-foreground: var(--color-primary-dark);
+  --color-border: var(--color-neon-lemon);
+  --color-input: var(--color-deep-green);
+  --color-ring: var(--color-neon-lemon);
 }
 
 :root {
   --radius: 12px;
-  --background: #0A0A0A;
-  --foreground: #FFFFFF;
-  --card: #1A1A1A;
-  --card-foreground: #FFFFFF;
-  --popover: #1A1A1A;
-  --popover-foreground: #FFFFFF;
-  --primary: #00FF88;
-  --primary-foreground: #0A0A0A;
-  --secondary: #1A1A1A;
-  --secondary-foreground: #FFFFFF;
-  --muted: #2A2A2A;
-  --muted-foreground: #E0E0E0;
-  --accent: #FFD700;
-  --accent-foreground: #0A0A0A;
-  --destructive: #FF4444;
-  --border: #333333;
-  --input: #1A1A1A;
-  --ring: #00FF88;
+  --background: #0D212D;
+  --foreground: #F5F5F5;
+  --card: #0F4F40;
+  --card-foreground: #F5F5F5;
+  --popover: #0D212D;
+  --popover-foreground: #F5F5F5;
+  --primary: #D4E04F;
+  --primary-foreground: #0F4F40;
+  --secondary: #0F4F40;
+  --secondary-foreground: #D4E04F;
+  --muted: #1A1A1A;
+  --muted-foreground: #F5F5F5;
+  --accent: #A67C52;
+  --accent-foreground: #0D212D;
+  --destructive: #D4E04F;
+  --border: #D4E04F;
+  --input: #0F4F40;
+  --ring: #D4E04F;
 }
 
 @layer base {
@@ -62,7 +60,7 @@
   
   body {
     @apply bg-background text-foreground;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Open Sans', Arial, sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -71,63 +69,70 @@
 
 /* Modern Typography System */
 .text-display {
+  font-family: 'Oswald', Arial, sans-serif;
   font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 900;
+  font-weight: 700;
+  text-transform: uppercase;
   line-height: 0.9;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.04em;
+  color: var(--color-neon-lemon);
 }
 
 .text-headline {
+  font-family: 'Oswald', Arial, sans-serif;
   font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
+  font-weight: 700;
+  text-transform: uppercase;
   line-height: 1.1;
-  letter-spacing: -0.01em;
+  letter-spacing: 0.03em;
+  color: var(--color-neon-lemon);
 }
 
 .text-subheading {
+  font-family: 'Open Sans', Arial, sans-serif;
   font-size: clamp(1.25rem, 3vw, 2rem);
   font-weight: 600;
   line-height: 1.3;
+  color: var(--color-neon-lemon);
 }
 
 .text-body-large {
+  font-family: 'Open Sans', Arial, sans-serif;
   font-size: 1.125rem;
   font-weight: 400;
   line-height: 1.6;
+  color: var(--color-light-neutral);
 }
 
 /* Advanced Button Styles */
 .btn-primary {
-  @apply bg-primary text-primary-foreground font-bold py-4 px-8 rounded-xl;
+  @apply text-primary-foreground font-bold py-4 px-8 rounded-xl;
   @apply transition-all duration-300 ease-out;
-  @apply hover:scale-105 hover:shadow-2xl;
-  background: linear-gradient(135deg, #00FF88 0%, #00CC6A 100%);
-  box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+  background: linear-gradient(135deg, #D4E04F 0%, #B7C93B 100%);
+  box-shadow: 0 0 0 0 var(--color-neon-lemon);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   position: relative;
   overflow: hidden;
 }
 
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transition: left 0.5s;
-}
-
-.btn-primary:hover::before {
-  left: 100%;
+.btn-primary:hover, .btn-primary:focus {
+  box-shadow: 0 0 24px 4px #D4E04F, 0 10px 30px rgba(212, 224, 79, 0.2);
+  transform: translateY(-3px);
 }
 
 .btn-secondary {
-  @apply bg-card text-card-foreground font-semibold py-3 px-6 rounded-lg;
+  @apply bg-secondary text-secondary-foreground font-semibold py-3 px-6 rounded-lg;
   @apply border-2 border-border transition-all duration-300;
   @apply hover:border-primary hover:bg-primary/10;
+  background: #0F4F40;
+  color: #D4E04F;
+}
+
+.btn-secondary:hover, .btn-secondary:focus {
+  box-shadow: 0 0 16px 2px #D4E04F;
+  border-color: #D4E04F;
+  transform: translateY(-3px);
 }
 
 /* Glass Morphism Effects */
@@ -404,11 +409,11 @@
   }
   
   .text-display {
-    font-size: 3rem;
+    font-size: 2.2rem;
   }
   
   .text-headline {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -428,4 +433,30 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #00CC6A;
+}
+
+/* --- SECTION: THIS IS NOT FOR EVERYONE --- */
+.nmmng-not-for-everyone {
+  background: #0F4F40 !important;
+  color: #D4E04F !important;
+}
+
+/* --- GENERAL BACKGROUNDS & TEXT --- */
+.bg-background, .bg-primary-dark, .footer, .nav-sticky, .hero-bg, .glass, .glass-light {
+  background: #0D212D !important;
+  color: #F5F5F5 !important;
+}
+.text-muted-foreground, .text-card-foreground, .text-foreground {
+  color: #F5F5F5 !important;
+}
+
+/* --- ICONS & ACCENTS --- */
+.icon-brass, .text-accent, .border-accent {
+  color: #A67C52 !important;
+  border-color: #A67C52 !important;
+}
+
+/* --- PROGRESS BAR --- */
+.progress-bar {
+  background: #D4E04F !important;
 }
