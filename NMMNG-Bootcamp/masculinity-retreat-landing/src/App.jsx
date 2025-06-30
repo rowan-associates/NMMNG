@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent } from '@/components/ui/card.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
@@ -521,72 +521,54 @@ function App() {
                 This retreat runs over one intensive weekend and includes all materials, and ongoing support resources. <span className="text-primary font-bold"> Limited to 16 participants</span> to ensure deep, personal attention.
               </p>
               <div className="text-2xl font-bold gradient-text">Dates: 30-31st August</div>
-              <div className="text-lg font-semibold mt-2" style={{ color: '#D4E04F' }}>
-                Offer valid before July 16th
-              </div>
-              <div className="text-base font-medium mt-1" style={{ color: '#D4E04F' }}>
-                First Mover Advantage ends July 16th
-              </div>
             </div>
           </div>
           {/* Pricing Cards */}
           <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
             {/* Standard Package */}
-            <Card className="pricing-card" style={{ border: '2px solid #D4E04F', background: '#fff', color: '#0D212D' }}>
-              <CardContent className="p-10 text-center">
-                <h3 className="text-2xl font-bold mb-6" style={{ color: '#0F4F40', letterSpacing: '0.06em' }}>Standard Package</h3>
-                <div className="mb-8 flex flex-col items-center">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-4xl font-black" style={{ color: '#0F4F40' }}>£347</span>
-                    <span className="text-xl font-semibold line-through text-muted-foreground">£397</span>
-                  </div>
-                  <Badge className="bg-[#D4E04F]/20 text-[#0F4F40] border-[#D4E04F]/30">
-                    First Mover Advantage
-                  </Badge>
-                </div>
-                <ul className="text-left space-y-4 mb-10">
-                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>Full weekend workshop access</span></li>
-                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>Preparation and ongoing integration support for three months via our Core community programme, meeting every Thursday evening for three months to support the integration of what you've learned.</span></li>
-                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>All materials included</span></li>
-                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>Ongoing support resources</span></li>
-                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>Brotherhood community access</span></li>
-                </ul>
-                <Button className="w-full text-lg py-4" style={{ background: '#0F4F40', color: '#D4E04F' }} onClick={() => window.open('#', '_blank')}>
-                  BOOK STANDARD
-                </Button>
-              </CardContent>
-            </Card>
+            <PriceCard
+              title="Standard Package"
+              price={347}
+              original={397}
+              offerLabel="First Mover Advantage"
+              offerDeadline="Offer ends July 16th"
+              features={[
+                'Full weekend workshop access',
+                'Preparation and ongoing integration support for three months via our Core community programme, meeting every Thursday evening for three months to support the integration of what you\'ve learned.',
+                'All materials included',
+                'Ongoing support resources',
+                'Brotherhood community access',
+              ]}
+              ctaText="BOOK STANDARD"
+              ctaColor="#0F4F40"
+              ctaTextColor="#D4E04F"
+            />
             {/* VIP Package */}
-            <Card className="pricing-card featured" style={{ border: '2px solid #D4E04F', background: '#fff', color: '#0D212D' }}>
-              <CardContent className="p-10 text-center">
-                <h3 className="text-2xl font-bold mb-6" style={{ color: '#0F4F40', letterSpacing: '0.06em' }}>VIP Package</h3>
-                <div className="mb-8 flex flex-col items-center">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-4xl font-black" style={{ color: '#0F4F40' }}>£597</span>
-                    <span className="text-xl font-semibold line-through text-muted-foreground">£697</span>
-                  </div>
-                  <Badge className="bg-[#D4E04F]/20 text-[#0F4F40] border-[#D4E04F]/30">
-                    First Mover Advantage
-                  </Badge>
-                </div>
-                <ul className="text-left space-y-4 mb-10">
-                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>Everything in Standard Package</span></li>
-                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>Preparation and integration support for three months via our Advanced group and its scheduled meetings.</span></li>
-                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>Dinner on Saturday night</span></li>
-                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>Priority support access</span></li>
-                </ul>
-                <Button className="w-full text-lg py-4" style={{ background: '#0F4F40', color: '#D4E04F' }} onClick={() => window.open('#', '_blank')}>
-                  BOOK VIP
-                </Button>
-              </CardContent>
-            </Card>
+            <PriceCard
+              title="VIP Package"
+              price={597}
+              original={697}
+              offerLabel="First Mover Advantage"
+              offerDeadline="Offer ends July 16th"
+              features={[
+                'Everything in Standard Package',
+                'Preparation and integration support for three months via our Advanced group and its scheduled meetings.',
+                'Dinner on Saturday night',
+                'Priority support access',
+              ]}
+              ctaText="BOOK VIP"
+              ctaColor="#0F4F40"
+              ctaTextColor="#D4E04F"
+              featured
+            />
             {/* Member Discount Card */}
             <Card className="pricing-card" style={{ border: '2px solid #A67C52', background: '#fff', color: '#0D212D', minHeight: 320 }}>
               <CardContent className="p-8 flex flex-col items-center justify-center h-full">
                 <h4 className="text-xl font-bold mb-4 icon-brass">Advanced & Growth Plus Member Discount</h4>
-                <p className="text-lg text-muted-foreground text-center">
+                <p className="text-lg text-muted-foreground text-center mb-4">
                   If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <span className="text-primary font-bold">ten per cent discount</span> as part of your membership.
                 </p>
+                <a href="#" className="text-sm underline text-[#0F4F40] hover:text-[#A67C52] transition-colors">Learn More about Membership</a>
               </CardContent>
             </Card>
           </div>
@@ -608,6 +590,55 @@ function App() {
       </footer>
     </div>
   )
+}
+
+// PriceCard component
+function PriceCard({ title, price, original, offerLabel, offerDeadline, features, ctaText, ctaColor, ctaTextColor, featured }) {
+  const [slashAnimated, setSlashAnimated] = useState(false);
+  const priceRef = useRef(null);
+
+  useEffect(() => {
+    setTimeout(() => setSlashAnimated(true), 400);
+  }, []);
+
+  return (
+    <Card className={`pricing-card${featured ? ' featured' : ''}`} style={{ border: '2px solid #D4E04F', background: '#fff', color: '#0D212D' }}>
+      <CardContent className="p-10 text-center flex flex-col h-full">
+        <h3 className="text-2xl font-bold mb-6" style={{ color: '#0F4F40', letterSpacing: '0.06em' }}>{title}</h3>
+        <div className="mb-8 flex flex-col items-center">
+          <div className="flex items-center gap-3 mb-2">
+            <span className="text-4xl font-black" style={{ color: '#0F4F40' }}>£{price}</span>
+            <span
+              ref={priceRef}
+              className={`text-xl font-semibold price-slash price-original text-muted-foreground${slashAnimated ? ' animated' : ''}`}
+              onMouseEnter={() => setSlashAnimated(true)}
+            >
+              £{original}
+            </span>
+          </div>
+          <Badge className="bg-[#D4E04F]/20 text-[#0F4F40] border-[#D4E04F]/30 mb-1">
+            {offerLabel}
+          </Badge>
+          <div className="text-sm font-semibold" style={{ color: '#D4E04F', marginTop: 2 }}>{offerDeadline}</div>
+        </div>
+        <ul className="text-left space-y-4 mb-10 flex-1">
+          {features.map((feature, i) => (
+            <li key={i} className="flex items-start gap-4">
+              <CheckCircle className="w-6 h-6" style={{ color: '#0F4F40', marginTop: 4, flexShrink: 0 }} />
+              <span style={{ fontFamily: 'Open Sans, Arial, sans-serif', fontWeight: 400 }}>{feature}</span>
+            </li>
+          ))}
+        </ul>
+        <Button
+          className="w-full text-lg py-4 mt-auto"
+          style={{ background: ctaColor, color: ctaTextColor }}
+          onClick={() => window.open('#', '_blank')}
+        >
+          {ctaText}
+        </Button>
+      </CardContent>
+    </Card>
+  );
 }
 
 export default App

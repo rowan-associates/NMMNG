@@ -472,3 +472,40 @@
   0% { text-shadow: 0 0 4px rgba(255,255,255,0.18), 0 0 12px rgba(255,255,255,0.10); }
   100% { text-shadow: 0 0 8px rgba(255,255,255,0.28), 0 0 18px rgba(255,255,255,0.16); }
 }
+
+.price-original {
+  position: relative;
+  display: inline-block;
+  color: #888;
+  text-decoration: line-through;
+  opacity: 0.85;
+  transition: color 0.3s;
+}
+
+.price-slash {
+  position: relative;
+  display: inline-block;
+}
+
+.price-slash::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #D32F2F 60%, transparent 100%);
+  transform: scaleX(0) rotate(-18deg);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
+  z-index: 2;
+}
+
+.price-slash.animated::after {
+  transform: scaleX(1) rotate(-18deg);
+}
+
+@keyframes priceSlash {
+  from { transform: scaleX(0) rotate(-18deg); }
+  to { transform: scaleX(1) rotate(-18deg); }
+}
