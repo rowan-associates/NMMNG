@@ -2,6 +2,8 @@
 
 This is the official landing page for the **No More Mr. Nice Guy (NMMNG) Bootcamp**—a transformational weekend retreat for men ready to reclaim their authentic power. The site provides information about the event, testimonials, pricing, and a call to action for registration.
 
+*Author: [webmyc](https://Respira.cafe)*
+
 Learn more at [rowan-associates.com](https://rowan-associates.com) and [nomoremrniceguy.co.uk](https://nomoremrniceguy.co.uk).
 
 ## Features
@@ -65,6 +67,7 @@ NMMNG-Bootcamp/
 - Design & development: [Rowan Associates](https://rowan-associates.com) & contributors
 - Event: [No More Mr. Nice Guy UK](https://nomoremrniceguy.co.uk)
 - Built by [Mihai](https://respira.cafe)
+- Author: [webmyc](https://Respira.cafe)
 - Logo: No More Mr. Nice Guy®
 
 ## License
