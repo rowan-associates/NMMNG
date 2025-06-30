@@ -142,7 +142,7 @@ function App() {
               <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer">
                 <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ height: 40, marginRight: 12 }} />
               </a>
-              <h2 className="text-xl font-bold gradient-text">NMMNG Bootcamp</h2>
+              <h2 className="text-xl font-bold gradient-text nmmng-glow">NMMNG Bootcamp</h2>
             </div>
             <Button 
               onClick={() => scrollToSection('pricing')}
