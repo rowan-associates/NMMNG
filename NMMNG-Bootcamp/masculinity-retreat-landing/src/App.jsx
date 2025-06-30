@@ -138,11 +138,11 @@ function App() {
       {isScrolled && (
         <nav className="nav-sticky">
           <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer">
-                <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ height: 40, marginRight: 12 }} />
+            <div className="flex items-center gap-3 relative" style={{ alignItems: 'flex-end' }}>
+              <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" style={{ position: 'relative', zIndex: 2 }}>
+                <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ height: 53, marginRight: 12, position: 'absolute', top: '-18px', left: 0, zIndex: 3 }} />
               </a>
-              <h2 className="text-xl font-bold gradient-text nmmng-glow">NMMNG Bootcamp</h2>
+              <h2 className="text-xl font-bold gradient-text nmmng-glow" style={{ marginLeft: 70 }}>NMMNG Bootcamp</h2>
             </div>
             <Button 
               onClick={() => scrollToSection('pricing')}
@@ -602,10 +602,10 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
   }, []);
 
   return (
-    <Card className={`pricing-card${featured ? ' featured' : ''}`} style={{ border: '2px solid #D4E04F', background: '#fff', color: '#0D212D' }}>
-      <CardContent className="p-10 text-center flex flex-col h-full">
+    <Card className={`pricing-card${featured ? ' featured' : ''}`} style={{ border: '2px solid #D4E04F', background: 'linear-gradient(135deg, #F5F5F5 80%, #E8F0E5 100%)', color: '#0D212D', minHeight: 'unset', height: 'auto', padding: 0, boxShadow: '0 8px 32px rgba(0,0,0,0.08)' }}>
+      <CardContent className="px-8 py-8 text-center flex flex-col h-full" style={{ padding: '2.5rem 2rem' }}>
         <h3 className="text-2xl font-bold mb-6" style={{ color: '#0F4F40', letterSpacing: '0.06em' }}>{title}</h3>
-        <div className="mb-8 flex flex-col items-center">
+        <div className="mb-6 flex flex-col items-center">
           <div className="flex items-center gap-3 mb-2">
             <span className="text-4xl font-black" style={{ color: '#0F4F40' }}>£{price}</span>
             <span
@@ -621,7 +621,7 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
           </Badge>
           <div className="text-sm font-semibold" style={{ color: '#D4E04F', marginTop: 2 }}>{offerDeadline}</div>
         </div>
-        <ul className="text-left space-y-4 mb-10 flex-1">
+        <ul className="text-left space-y-4 mb-8 flex-1">
           {features.map((feature, i) => (
             <li key={i} className="flex items-start gap-4">
               <CheckCircle className="w-7 h-7" style={{ color: '#0F4F40', marginTop: 2, flexShrink: 0 }} />
