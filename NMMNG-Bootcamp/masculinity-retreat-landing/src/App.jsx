@@ -624,14 +624,14 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
         <ul className="text-left space-y-4 mb-10 flex-1">
           {features.map((feature, i) => (
             <li key={i} className="flex items-start gap-4">
-              <CheckCircle className="w-6 h-6" style={{ color: '#0F4F40', marginTop: 4, flexShrink: 0 }} />
-              <span style={{ fontFamily: 'Open Sans, Arial, sans-serif', fontWeight: 400 }}>{feature}</span>
+              <CheckCircle className="w-7 h-7" style={{ color: '#0F4F40', marginTop: 2, flexShrink: 0 }} />
+              <span style={{ color: '#0F4F40', fontFamily: 'Open Sans, Arial, sans-serif', fontWeight: 600, fontSize: '1.15rem', lineHeight: 1.5 }}>{feature}</span>
             </li>
           ))}
         </ul>
         <Button
-          className="w-full text-lg py-4 mt-auto"
-          style={{ background: ctaColor, color: ctaTextColor }}
+          className={`w-full text-xl py-5 mt-auto rounded-xl font-bold${featured ? ' animate-pulse-glow' : ''}`}
+          style={{ background: ctaColor, color: ctaTextColor, fontSize: '1.25rem', minHeight: 64 }}
           onClick={() => window.open('#', '_blank')}
         >
           {ctaText}
