@@ -274,8 +274,8 @@ function App() {
             <div className="bento-grid max-w-7xl mx-auto">
               {benefits.map((benefit, index) => (
                 <div 
-                  key={index} 
-                  className={`bento-item${index === 7 ? ' col-span-3' : ''}`}
+                  key={index}
+                  className={`bento-item${index === 7 ? ' lg:col-span-3' : ''}`}
                   style={{animationDelay: benefit.delay}}
                 >
                   <div className="mb-6 animate-float" style={{animationDelay: benefit.delay}}>
