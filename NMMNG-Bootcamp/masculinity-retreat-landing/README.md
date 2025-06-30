@@ -69,3 +69,13 @@ NMMNG-Bootcamp/
 
 ## License
 This project is for informational and promotional use. Contact Rowan Associates for collaboration or licensing. 
+
+## Version History
+
+### 0.1.0 (2024-06-13)
+- Overhauled typography: Headings use PT Serif, body uses Quattrocento Sans.
+- 'NMMNG Bootcamp' brand mark is white with a subtle animated glow.
+- Full NMMNG style guide applied: Neon-Lemon, Deep Green, Primary Dark, Warm Brass, Light Neutral.
+- All CTAs, cards, and sections use correct palette and hover effects.
+- Responsive improvements and accessibility tweaks.
+- See package.json for the current version. Keep this section in sync with releases. 
