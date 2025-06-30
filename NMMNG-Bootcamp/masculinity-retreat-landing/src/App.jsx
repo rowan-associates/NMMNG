@@ -139,10 +139,10 @@ function App() {
         <nav className="nav-sticky">
           <div className="container mx-auto px-6 py-4 flex justify-between items-center">
             <div className="flex items-center gap-3 relative" style={{ alignItems: 'flex-end' }}>
-              <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" style={{ position: 'relative', zIndex: 2 }}>
-                <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ height: 53, marginRight: 12, position: 'absolute', top: '-18px', left: 0, zIndex: 3 }} />
+              <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" style={{ position: 'relative', zIndex: 10 }}>
+                <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ height: 53, marginRight: 12, position: 'relative', top: '-18px', left: 0, zIndex: 11, background: 'none' }} />
               </a>
-              <h2 className="text-xl font-bold gradient-text nmmng-glow" style={{ marginLeft: 70 }}>NMMNG Bootcamp</h2>
+              <h2 className="text-xl font-bold gradient-text nmmng-glow" style={{ marginLeft: 70, zIndex: 1 }}>NMMNG Bootcamp</h2>
             </div>
             <Button 
               onClick={() => scrollToSection('pricing')}
@@ -542,6 +542,7 @@ function App() {
               ctaText="BOOK STANDARD"
               ctaColor="#0F4F40"
               ctaTextColor="#D4E04F"
+              bgColor="#F6FCD9"
             />
             {/* VIP Package */}
             <PriceCard
@@ -560,13 +561,34 @@ function App() {
               ctaColor="#0F4F40"
               ctaTextColor="#D4E04F"
               featured
+              bgColor="#F3F7C0"
             />
             {/* Member Discount Card */}
-            <Card className="pricing-card" style={{ border: '2px solid #A67C52', background: '#fff', color: '#0D212D', minHeight: 320 }}>
-              <CardContent className="p-8 flex flex-col items-center justify-center h-full">
-                <h4 className="text-xl font-bold mb-4 icon-brass">Advanced & Growth Plus Member Discount</h4>
-                <p className="text-lg text-muted-foreground text-center mb-4">
-                  If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <span className="text-primary font-bold">ten per cent discount</span> as part of your membership.
+            <Card
+              className="pricing-card"
+              style={{
+                border: '1px solid #D4E04F',
+                background: '#EFF7E1',
+                color: '#0D212D',
+                minHeight: 'unset',
+                height: 'auto',
+                padding: 0,
+                boxShadow: '0 2px 8px rgba(0,0,0,0.04) inset',
+                transition: 'box-shadow 0.2s, transform 0.2s',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textAlign: 'center',
+              }}
+              onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.1)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04) inset'; e.currentTarget.style.transform = 'none'; }}
+            >
+              <CardContent className="p-8 flex flex-col items-center justify-center h-full" style={{ padding: '2.5rem 2rem' }}>
+                <div style={{ fontSize: '2rem', marginBottom: 8 }}>💡</div>
+                <h4 className="text-xl font-bold mb-4 icon-brass" style={{ color: '#A67C52' }}>Advanced & Growth Plus Member Discount</h4>
+                <p className="text-lg text-[#0F4F40] text-center mb-4" style={{ fontWeight: 600 }}>
+                  If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <span style={{ color: '#D4E04F', fontWeight: 700 }}>ten per cent discount</span> as part of your membership.
                 </p>
                 <a href="#" className="text-sm underline text-[#0F4F40] hover:text-[#A67C52] transition-colors">Learn More about Membership</a>
               </CardContent>
@@ -593,7 +615,7 @@ function App() {
 }
 
 // PriceCard component
-function PriceCard({ title, price, original, offerLabel, offerDeadline, features, ctaText, ctaColor, ctaTextColor, featured }) {
+function PriceCard({ title, price, original, offerLabel, offerDeadline, features, ctaText, ctaColor, ctaTextColor, featured, bgColor }) {
   const [slashAnimated, setSlashAnimated] = useState(false);
   const priceRef = useRef(null);
 
@@ -602,12 +624,26 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
   }, []);
 
   return (
-    <Card className={`pricing-card${featured ? ' featured' : ''}`} style={{ border: '2px solid #D4E04F', background: 'linear-gradient(135deg, #F5F5F5 80%, #E8F0E5 100%)', color: '#0D212D', minHeight: 'unset', height: 'auto', padding: 0, boxShadow: '0 8px 32px rgba(0,0,0,0.08)' }}>
+    <Card
+      className={`pricing-card${featured ? ' featured' : ''}`}
+      style={{
+        border: '1px solid #D4E04F',
+        background: bgColor,
+        color: '#0D212D',
+        minHeight: 'unset',
+        height: 'auto',
+        padding: 0,
+        boxShadow: '0 2px 8px rgba(0,0,0,0.04) inset',
+        transition: 'box-shadow 0.2s, transform 0.2s',
+      }}
+      onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.1)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+      onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04) inset'; e.currentTarget.style.transform = 'none'; }}
+    >
       <CardContent className="px-8 py-8 text-center flex flex-col h-full" style={{ padding: '2.5rem 2rem' }}>
         <h3 className="text-2xl font-bold mb-6" style={{ color: '#0F4F40', letterSpacing: '0.06em' }}>{title}</h3>
         <div className="mb-6 flex flex-col items-center">
           <div className="flex items-center gap-3 mb-2">
-            <span className="text-4xl font-black" style={{ color: '#0F4F40' }}>£{price}</span>
+            <span className="text-4xl font-black" style={{ color: '#D4E04F' }}>£{price}</span>
             <span
               ref={priceRef}
               className={`text-xl font-semibold price-slash price-original text-muted-foreground${slashAnimated ? ' animated' : ''}`}
