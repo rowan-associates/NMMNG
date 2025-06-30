@@ -514,127 +514,78 @@ function App() {
       <section id="pricing" className="py-32 bg-secondary/30">
         <div className="container mx-auto px-6">
           <div className="text-center mb-20">
-            <h2 className="text-headline mb-8 gradient-text">
-              SECURE YOUR PLACE TODAY
-            </h2>
-            <div className="max-w-4xl mx-auto space-y-6">
+            <h2 className="text-headline mb-4 gradient-text">SECURE YOUR PLACE TODAY</h2>
+            <div className="text-2xl font-extrabold mb-2" style={{ color: '#D4E04F', letterSpacing: '0.08em' }}>FIRST MOVER ADVANTAGE</div>
+            <div className="max-w-4xl mx-auto space-y-4">
               <p className="text-body-large text-muted-foreground">
-                This retreat runs over one intensive weekend and includes all materials, and ongoing support resources. 
-                <span className="text-primary font-bold"> Limited to 16 participants</span> to ensure deep, personal attention.
+                This retreat runs over one intensive weekend and includes all materials, and ongoing support resources. <span className="text-primary font-bold"> Limited to 16 participants</span> to ensure deep, personal attention.
               </p>
-              <div className="text-2xl font-bold gradient-text">
-                Dates: 30-31st August
+              <div className="text-2xl font-bold gradient-text">Dates: 30-31st August</div>
+              <div className="text-lg font-semibold mt-2" style={{ color: '#D4E04F' }}>
+                Offer valid before July 16th
               </div>
-            </div>
-          </div>
-          {/* Venue Information */}
-          <div className="mb-20">
-            <div className="max-w-5xl mx-auto">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                <div className="glass rounded-2xl p-8">
-                  <div className="flex items-center mb-6">
-                    <MapPin className="w-8 h-8 text-primary mr-4" />
-                    <div>
-                      <h4 className="text-xl font-bold text-primary">Leonardo Royal Hotel Oxford</h4>
-                      <p className="text-muted-foreground">Godstow Rd, Wolvercote, Oxford OX2 8AL, United Kingdom</p>
-                    </div>
-                  </div>
-                  <p className="text-muted-foreground leading-relaxed">
-                    Professional conference facilities in a prestigious Oxford location, providing the perfect environment for transformation and deep work.
-                  </p>
-                </div>
-                <div>
-                  <img 
-                    src={venueImage} 
-                    alt="Leonardo Royal Hotel Oxford conference room" 
-                    className="w-full rounded-2xl shadow-2xl"
-                  />
-                </div>
+              <div className="text-base font-medium mt-1" style={{ color: '#D4E04F' }}>
+                First Mover Advantage ends July 16th
               </div>
             </div>
           </div>
           {/* Pricing Cards */}
-          <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto mb-16">
+          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
             {/* Standard Package */}
-            <Card className="pricing-card">
+            <Card className="pricing-card" style={{ border: '2px solid #D4E04F', background: '#fff', color: '#0D212D' }}>
               <CardContent className="p-10 text-center">
-                <h3 className="text-2xl font-bold mb-6 text-white">Standard Package</h3>
-                <div className="mb-8">
-                  <div className="text-5xl font-black gradient-text mb-4">£397</div>
-                  <Badge className="bg-primary/20 text-primary border-primary/30">
-                    Save £50 - Early Bird (before July 16th)
+                <h3 className="text-2xl font-bold mb-6" style={{ color: '#0F4F40', letterSpacing: '0.06em' }}>Standard Package</h3>
+                <div className="mb-8 flex flex-col items-center">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-4xl font-black" style={{ color: '#0F4F40' }}>£347</span>
+                    <span className="text-xl font-semibold line-through text-muted-foreground">£397</span>
+                  </div>
+                  <Badge className="bg-[#D4E04F]/20 text-[#0F4F40] border-[#D4E04F]/30">
+                    First Mover Advantage
                   </Badge>
                 </div>
                 <ul className="text-left space-y-4 mb-10">
-                  <li className="flex items-center">
-                    <CheckCircle className="w-6 h-6 text-primary mr-4 flex-shrink-0" />
-                    <span>Full weekend retreat access</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-6 h-6 text-primary mr-4 flex-shrink-0" />
-                    <span>All materials included</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-6 h-6 text-primary mr-4 flex-shrink-0" />
-                    <span>Ongoing support resources</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-6 h-6 text-primary mr-4 flex-shrink-0" />
-                    <span>Brotherhood community access</span>
-                  </li>
+                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>Full weekend workshop access</span></li>
+                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>Preparation and ongoing integration support for three months via our Core community programme, meeting every Thursday evening for three months to support the integration of what you've learned.</span></li>
+                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>All materials included</span></li>
+                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>Ongoing support resources</span></li>
+                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>Brotherhood community access</span></li>
                 </ul>
-                <Button 
-                  className="btn-secondary w-full text-lg py-4"
-                  onClick={() => window.open('#', '_blank')}
-                >
+                <Button className="w-full text-lg py-4" style={{ background: '#0F4F40', color: '#D4E04F' }} onClick={() => window.open('#', '_blank')}>
                   BOOK STANDARD
                 </Button>
               </CardContent>
             </Card>
             {/* VIP Package */}
-            <Card className="pricing-card featured">
+            <Card className="pricing-card featured" style={{ border: '2px solid #D4E04F', background: '#fff', color: '#0D212D' }}>
               <CardContent className="p-10 text-center">
-                <h3 className="text-2xl font-bold mb-6 text-white">VIP Package</h3>
-                <div className="mb-8">
-                  <div className="text-5xl font-black gradient-text mb-4">£697</div>
-                  <Badge className="bg-primary/20 text-primary border-primary/30">
-                    Save £100 - Early Bird (before July 16th)
+                <h3 className="text-2xl font-bold mb-6" style={{ color: '#0F4F40', letterSpacing: '0.06em' }}>VIP Package</h3>
+                <div className="mb-8 flex flex-col items-center">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-4xl font-black" style={{ color: '#0F4F40' }}>£597</span>
+                    <span className="text-xl font-semibold line-through text-muted-foreground">£697</span>
+                  </div>
+                  <Badge className="bg-[#D4E04F]/20 text-[#0F4F40] border-[#D4E04F]/30">
+                    First Mover Advantage
                   </Badge>
                 </div>
                 <ul className="text-left space-y-4 mb-10">
-                  <li className="flex items-center">
-                    <CheckCircle className="w-6 h-6 text-primary mr-4 flex-shrink-0" />
-                    <span>Everything in Standard Package</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-6 h-6 text-primary mr-4 flex-shrink-0" />
-                    <span>3 x 90-minute follow-up sessions</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-6 h-6 text-primary mr-4 flex-shrink-0" />
-                    <span>Dinner on Saturday night</span>
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="w-6 h-6 text-primary mr-4 flex-shrink-0" />
-                    <span>Priority support access</span>
-                  </li>
+                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>Everything in Standard Package</span></li>
+                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>Preparation and integration support for three months via our Advanced group and its scheduled meetings.</span></li>
+                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>Dinner on Saturday night</span></li>
+                  <li className="flex items-center"><CheckCircle className="w-6 h-6 text-[#A67C52] mr-4 flex-shrink-0" /><span>Priority support access</span></li>
                 </ul>
-                <Button 
-                  className="btn-primary w-full text-lg py-4 animate-pulse-glow"
-                  onClick={() => window.open('#', '_blank')}
-                >
+                <Button className="w-full text-lg py-4" style={{ background: '#0F4F40', color: '#D4E04F' }} onClick={() => window.open('#', '_blank')}>
                   BOOK VIP
-                  <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </CardContent>
             </Card>
-          </div>
-          <div className="text-center">
-            <Card className="glass max-w-2xl mx-auto">
-              <CardContent className="p-8">
-                <h4 className="text-xl font-bold mb-4 gradient-text">Growth Plus Member Discount</h4>
-                <p className="text-lg text-muted-foreground">
-                  An additional <span className="text-primary font-bold">20% discount</span> is offered on top of the early bird price and on the full price.
+            {/* Member Discount Card */}
+            <Card className="pricing-card" style={{ border: '2px solid #A67C52', background: '#fff', color: '#0D212D', minHeight: 320 }}>
+              <CardContent className="p-8 flex flex-col items-center justify-center h-full">
+                <h4 className="text-xl font-bold mb-4 icon-brass">Advanced & Growth Plus Member Discount</h4>
+                <p className="text-lg text-muted-foreground text-center">
+                  If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <span className="text-primary font-bold">ten per cent discount</span> as part of your membership.
                 </p>
               </CardContent>
             </Card>
