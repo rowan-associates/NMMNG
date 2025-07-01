@@ -176,9 +176,12 @@ function App() {
               RECLAIM YOUR<br />
               <span className="gradient-text">AUTHENTIC POWER</span>
             </h1>
-            <p className="hero-subheading-bold mb-12 max-w-4xl mx-auto" style={{ fontWeight: 700, fontFamily: 'League Spartan, sans-serif', fontSize: '1.5rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+            <p className="hero-subheading-bold mb-4 max-w-4xl mx-auto" style={{ fontWeight: 700, fontFamily: 'League Spartan, sans-serif', fontSize: '1.5rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               A Transformational Weekend Retreat for Men Ready to Lead
             </p>
+            <div className="text-xl font-bold mb-10" style={{ color: '#D4E04F', fontFamily: 'League Spartan, sans-serif', fontWeight: 700, letterSpacing: '0.04em' }}>
+              30-31st August ❈ Oxford, UK
+            </div>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Button 
                 onClick={() => scrollToSection('pricing')}
@@ -630,6 +633,19 @@ function App() {
         </div>
       </section>
 
+      {/* Venue/Location Section - Restored */}
+      <section className="py-20 bg-background/90">
+        <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-10 max-w-5xl">
+          <img src={venueImage} alt="Workshop Venue" className="rounded-2xl shadow-xl w-full md:w-1/2 object-cover" style={{ aspectRatio: '4/3', maxHeight: 320 }} />
+          <div className="flex-1 text-left md:pl-10 mt-8 md:mt-0">
+            <h3 className="text-2xl font-bold mb-4 gradient-text" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>Venue: Oxford, UK</h3>
+            <p className="text-lg text-muted-foreground" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, fontSize: '22px' }}>
+              The retreat takes place at a beautiful, private conference hotel in Oxford, UK—chosen for comfort, privacy, and easy access from London and the Midlands. Full details provided upon registration.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Sexy Footer */}
       <footer className="py-16 border-t border-border/20 bg-background/80">
         <div className="container mx-auto px-6 flex flex-col items-center">
@@ -682,41 +698,31 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
         <div
           style={{
             position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: 0,
-            zIndex: 20,
+            top: '-18px',
+            right: '-70px',
+            width: '340px',
+            height: '44px',
+            background: '#E6F97B',
+            color: '#0F4F40',
+            fontWeight: 700,
+            fontFamily: 'League Spartan, sans-serif',
+            fontSize: '1.25rem',
+            letterSpacing: '0.12em',
+            textAlign: 'center',
+            lineHeight: '44px',
+            transform: 'rotate(22deg)',
+            boxShadow: '0 2px 12px rgba(0,255,136,0.10)',
+            borderRadius: '10px',
+            textTransform: 'uppercase',
+            userSelect: 'none',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 30,
             pointerEvents: 'none',
           }}
         >
-          <div
-            style={{
-              position: 'absolute',
-              left: '-18%',
-              top: '18px',
-              width: '136%',
-              height: '40px',
-              background: '#E6F97B', // lighter neon-lemon
-              color: '#0F4F40',
-              fontWeight: 700,
-              fontFamily: 'League Spartan, sans-serif',
-              fontSize: '1.25rem',
-              letterSpacing: '0.12em',
-              textAlign: 'center',
-              lineHeight: '40px',
-              transform: 'rotate(-18deg)',
-              boxShadow: '0 2px 12px rgba(0,255,136,0.10)',
-              borderRadius: '10px',
-              textTransform: 'uppercase',
-              userSelect: 'none',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            MOST POPULAR
-          </div>
+          MOST POPULAR
         </div>
       )}
       <CardContent className="px-8 py-8 flex flex-col h-full" style={{ padding: '2.5rem 2rem' }}>
