@@ -142,7 +142,7 @@ function App() {
           <div className="container mx-auto px-6 py-4 flex justify-between items-center">
             <div className="flex items-center gap-3 relative" style={{ alignItems: 'center' }}>
               <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" style={{ position: 'relative', zIndex: 10 }}>
-                <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ height: 56, marginRight: 18, position: 'relative', top: 0, left: 0, zIndex: 11, background: 'none' }} />
+                <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
               </a>
               <h2 className="text-xl font-bold nmmng-glow" style={{ marginLeft: 0, zIndex: 1, lineHeight: 1.1, color: '#fff', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>NMMNG Bootcamp</h2>
             </div>
@@ -601,7 +601,7 @@ function App() {
             >
               <CardContent className="p-8 flex flex-col h-full w-full pricing-card-body" style={{ padding: '2.5rem 2rem', lineHeight: 1.25 }}>
                 <img src={nmmngCommunity} alt="NMMNG Community" className="pricing-card-img-edge" />
-                <h4 className="text-2xl font-bold" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif', fontWeight: 700, fontSize: '2rem', lineHeight: 1.2, letterSpacing: '0.06em' }}>Advanced & Growth Plus Member Discount</h4>
+                <h4 className="text-2xl font-bold" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif', fontWeight: 700, fontSize: '2rem', lineHeight: 1.2, letterSpacing: '0.06em' }}>No More Mr. Nice Guy® Membership Benefits.</h4>
                 <p className="text-lg mb-4" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.25 }}>
                   If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <span style={{ color: '#0E2F33', fontWeight: 400, fontFamily: 'League Spartan, sans-serif', fontSize: '1.2em' }}>ten per cent discount</span> as part of your membership.
                 </p>
@@ -623,16 +623,16 @@ function App() {
       <footer className="py-16 border-t border-border/20 bg-background/80">
         <div className="container mx-auto px-6 flex flex-col items-center">
           <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center">
-            <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ height: 56 }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
+            <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
           </a>
           <div className="flex gap-8 mb-4">
-            <a href="https://rowan-associates.com" target="_blank" rel="noreferrer" className="text-lg font-semibold text-primary hover:underline transition-colors duration-200">rowan-associates.com</a>
-            <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="text-lg font-semibold text-primary hover:underline transition-colors duration-200">nomoremrniceguy.co.uk</a>
+            <a href="https://rowan-associates.com" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1">rowan-associates.com</a>
+            <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1">nomoremrniceguy.co.uk</a>
           </div>
           <div className="text-muted-foreground text-sm flex flex-wrap items-center gap-2">
             &copy; {new Date().getFullYear()} NMMNG Bootcamp. All rights reserved.
             <span>|</span>
-            <a href="https://respira.cafe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Vibe coded by Respira</a>
+            <span>Vibe coded by <a href="https://respira.cafe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Respira</a></span>
           </div>
         </div>
       </footer>
