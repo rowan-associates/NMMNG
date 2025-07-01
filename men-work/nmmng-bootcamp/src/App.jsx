@@ -698,9 +698,11 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
         <div
           style={{
             position: 'absolute',
-            top: '-18px',
+            top: '18px',
             right: '-70px',
-            width: '340px',
+            width: 'calc(100% + 70px)',
+            maxWidth: 420,
+            minWidth: 220,
             height: '44px',
             background: '#E6F97B',
             color: '#0F4F40',
@@ -710,7 +712,7 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
             letterSpacing: '0.12em',
             textAlign: 'center',
             lineHeight: '44px',
-            transform: 'rotate(22deg)',
+            transform: 'rotate(20deg)',
             boxShadow: '0 2px 12px rgba(0,255,136,0.10)',
             borderRadius: '10px',
             textTransform: 'uppercase',
