@@ -227,14 +227,15 @@ function App() {
                     Yet most of us were never taught how to navigate this complexity. We learned to be "nice guys"—to please others, avoid conflict, and hide our true needs. We adapted by putting everyone else first, secretly hoping for approval and validation in return.
                   </p>
                 </div>
-                
-                <div className="glass-light rounded-2xl p-8">
-                  <p className="text-xl font-semibold text-primary mb-4">
-                    But that survival strategy is failing us.
-                  </p>
-                  <p className="text-muted-foreground">
-                    In an era where machines can outthink us and social media amplifies every mistake, the old playbook of people-pleasing and conflict avoidance isn't just limiting—it's dangerous.
-                  </p>
+                <div className="max-w-7xl mx-auto w-full px-6">
+                  <div className="glass-light rounded-2xl p-8">
+                    <p className="text-xl font-semibold text-primary mb-4">
+                      But that survival strategy is failing us.
+                    </p>
+                    <p className="text-muted-foreground">
+                      In an era where machines can outthink us and social media amplifies every mistake, the old playbook of people-pleasing and conflict avoidance isn't just limiting—it's dangerous.
+                    </p>
+                  </div>
                 </div>
                 
                 <div className="text-center">
@@ -377,11 +378,13 @@ function App() {
             </div>
           </div>
           
-          <div className="text-center mt-16 max-w-4xl mx-auto">
-            <div className="glass rounded-2xl p-8">
-              <p className="text-body-large text-muted-foreground">
-                This process requires courage, vulnerability, and commitment. If that excites you, you're in the right place. If it terrifies you but you know you need it, you're definitely in the right place.
-              </p>
+          <div className="text-center mt-16">
+            <div className="max-w-7xl mx-auto w-full px-6">
+              <div className="glass rounded-2xl p-8">
+                <p className="text-body-large text-muted-foreground">
+                  This process requires courage, vulnerability, and commitment. If that excites you, you're in the right place. If it terrifies you but you know you need it, you're definitely in the right place.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -493,7 +496,7 @@ function App() {
             ))}
           </div>
           <div className="text-center">
-            <div className="max-w-4xl mx-auto flex justify-center">
+            <div className="max-w-7xl mx-auto w-full px-6 flex justify-center">
               <div className="glass rounded-2xl p-6 text-center w-full">
                 <p className="text-lg font-medium text-white">
                   Join a brotherhood of men committed to authentic transformation and mutual support
@@ -520,7 +523,7 @@ function App() {
               <p className="text-muted-foreground leading-relaxed">
                 The men who thrive in the coming decades won't be the ones who resist change—they'll be the ones who know themselves deeply enough to navigate any storm.
               </p>
-              <div className="glass rounded-2xl p-8 my-12">
+              <div className="glass rounded-2xl p-8 my-12 max-w-7xl mx-auto w-full px-6">
                 <p className="text-2xl font-bold gradient-text mb-4">
                   Your journey to authentic masculine power starts with a single weekend.
                 </p>
