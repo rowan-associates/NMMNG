@@ -34,13 +34,33 @@ function ScrollToTop() {
 
 function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center text-center bg-background text-foreground gap-8 py-16">
-      <h1 className="text-4xl md:text-5xl font-extrabold font-heading mb-2">Men's Work | by The Associates | Collective</h1>
-      <h2 className="text-2xl md:text-3xl font-heading mb-8">Your Pocket-Sized Brotherhood</h2>
-      <div className="flex flex-col gap-6 w-full max-w-md mx-auto">
-        <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" className="btn-primary text-lg px-8 py-5 font-bold cursor-pointer w-full">No More Mr. Nice Guy® Community</a>
-        <a href="/bootcamp" className="btn-primary text-lg px-8 py-5 font-bold cursor-pointer w-full">No More Mr. Nice Guy® Bootcamp - September 2025 - Oxford, UK</a>
-        <a href="https://Nmmng.co/NMMNG-General-Whatsapp" target="_blank" rel="noopener noreferrer" className="btn-primary text-lg px-8 py-5 font-bold cursor-pointer w-full">Join NMMNG® WhatsApp Discussions Group</a>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground px-4 py-12" style={{ background: 'radial-gradient(circle at 50% 0%, #0F4F40 0%, #0D212D 100%)' }}>
+      <div className="glass card-modern flex flex-col items-center max-w-xl w-full mx-auto p-8 rounded-3xl shadow-xl animate-fade-in-up" style={{ background: 'rgba(13,33,45,0.96)', borderRadius: '32px', boxShadow: '0 8px 40px rgba(0,0,0,0.45)', border: '1.5px solid #1A1A1A' }}>
+        <img src={nmmngLogo} alt="NMMNG Lion Logo" className="rounded-full mb-6" style={{ width: 120, height: 120, objectFit: 'cover', border: '4px solid #D4E04F', background: '#0F4F40', boxShadow: '0 0 0 6px #0D212D' }} />
+        <h1 className="text-3xl md:text-4xl font-extrabold mb-2 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>Men's Work | by The Associates | Collective</h1>
+        <h2 className="text-xl md:text-2xl font-heading mb-4" style={{ color: '#D4E04F', fontWeight: 700 }}>Your Pocket-Sized Brotherhood</h2>
+        <p className="text-base md:text-lg mb-6 text-muted-foreground" style={{ color: '#F5F5F5', fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
+          A modern brotherhood for men ready to reclaim authentic power, deepen relationships, and lead with confidence. Join our global community, events, and conversations.
+        </p>
+        <div className="flex flex-row items-center gap-4 mb-6">
+          <a href="https://www.youtube.com/channel/UCZ3dWVvGEx1BFUAvoKIjmUg" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:scale-110 transition-transform"><svg width="28" height="28" fill="#D4E04F" viewBox="0 0 24 24"><path d="M23.498 6.186a2.994 2.994 0 0 0-2.112-2.12C19.228 3.5 12 3.5 12 3.5s-7.228 0-9.386.566A2.994 2.994 0 0 0 .502 6.186C0 8.344 0 12 0 12s0 3.656.502 5.814a2.994 2.994 0 0 0 2.112 2.12C4.772 20.5 12 20.5 12 20.5s7.228 0 9.386-.566a2.994 2.994 0 0 0 2.112-2.12C24 15.656 24 12 24 12s0-3.656-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+          <a href="https://x.com/NMMNGS" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="hover:scale-110 transition-transform"><svg width="28" height="28" fill="#D4E04F" viewBox="0 0 24 24"><path d="M17.53 3H21.5l-7.19 8.19L23 21h-6.18l-4.36-5.29L7.5 21H3.5l7.62-8.68L1 3h6.18l4.07 4.94L16.47 3zm-2.13 15.5h2.13l-5.99-7.25-2.13 2.43L15.37 18.5zm-8.87-13l5.99 7.25 2.13-2.43L8.63 5.5H6.53z"/></svg></a>
+          <a href="https://instagram.com/NMMNGS" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:scale-110 transition-transform"><svg width="28" height="28" fill="#D4E04F" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.242 1.308 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.242 1.246-3.608 1.308-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.242-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.242-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.771.131 4.659.363 3.678 1.344c-.98.98-1.213 2.092-1.272 3.374C2.013 8.332 2 8.741 2 12c0 3.259.013 3.668.072 4.948.059 1.282.292 2.394 1.272 3.374.98.98 2.092 1.213 3.374 1.272C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.282-.059 2.394-.292 3.374-1.272.98-.98 1.213-2.092 1.272-3.374.059-1.28.072-1.689.072-4.948 0-3.259-.013-3.668-.072-4.948-.059-1.282-.292-2.394-1.272-3.374-.98-.98-2.092-1.213-3.374-1.272C15.668.013 15.259 0 12 0z"/><circle cx="12" cy="12" r="3.5"/></svg></a>
+        </div>
+        <div className="flex flex-col gap-4 w-full mt-2">
+          <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" className="btn-primary text-lg px-8 py-5 font-bold cursor-pointer w-full flex items-center gap-4">
+            <span>No More Mr. Nice Guy® Community</span>
+            <svg width="20" height="20" fill="#D4E04F" viewBox="0 0 24 24"><path d="M14 3v2h3.59L7 15.59 8.41 17 19 6.41V10h2V3z"/><path d="M5 19h14v2H5z"/></svg>
+          </a>
+          <a href="/bootcamp" className="btn-primary text-lg px-8 py-5 font-bold cursor-pointer w-full flex items-center gap-4">
+            <span>No More Mr. Nice Guy® Bootcamp - September 2025 - Oxford, UK</span>
+            <svg width="20" height="20" fill="#D4E04F" viewBox="0 0 24 24"><path d="M14 3v2h3.59L7 15.59 8.41 17 19 6.41V10h2V3z"/><path d="M5 19h14v2H5z"/></svg>
+          </a>
+          <a href="https://Nmmng.co/NMMNG-General-Whatsapp" target="_blank" rel="noopener noreferrer" className="btn-primary text-lg px-8 py-5 font-bold cursor-pointer w-full flex items-center gap-4">
+            <span>Join NMMNG® WhatsApp Discussions Group</span>
+            <svg width="20" height="20" fill="#D4E04F" viewBox="0 0 24 24"><path d="M14 3v2h3.59L7 15.59 8.41 17 19 6.41V10h2V3z"/><path d="M5 19h14v2H5z"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   );
