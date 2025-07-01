@@ -600,17 +600,17 @@ function App() {
             >
               <CardContent className="p-8 flex flex-col h-full w-full pricing-card-body" style={{ padding: '2.5rem 2rem', lineHeight: 1.25 }}>
                 <img src={nmmngCommunity} alt="NMMNG Community" className="pricing-card-img-edge" />
-                <h4 className="text-2xl font-bold mb-2" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif', fontWeight: 700, fontSize: '2rem', lineHeight: 1.15, letterSpacing: '0.06em', whiteSpace: 'pre-line' }}>
-                  No More Mr. Nice Guy®\nMembership Benefits.
+                <h4 className="text-2xl font-bold mb-2" style={{ color: '#0F4F40', fontFamily: 'PT Serif, serif', fontWeight: 700, fontSize: '1.5rem', lineHeight: 1.15, letterSpacing: '0.06em', textAlign: 'left' }}>
+                  No More Mr. Nice Guy® Membership Benefits.
                 </h4>
-                <p className="text-lg mb-4" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.25 }}>
+                <p className="text-lg mb-4" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, fontSize: '22px', lineHeight: 1.25 }}>
                   If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <span style={{ color: '#0E2F33', fontWeight: 400, fontFamily: 'League Spartan, sans-serif', fontSize: '1.2em' }}>ten per cent discount</span> as part of your membership.
                 </p>
                 <Button
                   variant="outline"
                   className="w-full text-xl py-4 mt-2 rounded-xl font-bold border-[#0F4F40] text-[#0F4F40] hover:bg-[#F6FCD9] hover:border-[#A67C52]"
                   style={{ borderWidth: 2, background: 'transparent', color: '#0F4F40', fontSize: '1.1rem', minHeight: 56, fontFamily: 'League Spartan, sans-serif', fontWeight: 700, marginTop: 'auto' }}
-                  onClick={() => window.open('#', '_blank')}
+                  onClick={() => window.open('https://nomoremrniceguy.co.uk?UTM_SOURCE=bootcamp', '_blank')}
                 >
                   Learn More about Membership
                 </Button>
