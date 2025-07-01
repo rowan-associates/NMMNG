@@ -181,7 +181,7 @@ function App() {
               <span className="absolute inset-0 rounded-xl blur-xl opacity-60" style={{ background: 'radial-gradient(circle, #E6F97B 0%, transparent 80%)', zIndex: 0 }}></span>
               <Button 
                 onClick={() => scrollToSection('pricing')}
-                className="btn-primary text-xl px-8 py-6 font-bold relative z-10 w-full sm:w-auto"
+                className="btn-primary text-xl px-8 py-6 font-bold relative z-10 w-full sm:w-auto cursor-pointer"
                 style={{ boxShadow: '0 0 32px 8px #E6F97B55', fontFamily: 'PT Serif, serif', minHeight: 64 }}
               >
                 SECURE YOUR PLACE TODAY
@@ -189,9 +189,12 @@ function App() {
             </div>
             <Button 
               variant="outline"
-              className="border-2 text-lg px-8 py-6 font-bold"
+              className="border-2 text-lg px-8 py-6 font-bold cursor-pointer"
               style={{ borderColor: '#E6F97B', color: '#E6F97B', background: 'transparent', fontFamily: 'PT Serif, serif', minHeight: 64 }}
-              onClick={() => window.open('https://nomoremrniceguy.co.uk', '_blank')}
+              onClick={() => {
+                const nextSection = document.querySelector('section:nth-of-type(2)');
+                if (nextSection) nextSection.scrollIntoView({ behavior: 'smooth' });
+              }}
             >
               Learn More
             </Button>
@@ -556,6 +559,7 @@ function App() {
               ctaColor="#0F4F40"
               ctaTextColor="#D4E04F"
               bgColor="#F6FCD9"
+              ctaUrl="https://www.nomoremrniceguy.co.uk/offers/CS5Y6BTF"
             />
             {/* VIP Package */}
             <PriceCard
@@ -575,6 +579,7 @@ function App() {
               ctaTextColor="#D4E04F"
               featured
               bgColor="#F3F7C0"
+              ctaUrl="https://www.nomoremrniceguy.co.uk/offers/TYF4zF5z"
             />
             {/* Member Discount Card - Redesigned */}
             <Card
@@ -639,12 +644,12 @@ function App() {
         {/* Sexy Footer */}
         <footer className="py-16 border-t border-border/20 relative z-10">
           <div className="container mx-auto px-6 flex flex-col items-center">
-            <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center">
+            <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center cursor-pointer">
               <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
             </a>
             <div className="flex gap-8 mb-4">
-              <a href="https://rowan-associates.com" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1" style={{ fontSize: 16 }}>rowan-associates.com</a>
-              <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1" style={{ fontSize: 16 }}>nomoremrniceguy.co.uk</a>
+              <a href="https://rowan-associates.com" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1 cursor-pointer" style={{ fontSize: 16 }}>rowan-associates.com</a>
+              <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1 cursor-pointer" style={{ fontSize: 16 }}>nomoremrniceguy.co.uk</a>
             </div>
             <div className="text-muted-foreground text-sm flex flex-wrap items-center gap-2">
               &copy; {new Date().getFullYear()} NMMNG Bootcamp. All rights reserved.
@@ -670,7 +675,7 @@ function App() {
 }
 
 // PriceCard component
-function PriceCard({ title, price, original, offerLabel, offerDeadline, features, ctaText, ctaColor, ctaTextColor, featured, bgColor }) {
+function PriceCard({ title, price, original, offerLabel, offerDeadline, features, ctaText, ctaColor, ctaTextColor, featured, bgColor, ctaUrl }) {
   const [slashAnimated, setSlashAnimated] = useState(false);
   const priceRef = useRef(null);
 
@@ -768,9 +773,9 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
           ))}
         </ul>
         <Button
-          className={`w-full text-xl py-5 mt-auto rounded-xl font-bold${featured ? ' animate-pulse-glow' : ''}`}
+          className={`w-full text-xl py-5 mt-auto rounded-xl font-bold${featured ? ' animate-pulse-glow' : ''} cursor-pointer`}
           style={{ background: ctaColor, color: ctaTextColor, fontSize: '1.25rem', minHeight: 64, fontFamily: 'League Spartan, sans-serif', fontWeight: 700, marginTop: 'auto' }}
-          onClick={() => window.open('#', '_blank')}
+          onClick={() => ctaUrl ? window.open(ctaUrl, '_blank') : window.open('#', '_blank')}
         >
           {ctaText}
         </Button>
