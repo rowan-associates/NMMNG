@@ -624,27 +624,19 @@
 }
 
 .back-to-top-img {
-  max-width: 64px;
-  max-height: 64px;
-  width: auto;
-  height: auto;
+  width: 220px;
+  height: 220px;
+  max-width: 220px;
+  max-height: 220px;
   opacity: 1;
   background: transparent;
-  box-shadow: 0 2px 16px 0 #0F4F4033, 0 0 0 0 #E6F97B00;
-  filter: drop-shadow(0 2px 12px #0F4F40cc);
-  transform: scale(1.07);
-  transition: opacity 0.2s, filter 0.25s, box-shadow 0.25s, transform 0.25s;
+  box-shadow: none;
+  filter: none;
+  transform: none;
+  transition: box-shadow 0.2s;
 }
 
 .back-to-top-btn:hover .back-to-top-img,
 .back-to-top-btn:focus .back-to-top-img {
-  box-shadow: 0 0 32px 8px #E6F97B, 0 0 12px 2px #D4E04F;
-  filter: drop-shadow(0 0 24px #D4E04Fcc) drop-shadow(0 0 12px #E6F97B);
-  transform: scale(1.33);
-}
-
-.back-to-top-btn:active .back-to-top-img {
-  box-shadow: 0 0 16px 4px #A67C52, 0 0 8px 1px #0F4F40;
-  filter: drop-shadow(0 0 8px #A67C52cc);
-  transform: scale(0.96);
+  box-shadow: 0 0 32px 8px #e6f97b55;
 }

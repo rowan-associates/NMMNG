@@ -660,7 +660,7 @@ function App() {
               aria-label="Back to top"
               style={{position: 'fixed', bottom: 32, right: 32, zIndex: 50, background: 'none', border: 'none', outline: 'none', cursor: 'pointer', padding: 0}}
             >
-              <img src={backToTopImg} alt="Back to top" className="back-to-top-img" style={{maxWidth: 64, maxHeight: 64, width: 'auto', height: 'auto'}} />
+              <img src={backToTopImg} alt="Back to top" className="back-to-top-img" style={{width: 220, height: 220, maxWidth: 220, maxHeight: 220, opacity: 1}} />
             </button>
           )}
         </footer>
