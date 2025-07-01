@@ -283,8 +283,12 @@ function App() {
                   <div className="mb-6 animate-float" style={{animationDelay: benefit.delay}}>
                     {benefit.icon}
                   </div>
-                  <h4 className="text-xl font-bold mb-4 text-white">{benefit.title}</h4>
-                  <p className="text-muted-foreground text-center leading-relaxed">{benefit.description}</p>
+                  <h4 className="text-xl font-bold mb-4 text-white" style={{ fontFamily: 'PT Serif, serif', fontSize: '33px', fontWeight: 700 }}>
+                    {benefit.title}
+                  </h4>
+                  <p className="text-muted-foreground text-center leading-relaxed" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
+                    {benefit.description}
+                  </p>
                 </div>
               ))}
             </div>
