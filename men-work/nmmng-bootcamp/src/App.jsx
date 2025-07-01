@@ -20,46 +20,33 @@ import nmmngLogo from './assets/nmmng-logo.png'
 import memberDiscountImage from './assets/venue_conference_room.png'
 import nmmngCommunity from './assets/nmmng-community.png'
 import bootcampFooter from './assets/bootcamp-footer.avif'
+import backToTopImg from './assets/back-to-top.avif'
 import './App.css'
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false)
-  // const [visibleElements, setVisibleElements] = useState(new Set())
+  const [showBackToTop, setShowBackToTop] = useState(false)
+  const forestBgRef = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100)
+      setShowBackToTop(window.scrollY > 300)
+      // Parallax effect for forest background
+      if (forestBgRef.current) {
+        const offset = window.scrollY * 0.25
+        forestBgRef.current.style.backgroundPositionY = `-${offset}px`
+      }
     }
-
-    // const observerCallback = (entries) => {
-    //   entries.forEach((entry) => {
-    //     if (entry.isIntersecting) {
-    //       setVisibleElements(prev => new Set([...prev, entry.target.id]))
-    //     }
-    //   })
-    // }
-
-    // const observer = new IntersectionObserver(observerCallback, {
-    //   threshold: 0.1,
-    //   rootMargin: '0px 0px -50px 0px'
-    // })
-
-    // Observe all reveal elements
-    // document.querySelectorAll('.reveal').forEach((el, index) => {
-    //   el.id = `reveal-${index}`
-    //   observer.observe(el)
-    // })
-
     window.addEventListener('scroll', handleScroll)
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      // observer.disconnect()
-    }
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
+  }
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const benefits = [
@@ -633,8 +620,10 @@ function App() {
       </section>
 
       {/* Venue/Location Section - Restored */}
-      <section className="py-20 bg-background/90">
-        <div className="max-w-7xl mx-auto w-full px-6 flex flex-col md:flex-row items-center gap-10 max-w-5xl">
+      <section className="py-20 bg-background/90 relative overflow-hidden">
+        {/* Forest background, parallax, immersive */}
+        <div ref={forestBgRef} className="absolute inset-0 w-full h-full forest-bg-parallax" style={{backgroundImage: `url(${bootcampFooter})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.38, zIndex: 0, pointerEvents: 'none', transition: 'background-position 0.3s'}}></div>
+        <div className="max-w-7xl mx-auto w-full px-6 flex flex-col md:flex-row items-center gap-10 max-w-5xl relative z-10">
           <img src={venueImage} alt="Workshop Venue" className="rounded-2xl shadow-xl w-full md:w-1/2 object-cover" style={{ aspectRatio: '4/3', maxHeight: 320 }} />
           <div className="flex-1 text-left md:pl-10 mt-8 md:mt-0">
             <h3 className="text-2xl font-bold mb-4 gradient-text" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>Venue: Oxford, UK</h3>
@@ -647,15 +636,8 @@ function App() {
 
       {/* Sexy Footer */}
       <footer className="py-16 border-t border-border/20 bg-background/80 relative overflow-hidden">
-        {/* Animated, dimmed forest background */}
-        <div className="absolute inset-0 w-full h-full animate-forest-pan" style={{
-          backgroundImage: `url(${bootcampFooter})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          opacity: 0.22,
-          zIndex: 0,
-          pointerEvents: 'none',
-        }}></div>
+        {/* Forest background, parallax, immersive (same as above, but not duplicated) */}
+        <div className="absolute inset-0 w-full h-full forest-bg-parallax" style={{backgroundImage: `url(${bootcampFooter})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.38, zIndex: 0, pointerEvents: 'none'}}></div>
         <div className="container mx-auto px-6 flex flex-col items-center relative z-10">
           <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center">
             <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
@@ -670,6 +652,17 @@ function App() {
             <span>Vibe coded by <a href="https://respira.cafe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Respira</a></span>
           </div>
         </div>
+        {/* Back to Top Button */}
+        {showBackToTop && (
+          <button
+            className="back-to-top-btn"
+            onClick={scrollToTop}
+            aria-label="Back to top"
+            style={{position: 'fixed', bottom: 32, right: 32, zIndex: 50, background: 'none', border: 'none', outline: 'none', cursor: 'pointer', padding: 0}}
+          >
+            <img src={backToTopImg} alt="Back to top" style={{width: 64, height: 64, opacity: 0.45, transition: 'opacity 0.3s'}} className="back-to-top-img" />
+          </button>
+        )}
       </footer>
     </div>
   )

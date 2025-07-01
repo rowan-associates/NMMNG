@@ -601,3 +601,40 @@
 .group:hover .icon-rotate {
   animation: icon-rotate 1.2s linear infinite;
 }
+
+.forest-bg-parallax {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  will-change: background-position;
+  transition: background-position 0.3s, opacity 0.3s;
+  filter: brightness(1.1) contrast(1.15) saturate(1.2);
+}
+
+.back-to-top-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 0;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+}
+
+.back-to-top-img {
+  width: 64px;
+  height: 64px;
+  opacity: 0.45;
+  filter: drop-shadow(0 2px 12px #0F4F40cc) blur(0.5px);
+  transition: opacity 0.3s, filter 0.3s, transform 0.3s;
+  border-radius: 50%;
+}
+
+.back-to-top-btn:hover .back-to-top-img,
+.back-to-top-btn:focus .back-to-top-img {
+  opacity: 1;
+  filter: drop-shadow(0 4px 24px #D4E04Fcc) blur(0px);
+  transform: scale(1.08);
+}
