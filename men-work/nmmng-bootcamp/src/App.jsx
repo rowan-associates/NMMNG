@@ -1,3 +1,4 @@
+// Trigger redeploy: no code changes.
 import { useState, useEffect, useRef } from 'react'
 import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent } from '@/components/ui/card.jsx'
