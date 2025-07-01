@@ -619,51 +619,51 @@ function App() {
         </div>
       </section>
 
-      {/* Venue/Location Section - Restored */}
-      <section className="py-20 bg-background/90 relative overflow-hidden">
-        {/* Forest background, parallax, immersive */}
+      {/* Forest background for both venue and footer */}
+      <div className="relative overflow-hidden" style={{width: '100%', minHeight: 0}}>
         <div ref={forestBgRef} className="absolute inset-0 w-full h-full forest-bg-parallax" style={{backgroundImage: `url(${bootcampFooter})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.38, zIndex: 0, pointerEvents: 'none', transition: 'background-position 0.3s'}}></div>
-        <div className="max-w-7xl mx-auto w-full px-6 flex flex-col md:flex-row items-center gap-10 max-w-5xl relative z-10">
-          <img src={venueImage} alt="Workshop Venue" className="rounded-2xl shadow-xl w-full md:w-1/2 object-cover" style={{ aspectRatio: '4/3', maxHeight: 320 }} />
-          <div className="flex-1 text-left md:pl-10 mt-8 md:mt-0">
-            <h3 className="text-2xl font-bold mb-4 gradient-text" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>Venue: Oxford, UK</h3>
-            <p className="text-lg text-muted-foreground" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, fontSize: '22px' }}>
-              The retreat takes place at a beautiful, private conference hotel in Oxford, UK—chosen for comfort, privacy, and easy access from London and the Midlands. Full details provided upon registration.
-            </p>
+        {/* Venue/Location Section - Restored */}
+        <section className="py-20 bg-background/90 relative z-10">
+          <div className="max-w-7xl mx-auto w-full px-6 flex flex-col md:flex-row items-center gap-10 max-w-5xl">
+            <img src={venueImage} alt="Workshop Venue" className="rounded-2xl shadow-xl w-full md:w-1/2 object-cover" style={{ aspectRatio: '4/3', maxHeight: 320 }} />
+            <div className="flex-1 text-left md:pl-10 mt-8 md:mt-0">
+              <h3 className="text-2xl font-bold mb-4 gradient-text" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>Venue: Oxford, UK</h3>
+              <p className="text-lg text-muted-foreground" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, fontSize: '22px' }}>
+                The retreat takes place at a beautiful, private conference hotel in Oxford, UK—chosen for comfort, privacy, and easy access from London and the Midlands. Full details provided upon registration.
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Sexy Footer */}
-      <footer className="py-16 border-t border-border/20 bg-background/80 relative overflow-hidden">
-        {/* Forest background, parallax, immersive (same as above, but not duplicated) */}
-        <div className="absolute inset-0 w-full h-full forest-bg-parallax" style={{backgroundImage: `url(${bootcampFooter})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.38, zIndex: 0, pointerEvents: 'none'}}></div>
-        <div className="container mx-auto px-6 flex flex-col items-center relative z-10">
-          <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center">
-            <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
-          </a>
-          <div className="flex gap-8 mb-4">
-            <a href="https://rowan-associates.com" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1" style={{ fontSize: 16 }}>rowan-associates.com</a>
-            <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1" style={{ fontSize: 16 }}>nomoremrniceguy.co.uk</a>
+        {/* Sexy Footer */}
+        <footer className="py-16 border-t border-border/20 bg-background/80 relative z-10">
+          <div className="container mx-auto px-6 flex flex-col items-center">
+            <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center">
+              <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
+            </a>
+            <div className="flex gap-8 mb-4">
+              <a href="https://rowan-associates.com" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1" style={{ fontSize: 16 }}>rowan-associates.com</a>
+              <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1" style={{ fontSize: 16 }}>nomoremrniceguy.co.uk</a>
+            </div>
+            <div className="text-muted-foreground text-sm flex flex-wrap items-center gap-2">
+              &copy; {new Date().getFullYear()} NMMNG Bootcamp. All rights reserved.
+              <span>|</span>
+              <span>Vibe coded by <a href="https://respira.cafe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Respira</a></span>
+            </div>
           </div>
-          <div className="text-muted-foreground text-sm flex flex-wrap items-center gap-2">
-            &copy; {new Date().getFullYear()} NMMNG Bootcamp. All rights reserved.
-            <span>|</span>
-            <span>Vibe coded by <a href="https://respira.cafe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Respira</a></span>
-          </div>
-        </div>
-        {/* Back to Top Button */}
-        {showBackToTop && (
-          <button
-            className="back-to-top-btn"
-            onClick={scrollToTop}
-            aria-label="Back to top"
-            style={{position: 'fixed', bottom: 32, right: 32, zIndex: 50, background: 'none', border: 'none', outline: 'none', cursor: 'pointer', padding: 0}}
-          >
-            <img src={backToTopImg} alt="Back to top" style={{width: 64, height: 64, opacity: 0.45, transition: 'opacity 0.3s'}} className="back-to-top-img" />
-          </button>
-        )}
-      </footer>
+          {/* Back to Top Button */}
+          {showBackToTop && (
+            <button
+              className="back-to-top-btn"
+              onClick={scrollToTop}
+              aria-label="Back to top"
+              style={{position: 'fixed', bottom: 32, right: 32, zIndex: 50, background: 'none', border: 'none', outline: 'none', cursor: 'pointer', padding: 0}}
+            >
+              <img src={backToTopImg} alt="Back to top" className="back-to-top-img" style={{maxWidth: 64, maxHeight: 64, width: 'auto', height: 'auto', opacity: 0.45, transition: 'opacity 0.3s'}} />
+            </button>
+          )}
+        </footer>
+      </div>
     </div>
   )
 }

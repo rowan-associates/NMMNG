@@ -624,12 +624,14 @@
 }
 
 .back-to-top-img {
-  width: 64px;
-  height: 64px;
+  max-width: 64px;
+  max-height: 64px;
+  width: auto;
+  height: auto;
   opacity: 0.45;
   filter: drop-shadow(0 2px 12px #0F4F40cc) blur(0.5px);
   transition: opacity 0.3s, filter 0.3s, transform 0.3s;
-  border-radius: 50%;
+  background: transparent;
 }
 
 .back-to-top-btn:hover .back-to-top-img,
