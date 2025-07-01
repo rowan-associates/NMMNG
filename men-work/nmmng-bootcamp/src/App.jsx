@@ -304,7 +304,7 @@ function BootcampLanding() {
           </h2>
           <div className="mb-4">
             <span style={{ color: '#D4E04F', fontSize: '22px', letterSpacing: '0.04em', fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
-              30–31st August ✴ Oxford, UK – Limited Spots Available
+              6–7th September ✴ Oxford, UK – Limited Spots Available
             </span>
           </div>
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-8 w-full max-w-lg mx-auto">
@@ -596,7 +596,7 @@ function BootcampLanding() {
           <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
             {testimonials.map((testimonial, index) => (
               <div key={index}>
-                <Card className={`testimonial-card h-full ${testimonial.featured ? 'border-primary/50' : ''}`}>
+                <Card className={`testimonial-card h-full${testimonial.featured ? ' border-primary/50' : ''}`}>
                   <CardContent className="p-8">
                     <blockquote className="text-lg italic mb-6 text-muted-foreground leading-relaxed">
                       "{testimonial.quote}"
@@ -667,7 +667,7 @@ function BootcampLanding() {
               <p className="text-body-large text-muted-foreground">
                 This workshop runs over one intensive weekend and includes all materials and ongoing support resources. <b>Limited capacity</b> to ensure deep, personal attention.
               </p>
-              <div className="text-2xl font-bold gradient-text">Dates: 30-31st August</div>
+              <div className="text-2xl font-bold gradient-text">Dates: 6-7th September</div>
             </div>
           </div>
           {/* Pricing Cards */}
