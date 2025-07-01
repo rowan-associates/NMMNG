@@ -20,7 +20,7 @@ import nmmngLogo from './assets/nmmng-logo.png'
 import memberDiscountImage from './assets/venue_conference_room.png'
 import nmmngCommunity from './assets/nmmng-community.png'
 import bootcampFooter from './assets/bootcamp-footer.avif'
-import backToTopImg from './assets/back-to-top.avif'
+import backToTopImg from './assets/back-to-top.webp'
 import './App.css'
 
 function App() {
@@ -659,7 +659,7 @@ function App() {
               aria-label="Back to top"
               style={{position: 'fixed', bottom: 32, right: 32, zIndex: 50, background: 'none', border: 'none', outline: 'none', cursor: 'pointer', padding: 0}}
             >
-              <img src={backToTopImg} alt="Back to top" className="back-to-top-img" style={{maxWidth: 64, maxHeight: 64, width: 'auto', height: 'auto', opacity: 0.45, transition: 'opacity 0.3s'}} />
+              <img src={backToTopImg} alt="Back to top" className="back-to-top-img" style={{maxWidth: 64, maxHeight: 64, width: 'auto', height: 'auto'}} />
             </button>
           )}
         </footer>
