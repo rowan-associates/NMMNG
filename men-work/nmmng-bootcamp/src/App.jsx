@@ -144,7 +144,7 @@ function App() {
               <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" style={{ position: 'relative', zIndex: 10 }}>
                 <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ height: 56, marginRight: 18, position: 'relative', top: 0, left: 0, zIndex: 11, background: 'none' }} />
               </a>
-              <h2 className="text-xl font-bold gradient-text nmmng-glow" style={{ marginLeft: 0, zIndex: 1, lineHeight: 1.1 }}>NMMNG Bootcamp</h2>
+              <h2 className="text-xl font-bold nmmng-glow" style={{ marginLeft: 0, zIndex: 1, lineHeight: 1.1, color: '#fff', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>NMMNG Bootcamp</h2>
             </div>
             <Button 
               onClick={() => scrollToSection('pricing')}
@@ -176,7 +176,7 @@ function App() {
               RECLAIM YOUR<br />
               <span className="gradient-text">AUTHENTIC POWER</span>
             </h1>
-            <p className="text-subheading mb-12 max-w-4xl mx-auto text-muted-foreground">
+            <p className="hero-subheading-bold mb-12 max-w-4xl mx-auto" style={{ fontWeight: 700, fontFamily: 'League Spartan, sans-serif', fontSize: '1.5rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               A Transformational Weekend Retreat for Men Ready to Lead
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -586,16 +586,16 @@ function App() {
               onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.12)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
               onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.08)'; e.currentTarget.style.transform = 'none'; }}
             >
-              <CardContent className="p-8 flex flex-col h-full w-full" style={{ padding: '2.5rem 2rem' }}>
-                <img src={nmmngCommunity} alt="NMMNG Community" style={{ width: '100%', maxWidth: 260, borderRadius: 18, marginBottom: 24, boxShadow: '0 6px 32px rgba(0,0,0,0.10)' }} />
-                <h4 className="text-2xl font-bold mb-4" style={{ color: '#0F4F40', fontSize: '2rem', lineHeight: 1.2, letterSpacing: '0.06em' }}>Advanced & Growth Plus Member Discount</h4>
-                <p className="text-lg mb-4" style={{ color: '#0F4F40', fontWeight: 600, lineHeight: 1.5 }}>
-                  If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <span style={{ color: '#D4E04F', fontWeight: 800, fontSize: '1.2em' }}>ten per cent discount</span> as part of your membership.
+              <CardContent className="p-8 flex flex-col h-full w-full pricing-card-body" style={{ padding: '2.5rem 2rem', lineHeight: 1.25 }}>
+                <img src={nmmngCommunity} alt="NMMNG Community" className="pricing-card-img-edge" />
+                <h4 className="text-2xl font-bold" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif', fontWeight: 700, fontSize: '2rem', lineHeight: 1.2, letterSpacing: '0.06em' }}>Advanced & Growth Plus Member Discount</h4>
+                <p className="text-lg mb-4" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.25 }}>
+                  If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <span style={{ color: '#D4E04F', fontWeight: 700, fontFamily: 'League Spartan, sans-serif', fontSize: '1.2em' }}>ten per cent discount</span> as part of your membership.
                 </p>
                 <Button
                   variant="outline"
                   className="w-full text-xl py-4 mt-2 rounded-xl font-bold border-[#0F4F40] text-[#0F4F40] hover:bg-[#F6FCD9] hover:border-[#A67C52]"
-                  style={{ borderWidth: 2, background: 'transparent', color: '#0F4F40', fontSize: '1.1rem', minHeight: 56 }}
+                  style={{ borderWidth: 2, background: 'transparent', color: '#0F4F40', fontSize: '1.1rem', minHeight: 56, fontFamily: 'League Spartan, sans-serif', fontWeight: 700, marginTop: 'auto' }}
                   onClick={() => window.open('#', '_blank')}
                 >
                   Learn More about Membership
@@ -649,34 +649,34 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
       onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.08)'; e.currentTarget.style.transform = 'none'; }}
     >
       <CardContent className="px-8 py-8 flex flex-col h-full" style={{ padding: '2.5rem 2rem' }}>
-        <h3 className="text-2xl font-bold mb-6" style={{ color: '#0F4F40', letterSpacing: '0.06em' }}>{title}</h3>
+        <h3 className="text-2xl font-bold mb-6" style={{ color: '#0F4F40', letterSpacing: '0.06em', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>{title}</h3>
         <div className="mb-6 flex flex-col items-start">
           <div className="flex items-center gap-3 mb-2">
-            <span className="text-5xl font-bold" style={{ color: '#0D212D', fontWeight: 700 }}>
+            <span className="text-5xl price-pt-serif-bold" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif', fontWeight: 700 }}>
               £{price}
             </span>
             <span
               ref={priceRef}
               className={`text-2xl price-slash price-original${slashAnimated ? ' animated' : ''}`}
-              style={{ color: '#FF4C4C', opacity: 0.6, marginLeft: 4, textDecoration: 'line-through', fontWeight: 400 }}
+              style={{ color: '#FF4C4C', opacity: 0.6, marginLeft: 4, textDecoration: 'line-through', fontWeight: 400, fontFamily: 'League Spartan, sans-serif' }}
               onMouseEnter={() => setSlashAnimated(true)}
             >
               £{original}
             </span>
           </div>
-          <div className="text-xs font-bold" style={{ color: '#FF4C4C', marginTop: 2 }}>{offerDeadline}</div>
+          <div className="text-xs font-bold" style={{ color: '#FF4C4C', marginTop: 2, fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>{offerDeadline}</div>
         </div>
         <ul className="text-left space-y-4 mb-8 flex-1">
           {features.map((feature, i) => (
             <li key={i} className="flex items-start gap-4">
               <CheckCircle className="w-7 h-7" style={{ color: '#0F4F40', marginTop: 2, flexShrink: 0 }} />
-              <span style={{ color: '#0F4F40', fontFamily: 'Open Sans, Arial, sans-serif', fontWeight: 600, fontSize: '1.15rem', lineHeight: 1.5 }}>{feature}</span>
+              <span style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif', fontWeight: 600, fontSize: '1.15rem', lineHeight: 1.5 }}>{feature}</span>
             </li>
           ))}
         </ul>
         <Button
           className={`w-full text-xl py-5 mt-auto rounded-xl font-bold${featured ? ' animate-pulse-glow' : ''}`}
-          style={{ background: ctaColor, color: ctaTextColor, fontSize: '1.25rem', minHeight: 64 }}
+          style={{ background: ctaColor, color: ctaTextColor, fontSize: '1.25rem', minHeight: 64, fontFamily: 'League Spartan, sans-serif', fontWeight: 700, marginTop: 'auto' }}
           onClick={() => window.open('#', '_blank')}
         >
           {ctaText}
