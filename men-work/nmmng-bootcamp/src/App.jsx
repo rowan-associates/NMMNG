@@ -25,7 +25,8 @@ import './App.css'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import linkinbioBg from './assets/linkinbio-backgroun.webp'
 import lionTshirt from './assets/lion-tshirt.webp'
-import { FaYoutube, FaXTwitter, FaInstagram, FaMeetup, FaTiktok, FaLinkedin, FaWhatsapp, FaEnvelope, FaGlobe } from 'react-icons/fa6'
+import { FaYoutube, FaInstagram, FaMeetup, FaTiktok, FaLinkedin, FaWhatsapp, FaEnvelope, FaGlobe } from 'react-icons/fa'
+import { SiX } from 'react-icons/si'
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -53,7 +54,7 @@ function Home() {
           </p>
           <div className="flex flex-row flex-wrap items-center justify-center gap-4 mb-6">
             <a href="https://www.youtube.com/channel/UCZ3dWVvGEx1BFUAvoKIjmUg" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:scale-110 transition-transform"><FaYoutube size={28} color="#D4E04F" /></a>
-            <a href="https://x.com/NMMNGS" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="hover:scale-110 transition-transform"><FaXTwitter size={28} color="#D4E04F" /></a>
+            <a href="https://x.com/NMMNGS" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="hover:scale-110 transition-transform"><SiX size={28} color="#D4E04F" /></a>
             <a href="https://instagram.com/NMMNGS" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:scale-110 transition-transform"><FaInstagram size={28} color="#D4E04F" /></a>
             <a href="https://www.meetup.com/pro/nmmng" target="_blank" rel="noopener noreferrer" aria-label="Meetup" className="hover:scale-110 transition-transform"><FaMeetup size={28} color="#D4E04F" /></a>
             <a href="https://tiktok.com/@nmmngs" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="hover:scale-110 transition-transform"><FaTiktok size={28} color="#D4E04F" /></a>
