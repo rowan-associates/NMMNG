@@ -638,5 +638,6 @@
 
 .back-to-top-btn:hover .back-to-top-img,
 .back-to-top-btn:focus .back-to-top-img {
-  box-shadow: 0 0 32px 8px #e6f97b55;
+  filter: drop-shadow(0 0 32px #e6f97b);
+  box-shadow: none;
 }
