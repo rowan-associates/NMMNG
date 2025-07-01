@@ -19,6 +19,7 @@ import quoteIcon from './assets/DlaV2Rk1Qg2GdhkpshNw_icon-quote.png'
 import nmmngLogo from './assets/nmmng-logo.png'
 import memberDiscountImage from './assets/venue_conference_room.png'
 import nmmngCommunity from './assets/nmmng-community.png'
+import bootcampFooter from './assets/bootcamp-footer.avif'
 import './App.css'
 
 function App() {
@@ -190,8 +191,8 @@ function App() {
               <span className="absolute inset-0 rounded-xl blur-xl opacity-60" style={{ background: 'radial-gradient(circle, #E6F97B 0%, transparent 80%)', zIndex: 0 }}></span>
               <Button 
                 onClick={() => scrollToSection('pricing')}
-                className="btn-primary text-xl px-10 py-6 font-bold relative z-10 w-full sm:w-auto"
-                style={{ boxShadow: '0 0 32px 8px #E6F97B55', fontFamily: 'PT Serif, serif' }}
+                className="btn-primary text-xl px-8 py-6 font-bold relative z-10 w-full sm:w-auto"
+                style={{ boxShadow: '0 0 32px 8px #E6F97B55', fontFamily: 'PT Serif, serif', minHeight: 64 }}
               >
                 SECURE YOUR PLACE TODAY
               </Button>
@@ -199,7 +200,7 @@ function App() {
             <Button 
               variant="outline"
               className="border-2 text-lg px-8 py-6 font-bold"
-              style={{ borderColor: '#E6F97B', color: '#E6F97B', background: 'transparent', fontFamily: 'PT Serif, serif' }}
+              style={{ borderColor: '#E6F97B', color: '#E6F97B', background: 'transparent', fontFamily: 'PT Serif, serif', minHeight: 64 }}
               onClick={() => window.open('https://nomoremrniceguy.co.uk', '_blank')}
             >
               Learn More
@@ -642,8 +643,17 @@ function App() {
       </section>
 
       {/* Sexy Footer */}
-      <footer className="py-16 border-t border-border/20 bg-background/80">
-        <div className="container mx-auto px-6 flex flex-col items-center">
+      <footer className="py-16 border-t border-border/20 bg-background/80 relative overflow-hidden">
+        {/* Animated, dimmed forest background */}
+        <div className="absolute inset-0 w-full h-full animate-forest-pan" style={{
+          backgroundImage: `url(${bootcampFooter})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          opacity: 0.22,
+          zIndex: 0,
+          pointerEvents: 'none',
+        }}></div>
+        <div className="container mx-auto px-6 flex flex-col items-center relative z-10">
           <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center">
             <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
           </a>
