@@ -161,50 +161,52 @@ function App() {
       <section className="min-h-screen flex items-center justify-center relative hero-bg">
         <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-background/80"></div>
         <div 
-          className="absolute inset-0 opacity-30"
+          className="absolute inset-0 opacity-20"
           style={{
             backgroundImage: `url(${bootcampHero})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            backgroundAttachment: 'fixed'
+            backgroundAttachment: 'fixed',
+            opacity: 0.6 // reduce lantern opacity
           }}
         ></div>
-        
-        <div className="max-w-7xl mx-auto w-full px-6 text-center z-10 relative">
-          <div className="animate-fade-in-up">
-            <h1 className="text-display mb-8">
-              RECLAIM YOUR<br />
-              <span className="gradient-text">AUTHENTIC POWER</span>
-            </h1>
-            <p className="hero-subheading-bold mb-4 max-w-4xl mx-auto" style={{ fontWeight: 700, fontFamily: 'League Spartan, sans-serif', fontSize: '1.5rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
-              A Transformational Weekend Retreat for Men Ready to Lead
-            </p>
-            <div className="text-xl font-bold mb-10" style={{ color: '#D4E04F', fontFamily: 'League Spartan, sans-serif', fontWeight: 700, letterSpacing: '0.04em' }}>
-              30-31st August ❈ Oxford, UK
-            </div>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+        {/* Optional: Faint silhouettes on right */}
+        <div className="hidden md:block absolute right-0 top-0 h-full w-1/3 pointer-events-none" style={{ zIndex: 2 }}>
+          <img src={heroSilhouette} alt="Men walking" className="h-full w-full object-cover opacity-30" />
+        </div>
+        <div className="max-w-7xl mx-auto w-full px-6 relative z-10 flex flex-col items-center text-center py-32">
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-8 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>
+            NMMNG Bootcamp
+          </h1>
+          <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-muted-foreground" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 500, lineHeight: 1.2 }}>
+            A Transformational Weekend Retreat for <span className="font-bold">Men Ready to Lead</span>
+          </h2>
+          <div className="mb-4">
+            <span className="font-bold" style={{ color: '#D4E04F', fontSize: '1.1rem', letterSpacing: '0.04em' }}>
+              30–31st August ✴ Oxford, UK – Limited Spots Available
+            </span>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-8 w-full max-w-lg mx-auto">
+            <div className="relative w-full sm:w-auto flex-1 flex justify-center">
+              <span className="absolute inset-0 rounded-xl blur-xl opacity-60" style={{ background: 'radial-gradient(circle, #E6F97B 0%, transparent 80%)', zIndex: 0 }}></span>
               <Button 
                 onClick={() => scrollToSection('pricing')}
-                className="btn-primary animate-pulse-glow text-lg px-12 py-6"
+                className="btn-primary text-xl px-10 py-5 font-bold relative z-10 w-full sm:w-auto"
+                style={{ boxShadow: '0 0 32px 8px #E6F97B55' }}
               >
                 SECURE YOUR PLACE TODAY
-                <ArrowRight className="w-5 h-5 ml-3" />
-              </Button>
-              <Button 
-                onClick={() => scrollToSection('about')}
-                className="btn-secondary flex items-center gap-3"
-              >
-                <Play className="w-4 h-4" />
-                Learn More
               </Button>
             </div>
+            <Button 
+              variant="outline"
+              className="border-2 text-lg px-8 py-4 font-bold"
+              style={{ borderColor: '#E6F97B', color: '#E6F97B', background: 'transparent' }}
+              onClick={() => window.open('https://nomoremrniceguy.co.uk', '_blank')}
+            >
+              Learn More
+            </Button>
           </div>
         </div>
-        
-        {/* Floating Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-16 h-16 bg-accent/10 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 left-20 w-12 h-12 bg-primary/20 rounded-full animate-float" style={{animationDelay: '4s'}}></div>
       </section>
 
       {/* Problem Section */}
