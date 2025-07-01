@@ -623,7 +623,7 @@ function App() {
       <div className="relative overflow-hidden" style={{width: '100%', minHeight: 0}}>
         <div ref={forestBgRef} className="absolute inset-0 w-full h-full forest-bg-parallax" style={{backgroundImage: `url(${bootcampFooter})`, backgroundSize: 'cover', backgroundPosition: 'center', opacity: 0.38, zIndex: 0, pointerEvents: 'none', transition: 'background-position 0.3s'}}></div>
         {/* Venue/Location Section - Restored */}
-        <section className="py-20 bg-background/90 relative z-10">
+        <section className="py-20 bg-background/40 relative z-10" style={{background: 'rgba(13,33,45,0.40)'}}>
           <div className="max-w-7xl mx-auto w-full px-6 flex flex-col md:flex-row items-center gap-10 max-w-5xl">
             <img src={venueImage} alt="Workshop Venue" className="rounded-2xl shadow-xl w-full md:w-1/2 object-cover" style={{ aspectRatio: '4/3', maxHeight: 320 }} />
             <div className="flex-1 text-left md:pl-10 mt-8 md:mt-0">
@@ -636,7 +636,7 @@ function App() {
         </section>
 
         {/* Sexy Footer */}
-        <footer className="py-16 border-t border-border/20 bg-background/80 relative z-10">
+        <footer className="py-16 border-t border-border/20 bg-background/40 relative z-10" style={{background: 'rgba(13,33,45,0.40)'}}>
           <div className="container mx-auto px-6 flex flex-col items-center">
             <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center">
               <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
