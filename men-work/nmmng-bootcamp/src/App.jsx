@@ -40,34 +40,30 @@ function ScrollToTop() {
 function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground px-4 py-12 relative overflow-hidden" style={{ background: `url(${linkinbioBg}) center/cover no-repeat, radial-gradient(circle at 50% 0%, #0F4F40 0%, #0D212D 100%)` }}>
-      {/* Lion tshirt overlay at bottom, behind card */}
-      <img src={lionTshirt} alt="Lion T-shirt" className="absolute left-1/2 bottom-0 -translate-x-1/2 z-0 pointer-events-none select-none" style={{ width: '340px', maxWidth: '95vw', opacity: 0.85 }} />
-      <div className="glass card-modern flex flex-col items-center max-w-2xl w-full mx-auto px-4 pt-8 pb-6 rounded-3xl shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(13,33,45,0.78)', borderRadius: '32px', boxShadow: '0 8px 40px rgba(0,0,0,0.45)', border: '1.5px solid #1A1A1A', marginTop: '40px', marginBottom: '40px' }}>
-        {/* Lion logo overlapping and resting on first button */}
-        <div className="absolute left-1/2" style={{ top: 'calc(120px - 90px)', transform: 'translate(-50%, -100%)', zIndex: 20, width: 180, height: 180, display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
-          <img src={nmmngLogo} alt="NMMNG Lion Logo" className="rounded-full shadow-xl" style={{ width: 180, height: 180, objectFit: 'cover', border: '6px solid #D4E04F', background: '#0F4F40', boxShadow: '0 0 0 10px #0D212D' }} />
-        </div>
+      {/* Lion tshirt overlay at top, over card */}
+      <img src={lionTshirt} alt="Lion T-shirt" className="absolute left-1/2 top-0 -translate-x-1/2 z-20 pointer-events-none select-none" style={{ width: '340px', maxWidth: '95vw', opacity: 0.92, marginTop: '-40px' }} />
+      <div className="glass card-modern flex flex-col items-center max-w-2xl w-full mx-auto px-4 pt-8 pb-6 rounded-3xl shadow-xl animate-fade-in-up relative z-10" style={{ background: `rgba(13,33,45,0.78) url(${linkinbioBg}) center/cover no-repeat`, borderRadius: '32px', boxShadow: '0 8px 40px rgba(0,0,0,0.45)', border: '1.5px solid #1A1A1A', marginTop: '100px', marginBottom: '40px', backdropFilter: 'blur(16px)' }}>
         {/* Text content */}
-        <div className="w-full flex flex-col items-center mt-12 mb-6">
+        <div className="w-full flex flex-col items-center mt-4 mb-6">
           <h1 className="text-2xl md:text-3xl font-extrabold mb-1 gradient-text-primary text-center" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>Men's Work</h1>
           <h2 className="text-lg md:text-xl font-heading mb-2 text-center" style={{ color: '#D4E04F', fontWeight: 700 }}>Your Pocket-Sized Brotherhood</h2>
           <p className="text-base md:text-lg mb-2 text-muted-foreground text-center" style={{ color: '#F5F5F5', fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
             A modern brotherhood for men ready to reclaim authentic power, deepen relationships, and lead with confidence. Join our global community, events, and conversations.
           </p>
         </div>
-        {/* Buttons with lion resting on first */}
+        {/* Buttons with light font weight */}
         <div className="flex flex-col gap-5 w-full items-center mt-2 mb-8 relative z-10">
-          <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 rounded-2xl bg-[#b7c93b]/90 hover:bg-[#d4e04f]/90 transition-all duration-200 shadow-lg border-2 border-[#0F4F40]" style={{ minHeight: 72 }}>
+          <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 rounded-2xl bg-[#b7c93b]/90 hover:bg-[#d4e04f]/90 transition-all duration-200 shadow-lg border-2 border-[#0F4F40] font-light" style={{ minHeight: 72, fontWeight: 300 }}>
             <img src={lionIcon} alt="Lion Icon" className="w-14 h-14 rounded-full bg-[#0F4F40] border-2 border-[#D4E04F] flex-shrink-0" />
-            <span className="text-lg md:text-xl font-semibold text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif' }}>No More Mr. Nice Guy® Community</span>
+            <span className="text-lg md:text-xl font-light text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 300 }}>No More Mr. Nice Guy® Community</span>
           </a>
-          <a href="/bootcamp" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 rounded-2xl bg-[#b7c93b]/90 hover:bg-[#d4e04f]/90 transition-all duration-200 shadow-lg border-2 border-[#0F4F40]" style={{ minHeight: 72 }}>
+          <a href="/bootcamp" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 rounded-2xl bg-[#b7c93b]/90 hover:bg-[#d4e04f]/90 transition-all duration-200 shadow-lg border-2 border-[#0F4F40] font-light" style={{ minHeight: 72, fontWeight: 300 }}>
             <img src={lionIcon} alt="Lion Icon" className="w-14 h-14 rounded-full bg-[#0F4F40] border-2 border-[#D4E04F] flex-shrink-0" />
-            <span className="text-lg md:text-xl font-semibold text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif' }}>No More Mr. Nice Guy® Bootcamp - September Oxford, UK</span>
+            <span className="text-lg md:text-xl font-light text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 300 }}>No More Mr. Nice Guy® Bootcamp - September 6-7th - Oxford, UK</span>
           </a>
-          <a href="https://nmmng.co/NMMNG-General-Whatsapp" target="_blank" rel="noopener noreferrer" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 rounded-2xl bg-[#b7c93b]/90 hover:bg-[#d4e04f]/90 transition-all duration-200 shadow-lg border-2 border-[#0F4F40]" style={{ minHeight: 72 }}>
+          <a href="https://nmmng.co/NMMNG-General-Whatsapp" target="_blank" rel="noopener noreferrer" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 rounded-2xl bg-[#b7c93b]/90 hover:bg-[#d4e04f]/90 transition-all duration-200 shadow-lg border-2 border-[#0F4F40] font-light" style={{ minHeight: 72, fontWeight: 300 }}>
             <span className="flex items-center justify-center w-14 h-14 rounded-full bg-white border-2 border-[#25D366] flex-shrink-0"><FaWhatsapp size={36} color="#25D366" /></span>
-            <span className="text-lg md:text-xl font-semibold text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif' }}>No More Mr. Nice Guy® WhatsApp General</span>
+            <span className="text-lg md:text-xl font-light text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 300 }}>No More Mr. Nice Guy® WhatsApp General</span>
           </a>
         </div>
         {/* Social icons at bottom */}
