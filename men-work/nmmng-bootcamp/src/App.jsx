@@ -3,7 +3,7 @@ import { Button } from '@/components/ui/button.jsx'
 import { Card, CardContent } from '@/components/ui/card.jsx'
 import { Badge } from '@/components/ui/badge.jsx'
 import { CheckCircle, Shield, Target, Users, Heart, Brain, Compass, Star, Quote, MapPin, ArrowRight, Play, X } from 'lucide-react'
-import heroBackground from './assets/8d6e8f-2c5c-d32a-115f-2432568ecf8_ChatGPT_Image_May_16_2025_01_36_29_PM.png'
+import bootcampHero from './assets/bootcamp-hero.png'
 import rowanAndRobert from './assets/2142387-8c6b-b7ec-0b0b-f24133d11b1_rowan_and_robert_glover-2.png'
 import workshopScene1 from './assets/CF3DF794-1254-4708-90B7-0AF5F2F10CEB_1_102_o.jpeg'
 import workshopScene2 from './assets/49BD1805-E930-459F-B81D-183FD9893845_1_102_o.jpeg'
@@ -16,6 +16,7 @@ import venueImage from './assets/venue_conference_room.png'
 import quoteIcon from './assets/DlaV2Rk1Qg2GdhkpshNw_icon-quote.png'
 import nmmngLogo from './assets/nmmng-logo.png'
 import memberDiscountImage from './assets/venue_conference_room.png'
+import nmmngCommunity from './assets/nmmng-community.png'
 import './App.css'
 
 function App() {
@@ -162,7 +163,7 @@ function App() {
         <div 
           className="absolute inset-0 opacity-30"
           style={{
-            backgroundImage: `url(${heroBackground})`,
+            backgroundImage: `url(${bootcampHero})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundAttachment: 'fixed'
@@ -564,35 +565,41 @@ function App() {
               featured
               bgColor="#F3F7C0"
             />
-            {/* Member Discount Card */}
+            {/* Member Discount Card - Redesigned */}
             <Card
               className="pricing-card"
               style={{
-                border: '1px solid #D4E04F',
+                border: '1px solid #A67C52',
                 background: '#EFF7E1',
                 color: '#0D212D',
                 minHeight: 'unset',
                 height: 'auto',
                 padding: 0,
-                boxShadow: '0 2px 8px rgba(0,0,0,0.04) inset',
-                transition: 'box-shadow 0.2s, transform 0.2s',
+                boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
+                transition: 'box-shadow 0.3s, transform 0.3s',
                 display: 'flex',
                 flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                textAlign: 'center',
+                alignItems: 'flex-start',
+                justifyContent: 'flex-start',
+                textAlign: 'left',
               }}
-              onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.1)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-              onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04) inset'; e.currentTarget.style.transform = 'none'; }}
+              onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.12)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+              onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.08)'; e.currentTarget.style.transform = 'none'; }}
             >
-              <CardContent className="p-8 flex flex-col items-center justify-center h-full w-full" style={{ padding: '2.5rem 2rem' }}>
-                <img src={memberDiscountImage} alt="Member Discount" style={{ width: '100%', maxWidth: 260, borderRadius: 18, marginBottom: 24, boxShadow: '0 6px 32px rgba(0,0,0,0.10)' }} />
-                <div style={{ fontSize: '2.5rem', marginBottom: 8 }}>💡</div>
-                <h4 className="text-2xl font-extrabold mb-4 icon-brass" style={{ color: '#A67C52', fontSize: '2rem', lineHeight: 1.2 }}>Advanced & Growth Plus Member Discount</h4>
-                <p className="text-xl text-[#0F4F40] text-center mb-4" style={{ fontWeight: 700, lineHeight: 1.4 }}>
+              <CardContent className="p-8 flex flex-col h-full w-full" style={{ padding: '2.5rem 2rem' }}>
+                <img src={nmmngCommunity} alt="NMMNG Community" style={{ width: '100%', maxWidth: 260, borderRadius: 18, marginBottom: 24, boxShadow: '0 6px 32px rgba(0,0,0,0.10)' }} />
+                <h4 className="text-2xl font-bold mb-4" style={{ color: '#0F4F40', fontSize: '2rem', lineHeight: 1.2, letterSpacing: '0.06em' }}>Advanced & Growth Plus Member Discount</h4>
+                <p className="text-lg mb-4" style={{ color: '#0F4F40', fontWeight: 600, lineHeight: 1.5 }}>
                   If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <span style={{ color: '#D4E04F', fontWeight: 800, fontSize: '1.2em' }}>ten per cent discount</span> as part of your membership.
                 </p>
-                <a href="#" className="text-lg underline text-[#0F4F40] hover:text-[#A67C52] transition-colors">Learn More about Membership</a>
+                <Button
+                  variant="outline"
+                  className="w-full text-xl py-4 mt-2 rounded-xl font-bold border-[#0F4F40] text-[#0F4F40] hover:bg-[#F6FCD9] hover:border-[#A67C52]"
+                  style={{ borderWidth: 2, background: 'transparent', color: '#0F4F40', fontSize: '1.1rem', minHeight: 56 }}
+                  onClick={() => window.open('#', '_blank')}
+                >
+                  Learn More about Membership
+                </Button>
               </CardContent>
             </Card>
           </div>
@@ -635,32 +642,29 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
         minHeight: 'unset',
         height: 'auto',
         padding: 0,
-        boxShadow: '0 2px 8px rgba(0,0,0,0.04) inset',
-        transition: 'box-shadow 0.2s, transform 0.2s',
+        boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
+        transition: 'box-shadow 0.3s, transform 0.3s',
       }}
-      onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.1)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-      onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.04) inset'; e.currentTarget.style.transform = 'none'; }}
+      onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.12)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+      onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.08)'; e.currentTarget.style.transform = 'none'; }}
     >
-      <CardContent className="px-8 py-8 text-center flex flex-col h-full" style={{ padding: '2.5rem 2rem' }}>
+      <CardContent className="px-8 py-8 flex flex-col h-full" style={{ padding: '2.5rem 2rem' }}>
         <h3 className="text-2xl font-bold mb-6" style={{ color: '#0F4F40', letterSpacing: '0.06em' }}>{title}</h3>
-        <div className="mb-6 flex flex-col items-center">
+        <div className="mb-6 flex flex-col items-start">
           <div className="flex items-center gap-3 mb-2">
-            <span className="text-5xl font-black animate-pulse-glow" style={{ color: '#D4E04F', textShadow: '0 0 12px #D4E04F99, 0 2px 8px #fff2' }}>
+            <span className="text-5xl font-bold" style={{ color: '#0D212D', fontWeight: 700 }}>
               £{price}
             </span>
             <span
               ref={priceRef}
-              className={`text-2xl font-bold price-slash price-original${slashAnimated ? ' animated' : ''}`}
-              style={{ color: '#D32F2F', background: 'rgba(255,255,255,0.7)', borderRadius: 6, padding: '0 8px', marginLeft: 4, textDecoration: 'line-through', position: 'relative', zIndex: 2, fontWeight: 800 }}
+              className={`text-2xl price-slash price-original${slashAnimated ? ' animated' : ''}`}
+              style={{ color: '#FF4C4C', opacity: 0.6, marginLeft: 4, textDecoration: 'line-through', fontWeight: 400 }}
               onMouseEnter={() => setSlashAnimated(true)}
             >
               £{original}
             </span>
           </div>
-          <Badge className="bg-[#D4E04F]/20 text-[#0F4F40] border-[#D4E04F]/30 mb-1">
-            {offerLabel}
-          </Badge>
-          <div className="text-sm font-semibold" style={{ color: '#D4E04F', marginTop: 2 }}>{offerDeadline}</div>
+          <div className="text-xs font-bold" style={{ color: '#FF4C4C', marginTop: 2 }}>{offerDeadline}</div>
         </div>
         <ul className="text-left space-y-4 mb-8 flex-1">
           {features.map((feature, i) => (
