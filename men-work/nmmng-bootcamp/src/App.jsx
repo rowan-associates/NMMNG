@@ -175,14 +175,17 @@ function App() {
           }}
         ></div>
         <div className="max-w-7xl mx-auto w-full px-6 relative z-10 flex flex-col items-center text-center py-32">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-8 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>
-            NMMNG Bootcamp
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-4 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>
+            No More Mr. Nice Guy® Bootcamp
           </h1>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-muted-foreground" style={{ fontFamily: 'PT Serif, serif', fontWeight: 600, lineHeight: 1.2 }}>
+          <div className="mb-4 text-2xl md:text-3xl" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, color: '#D4E04F' }}>
+            Summer 2025 🇬🇧 UK Edition
+          </div>
+          <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-muted-foreground" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, lineHeight: 1.2 }}>
             A Transformational Weekend Retreat for <span className="font-bold" style={{ fontFamily: 'PT Serif, serif' }}>Men Ready to Lead</span>
           </h2>
           <div className="mb-4">
-            <span className="font-bold" style={{ color: '#D4E04F', fontSize: '1.1rem', letterSpacing: '0.04em', fontFamily: 'PT Serif, serif' }}>
+            <span style={{ color: '#D4E04F', fontSize: '22px', letterSpacing: '0.04em', fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
               30–31st August ✴ Oxford, UK – Limited Spots Available
             </span>
           </div>
