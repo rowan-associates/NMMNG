@@ -532,7 +532,7 @@ function App() {
             <div className="text-2xl font-extrabold mb-2" style={{ color: '#D4E04F', letterSpacing: '0.08em' }}>FIRST MOVER ADVANTAGE</div>
             <div className="max-w-4xl mx-auto space-y-4">
               <p className="text-body-large text-muted-foreground">
-                This retreat runs over one intensive weekend and includes all materials, and ongoing support resources. <span className="text-primary font-bold"> Limited to 16 participants</span> to ensure deep, personal attention.
+                This workshop runs over one intensive weekend and includes all materials and ongoing support resources. Limited capacity to ensure deep, personal attention.
               </p>
               <div className="text-2xl font-bold gradient-text">Dates: 30-31st August</div>
             </div>
@@ -682,7 +682,7 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
               £{original}
             </span>
           </div>
-          <div className="text-xs font-bold" style={{ color: '#FF4C4C', marginTop: 2, fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>{offerDeadline}</div>
+          <div className="text-xs font-bold" style={{ color: '#FF4C4C', marginTop: 2, fontFamily: 'League Spartan, sans-serif', fontWeight: 700, fontSize: 16 }}>{offerDeadline}</div>
         </div>
         <ul className="text-left space-y-4 mb-8 flex-1">
           {features.map((feature, i) => (
