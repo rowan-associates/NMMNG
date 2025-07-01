@@ -141,16 +141,17 @@ function App() {
       {/* Sticky Navigation */}
       {isScrolled && (
         <nav className="nav-sticky">
-          <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div className="flex items-center gap-3 relative" style={{ alignItems: 'center' }}>
-              <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" style={{ position: 'relative', zIndex: 10 }}>
-                <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ height: 56, marginRight: 18, position: 'relative', top: 0, left: 0, zIndex: 11, background: 'none' }} />
+          <div className="container mx-auto px-4 py-3 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 w-full sm:w-auto">
+              <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="flex items-center justify-center" style={{ position: 'relative', zIndex: 10 }}>
+                <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" className="h-12 w-auto sm:h-14 mr-0 sm:mr-4" style={{ position: 'relative', top: 0, left: 0, zIndex: 11, background: 'none' }} />
               </a>
-              <h2 className="text-xl font-bold nmmng-glow" style={{ marginLeft: 0, zIndex: 1, lineHeight: 1.1, color: '#fff', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>NMMNG Bootcamp</h2>
+              <h2 className="text-lg sm:text-xl font-bold nmmng-glow text-center sm:text-left" style={{ marginLeft: 0, zIndex: 1, lineHeight: 1.1, color: '#fff', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>NMMNG Bootcamp</h2>
             </div>
             <Button 
               onClick={() => scrollToSection('pricing')}
-              className="btn-primary"
+              className="btn-primary w-full sm:w-auto text-base sm:text-xl px-6 sm:px-10 py-3 sm:py-4 mt-2 sm:mt-0"
+              style={{ minWidth: 0 }}
             >
               SECURE YOUR PLACE
               <ArrowRight className="w-4 h-4 ml-2" />
