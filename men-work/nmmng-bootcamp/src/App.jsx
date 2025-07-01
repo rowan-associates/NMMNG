@@ -40,37 +40,42 @@ function Home() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground px-4 py-12 relative overflow-hidden" style={{ background: `url(${linkinbioBg}) center/cover no-repeat, radial-gradient(circle at 50% 0%, #0F4F40 0%, #0D212D 100%)` }}>
       {/* Lion tshirt overlay at bottom, behind buttons */}
       <img src={lionTshirt} alt="Lion T-shirt" className="absolute left-1/2 bottom-0 -translate-x-1/2 z-0 pointer-events-none select-none" style={{ width: '320px', maxWidth: '90vw', opacity: 0.85 }} />
-      <div className="glass card-modern flex flex-col items-center max-w-xl w-full mx-auto p-8 rounded-3xl shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(13,33,45,0.96)', borderRadius: '32px', boxShadow: '0 8px 40px rgba(0,0,0,0.45)', border: '1.5px solid #1A1A1A' }}>
-        <img src={nmmngLogo} alt="NMMNG Lion Logo" className="rounded-full mb-6" style={{ width: 120, height: 120, objectFit: 'cover', border: '4px solid #D4E04F', background: '#0F4F40', boxShadow: '0 0 0 6px #0D212D' }} />
-        <h1 className="text-3xl md:text-4xl font-extrabold mb-2 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>Men's Work | by The Associates | Collective</h1>
-        <h2 className="text-xl md:text-2xl font-heading mb-4" style={{ color: '#D4E04F', fontWeight: 700 }}>Your Pocket-Sized Brotherhood</h2>
-        <p className="text-base md:text-lg mb-6 text-muted-foreground" style={{ color: '#F5F5F5', fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
-          A modern brotherhood for men ready to reclaim authentic power, deepen relationships, and lead with confidence. Join our global community, events, and conversations.
-        </p>
-        <div className="flex flex-row flex-wrap items-center justify-center gap-4 mb-6">
-          <a href="https://www.youtube.com/channel/UCZ3dWVvGEx1BFUAvoKIjmUg" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:scale-110 transition-transform"><FaYoutube size={28} color="#D4E04F" /></a>
-          <a href="https://x.com/NMMNGS" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="hover:scale-110 transition-transform"><FaXTwitter size={28} color="#D4E04F" /></a>
-          <a href="https://instagram.com/NMMNGS" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:scale-110 transition-transform"><FaInstagram size={28} color="#D4E04F" /></a>
-          <a href="https://www.meetup.com/pro/nmmng" target="_blank" rel="noopener noreferrer" aria-label="Meetup" className="hover:scale-110 transition-transform"><FaMeetup size={28} color="#D4E04F" /></a>
-          <a href="https://tiktok.com/@nmmngs" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="hover:scale-110 transition-transform"><FaTiktok size={28} color="#D4E04F" /></a>
-          <a href="https://linkedin.com/company/nmmngs" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:scale-110 transition-transform"><FaLinkedin size={28} color="#D4E04F" /></a>
-          <a href="https://wa.me/447418352222" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:scale-110 transition-transform"><FaWhatsapp size={28} color="#D4E04F" /></a>
-          <a href="mailto:info@nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Email" className="hover:scale-110 transition-transform"><FaEnvelope size={28} color="#D4E04F" /></a>
-          <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Website" className="hover:scale-110 transition-transform"><FaGlobe size={28} color="#D4E04F" /></a>
+      <div className="glass card-modern flex flex-col items-center max-w-xl w-full mx-auto p-8 rounded-3xl shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(13,33,45,0.96)', borderRadius: '32px', boxShadow: '0 8px 40px rgba(0,0,0,0.45)', border: '1.5px solid #1A1A1A', marginTop: '80px' }}>
+        {/* Large profile photo breaking out of card */}
+        <div className="absolute left-1/2 -top-24 -translate-x-1/2 z-20" style={{ width: 180, height: 180 }}>
+          <img src={nmmngLogo} alt="NMMNG Lion Logo" className="rounded-full" style={{ width: 180, height: 180, objectFit: 'cover', border: '6px solid #D4E04F', background: '#0F4F40', boxShadow: '0 0 0 10px #0D212D' }} />
         </div>
-        <div className="flex flex-col gap-4 w-full mt-2">
-          <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" className="btn-primary text-lg px-8 py-5 font-bold cursor-pointer w-full flex items-center gap-4">
-            <span>No More Mr. Nice Guy® Community</span>
-            <FaGlobe size={20} color="#D4E04F" />
-          </a>
-          <a href="/bootcamp" className="btn-primary text-lg px-8 py-5 font-bold cursor-pointer w-full flex items-center gap-4">
-            <span>No More Mr. Nice Guy® Bootcamp - September 2025 - Oxford, UK</span>
-            <FaGlobe size={20} color="#D4E04F" />
-          </a>
-          <a href="https://Nmmng.co/NMMNG-General-Whatsapp" target="_blank" rel="noopener noreferrer" className="btn-primary text-lg px-8 py-5 font-bold cursor-pointer w-full flex items-center gap-4">
-            <span>Join NMMNG® WhatsApp Discussions Group</span>
-            <FaWhatsapp size={20} color="#D4E04F" />
-          </a>
+        <div className="mt-20 w-full flex flex-col items-center">
+          <h1 className="text-3xl md:text-4xl font-extrabold mb-2 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>Men's Work | by The Associates | Collective</h1>
+          <h2 className="text-xl md:text-2xl font-heading mb-4" style={{ color: '#D4E04F', fontWeight: 700 }}>Your Pocket-Sized Brotherhood</h2>
+          <p className="text-base md:text-lg mb-6 text-muted-foreground" style={{ color: '#F5F5F5', fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
+            A modern brotherhood for men ready to reclaim authentic power, deepen relationships, and lead with confidence. Join our global community, events, and conversations.
+          </p>
+          <div className="flex flex-row flex-wrap items-center justify-center gap-4 mb-6">
+            <a href="https://www.youtube.com/channel/UCZ3dWVvGEx1BFUAvoKIjmUg" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:scale-110 transition-transform"><FaYoutube size={28} color="#D4E04F" /></a>
+            <a href="https://x.com/NMMNGS" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="hover:scale-110 transition-transform"><FaXTwitter size={28} color="#D4E04F" /></a>
+            <a href="https://instagram.com/NMMNGS" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:scale-110 transition-transform"><FaInstagram size={28} color="#D4E04F" /></a>
+            <a href="https://www.meetup.com/pro/nmmng" target="_blank" rel="noopener noreferrer" aria-label="Meetup" className="hover:scale-110 transition-transform"><FaMeetup size={28} color="#D4E04F" /></a>
+            <a href="https://tiktok.com/@nmmngs" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="hover:scale-110 transition-transform"><FaTiktok size={28} color="#D4E04F" /></a>
+            <a href="https://linkedin.com/company/nmmngs" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:scale-110 transition-transform"><FaLinkedin size={28} color="#D4E04F" /></a>
+            <a href="https://wa.me/447418352222" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:scale-110 transition-transform"><FaWhatsapp size={28} color="#D4E04F" /></a>
+            <a href="mailto:info@nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Email" className="hover:scale-110 transition-transform"><FaEnvelope size={28} color="#D4E04F" /></a>
+            <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Website" className="hover:scale-110 transition-transform"><FaGlobe size={28} color="#D4E04F" /></a>
+          </div>
+          <div className="flex flex-col gap-4 w-full mt-2">
+            <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" className="btn-primary text-lg px-8 py-5 font-bold cursor-pointer w-full flex items-center gap-4">
+              <span>No More Mr. Nice Guy® Community</span>
+              <FaGlobe size={20} color="#D4E04F" />
+            </a>
+            <a href="/bootcamp" className="btn-primary text-lg px-8 py-5 font-bold cursor-pointer w-full flex items-center gap-4">
+              <span>No More Mr. Nice Guy® Bootcamp - September 2025 - Oxford, UK</span>
+              <FaGlobe size={20} color="#D4E04F" />
+            </a>
+            <a href="https://Nmmng.co/NMMNG-General-Whatsapp" target="_blank" rel="noopener noreferrer" className="btn-primary text-lg px-8 py-5 font-bold cursor-pointer w-full flex items-center gap-4">
+              <span>Join NMMNG® WhatsApp Discussions Group</span>
+              <FaWhatsapp size={20} color="#D4E04F" />
+            </a>
+          </div>
         </div>
       </div>
     </div>
