@@ -69,13 +69,13 @@ function App() {
     {
       icon: <Heart className="w-12 h-12 text-primary" />,
       title: "Relationship Mastery",
-      description: "Create the intimate partnership you crave, with the polarity and passion that keeps love alive for decades",
+      description: "Learn how to create the intimate partnership you crave, with the polarity and passion that keeps love alive",
       delay: "100ms"
     },
     {
       icon: <Target className="w-12 h-12 text-primary" />,
       title: "Sexual Authenticity",
-      description: "Embrace your desires without shame, and learn to express your sexuality with confidence and respect",
+      description: "Understand how to embrace your desires without shame and express your sexuality with confidence and respect",
       delay: "200ms"
     },
     {
@@ -358,12 +358,16 @@ function App() {
                     </li>
                     <li className="flex items-start gap-4">
                       <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                      <span>Are ready to take radical responsibility for your life</span>
+                      <span>Are ready to do the deep work of real transformation</span>
                     </li>
                     <li className="flex items-start gap-4">
                       <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                      <span>Are committed to showing up authentically and doing the work</span>
-                     </li>
+                      <span>Recognize that the old ways of being a man aren't working in today's world</span>
+                    </li>
+                    <li className="flex items-start gap-4">
+                      <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                      <span>If you're ready to step on the path of personal growth and development</span>
+                    </li>
                   </ul>
                 </CardContent>
               </Card>
@@ -373,7 +377,7 @@ function App() {
           <div className="text-center mt-16 max-w-4xl mx-auto">
             <div className="glass rounded-2xl p-8">
               <p className="text-body-large text-muted-foreground">
-                This process requires courage, vulnerability, and commitment. If that excites you, you\\'re in the right place. If it terrifies you but you know you need it, you\\'re definitely in the right place.
+                This process requires courage, vulnerability, and commitment. If that excites you, you're in the right place. If it terrifies you but you know you need it, you're definitely in the right place.
               </p>
             </div>
           </div>
@@ -412,6 +416,9 @@ function App() {
                   <p>
                     As one of Dr. Glover's close associates and an endorsed facilitator, Rowan brings both professional expertise and lived experience to this work. He understands the challenges modern men face because he's navigated them himself.
                   </p>
+                  <p>
+                    Rowan is joined by Matt and Kev, who have spent the last eight years developing their own expertise and now bring their unique experience to support men in this workshop.
+                  </p>
                 </div>
                 <div className="glass rounded-2xl p-8">
                   <Quote className="w-12 h-12 text-primary mb-4" />
@@ -420,6 +427,9 @@ function App() {
                   </blockquote>
                   <footer className="text-primary font-semibold">- Rowan Andrews</footer>
                 </div>
+                <p className="text-body-large text-muted-foreground mt-6">
+                  Rowan is supported by Matt and Kev, who have been trained over the last eight years and walked their own path and bring their own experience to support men in the workshop.
+                </p>
               </div>
             </div>
             {/* Workshop Gallery */}
@@ -532,7 +542,7 @@ function App() {
             <div className="text-2xl font-extrabold mb-2" style={{ color: '#D4E04F', letterSpacing: '0.08em' }}>FIRST MOVER ADVANTAGE</div>
             <div className="max-w-4xl mx-auto space-y-4">
               <p className="text-body-large text-muted-foreground">
-                This workshop runs over one intensive weekend and includes all materials and ongoing support resources. Limited capacity to ensure deep, personal attention.
+                This workshop runs over one intensive weekend and includes all materials and ongoing support resources. <b>Limited capacity</b> to ensure deep, personal attention.
               </p>
               <div className="text-2xl font-bold gradient-text">Dates: 30-31st August</div>
             </div>
@@ -604,7 +614,7 @@ function App() {
                   No More Mr. Nice Guy® Membership Benefits.
                 </h4>
                 <p className="text-lg mb-4" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, fontSize: '22px', lineHeight: 1.25 }}>
-                  If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <span style={{ color: '#0E2F33', fontWeight: 400, fontFamily: 'League Spartan, sans-serif', fontSize: '1.2em' }}>ten per cent discount</span> as part of your membership.
+                  If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <b style={{ fontWeight: 700 }}>ten per cent discount</b> as part of your membership.
                 </p>
                 <Button
                   variant="outline"
@@ -662,10 +672,53 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
         padding: 0,
         boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
         transition: 'box-shadow 0.3s, transform 0.3s',
+        position: 'relative',
+        overflow: 'hidden',
       }}
       onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.12)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
       onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.08)'; e.currentTarget.style.transform = 'none'; }}
     >
+      {featured && (
+        <div
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: 0,
+            zIndex: 20,
+            pointerEvents: 'none',
+          }}
+        >
+          <div
+            style={{
+              position: 'absolute',
+              left: '-18%',
+              top: '18px',
+              width: '136%',
+              height: '40px',
+              background: '#E6F97B', // lighter neon-lemon
+              color: '#0F4F40',
+              fontWeight: 700,
+              fontFamily: 'League Spartan, sans-serif',
+              fontSize: '1.25rem',
+              letterSpacing: '0.12em',
+              textAlign: 'center',
+              lineHeight: '40px',
+              transform: 'rotate(-18deg)',
+              boxShadow: '0 2px 12px rgba(0,255,136,0.10)',
+              borderRadius: '10px',
+              textTransform: 'uppercase',
+              userSelect: 'none',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            MOST POPULAR
+          </div>
+        </div>
+      )}
       <CardContent className="px-8 py-8 flex flex-col h-full" style={{ padding: '2.5rem 2rem' }}>
         <h3 className="text-2xl font-bold mb-6" style={{ color: '#0F4F40', letterSpacing: '0.06em', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>{title}</h3>
         <div className="mb-6 flex flex-col items-start">
@@ -675,8 +728,20 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
             </span>
             <span
               ref={priceRef}
-              className={`text-2xl price-slash price-original${slashAnimated ? ' animated' : ''}`}
-              style={{ color: '#FF4C4C', opacity: 0.6, marginLeft: 4, textDecoration: 'line-through', fontWeight: 400, fontFamily: 'League Spartan, sans-serif' }}
+              className="text-2xl price-slash price-original"
+              style={{
+                color: '#FF4C4C',
+                opacity: 0.6,
+                marginLeft: 4,
+                textDecoration: 'line-through',
+                textDecorationThickness: 3,
+                textDecorationColor: '#FF4C4C',
+                textDecorationLine: 'line-through',
+                fontWeight: 400,
+                fontFamily: 'League Spartan, sans-serif',
+                position: 'relative',
+                top: 0
+              }}
               onMouseEnter={() => setSlashAnimated(true)}
             >
               £{original}
