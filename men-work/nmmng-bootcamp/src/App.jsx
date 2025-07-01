@@ -406,7 +406,7 @@ function App() {
                     Rowan Andrews with Dr. Robert Glover
                   </div>
                   <div className="text-sm text-muted-foreground mb-4">Author of "No More Mr. Nice Guy"</div>
-                  <img src={rowanAndRobert} alt="Rowan and Dr. Robert Glover" className="rounded-2xl w-full object-cover" style={{ aspectRatio: '4/5', maxHeight: 420, background: '#0D212D' }} />
+                  <img src={rowanAndRobert} alt="Rowan and Dr. Robert Glover" className="rounded-2xl w-full object-cover" style={{ aspectRatio: '4/5', background: '#0D212D', objectFit: 'cover' }} />
                 </div>
               </div>
               <div className="flex flex-col gap-8 w-full">
