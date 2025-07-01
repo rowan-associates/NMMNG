@@ -239,7 +239,7 @@ function App() {
                 </div>
                 
                 <div className="text-center">
-                  <p className="text-2xl font-bold text-destructive">
+                  <p className="text-lg text-muted-foreground">
                     The cost of staying stuck has never been higher.
                   </p>
                 </div>
@@ -399,41 +399,32 @@ function App() {
             </h2>
           </div>
           <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div className="flex justify-center items-center">
-                <div className="relative w-full flex flex-col items-center">
-                  <div className="glass rounded-xl p-4 mb-2 w-full">
-                    <p className="text-sm font-medium text-primary mb-1" style={{ fontSize: '1.25rem', fontWeight: 700 }}>Rowan Andrews with Dr. Robert Glover</p>
-                    <p className="text-xs text-muted-foreground" style={{ fontSize: '1rem' }}>Author of "No More Mr. Nice Guy"</p>
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+              <div className="flex flex-col items-center md:items-start gap-6 w-full">
+                <div className="glass-light rounded-2xl p-6 w-full">
+                  <div className="font-bold text-lg mb-1" style={{ color: '#D4E04F', fontFamily: 'League Spartan, sans-serif' }}>
+                    Rowan Andrews with Dr. Robert Glover
                   </div>
-                  <img 
-                    src={rowanAndRobert} 
-                    alt="Rowan Andrews with Dr. Robert Glover" 
-                    className="w-full rounded-3xl shadow-2xl"
-                    style={{ height: '100%', minHeight: 420, objectFit: 'cover', maxHeight: 520 }}
-                  />
+                  <div className="text-sm text-muted-foreground mb-4">Author of "No More Mr. Nice Guy"</div>
+                  <img src={rowanAndRobert} alt="Rowan and Dr. Robert Glover" className="rounded-2xl w-full object-cover" style={{ aspectRatio: '4/5', maxHeight: 420, background: '#0D212D' }} />
                 </div>
               </div>
-              <div className="space-y-8 flex flex-col justify-center h-full">
-                <div className="text-body-large space-y-6 text-muted-foreground">
-                  <p>
-                    Rowan Andrews has spent over twelve years guiding men through this exact journey. After his own awakening from the "nice guy" trap following his marriage breakdown, he trained with Dr. Robert Glover (author of "No More Mr. Nice Guy"), spiritual teachers David Deida and Rupert Spira, and created one of the UK's most successful men's groups.
-                  </p>
-                  <p>
-                    As one of Dr. Glover's close associates and an endorsed facilitator, Rowan brings both professional expertise and lived experience to this work. He understands the challenges modern men face because he's navigated them himself.
-                  </p>
-                  <p>
-                    Rowan is joined by Matt and Kev, who have spent the last eight years developing their own expertise and now bring their unique experience to support men in this workshop.
-                  </p>
+              <div className="flex flex-col gap-8 w-full">
+                <p className="text-lg text-muted-foreground leading-relaxed" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+                  Rowan Andrews has spent over twelve years guiding men through this exact journey. After his own awakening from the "nice guy" trap following his marriage breakdown, he trained with Dr. Robert Glover (author of "No More Mr. Nice Guy"), spiritual teachers David Deida and Rupert Spira, and created one of the UK's most successful men's groups.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+                  As one of Dr. Glover's close associates and an endorsed facilitator, Rowan brings both professional expertise and lived experience to this work. He understands the challenges modern men face because he's navigated them himself.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+                  Rowan is joined by Matt and Kev, who have spent the last eight years developing their own expertise and now bring their unique experience to support men in this workshop.
+                </p>
+                <div className="glass rounded-2xl p-6 mt-4 w-full">
+                  <Quote className="w-8 h-8 mb-2 text-primary" />
+                  <p className="italic text-lg mb-2">"To become the man you were born to be requires taking full responsibility for where you are today and choosing who you want to become tomorrow."</p>
+                  <div className="font-bold text-primary text-lg">- Rowan Andrews</div>
                 </div>
-                <div className="glass rounded-2xl p-8">
-                  <Quote className="w-12 h-12 text-primary mb-4" />
-                  <blockquote className="text-xl italic text-white mb-4">
-                    "To become the man you were born to be requires taking full responsibility for where you are today and choosing who you want to become tomorrow."
-                  </blockquote>
-                  <footer className="text-primary font-semibold">- Rowan Andrews</footer>
-                </div>
-                <p className="text-body-large text-muted-foreground mt-6">
+                <p className="text-lg text-muted-foreground leading-relaxed mt-2" style={{ fontFamily: 'League Spartan, sans-serif' }}>
                   Rowan is supported by Matt and Kev, who have been trained over the last eight years and walked their own path and bring their own experience to support men in the workshop.
                 </p>
               </div>
