@@ -173,19 +173,15 @@ function App() {
             opacity: 0.6 // reduce lantern opacity
           }}
         ></div>
-        {/* Optional: Faint silhouettes on right */}
-        <div className="hidden md:block absolute right-0 top-0 h-full w-1/3 pointer-events-none" style={{ zIndex: 2 }}>
-          <img src={heroSilhouette} alt="Men walking" className="h-full w-full object-cover opacity-30" />
-        </div>
         <div className="max-w-7xl mx-auto w-full px-6 relative z-10 flex flex-col items-center text-center py-32">
           <h1 className="text-5xl md:text-6xl font-extrabold mb-8 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>
             NMMNG Bootcamp
           </h1>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-muted-foreground" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 500, lineHeight: 1.2 }}>
-            A Transformational Weekend Retreat for <span className="font-bold">Men Ready to Lead</span>
+          <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-muted-foreground" style={{ fontFamily: 'PT Serif, serif', fontWeight: 600, lineHeight: 1.2 }}>
+            A Transformational Weekend Retreat for <span className="font-bold" style={{ fontFamily: 'PT Serif, serif' }}>Men Ready to Lead</span>
           </h2>
           <div className="mb-4">
-            <span className="font-bold" style={{ color: '#D4E04F', fontSize: '1.1rem', letterSpacing: '0.04em' }}>
+            <span className="font-bold" style={{ color: '#D4E04F', fontSize: '1.1rem', letterSpacing: '0.04em', fontFamily: 'PT Serif, serif' }}>
               30–31st August ✴ Oxford, UK – Limited Spots Available
             </span>
           </div>
@@ -194,16 +190,16 @@ function App() {
               <span className="absolute inset-0 rounded-xl blur-xl opacity-60" style={{ background: 'radial-gradient(circle, #E6F97B 0%, transparent 80%)', zIndex: 0 }}></span>
               <Button 
                 onClick={() => scrollToSection('pricing')}
-                className="btn-primary text-xl px-10 py-5 font-bold relative z-10 w-full sm:w-auto"
-                style={{ boxShadow: '0 0 32px 8px #E6F97B55' }}
+                className="btn-primary text-xl px-10 py-6 font-bold relative z-10 w-full sm:w-auto"
+                style={{ boxShadow: '0 0 32px 8px #E6F97B55', fontFamily: 'PT Serif, serif' }}
               >
                 SECURE YOUR PLACE TODAY
               </Button>
             </div>
             <Button 
               variant="outline"
-              className="border-2 text-lg px-8 py-4 font-bold"
-              style={{ borderColor: '#E6F97B', color: '#E6F97B', background: 'transparent' }}
+              className="border-2 text-lg px-8 py-6 font-bold"
+              style={{ borderColor: '#E6F97B', color: '#E6F97B', background: 'transparent', fontFamily: 'PT Serif, serif' }}
               onClick={() => window.open('https://nomoremrniceguy.co.uk', '_blank')}
             >
               Learn More
