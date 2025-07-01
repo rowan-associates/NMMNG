@@ -142,7 +142,7 @@ function App() {
           <div className="container mx-auto px-6 py-4 flex justify-between items-center">
             <div className="flex items-center gap-3 relative" style={{ alignItems: 'center' }}>
               <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" style={{ position: 'relative', zIndex: 10 }}>
-                <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
+                <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ height: 56, marginRight: 18, position: 'relative', top: 0, left: 0, zIndex: 11, background: 'none' }} />
               </a>
               <h2 className="text-xl font-bold nmmng-glow" style={{ marginLeft: 0, zIndex: 1, lineHeight: 1.1, color: '#fff', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>NMMNG Bootcamp</h2>
             </div>
@@ -391,18 +391,17 @@ function App() {
           <div className="max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
               <div className="flex justify-center items-center">
-                <div className="relative w-full">
+                <div className="relative w-full flex flex-col items-center">
+                  <div className="glass rounded-xl p-4 mb-2 w-full">
+                    <p className="text-sm font-medium text-primary mb-1" style={{ fontSize: '1.25rem', fontWeight: 700 }}>Rowan Andrews with Dr. Robert Glover</p>
+                    <p className="text-xs text-muted-foreground" style={{ fontSize: '1rem' }}>Author of "No More Mr. Nice Guy"</p>
+                  </div>
                   <img 
                     src={rowanAndRobert} 
                     alt="Rowan Andrews with Dr. Robert Glover" 
                     className="w-full rounded-3xl shadow-2xl"
+                    style={{ height: '100%', minHeight: 420, objectFit: 'cover', maxHeight: 520 }}
                   />
-                  <div className="absolute bottom-6 left-6 right-6">
-                    <div className="glass rounded-xl p-4">
-                      <p className="text-sm font-medium text-primary">Rowan Andrews with Dr. Robert Glover</p>
-                      <p className="text-xs text-muted-foreground">Author of "No More Mr. Nice Guy"</p>
-                    </div>
-                  </div>
                 </div>
               </div>
               <div className="space-y-8 flex flex-col justify-center h-full">
@@ -601,7 +600,9 @@ function App() {
             >
               <CardContent className="p-8 flex flex-col h-full w-full pricing-card-body" style={{ padding: '2.5rem 2rem', lineHeight: 1.25 }}>
                 <img src={nmmngCommunity} alt="NMMNG Community" className="pricing-card-img-edge" />
-                <h4 className="text-2xl font-bold" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif', fontWeight: 700, fontSize: '2rem', lineHeight: 1.2, letterSpacing: '0.06em' }}>No More Mr. Nice Guy® Membership Benefits.</h4>
+                <h4 className="text-2xl font-bold mb-2" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif', fontWeight: 700, fontSize: '2rem', lineHeight: 1.15, letterSpacing: '0.06em', whiteSpace: 'pre-line' }}>
+                  No More Mr. Nice Guy®\nMembership Benefits.
+                </h4>
                 <p className="text-lg mb-4" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.25 }}>
                   If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <span style={{ color: '#0E2F33', fontWeight: 400, fontFamily: 'League Spartan, sans-serif', fontSize: '1.2em' }}>ten per cent discount</span> as part of your membership.
                 </p>
@@ -626,8 +627,8 @@ function App() {
             <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
           </a>
           <div className="flex gap-8 mb-4">
-            <a href="https://rowan-associates.com" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1">rowan-associates.com</a>
-            <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1">nomoremrniceguy.co.uk</a>
+            <a href="https://rowan-associates.com" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1" style={{ fontSize: 16 }}>rowan-associates.com</a>
+            <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1" style={{ fontSize: 16 }}>nomoremrniceguy.co.uk</a>
           </div>
           <div className="text-muted-foreground text-sm flex flex-wrap items-center gap-2">
             &copy; {new Date().getFullYear()} NMMNG Bootcamp. All rights reserved.
