@@ -22,8 +22,139 @@ import nmmngCommunity from './assets/nmmng-community.png'
 import bootcampFooter from './assets/bootcamp-footer.avif'
 import backToTopImg from './assets/back-to-top.webp'
 import './App.css'
+import { Routes, Route, useLocation } from 'react-router-dom'
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
+function Home() {
+  return (
+    <div className="min-h-screen flex flex-col items-center justify-center text-center bg-background text-foreground">
+      <h1 className="text-5xl font-bold mb-6">Welcome to NMMNG</h1>
+      <p className="text-2xl mb-8">Choose a product or landing page:</p>
+      <a href="/bootcamp" className="btn-primary text-xl px-8 py-6 font-bold cursor-pointer">Go to Bootcamp Landing</a>
+    </div>
+  );
+}
 
 function App() {
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [showBackToTop, setShowBackToTop] = useState(false)
+  const forestBgRef = useRef(null)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 100)
+      setShowBackToTop(window.scrollY > 300)
+      // Parallax effect for forest background
+      if (forestBgRef.current) {
+        const offset = window.scrollY * 0.25
+        forestBgRef.current.style.backgroundPositionY = `-${offset}px`
+      }
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  const scrollToSection = (sectionId) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
+  }
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const benefits = [
+    {
+      icon: <Shield className="w-12 h-12 text-primary" />,
+      title: "Unshakeable Core Confidence",
+      description: "Access the natural self-assurance that doesn't depend on others' approval or external validation",
+      delay: "0ms"
+    },
+    {
+      icon: <Heart className="w-12 h-12 text-primary" />,
+      title: "Relationship Mastery",
+      description: "Learn how to create the intimate partnership you crave, with the polarity and passion that keeps love alive",
+      delay: "100ms"
+    },
+    {
+      icon: <Target className="w-12 h-12 text-primary" />,
+      title: "Sexual Authenticity",
+      description: "Understand how to embrace your desires without shame and express your sexuality with confidence and respect",
+      delay: "200ms"
+    },
+    {
+      icon: <Brain className="w-12 h-12 text-primary" />,
+      title: "Emotional Intelligence",
+      description: "Understand and express your feelings powerfully without losing yourself in them",
+      delay: "300ms"
+    },
+    {
+      icon: <Compass className="w-12 h-12 text-primary" />,
+      title: "Boundary Setting",
+      description: "Learn to say no with strength and yes with intention, protecting your energy and values",
+      delay: "400ms"
+    },
+    {
+      icon: <Users className="w-12 h-12 text-primary" />,
+      title: "Brotherhood Connection",
+      description: "Build meaningful relationships with other men based on truth, not performance",
+      delay: "500ms"
+    },
+    {
+      icon: <Star className="w-12 h-12 text-primary" />,
+      title: "Purpose and Direction",
+      description: "Cut through the noise of an AI-dominated world to find your unique contribution and path forward",
+      delay: "600ms"
+    },
+    {
+      icon: <CheckCircle className="w-12 h-12 text-primary" />,
+      title: "Radical Self-Acceptance",
+      description: "Embrace who you are completely, flaws and all, as the foundation for genuine transformation",
+      delay: "700ms"
+    }
+  ]
+
+  const testimonials = [
+    {
+      quote: "As a coach, speaker, and leader, Rowan is in the top tier of professionals and a breath of fresh air from the same old stale routines you encounter in personal development.",
+      author: "Dr. Robert Glover",
+      title: "Author of \"No More Mr. Nice Guy\"",
+      featured: true
+    },
+    {
+      quote: "This weekend had an immensely positive and transformative impact on my life. I'm sure I'll be reaping the benefits for years to come. If you're a suffering nice guy, just do it—you won't regret it.",
+      author: "Workshop Participant",
+      title: ""
+    },
+    {
+      quote: "I expected macho-man teachings, but instead received love and acceptance I'd never experienced. Being embraced by men who saw all my darkness and accepted me anyway changed everything. It's about truly embracing yourself.",
+      author: "Workshop Participant",
+      title: ""
+    },
+    {
+      quote: "Transformationally life-changing! So much information, so many areas covered, and sharing it with a brotherhood on the same journey was the kickstarter for a better life.",
+      author: "Workshop Participant",
+      title: ""
+    }
+  ]
+
+  return (
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/bootcamp" element={<BootcampLanding />} />
+      </Routes>
+    </>
+  )
+}
+
+function BootcampLanding() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [showBackToTop, setShowBackToTop] = useState(false)
   const forestBgRef = useRef(null)
