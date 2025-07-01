@@ -574,3 +574,47 @@
 .text-sm {
   font-size: 1rem;
 }
+
+/* Icon Animations for Benefit Cards */
+.icon-anim {
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+}
+
+.group:hover .icon-float {
+  animation: float 1.8s ease-in-out infinite;
+}
+
+@keyframes icon-beat {
+  0%, 100% { transform: scale(1); }
+  10% { transform: scale(1.1); }
+  20% { transform: scale(0.95); }
+  30% { transform: scale(1.15); }
+  50% { transform: scale(0.9); }
+  60% { transform: scale(1.05); }
+  70% { transform: scale(0.97); }
+  80% { transform: scale(1.02); }
+  90% { transform: scale(0.98); }
+}
+.group:hover .icon-beat {
+  animation: icon-beat 0.8s cubic-bezier(0.4,0,0.2,1) infinite;
+}
+
+@keyframes icon-zoom {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+.group:hover .icon-zoom {
+  animation: icon-zoom 1.2s cubic-bezier(0.4,0,0.2,1) infinite;
+}
+
+@keyframes icon-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.group:hover .icon-rotate {
+  animation: icon-rotate 1.2s linear infinite;
+}

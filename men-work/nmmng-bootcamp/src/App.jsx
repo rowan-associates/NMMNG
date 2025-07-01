@@ -274,23 +274,32 @@ function App() {
           <div className="mb-16">
             <h3 className="text-subheading text-center mb-16 gradient-text-primary">What You'll Discover:</h3>
             <div className="bento-grid max-w-7xl mx-auto">
-              {benefits.map((benefit, index) => (
-                <div 
-                  key={index}
-                  className={`bento-item${index === 7 ? ' lg:col-span-3' : ''}`}
-                  style={{animationDelay: benefit.delay}}
-                >
-                  <div className="mb-6 animate-float" style={{animationDelay: benefit.delay}}>
-                    {benefit.icon}
+              {benefits.map((benefit, index) => {
+                // Animation class logic
+                let iconAnim = 'icon-float';
+                if (benefit.title === 'Relationship Mastery') iconAnim = 'icon-beat';
+                if (benefit.title === 'Sexual Authenticity') iconAnim = 'icon-zoom';
+                if (benefit.title === 'Emotional Intelligence') iconAnim = 'icon-rotate';
+                return (
+                  <div
+                    key={index}
+                    className={`bento-item${index === 7 ? ' lg:col-span-3' : ''} group`}
+                    style={{ animationDelay: benefit.delay }}
+                  >
+                    <div className="flex flex-col items-center" style={{ minHeight: 110, justifyContent: 'flex-start' }}>
+                      <div className={`mb-6 icon-anim ${iconAnim} group-hover:active-anim`}>
+                        {benefit.icon}
+                      </div>
+                    </div>
+                    <h4 className="text-xl font-bold mb-4 text-white" style={{ fontFamily: 'PT Serif, serif', fontSize: '33px', fontWeight: 700 }}>
+                      {benefit.title}
+                    </h4>
+                    <p className="text-muted-foreground text-center leading-relaxed" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
+                      {benefit.description}
+                    </p>
                   </div>
-                  <h4 className="text-xl font-bold mb-4 text-white" style={{ fontFamily: 'PT Serif, serif', fontSize: '33px', fontWeight: 700 }}>
-                    {benefit.title}
-                  </h4>
-                  <p className="text-muted-foreground text-center leading-relaxed" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
-                    {benefit.description}
-                  </p>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
@@ -594,7 +603,7 @@ function App() {
                 <img src={nmmngCommunity} alt="NMMNG Community" className="pricing-card-img-edge" />
                 <h4 className="text-2xl font-bold" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif', fontWeight: 700, fontSize: '2rem', lineHeight: 1.2, letterSpacing: '0.06em' }}>Advanced & Growth Plus Member Discount</h4>
                 <p className="text-lg mb-4" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.25 }}>
-                  If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <span style={{ color: '#D4E04F', fontWeight: 700, fontFamily: 'League Spartan, sans-serif', fontSize: '1.2em' }}>ten per cent discount</span> as part of your membership.
+                  If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <span style={{ color: '#0E2F33', fontWeight: 400, fontFamily: 'League Spartan, sans-serif', fontSize: '1.2em' }}>ten per cent discount</span> as part of your membership.
                 </p>
                 <Button
                   variant="outline"
@@ -620,7 +629,11 @@ function App() {
             <a href="https://rowan-associates.com" target="_blank" rel="noreferrer" className="text-lg font-semibold text-primary hover:underline transition-colors duration-200">rowan-associates.com</a>
             <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="text-lg font-semibold text-primary hover:underline transition-colors duration-200">nomoremrniceguy.co.uk</a>
           </div>
-          <div className="text-muted-foreground text-sm">&copy; {new Date().getFullYear()} NMMNG Bootcamp. All rights reserved.</div>
+          <div className="text-muted-foreground text-sm flex flex-wrap items-center gap-2">
+            &copy; {new Date().getFullYear()} NMMNG Bootcamp. All rights reserved.
+            <span>|</span>
+            <a href="https://respira.cafe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Vibe coded by Respira</a>
+          </div>
         </div>
       </footer>
     </div>
