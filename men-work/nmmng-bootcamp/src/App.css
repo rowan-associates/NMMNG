@@ -628,7 +628,7 @@
   max-height: 64px;
   width: auto;
   height: auto;
-  opacity: 0.45;
+  opacity: 1;
   filter: drop-shadow(0 2px 12px #0F4F40cc) blur(0.5px);
   transition: opacity 0.3s, filter 0.3s, transform 0.3s;
   background: transparent;
@@ -636,7 +636,6 @@
 
 .back-to-top-btn:hover .back-to-top-img,
 .back-to-top-btn:focus .back-to-top-img {
-  opacity: 1;
-  filter: drop-shadow(0 4px 24px #D4E04Fcc) blur(0px);
-  transform: scale(1.08);
+  filter: drop-shadow(0 0 24px #D4E04Fcc) drop-shadow(0 0 12px #E6F97B) blur(0px);
+  transform: scale(1.33);
 }
