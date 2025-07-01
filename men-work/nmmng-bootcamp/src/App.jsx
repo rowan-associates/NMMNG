@@ -170,7 +170,7 @@ function App() {
           }}
         ></div>
         
-        <div className="container mx-auto px-6 text-center z-10 relative">
+        <div className="max-w-7xl mx-auto w-full px-6 text-center z-10 relative">
           <div className="animate-fade-in-up">
             <h1 className="text-display mb-8">
               RECLAIM YOUR<br />
@@ -259,7 +259,7 @@ function App() {
 
       {/* Solution Section */}
       <section className="py-32 bg-secondary/30">
-        <div className="container mx-auto px-6">
+        <div className="max-w-7xl mx-auto w-full px-6">
           <div className="text-center mb-20">
             <h2 className="text-headline mb-8 gradient-text">
               THE BREAKTHROUGH WEEKEND<br />THAT CHANGES EVERYTHING
@@ -310,7 +310,7 @@ function App() {
 
       {/* Qualification Section */}
       <section className="py-32 nmmng-not-for-everyone">
-        <div className="container mx-auto px-6">
+        <div className="max-w-7xl mx-auto w-full px-6">
           <div className="text-center mb-20">
             <h2 className="text-headline mb-8 gradient-text-primary">
               THIS INTENSIVE IS NOT FOR EVERYONE
@@ -389,7 +389,7 @@ function App() {
 
       {/* Authority Section */}
       <section className="py-32 bg-secondary/30">
-        <div className="container mx-auto px-6">
+        <div className="max-w-7xl mx-auto w-full px-6">
           <div className="text-center mb-20">
             <h2 className="text-headline mb-8 gradient-text">
               YOUR GUIDE THROUGH THE TRANSFORMATION
@@ -467,7 +467,7 @@ function App() {
 
       {/* Testimonials Section */}
       <section className="py-32">
-        <div className="container mx-auto px-6">
+        <div className="max-w-7xl mx-auto w-full px-6">
           <div className="text-center mb-20">
             <h2 className="text-headline mb-8 gradient-text">
               WHAT PARTICIPANTS SAY
@@ -508,7 +508,7 @@ function App() {
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 opacity-20" style={{backgroundImage: `url(${transformationImage})`,backgroundSize: 'cover',backgroundPosition: 'center',backgroundAttachment: 'fixed'}}></div>
         <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/80 to-background/90"></div>
-        <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-7xl mx-auto w-full px-6 relative z-10">
           <div className="text-center max-w-5xl mx-auto">
             <h2 className="text-headline mb-12 gradient-text">
               THE TIME IS NOW
@@ -539,7 +539,7 @@ function App() {
 
       {/* Pricing Section */}
       <section id="pricing" className="py-32 bg-secondary/30">
-        <div className="container mx-auto px-6">
+        <div className="max-w-7xl mx-auto w-full px-6">
           <div className="text-center mb-20">
             <h2 className="text-headline mb-4 gradient-text">SECURE YOUR PLACE TODAY</h2>
             <div className="text-2xl font-extrabold mb-2" style={{ color: '#D4E04F', letterSpacing: '0.08em' }}>FIRST MOVER ADVANTAGE</div>
@@ -635,7 +635,7 @@ function App() {
 
       {/* Venue/Location Section - Restored */}
       <section className="py-20 bg-background/90">
-        <div className="container mx-auto px-6 flex flex-col md:flex-row items-center gap-10 max-w-5xl">
+        <div className="max-w-7xl mx-auto w-full px-6 flex flex-col md:flex-row items-center gap-10 max-w-5xl">
           <img src={venueImage} alt="Workshop Venue" className="rounded-2xl shadow-xl w-full md:w-1/2 object-cover" style={{ aspectRatio: '4/3', maxHeight: 320 }} />
           <div className="flex-1 text-left md:pl-10 mt-8 md:mt-0">
             <h3 className="text-2xl font-bold mb-4 gradient-text" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>Venue: Oxford, UK</h3>
