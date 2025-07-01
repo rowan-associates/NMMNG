@@ -34,10 +34,14 @@ function ScrollToTop() {
 
 function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center text-center bg-background text-foreground">
-      <h1 className="text-5xl font-bold mb-6">Welcome to NMMNG</h1>
-      <p className="text-2xl mb-8">Choose a product or landing page:</p>
-      <a href="/bootcamp" className="btn-primary text-xl px-8 py-6 font-bold cursor-pointer">Go to Bootcamp Landing</a>
+    <div className="min-h-screen flex flex-col items-center justify-center text-center bg-background text-foreground gap-8 py-16">
+      <h1 className="text-4xl md:text-5xl font-extrabold font-heading mb-2">Men's Work | by The Associates | Collective</h1>
+      <h2 className="text-2xl md:text-3xl font-heading mb-8">Your Pocket-Sized Brotherhood</h2>
+      <div className="flex flex-col gap-6 w-full max-w-md mx-auto">
+        <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" className="btn-primary text-lg px-8 py-5 font-bold cursor-pointer w-full">No More Mr. Nice Guy® Community</a>
+        <a href="/bootcamp" className="btn-primary text-lg px-8 py-5 font-bold cursor-pointer w-full">No More Mr. Nice Guy® Bootcamp - September 2025 - Oxford, UK</a>
+        <a href="https://Nmmng.co/NMMNG-General-Whatsapp" target="_blank" rel="noopener noreferrer" className="btn-primary text-lg px-8 py-5 font-bold cursor-pointer w-full">Join NMMNG® WhatsApp Discussions Group</a>
+      </div>
     </div>
   );
 }
