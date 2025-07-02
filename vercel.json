@@ -1,4 +1,9 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "outputDirectory": "men-work/nmmng-bootcamp/dist"
+  "outputDirectory": "men-work/dist",
+  "rewrites": [
+    { "source": "/", "destination": "/index.html", "has": [{ "host": "join.nmmng.co" }] },
+    { "source": "/bootcamp", "destination": "/index.html", "has": [{ "host": "join.nmmng.co" }] },
+    { "source": "/lover", "destination": "/index.html", "has": [{ "host": "join.nmmng.co" }] }
+  ]
 } 
