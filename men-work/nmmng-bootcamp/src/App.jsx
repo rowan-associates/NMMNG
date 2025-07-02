@@ -40,38 +40,43 @@ function ScrollToTop() {
 function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground px-4 py-12 relative overflow-hidden" style={{ background: `url(${linkinbioBg}) center/cover no-repeat, radial-gradient(circle at 50% 0%, #0F4F40 0%, #0D212D 100%)` }}>
-      {/* Lion sitting on first button, right, overlapping card */}
-      <div className="absolute z-30" style={{ right: 'calc(50% - 220px)', top: 'calc(50% - 60px)', transform: 'translateY(-50%)', pointerEvents: 'none' }}>
-        <img src={lionTshirt} alt="Lion T-shirt" style={{ width: 170, height: 170, objectFit: 'contain', filter: 'drop-shadow(0 8px 32px rgba(0,0,0,0.25))' }} />
+      {/* Lion in t-shirt resting on the top margin of the first button, aligned right, overlapping card, bigger */}
+      <div className="absolute z-30" style={{ right: 'calc(50% - 180px)', top: 'calc(50% - 10px)', transform: 'translateY(-100%)', pointerEvents: 'none' }}>
+        <img src={lionTshirt} alt="Lion T-shirt" style={{ width: 220, height: 220, objectFit: 'contain', filter: 'drop-shadow(0 8px 32px rgba(0,0,0,0.25))' }} />
       </div>
       <div className="glass card-modern flex flex-col items-center max-w-2xl w-full mx-auto px-4 pt-8 pb-6 rounded-3xl shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(13,33,45,0.55)', borderRadius: '32px', boxShadow: '0 8px 40px rgba(0,0,0,0.45)', border: '1.5px solid #1A1A1A', marginTop: '60px', marginBottom: '60px', backdropFilter: 'blur(16px)' }}>
-        {/* Text content */}
-        <div className="w-full flex flex-col items-end mt-4 mb-6 pr-8" style={{ textAlign: 'right' }}>
-          <h1 className="text-2xl md:text-3xl font-extrabold mb-1 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>Men's Work</h1>
-          <h2 className="text-lg md:text-xl font-heading mb-2" style={{ color: '#D4E04F', fontWeight: 700 }}>Your Pocket-Sized Brotherhood</h2>
-          <p className="text-base md:text-lg mb-2 text-muted-foreground" style={{ color: '#F5F5F5', fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
-            A modern brotherhood for men ready to reclaim authentic power, deepen relationships, and lead with confidence. Join our global community, events, and conversations.
-          </p>
+        {/* Text content with lion on the right */}
+        <div className="w-full flex flex-row items-center justify-between mt-4 mb-6 pl-8 pr-8" style={{ textAlign: 'left' }}>
+          <div className="flex-1 flex flex-col items-start">
+            <h1 className="text-2xl md:text-3xl font-extrabold mb-1 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>Men's Work</h1>
+            <h2 className="text-lg md:text-xl font-heading mb-2" style={{ color: '#D4E04F', fontWeight: 700 }}>Your Pocket-Sized Brotherhood</h2>
+            <p className="text-base md:text-lg mb-2 text-muted-foreground" style={{ color: '#F5F5F5', fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
+              A modern brotherhood for men ready to reclaim authentic power, deepen relationships, and lead with confidence. Join our global community, events, and conversations.
+            </p>
+          </div>
+          <div className="flex-shrink-0 ml-4" style={{ display: 'flex', alignItems: 'center', height: '100%' }}>
+            <img src={lionTshirt} alt="Lion T-shirt" style={{ width: 120, height: 120, objectFit: 'contain', filter: 'drop-shadow(0 8px 32px rgba(0,0,0,0.25))' }} />
+          </div>
         </div>
-        {/* Buttons with light font weight */}
+        {/* Buttons with bold font weight */}
         <div className="flex flex-col gap-5 w-full items-center mt-2 mb-8 relative z-10">
-          <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 rounded-2xl bg-[#b7c93b]/90 hover:bg-[#d4e04f]/90 transition-all duration-200 shadow-lg border-2 border-[#0F4F40] font-light" style={{ minHeight: 72, fontWeight: 300 }}>
+          <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 rounded-2xl bg-[#b7c93b]/90 hover:bg-[#d4e04f]/90 transition-all duration-200 shadow-lg border-2 border-[#0F4F40] font-bold" style={{ minHeight: 72, fontWeight: 700 }}>
             <img src={lionIcon} alt="Lion Icon" className="w-14 h-14 rounded-full bg-[#0F4F40] border-2 border-[#D4E04F] flex-shrink-0" />
-            <span className="text-lg md:text-xl font-light text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 300 }}>No More Mr. Nice Guy® Community</span>
+            <span className="text-lg md:text-xl font-bold text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>No More Mr. Nice Guy® Community</span>
           </a>
-          <a href="/bootcamp" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 rounded-2xl bg-[#b7c93b]/90 hover:bg-[#d4e04f]/90 transition-all duration-200 shadow-lg border-2 border-[#0F4F40] font-light" style={{ minHeight: 72, fontWeight: 300 }}>
+          <a href="/bootcamp" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 rounded-2xl bg-[#b7c93b]/90 hover:bg-[#d4e04f]/90 transition-all duration-200 shadow-lg border-2 border-[#0F4F40] font-bold" style={{ minHeight: 72, fontWeight: 700 }}>
             <img src={lionIcon} alt="Lion Icon" className="w-14 h-14 rounded-full bg-[#0F4F40] border-2 border-[#D4E04F] flex-shrink-0" />
-            <span className="text-lg md:text-xl font-light text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 300 }}>No More Mr. Nice Guy® Bootcamp - September 6-7th - Oxford, UK</span>
+            <span className="text-lg md:text-xl font-bold text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>No More Mr. Nice Guy® Bootcamp - September 6-7th - Oxford, UK</span>
           </a>
-          <a href="https://nmmng.co/NMMNG-General-Whatsapp" target="_blank" rel="noopener noreferrer" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 rounded-2xl bg-[#b7c93b]/90 hover:bg-[#d4e04f]/90 transition-all duration-200 shadow-lg border-2 border-[#0F4F40] font-light" style={{ minHeight: 72, fontWeight: 300 }}>
+          <a href="https://nmmng.co/NMMNG-General-Whatsapp" target="_blank" rel="noopener noreferrer" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 rounded-2xl bg-[#b7c93b]/90 hover:bg-[#d4e04f]/90 transition-all duration-200 shadow-lg border-2 border-[#0F4F40] font-bold" style={{ minHeight: 72, fontWeight: 700 }}>
             <span className="flex items-center justify-center w-14 h-14 rounded-full bg-white border-2 border-[#25D366] flex-shrink-0"><FaWhatsapp size={36} color="#25D366" /></span>
-            <span className="text-lg md:text-xl font-light text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 300 }}>No More Mr. Nice Guy® WhatsApp General</span>
+            <span className="text-lg md:text-xl font-bold text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>No More Mr. Nice Guy® WhatsApp General</span>
           </a>
         </div>
       </div>
-      {/* Social icons absolutely at the bottom center of the card container */}
-      <div className="absolute left-1/2" style={{ bottom: 32, transform: 'translateX(-50%)', zIndex: 40, width: '100%', maxWidth: 600, display: 'flex', justifyContent: 'center' }}>
-        <div className="flex flex-row items-center justify-center gap-6 w-full">
+      {/* Social icons in the footer, centered below the card */}
+      <footer className="w-full flex flex-col items-center justify-center mt-2 mb-4 z-50">
+        <div className="flex flex-row items-center justify-center gap-6 w-full max-w-2xl">
           <a href="https://www.youtube.com/channel/UCZ3dWVvGEx1BFUAvoKIjmUg" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:scale-110 transition-transform"><FaYoutube size={28} color="#0D212D" /></a>
           <a href="https://x.com/NMMNGS" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="hover:scale-110 transition-transform"><SiX size={28} color="#0D212D" /></a>
           <a href="https://instagram.com/NMMNGS" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:scale-110 transition-transform"><FaInstagram size={28} color="#0D212D" /></a>
@@ -82,7 +87,7 @@ function Home() {
           <a href="mailto:info@nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Email" className="hover:scale-110 transition-transform"><FaEnvelope size={28} color="#0D212D" /></a>
           <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Website" className="hover:scale-110 transition-transform"><FaGlobe size={28} color="#0D212D" /></a>
         </div>
-      </div>
+      </footer>
     </div>
   );
 }
