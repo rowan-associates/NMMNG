@@ -40,11 +40,7 @@ function ScrollToTop() {
 function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground px-4 py-12 relative overflow-hidden" style={{ background: `url(${linkinbioBg}) center/cover no-repeat, radial-gradient(circle at 50% 0%, #0F4F40 0%, #0D212D 100%)` }}>
-      {/* Lion in t-shirt resting on the top margin of the first button, aligned right, overlapping card, bigger */}
-      <div className="absolute z-30" style={{ right: 'calc(50% - 180px)', top: 'calc(50% - 10px)', transform: 'translateY(-100%)', pointerEvents: 'none' }}>
-        <img src={lionTshirt} alt="Lion T-shirt" style={{ width: 220, height: 220, objectFit: 'contain', filter: 'drop-shadow(0 8px 32px rgba(0,0,0,0.25))' }} />
-      </div>
-      <div className="glass card-modern flex flex-col items-center max-w-2xl w-full mx-auto px-4 pt-8 pb-6 rounded-3xl shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(13,33,45,0.55)', borderRadius: '32px', boxShadow: '0 8px 40px rgba(0,0,0,0.45)', border: '1.5px solid #1A1A1A', marginTop: '60px', marginBottom: '60px', backdropFilter: 'blur(16px)' }}>
+      <div className="glass card-modern flex flex-col items-center max-w-2xl w-full mx-auto px-4 pt-8 pb-6 rounded-3xl shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(13,33,45,0.32)', borderRadius: '32px', boxShadow: '0 8px 40px rgba(0,0,0,0.45)', border: '1.5px solid #1A1A1A', marginTop: '60px', marginBottom: '60px', backdropFilter: 'blur(16px)' }}>
         {/* Text content with lion on the right */}
         <div className="w-full flex flex-row items-center justify-between mt-4 mb-6 pl-8 pr-8" style={{ textAlign: 'left' }}>
           <div className="flex-1 flex flex-col items-start">
@@ -79,10 +75,8 @@ function Home() {
             <span className="text-lg md:text-xl font-bold text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>No More Mr. Nice Guy® WhatsApp General</span>
           </a>
         </div>
-      </div>
-      {/* Social icons in the footer, centered below the card */}
-      <footer className="w-full flex flex-col items-center justify-center mt-2 mb-4 z-50">
-        <div className="flex flex-row items-center justify-center gap-6 w-full max-w-2xl">
+        {/* Social icons in the card, below the buttons */}
+        <div className="flex flex-row items-center justify-center gap-6 w-full max-w-2xl mt-2 mb-2">
           <a href="https://www.youtube.com/channel/UCZ3dWVvGEx1BFUAvoKIjmUg" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:scale-110 transition-transform"><FaYoutube size={28} color="#0D212D" /></a>
           <a href="https://x.com/NMMNGS" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="hover:scale-110 transition-transform"><SiX size={28} color="#0D212D" /></a>
           <a href="https://instagram.com/NMMNGS" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:scale-110 transition-transform"><FaInstagram size={28} color="#0D212D" /></a>
@@ -93,7 +87,7 @@ function Home() {
           <a href="mailto:info@nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Email" className="hover:scale-110 transition-transform"><FaEnvelope size={28} color="#0D212D" /></a>
           <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" aria-label="Website" className="hover:scale-110 transition-transform"><FaGlobe size={28} color="#0D212D" /></a>
         </div>
-      </footer>
+      </div>
     </div>
   );
 }
