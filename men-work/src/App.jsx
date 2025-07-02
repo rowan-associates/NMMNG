@@ -23,8 +23,7 @@ import bootcampFooter from './assets/bootcamp-footer.avif'
 import backToTopImg from './assets/back-to-top.webp'
 import './App.css'
 import { Routes, Route, useLocation, Link } from 'react-router-dom'
-import linkinbioBg from './assets/linkinbio-backgroun.webp'
-import lionTshirt from './assets/lion-tshirt.webp'
+import linkinbioBg from './assets/linkinbio-background.webp'
 import { FaYoutube, FaInstagram, FaMeetup, FaTiktok, FaLinkedin, FaWhatsapp, FaEnvelope, FaGlobe } from 'react-icons/fa'
 import { SiX } from 'react-icons/si'
 import lionIcon from './assets/nmmng-logo.png'
@@ -40,16 +39,12 @@ function ScrollToTop() {
 function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground px-4 py-12 relative overflow-hidden" style={{ background: `url(${linkinbioBg}) center/cover no-repeat` }}>
-      <div className="glass card-modern flex flex-col items-center max-w-2xl w-full mx-auto px-4 pt-8 pb-6 shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(13,33,45,0.08)', borderRadius: '11px', boxShadow: '0 8px 40px rgba(0,0,0,0.35)', border: '1.5px solid #1A1A1A', marginTop: '60px', marginBottom: '60px', backdropFilter: 'blur(12px)' }}>
-        {/* Lion image absolutely positioned, overlapping top-right of card, 1/3 outside, 2/3 inside */}
-        <div style={{ position: 'absolute', top: '-36px', right: '-60px', zIndex: 30 }}>
-          <img src={lionTshirt} alt="Lion T-shirt" style={{ width: 170, height: 170, objectFit: 'contain', filter: 'drop-shadow(0 8px 32px rgba(0,0,0,0.25))' }} />
-        </div>
+      <div className="glass card-modern flex flex-col items-center max-w-2xl w-full mx-auto px-4 pt-8 pb-6 shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(255,255,255,0.08)', borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.35)', border: '1.5px solid #1A1A1A', marginTop: '60px', marginBottom: '60px', backdropFilter: 'blur(12px)' }}>
         {/* Text content */}
-        <h1 className="text-4xl md:text-5xl font-extrabold mb-2 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>Men's Work</h1>
-        <div className="text-lg md:text-xl font-bold mb-4" style={{ color: '#D4E04F', fontFamily: 'League Spartan, sans-serif' }}>Your Pocket-Sized Brotherhood</div>
-        <div className="text-base md:text-lg text-muted-foreground mb-4" style={{ color: '#F5F5F5', fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
-          Modern brotherhood for men, global community, events, and conversations.
+        <h1 className="text-4xl md:text-5xl font-extrabold mb-2 gradient-text-primary text-center" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>Men's Work</h1>
+        <div className="text-lg md:text-xl font-bold mb-4 text-center" style={{ color: '#D4E04F', fontFamily: 'League Spartan, sans-serif' }}>Your Pocket-Sized Brotherhood</div>
+        <div className="text-base md:text-lg text-muted-foreground mb-4 text-center" style={{ color: '#F5F5F5', fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
+          A modern brotherhood for men ready to reclaim authentic power, deepen relationships, and lead with confidence. Join our global community, events, and conversations.
         </div>
         <div className="flex flex-col gap-5 w-full items-center mt-2 mb-4 relative z-10">
           <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 shadow-lg border-2 border-[#0F4F40] font-bold" style={{ minHeight: 72, fontWeight: 700, borderRadius: 11 }}>
@@ -62,13 +57,13 @@ function Home() {
             <span className="flex items-center justify-center w-14 h-10 md:w-14 md:h-10" style={{ borderRadius: 11, background: '#0D212D', border: '2px solid #D4E04F' }}>
               <img src={lionIcon} alt="Lion Icon" className="w-8 h-8 object-contain" />
             </span>
-            <span className="text-lg md:text-xl font-bold text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>No More Mr. Nice Guy® Bootcamp - September 6-7th - Oxford, UK</span>
+            <span className="text-lg md:text-xl font-bold text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>No More Mr. Nice Guy® Bootcamp - September Oxford, UK</span>
           </Link>
           <Link to="/lover" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 shadow-lg border-2 border-[#0F4F40] font-bold" style={{ minHeight: 72, fontWeight: 700, borderRadius: 11 }}>
             <span className="flex items-center justify-center w-14 h-10 md:w-14 md:h-10" style={{ borderRadius: 11, background: '#0D212D', border: '2px solid #D4E04F' }}>
               <img src={lionIcon} alt="Lion Icon" className="w-8 h-8 object-contain" />
             </span>
-            <span className="text-lg md:text-xl font-bold text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>Authentic Lover Blueprint – 6-Month Programme</span>
+            <span className="text-lg md:text-xl font-bold text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>No More Mr. Nice Guy® WhatsApp General</span>
           </Link>
         </div>
         {/* Divider above social icons */}
@@ -76,8 +71,15 @@ function Home() {
           <div style={{ width: '80%', height: 1, background: 'rgba(255,255,255,0.12)' }} />
         </div>
         {/* Social icons row at the bottom of the card, always visible */}
-        <div className="linkinbio-socials">
-          {/* ...social icons code... */}
+        <div className="flex flex-row justify-center items-center gap-4 mt-2 mb-1">
+          <a href="https://www.youtube.com/@NoMoreMrNiceGuyUK" target="_blank" rel="noopener noreferrer"><FaYoutube className="text-2xl text-[#0D212D] hover:text-[#D4E04F]" /></a>
+          <a href="https://x.com/nmmng_uk" target="_blank" rel="noopener noreferrer"><SiX className="text-2xl text-[#0D212D] hover:text-[#D4E04F]" /></a>
+          <a href="https://instagram.com/nomoremrniceguyuk" target="_blank" rel="noopener noreferrer"><FaInstagram className="text-2xl text-[#0D212D] hover:text-[#D4E04F]" /></a>
+          <a href="https://www.meetup.com/menwork-uk/" target="_blank" rel="noopener noreferrer"><FaMeetup className="text-2xl text-[#0D212D] hover:text-[#D4E04F]" /></a>
+          <a href="https://www.linkedin.com/company/menwork-uk/" target="_blank" rel="noopener noreferrer"><FaLinkedin className="text-2xl text-[#0D212D] hover:text-[#D4E04F]" /></a>
+          <a href="https://wa.me/447418351888" target="_blank" rel="noopener noreferrer"><FaWhatsapp className="text-2xl text-[#0D212D] hover:text-[#D4E04F]" /></a>
+          <a href="mailto:info@nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer"><FaEnvelope className="text-2xl text-[#0D212D] hover:text-[#D4E04F]" /></a>
+          <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer"><FaGlobe className="text-2xl text-[#0D212D] hover:text-[#D4E04F]" /></a>
         </div>
       </div>
     </div>
