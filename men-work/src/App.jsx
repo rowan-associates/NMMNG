@@ -23,7 +23,6 @@ import bootcampFooter from './assets/bootcamp-footer.avif'
 import backToTopImg from './assets/back-to-top.webp'
 import './App.css'
 import { Routes, Route, useLocation, Link } from 'react-router-dom'
-import linkinbioBg from './assets/linkinbio-background.webp'
 import { FaYoutube, FaInstagram, FaMeetup, FaTiktok, FaLinkedin, FaWhatsapp, FaEnvelope, FaGlobe } from 'react-icons/fa'
 import { SiX } from 'react-icons/si'
 import lionIcon from './assets/nmmng-logo.png'
@@ -38,7 +37,7 @@ function ScrollToTop() {
 
 function Home() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground px-4 py-12 relative overflow-hidden" style={{ background: `url(${linkinbioBg}) center/cover no-repeat` }}>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground px-4 py-12 relative overflow-hidden" style={{ background: "url('/linkinbio-background.webp') center/cover no-repeat" }}>
       <div className="glass card-modern flex flex-col items-center max-w-2xl w-full mx-auto px-4 pt-8 pb-6 shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(255,255,255,0.08)', borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.35)', border: '1.5px solid #1A1A1A', marginTop: '60px', marginBottom: '60px', backdropFilter: 'blur(12px)' }}>
         {/* Text content */}
         <h1 className="text-4xl md:text-5xl font-extrabold mb-2 gradient-text-primary text-center" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>Men's Work</h1>

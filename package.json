@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "echo '❌ Run build from men-work/ directory only' && exit 1",
     "lint": "eslint .",
     "preview": "vite preview"
   },

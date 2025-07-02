@@ -25,5 +25,14 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <!-- GitHub Pages SPA fallback: uncomment if deploying to GitHub Pages only -->
+    <!--
+    <script>
+      // Redirects client routes back to index.html on refresh
+      if (location.pathname !== '/' && !location.pathname.includes('.')) {
+        history.replaceState(null, '', '/');
+      }
+    </script>
+    -->
   </body>
 </html>
