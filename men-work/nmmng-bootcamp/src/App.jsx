@@ -40,10 +40,10 @@ function ScrollToTop() {
 function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground px-4 py-12 relative overflow-hidden" style={{ background: `url(${linkinbioBg}) center/cover no-repeat` }}>
-      <div className="glass card-modern flex flex-col items-center max-w-2xl w-full mx-auto px-4 pt-8 pb-6 rounded-3xl shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(13,33,45,0.12)', borderRadius: '32px', boxShadow: '0 8px 40px rgba(0,0,0,0.45)', border: '1.5px solid #1A1A1A', marginTop: '60px', marginBottom: '60px', backdropFilter: 'blur(16px)' }}>
-        {/* Lion image absolutely positioned, overlapping top-right of card */}
-        <div style={{ position: 'absolute', top: '-48px', right: '-32px', zIndex: 30 }}>
-          <img src={lionTshirt} alt="Lion T-shirt" style={{ width: 140, height: 140, objectFit: 'contain', filter: 'drop-shadow(0 8px 32px rgba(0,0,0,0.25))' }} />
+      <div className="glass card-modern flex flex-col items-center max-w-2xl w-full mx-auto px-4 pt-8 pb-6 rounded-3xl shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(13,33,45,0.08)', borderRadius: '32px', boxShadow: '0 8px 40px rgba(0,0,0,0.35)', border: '1.5px solid #1A1A1A', marginTop: '60px', marginBottom: '60px', backdropFilter: 'blur(12px)' }}>
+        {/* Lion image absolutely positioned, overlapping top-right of card, 1/3 outside, 2/3 inside */}
+        <div style={{ position: 'absolute', top: '-36px', right: '-60px', zIndex: 30 }}>
+          <img src={lionTshirt} alt="Lion T-shirt" style={{ width: 170, height: 170, objectFit: 'contain', filter: 'drop-shadow(0 8px 32px rgba(0,0,0,0.25))' }} />
         </div>
         {/* Text content */}
         <div className="w-full flex flex-col items-start mt-4 mb-6 pl-8 pr-8" style={{ textAlign: 'left', minHeight: 140 }}>
@@ -74,8 +74,12 @@ function Home() {
             <span className="text-lg md:text-xl font-bold text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>No More Mr. Nice Guy® WhatsApp General</span>
           </a>
         </div>
+        {/* Divider above social icons */}
+        <div className="w-full flex justify-center items-center mt-6 mb-2">
+          <div style={{ width: '80%', height: 1, background: 'rgba(255,255,255,0.12)' }} />
+        </div>
         {/* Social icons row at the bottom of the card, always visible */}
-        <div className="flex flex-row items-center justify-center gap-6 w-full max-w-2xl mt-auto mb-2">
+        <div className="flex flex-row items-center justify-center gap-6 w-full max-w-2xl mt-2 mb-2">
           <a href="https://www.youtube.com/channel/UCZ3dWVvGEx1BFUAvoKIjmUg" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:scale-110 transition-transform"><FaYoutube size={28} color="#0D212D" /></a>
           <a href="https://x.com/NMMNGS" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="hover:scale-110 transition-transform"><SiX size={28} color="#0D212D" /></a>
           <a href="https://instagram.com/NMMNGS" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:scale-110 transition-transform"><FaInstagram size={28} color="#0D212D" /></a>
