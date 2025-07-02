@@ -40,18 +40,19 @@ function ScrollToTop() {
 function Home() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground px-4 py-12 relative overflow-hidden" style={{ background: `url(${linkinbioBg}) center/cover no-repeat, radial-gradient(circle at 50% 0%, #0F4F40 0%, #0D212D 100%)` }}>
-      <div className="glass card-modern flex flex-col items-center max-w-2xl w-full mx-auto px-4 pt-8 pb-6 rounded-3xl shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(13,33,45,0.32)', borderRadius: '32px', boxShadow: '0 8px 40px rgba(0,0,0,0.45)', border: '1.5px solid #1A1A1A', marginTop: '60px', marginBottom: '60px', backdropFilter: 'blur(16px)' }}>
-        {/* Text content with lion on the right */}
-        <div className="w-full flex flex-row items-center justify-between mt-4 mb-6 pl-8 pr-8" style={{ textAlign: 'left' }}>
+      <div className="glass card-modern flex flex-col items-center max-w-2xl w-full mx-auto px-4 pt-8 pb-6 rounded-3xl shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(13,33,45,0.18)', borderRadius: '32px', boxShadow: '0 8px 40px rgba(0,0,0,0.45)', border: '1.5px solid #1A1A1A', marginTop: '60px', marginBottom: '60px', backdropFilter: 'blur(16px)' }}>
+        {/* Text content with lion on the right, lion is bigger and aligned bottom to first button */}
+        <div className="w-full flex flex-row items-start justify-between mt-4 mb-6 pl-8 pr-8 relative" style={{ textAlign: 'left', minHeight: 140 }}>
           <div className="flex-1 flex flex-col items-start">
             <h1 className="text-2xl md:text-3xl font-extrabold mb-1 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>Men's Work</h1>
             <h2 className="text-lg md:text-xl font-heading mb-2" style={{ color: '#D4E04F', fontWeight: 700 }}>Your Pocket-Sized Brotherhood</h2>
-            <p className="text-base md:text-lg mb-2 text-muted-foreground" style={{ color: '#F5F5F5', fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
+            <p className="text-base md:text-lg mb-4 text-muted-foreground" style={{ color: '#F5F5F5', fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
               A modern brotherhood for men ready to reclaim authentic power, deepen relationships, and lead with confidence. Join our global community, events, and conversations.
             </p>
           </div>
-          <div className="flex-shrink-0 ml-4 flex items-center" style={{ height: '100%' }}>
-            <img src={lionTshirt} alt="Lion T-shirt" style={{ width: 120, height: 120, objectFit: 'contain', filter: 'drop-shadow(0 8px 32px rgba(0,0,0,0.25))' }} />
+          {/* Lion image, bigger, bottom aligned to first button */}
+          <div className="flex-shrink-0 ml-4 flex items-end absolute" style={{ right: 0, bottom: '-60px', height: 'auto', zIndex: 20 }}>
+            <img src={lionTshirt} alt="Lion T-shirt" style={{ width: 160, height: 160, objectFit: 'contain', filter: 'drop-shadow(0 8px 32px rgba(0,0,0,0.25))' }} />
           </div>
         </div>
         {/* Buttons with bold font weight and rounded-rectangle icons */}
