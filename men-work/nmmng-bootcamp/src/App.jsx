@@ -56,7 +56,7 @@ function Home() {
           </div>
         </div>
         {/* Buttons with bold font weight and rounded-rectangle icons */}
-        <div className="flex flex-col gap-5 w-full items-center mt-2 mb-8 relative z-10">
+        <div className="flex flex-col gap-5 w-full items-center mt-2 mb-4 relative z-10">
           <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 rounded-2xl bg-[#b7c93b]/90 hover:bg-[#d4e04f]/90 transition-all duration-200 shadow-lg border-2 border-[#0F4F40] font-bold" style={{ minHeight: 72, fontWeight: 700 }}>
             <span className="flex items-center justify-center w-14 h-10 md:w-14 md:h-10 rounded-2xl bg-[#0F4F40] border-2 border-[#D4E04F] flex-shrink-0">
               <img src={lionIcon} alt="Lion Icon" className="w-8 h-8 object-contain" />
@@ -76,8 +76,8 @@ function Home() {
             <span className="text-lg md:text-xl font-bold text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>No More Mr. Nice Guy® WhatsApp General</span>
           </a>
         </div>
-        {/* Social icons in the card, below the buttons */}
-        <div className="flex flex-row items-center justify-center gap-6 w-full max-w-2xl mt-2 mb-2">
+        {/* Social icons row below the buttons, always visible */}
+        <div className="flex flex-row items-center justify-center gap-6 w-full max-w-2xl mt-4 mb-2">
           <a href="https://www.youtube.com/channel/UCZ3dWVvGEx1BFUAvoKIjmUg" target="_blank" rel="noopener noreferrer" aria-label="YouTube" className="hover:scale-110 transition-transform"><FaYoutube size={28} color="#0D212D" /></a>
           <a href="https://x.com/NMMNGS" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" className="hover:scale-110 transition-transform"><SiX size={28} color="#0D212D" /></a>
           <a href="https://instagram.com/NMMNGS" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:scale-110 transition-transform"><FaInstagram size={28} color="#0D212D" /></a>
