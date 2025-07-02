@@ -52,12 +52,12 @@ function Home() {
           Modern brotherhood for men, global community, events, and conversations.
         </div>
         <div className="flex flex-col gap-5 w-full items-center mt-2 mb-4 relative z-10">
-          <Link to="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 shadow-lg border-2 border-[#0F4F40] font-bold" style={{ minHeight: 72, fontWeight: 700, borderRadius: 11 }}>
+          <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noopener noreferrer" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 shadow-lg border-2 border-[#0F4F40] font-bold" style={{ minHeight: 72, fontWeight: 700, borderRadius: 11 }}>
             <span className="flex items-center justify-center w-14 h-10 md:w-14 md:h-10" style={{ borderRadius: 11, background: '#0D212D', border: '2px solid #D4E04F' }}>
               <img src={lionIcon} alt="Lion Icon" className="w-8 h-8 object-contain" />
             </span>
             <span className="text-lg md:text-xl font-bold text-left" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>No More Mr. Nice Guy® Community</span>
-          </Link>
+          </a>
           <Link to="/bootcamp" className="w-full max-w-2xl flex items-center gap-4 px-4 py-4 shadow-lg border-2 border-[#0F4F40] font-bold" style={{ minHeight: 72, fontWeight: 700, borderRadius: 11 }}>
             <span className="flex items-center justify-center w-14 h-10 md:w-14 md:h-10" style={{ borderRadius: 11, background: '#0D212D', border: '2px solid #D4E04F' }}>
               <img src={lionIcon} alt="Lion Icon" className="w-8 h-8 object-contain" />
