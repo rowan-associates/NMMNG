@@ -1095,11 +1095,11 @@ function LoverLanding() {
       </section>
 
       {/* Section 4: Our Philosophy: Experience Over Theory */}
-      <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto w-full relative bg-secondary/30 rounded-2xl overflow-hidden">
+      <section className="py-16 px-6 md:px-12 w-full relative overflow-hidden">
         {/* Background image with overlay */}
         <div className="absolute inset-0 bg-[url('/assets/polarity-transparent.webp')] bg-cover bg-center blur-sm opacity-40 z-0"></div>
         <div className="absolute inset-0 bg-gradient-to-l from-[#0D212Dcc] to-[#0D212Ddd] z-0"></div>
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch h-full">
+        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch h-full">
           {/* Foreground Image Card (left on desktop, top on mobile) */}
           <div className="flex justify-center items-center h-full min-h-[420px] order-1 md:order-none">
             <img src="/assets/polarity-transparent.webp" alt="Philosophy Portrait" className="object-cover h-full w-full rounded-xl border border-white/10 shadow-xl hover:scale-105 transition-transform ease-in-out duration-300" style={{ maxWidth: 300 }} />
