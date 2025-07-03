@@ -19,6 +19,7 @@ import goldFoil from './assets/gold-foil.webp';
 import archetypesImg from './assets/archetypes.webp';
 import { FaYoutube, FaX, FaInstagram, FaMeetup, FaWhatsapp, FaEnvelope, FaGlobe } from 'react-icons/fa';
 import { SiX } from 'react-icons/si';
+import phoenixImg from './assets/phoenix.webp';
 // import other assets/icons as needed
 
 // Add/override styles for premium black and gold aesthetic
@@ -55,29 +56,27 @@ function CoachingLanding() {
 
   return (
     <div className="min-h-screen text-foreground overflow-x-hidden" style={{ background: BG_BLACK, color: TEXT_LIGHT }}>
-      {/* Sticky Navigation */}
-      {isScrolled && (
-        <nav className="nav-sticky" style={{ position: 'relative', background: `url(${goldFoil}), linear-gradient(rgba(0,0,0,0.96),rgba(0,0,0,0.96))`, backgroundBlendMode: 'overlay', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', boxShadow: `0 2px 24px 0 ${GOLD}33`, overflow: 'hidden' }}>
-          <div style={{ position: 'absolute', inset: 0, zIndex: 0, filter: 'blur(6px)', pointerEvents: 'none' }} />
-          <div className="container mx-auto px-4 py-2 flex flex-row justify-between items-center gap-2" style={{ position: 'relative', zIndex: 1 }}>
-            <div className="flex flex-row items-center gap-3">
-              <a href="/" className="flex items-center justify-center" style={{ position: 'relative', zIndex: 10 }}>
-                <img src={nmmngLogo} alt="NMMNG Logo" className="h-10 w-auto mr-2" style={{ position: 'relative', zIndex: 11, background: 'none' }} />
-              </a>
-              <h2 className="text-lg font-bold nmmng-glow text-left" style={{ color: GOLD, fontFamily: 'League Spartan, sans-serif', fontWeight: 700, textShadow: `0 0 8px ${GOLD}55` }}>Executive Transformation Program</h2>
-            </div>
-            <button 
-              onClick={() => scrollToSection('application')}
-              className="btn-primary text-base px-5 py-2 font-bold rounded-lg gold-foil-btn shimmer-on-hover"
-              style={{ background: BG_BLACK, color: GOLD, border: `1.5px solid ${GOLD}`, boxShadow: 'none', fontWeight: 700, letterSpacing: '0.04em', minWidth: 0, lineHeight: 1.1, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center', whiteSpace: 'nowrap', position: 'relative', overflow: 'hidden' }}
-            >
-              <span style={{ position: 'relative', zIndex: 2 }}>APPLY NOW</span>
-              <ArrowRight className="w-4 h-4 ml-2" color={GOLD} />
-              <span className="gold-shimmer-anim" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 3 }} />
-            </button>
+      {/* Sticky Navigation - always visible */}
+      <nav className="nav-sticky" style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, background: `url(${goldFoil}), linear-gradient(rgba(0,0,0,0.96),rgba(0,0,0,0.96))`, backgroundBlendMode: 'overlay', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', boxShadow: `0 2px 24px 0 ${GOLD}33`, overflow: 'hidden' }}>
+        <div style={{ position: 'absolute', inset: 0, zIndex: 0, filter: 'blur(6px)', pointerEvents: 'none' }} />
+        <div className="container mx-auto px-4 py-2 flex flex-row justify-between items-center gap-2" style={{ position: 'relative', zIndex: 1 }}>
+          <div className="flex flex-row items-center gap-3">
+            <a href="/" className="flex items-center justify-center" style={{ position: 'relative', zIndex: 10 }}>
+              <img src={nmmngLogo} alt="NMMNG Logo" className="h-10 w-auto mr-2" style={{ position: 'relative', zIndex: 11, background: 'none' }} />
+            </a>
+            <h2 className="text-lg font-bold nmmng-glow text-left" style={{ color: GOLD, fontFamily: 'League Spartan, sans-serif', fontWeight: 700, textShadow: `0 0 8px ${GOLD}55` }}>Executive Transformation Program</h2>
           </div>
-        </nav>
-      )}
+          <button 
+            onClick={() => scrollToSection('application')}
+            className="btn-primary text-base px-5 py-2 font-bold rounded-lg gold-foil-btn shimmer-on-hover"
+            style={{ background: BG_BLACK, color: GOLD, border: `1.5px solid ${GOLD}`, boxShadow: 'none', fontWeight: 700, letterSpacing: '0.04em', minWidth: 0, lineHeight: 1.1, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center', whiteSpace: 'nowrap', position: 'relative', overflow: 'hidden' }}
+          >
+            <span style={{ position: 'relative', zIndex: 2 }}>APPLY NOW</span>
+            <ArrowRight className="w-4 h-4 ml-2" color={GOLD} />
+            <span className="gold-shimmer-anim" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 3 }} />
+          </button>
+        </div>
+      </nav>
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative hero-bg">
@@ -263,28 +262,31 @@ function CoachingLanding() {
         </div>
       </section>
 
-      {/* Promise Section */}
-      <section id="promise" className="py-20 w-full relative overflow-hidden flex flex-col items-center justify-center">
-        {/* Optional key symbol background */}
-        <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none">
-          <img src={keyImg} alt="Key Symbol" className="w-full max-w-3xl opacity-10 grayscale" style={{ filter: 'blur(1px) grayscale(1)' }} />
-        </div>
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
+      {/* Promise Section - Transformational Change, Not Surface Fixes */}
+      <section id="promise" className="min-h-screen h-screen w-full relative overflow-hidden flex flex-col md:flex-row items-center justify-center px-6 gap-12">
+        <div className="flex-1 flex flex-col justify-center max-w-xl z-10 text-left">
+          <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
             Transformational Change, Not Surface Fixes
-          </h2>
-          <div className="w-32 h-1 mb-8 rounded-full mx-auto" style={{ background: 'linear-gradient(90deg, #D4E04F 0%, #A67C52 100%)', boxShadow: '0 0 16px 4px #E6F97B88' }} />
-          <p className="text-lg md:text-xl text-white mb-8 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4 }}>
+          </motion.h2>
+          <div className="w-32 h-1 mb-8 rounded-full" style={{ background: 'linear-gradient(90deg, #D4E04F 0%, #A67C52 100%)', boxShadow: '0 0 16px 4px #E6F97B88' }} />
+          <p className="text-lg md:text-xl text-white mb-8" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4 }}>
             We don't just solve surface-level problems. We rewire the underlying patterns of thinking and behaviour that created them, opening up a new sense of self and possibility.
           </p>
-          <ul className="space-y-4 text-base md:text-lg text-left mx-auto max-w-2xl" style={{ fontFamily: 'League Spartan, sans-serif', color: TEXT_LIGHT, fontWeight: 400 }}>
+          <ul className="space-y-4 text-base md:text-lg" style={{ fontFamily: 'League Spartan, sans-serif', color: TEXT_LIGHT, fontWeight: 400 }}>
             <li><span className="text-[#D4E04F] font-bold">Speed & Intensity:</span> Achieve profound transformation in 90 days through intensive, focused work on what matters most.</li>
             <li><span className="text-[#D4E04F] font-bold">Bespoke Solutions:</span> The program is entirely tailored to you. We diagnose your specific problems and co-create a direct path to the solutions.</li>
             <li><span className="text-[#D4E04F] font-bold">Vision & Strategy:</span> You will leave with a powerful, grounded vision for your future and a clear, actionable pathway to achieve it.</li>
             <li><span className="text-[#D4E04F] font-bold">Future-Ready Leadership:</span> Skills that complement, don't compete with, AI capabilities, positioning you as irreplaceable in a rapidly changing world.</li>
             <li><span className="text-[#D4E04F] font-bold">Authentic Confidence:</span> Confidence rooted in self-knowledge, not external validation, that allows you to lead authentically rather than perform constantly.</li>
           </ul>
-        </motion.div>
+        </div>
+        <div className="flex-1 flex items-center justify-center h-full z-10">
+          <img src={phoenixImg} alt="Phoenix" className="object-contain w-full max-w-2xl h-[60vh] md:h-[80vh] drop-shadow-2xl" style={{ filter: 'brightness(1.1) drop-shadow(0 8px 32px #D4AF3744)' }} />
+        </div>
+        {/* Optional key symbol background, now behind everything */}
+        <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none">
+          <img src={keyImg} alt="Key Symbol" className="w-full max-w-3xl opacity-10 grayscale" style={{ filter: 'blur(1px) grayscale(1)' }} />
+        </div>
       </section>
 
       {/* Structure Section */}
