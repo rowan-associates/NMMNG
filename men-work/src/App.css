@@ -748,3 +748,31 @@ button[class*="Button"],
   margin-bottom: 0.25rem;
   width: 100%;
 }
+
+@media (max-width: 600px) {
+  .text-5xl, .text-6xl { font-size: 2rem !important; }
+  .text-3xl, .text-4xl { font-size: 1.3rem !important; }
+  .text-2xl { font-size: 1.1rem !important; }
+  .py-32, .py-24, .py-20 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+  .px-6, .px-4 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+  .gap-12, .gap-14, .gap-10 { gap: 1.2rem !important; }
+  .rounded-2xl { border-radius: 0.8rem !important; }
+  .p-10, .p-12, .p-16 { padding: 1rem !important; }
+  .min-h-[320px], .min-h-[420px], .min-h-[220px], .min-h-[520px] { min-height: 120px !important; }
+  .max-w-7xl, .max-w-5xl, .max-w-xl, .max-w-2xl, .max-w-3xl { max-width: 100vw !important; }
+  .w-full { width: 100% !important; }
+  .overflow-x-hidden { overflow-x: hidden !important; }
+  .flex-row, .md\:flex-row, .md\:flex-row-reverse { flex-direction: column !important; }
+  .items-center, .justify-center { align-items: stretch !important; justify-content: flex-start !important; }
+  .text-center, .text-left { text-align: left !important; }
+  .btn-primary, .gold-foil-btn { font-size: 1rem !important; padding: 0.75rem 1.2rem !important; min-height: 44px !important; }
+  .glass, .glass-light { padding: 1rem !important; }
+  .border, .border-2 { border-width: 1px !important; }
+  .shadow-xl, .shadow-lg, .drop-shadow-lg { box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important; }
+  .overflow-visible { overflow: visible !important; }
+  .vertical-dot-nav { display: none !important; }
+  .word-break, .overflow-wrap { word-break: break-word !important; overflow-wrap: break-word !important; }
+}
+
+/* Remove pinecone/back-to-top styles */
+.back-to-top-btn, .back-to-top-img { display: none !important; }

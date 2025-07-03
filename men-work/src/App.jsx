@@ -35,6 +35,7 @@ import { FaUsers, FaChalkboardTeacher, FaUserCheck, FaTasks, FaComments, FaHands
 import menBg from './assets/men.webp'
 import CoachingLanding from './CoachingLanding.jsx'
 import Analytics from './components/Analytics.jsx'
+import LinkInBio from './LinkInBio'
 
 // Socials array (move to file scope for reuse)
 const socials = [
@@ -153,7 +154,7 @@ function App() {
       <Analytics />
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<LinkInBio />} />
         <Route path="/bootcamp" element={<BootcampLanding />} />
         <Route path="/lover" element={<LoverLanding />} />
         <Route path="/coaching" element={<CoachingLanding />} />
