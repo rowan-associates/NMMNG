@@ -1370,6 +1370,9 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
         >
           {ctaText}
         </Button>
+        <div className="text-base font-bold text-center mt-6" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>
+          Total: £{price}
+        </div>
       </CardContent>
     </Card>
   );
