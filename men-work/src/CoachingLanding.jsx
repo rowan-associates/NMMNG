@@ -57,8 +57,9 @@ function CoachingLanding() {
     <div className="min-h-screen text-foreground overflow-x-hidden" style={{ background: BG_BLACK, color: TEXT_LIGHT }}>
       {/* Sticky Navigation */}
       {isScrolled && (
-        <nav className="nav-sticky" style={{ background: `url(${goldFoil}), linear-gradient(rgba(0,0,0,0.96),rgba(0,0,0,0.96))`, backgroundBlendMode: 'overlay', backgroundSize: 'cover', boxShadow: `0 2px 24px 0 ${GOLD}33` }}>
-          <div className="container mx-auto px-4 py-2 flex flex-row justify-between items-center gap-2">
+        <nav className="nav-sticky" style={{ position: 'relative', background: `url(${goldFoil}), linear-gradient(rgba(0,0,0,0.96),rgba(0,0,0,0.96))`, backgroundBlendMode: 'overlay', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', boxShadow: `0 2px 24px 0 ${GOLD}33`, overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', inset: 0, zIndex: 0, filter: 'blur(6px)', pointerEvents: 'none' }} />
+          <div className="container mx-auto px-4 py-2 flex flex-row justify-between items-center gap-2" style={{ position: 'relative', zIndex: 1 }}>
             <div className="flex flex-row items-center gap-3">
               <a href="/" className="flex items-center justify-center" style={{ position: 'relative', zIndex: 10 }}>
                 <img src={nmmngLogo} alt="NMMNG Logo" className="h-10 w-auto mr-2" style={{ position: 'relative', zIndex: 11, background: 'none' }} />
@@ -126,12 +127,12 @@ function CoachingLanding() {
 
       {/* Disruption Section */}
       <section id="disruption" className="w-full min-h-screen flex items-center justify-center relative overflow-hidden">
-        <div className="absolute inset-0 z-0" style={{ background: "url('/assets/hero_silhouette.jpeg') center/cover no-repeat", filter: 'blur(4px) brightness(0.7)', opacity: 0.7 }} />
-        <div className="absolute inset-0 bg-black/70 z-0" />
-        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12 px-6 py-16" style={{ minHeight: '80vh' }}>
-          {/* Text box */}
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="flex-1 flex flex-col items-center md:items-start justify-center">
-            <div className="glass gold-foil-border rounded-2xl p-10 md:p-16 flex flex-col items-center shadow-xl backdrop-blur-md w-full max-w-2xl mx-auto" style={{ background: 'rgba(20,20,20,0.82)', borderRadius: 24 }}>
+        {/* Archetypes full background */}
+        <img src={archetypesImg} alt="Archetypes" className="absolute inset-0 w-full h-full object-cover z-0" style={{ opacity: 0.22, filter: 'blur(2.5px)', objectFit: 'cover', pointerEvents: 'none' }} />
+        <div className="absolute inset-0 bg-black/80 z-0" />
+        <div className="relative z-10 w-full flex items-center justify-center px-2 py-16" style={{ minHeight: '80vh' }}>
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="w-full max-w-5xl mx-auto">
+            <div className="glass gold-foil-border rounded-2xl p-10 md:p-16 flex flex-col items-center shadow-xl backdrop-blur-md w-full" style={{ background: 'rgba(0,0,0,0.68)', borderRadius: 24 }}>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center gold-gradient-text" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.1 }}>
                 The World Has Changed. Have You?
               </h2>
@@ -152,10 +153,6 @@ function CoachingLanding() {
               </p>
             </div>
           </motion.div>
-          {/* Archetypes image */}
-          <div className="flex-1 flex items-center justify-center w-full max-w-xl">
-            <img src={archetypesImg} alt="Archetypes" className="w-full h-auto max-h-[520px] rounded-2xl shadow-xl object-cover" style={{ objectPosition: 'center', borderRadius: 24, border: '2px solid #A67C52', background: 'rgba(0,0,0,0.7)' }} />
-          </div>
         </div>
       </section>
 
@@ -566,8 +563,9 @@ function CoachingFooter({ showBackToTop, scrollToTop, backToTopImg }) {
     { icon: <FaGlobe />, url: 'https://nomoremrniceguy.co.uk' },
   ];
   return (
-    <footer className="py-16 border-t border-border/20 relative z-10" style={{ background: `url(${goldFoil}), url(${bootcampFooter}) center bottom/cover no-repeat`, backgroundBlendMode: 'overlay', backgroundAttachment: 'fixed' }}>
-      <div className="absolute top-0 left-0 w-full h-3" style={{ background: `url(${goldFoil}) center/cover repeat-x`, opacity: 0.7, zIndex: 2 }} />
+    <footer className="py-16 border-t border-border/20 relative z-10" style={{ position: 'relative', background: `url(${goldFoil}), url(${bootcampFooter}) center bottom/cover no-repeat`, backgroundBlendMode: 'overlay', backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0, filter: 'blur(6px)', pointerEvents: 'none' }} />
+      <div className="absolute top-0 left-0 w-full h-3" style={{ background: `url(${goldFoil}) center/cover no-repeat`, opacity: 0.7, zIndex: 2 }} />
       <div className="container mx-auto px-6 flex flex-col items-center relative z-10">
         <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center cursor-pointer">
           <img src={nmmngLogo} alt="NMMNG Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
