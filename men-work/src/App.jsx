@@ -1116,30 +1116,15 @@ function LoverLanding() {
 
       {/* Section 5: Programme Structure & Curriculum */}
       <section className="relative py-20 w-full min-h-[700px] flex items-center justify-center overflow-visible" style={{ zIndex: 1 }}>
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-6">
+        {/* Blurred background image for the entire section */}
+        <div className="absolute inset-0 z-0 bg-cover bg-center" style={{ backgroundImage: `url(${loverPhases})`, filter: 'blur(4px) brightness(0.7)', opacity: 0.32 }}></div>
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0D212Dcc] to-[#0D212Ddd]" />
+        <div className="relative z-20 max-w-7xl mx-auto w-full px-6">
           <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-4 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{structureTitle}</motion.h2>
           <motion.p initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="text-lg md:text-xl text-center mb-12 text-white/80 max-w-3xl mx-auto" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
             This is a guided, transformational arc—from self-awareness to field testing to integration.
           </motion.p>
           <div className="w-full flex justify-center relative">
-            {/* Blurred background image only under the grid */}
-            <div className="absolute inset-0 w-full h-full flex justify-center pointer-events-none z-0" aria-hidden="true">
-              <div className="w-full max-w-6xl h-full mx-auto rounded-2xl overflow-hidden" style={{ position: 'relative', minHeight: 420 }}>
-                <div style={{
-                  backgroundImage: `url(${loverPhases})`,
-                  backgroundSize: 'cover',
-                  backgroundPosition: 'center',
-                  filter: 'blur(4px) brightness(0.7)',
-                  opacity: 0.32,
-                  width: '100%',
-                  height: '100%',
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  zIndex: 1,
-                }} />
-              </div>
-            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-6xl mx-auto relative z-10">
               {/* Month-based timeline cards */}
               {/* Month 1 */}
@@ -1201,6 +1186,10 @@ function LoverLanding() {
           </div>
         </div>
         <div className="w-full max-w-7xl" style={{ height: '180px' }}></div>
+      </div>
+      {/* Non-blurred, full-width image after the grid */}
+      <div className="w-full flex justify-center mt-12">
+        <img src="/assets/lover-phases.webp" alt="Programme Phases" className="w-full max-w-6xl rounded-2xl shadow-xl object-cover" style={{ minHeight: 120, maxHeight: 340 }} />
       </div>
       </section>
 
