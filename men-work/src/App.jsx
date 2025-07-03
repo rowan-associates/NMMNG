@@ -385,7 +385,7 @@ function BootcampLanding() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative hero-bg">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-background/80"></motion.div>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/40 to-background/60"></motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.22 }} transition={{ duration: 1.2 }} className="absolute inset-0" style={{backgroundImage: `url(${bootcampHero})`,backgroundSize: 'cover',backgroundPosition: 'center',backgroundAttachment: 'fixed'}}></motion.div>
         <div className="max-w-7xl mx-auto w-full px-6 relative z-10 flex flex-col items-center text-center py-32">
           <h1 className="text-5xl md:text-6xl font-extrabold mb-4 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>
@@ -1036,7 +1036,7 @@ function LoverLanding() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative hero-bg">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-background/80"></motion.div>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/40 to-background/60"></motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.22 }} transition={{ duration: 1.2 }} className="absolute inset-0" style={{backgroundImage: `url(${loverHero})`,backgroundSize: 'cover',backgroundPosition: 'center',backgroundAttachment: 'fixed'}}></motion.div>
         <div className="max-w-7xl mx-auto w-full px-6 relative z-10 flex flex-col items-center text-center py-32">
           <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-5xl md:text-6xl font-extrabold mb-4 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>{heroTitle}</motion.h1>
