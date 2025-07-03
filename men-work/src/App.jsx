@@ -1186,9 +1186,9 @@ function LoverLanding() {
         </div>
         <div className="w-full max-w-7xl" style={{ height: '180px' }}></div>
       </div>
-      {/* Non-blurred, full-width image after the grid */}
+      {/* Standalone, fully visible image after the grid */}
       <div className="w-full flex justify-center mt-12">
-        <img src="/assets/lover-phases.webp" alt="Programme Phases" className="w-full max-w-6xl rounded-2xl shadow-xl object-cover" style={{ minHeight: 120, maxHeight: 340, filter: 'none', opacity: 1 }} />
+        <img src="/assets/lover-phases.webp" alt="Programme Phases" className="block w-full max-w-6xl h-auto" style={{ display: 'block', margin: '0 auto', borderRadius: 0, boxShadow: 'none', filter: 'none', opacity: 1 }} />
       </div>
       </section>
 
