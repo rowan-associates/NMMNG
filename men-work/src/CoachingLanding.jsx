@@ -54,23 +54,22 @@ function CoachingLanding() {
     <div className="min-h-screen text-foreground overflow-x-hidden" style={{ background: BG_BLACK, color: TEXT_LIGHT }}>
       {/* Sticky Navigation */}
       {isScrolled && (
-        <nav className="nav-sticky" style={{ background: 'rgba(0,0,0,0.92)', boxShadow: `0 2px 24px 0 ${GOLD}33` }}>
-          <div className="container mx-auto px-4 py-3 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
-            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 w-full sm:w-auto">
+        <nav className="nav-sticky" style={{ background: 'rgba(0,0,0,0.96)', boxShadow: `0 2px 24px 0 ${GOLD}33` }}>
+          <div className="container mx-auto px-4 py-2 flex flex-row justify-between items-center gap-2">
+            <div className="flex flex-row items-center gap-3">
               <a href="/" className="flex items-center justify-center" style={{ position: 'relative', zIndex: 10 }}>
-                <img src={nmmngLogo} alt="NMMNG Logo" className="h-12 w-auto sm:h-14 mr-0 sm:mr-4" style={{ position: 'relative', top: 0, left: 0, zIndex: 11, background: 'none' }} />
+                <img src={nmmngLogo} alt="NMMNG Logo" className="h-10 w-auto mr-2" style={{ position: 'relative', zIndex: 11, background: 'none' }} />
               </a>
-              <h2 className="text-lg sm:text-xl font-bold nmmng-glow text-center sm:text-left" style={{ marginLeft: 0, zIndex: 1, lineHeight: 1.1, color: GOLD, fontFamily: 'League Spartan, sans-serif', fontWeight: 700, textShadow: `0 0 16px ${GOLD}88` }}>Executive Transformation Program</h2>
+              <h2 className="text-lg font-bold nmmng-glow text-left" style={{ color: GOLD, fontFamily: 'League Spartan, sans-serif', fontWeight: 700, textShadow: `0 0 8px ${GOLD}55` }}>Executive Transformation Program</h2>
             </div>
             <button 
               onClick={() => scrollToSection('application')}
-              className="btn-primary w-full sm:w-auto text-base sm:text-xl px-6 sm:px-10 py-3 sm:py-4 mt-2 sm:mt-0 border-2 rounded-xl"
-              style={{ minWidth: 0, background: BG_BLACK, color: GOLD, borderColor: GOLD, boxShadow: `0 0 16px 2px ${GOLD}55`, textTransform: 'uppercase', fontWeight: 800 }}
-              onMouseOver={e => e.currentTarget.style.boxShadow = `0 0 32px 8px ${GOLD}99`}
-              onMouseOut={e => e.currentTarget.style.boxShadow = `0 0 16px 2px ${GOLD}55`}
+              className="btn-primary text-base px-5 py-2 font-bold rounded-lg gold-foil-btn shimmer-on-hover"
+              style={{ background: BG_BLACK, color: GOLD, border: `1.5px solid ${GOLD}`, boxShadow: 'none', fontWeight: 700, letterSpacing: '0.04em', minWidth: 0, lineHeight: 1.1, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center', whiteSpace: 'nowrap', position: 'relative', overflow: 'hidden' }}
             >
-              APPLY NOW
+              <span style={{ position: 'relative', zIndex: 2 }}>APPLY NOW</span>
               <ArrowRight className="w-4 h-4 ml-2" color={GOLD} />
+              <span className="gold-shimmer-anim" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 3 }} />
             </button>
           </div>
         </nav>
@@ -185,67 +184,74 @@ function CoachingLanding() {
       </section>
 
       {/* Three Pillars Section */}
-      <section id="pillars" className="py-20 w-full relative overflow-hidden">
-        {/* Blurred lover-phases.webp background */}
-        <div className="absolute inset-0 z-0" style={{ background: `url(${loverPhases}) center/cover no-repeat`, filter: 'blur(8px)', opacity: 0.32 }} />
+      <section id="pillars" className="py-20 w-full relative overflow-visible">
         <div className="relative z-10 max-w-7xl mx-auto w-full px-6">
-          <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-12 text-center" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
+          <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-16 text-center" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
             The Three Pillars of Male Excellence
           </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-            {/* Leader Card */}
-            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="glass rounded-2xl p-8 flex flex-col items-center text-center shadow-xl border border-white/10 backdrop-blur-md" style={{ background: 'rgba(20,20,20,0.82)', borderRadius: 18, boxShadow: `0 8px 40px ${GOLD}22, 0 2px 16px ${BRASS}22`, border: `1.5px solid ${BRASS}` }}>
-              <img src={archetypeLeader} alt="Leader Archetype" className="w-24 h-24 object-contain mb-4" />
-              <div className="text-xl font-bold mb-2" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>Pillar 1: Leadership & Capability (The Leader)</div>
-              <div className="text-base text-[#A67C52] mb-4" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 600 }}>Move beyond conditioned patterns. Solve complex problems. Lead with confidence.</div>
-              <ul className="text-left space-y-3 mb-2" style={{ fontFamily: 'League Spartan, sans-serif', color: TEXT_LIGHT, fontWeight: 400 }}>
-                <li><b>Assessment:</b> A deep dive into your current leadership skills, decision-making processes, and overall capability.</li>
-                <li><b>Objective:</b> Move beyond conditioned patterns of thinking that limit your potential. Learn new mental models and practical skills to solve complex problems and create unseen opportunities.</li>
-                <li><b>Transformation:</b>
-                  <ul className="ml-4 list-disc">
-                    <li>Enhanced leadership presence that commands respect naturally</li>
-                    <li>Decisive action without the paralysis of people-pleasing</li>
-                    <li>The ability to navigate AI disruption and future challenges with confidence</li>
-                    <li>Strategic thinking that anticipates change rather than reacts to it</li>
-                  </ul>
-                </li>
-              </ul>
+          <div className="flex flex-col gap-14">
+            {/* Leader Card - image left, text right */}
+            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col md:flex-row items-stretch rounded-2xl shadow-xl border border-[#D4AF37] bg-black overflow-hidden">
+              <div className="flex-shrink-0 w-full md:w-1/3 flex items-stretch">
+                <img src={archetypeLeader} alt="Leader Archetype" className="object-cover w-full h-full min-h-[220px]" style={{ objectPosition: 'center' }} />
+              </div>
+              <div className="flex-1 flex flex-col justify-center p-8 md:p-12 text-left">
+                <div className="text-2xl font-bold mb-4" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>Pillar 1: Leadership & Capability (The Leader)</div>
+                <ul className="space-y-3 mb-2" style={{ fontFamily: 'League Spartan, sans-serif', color: '#fff', fontWeight: 400, fontSize: '1.15rem' }}>
+                  <li><b>Assessment:</b> A deep dive into your current leadership skills, decision-making processes, and overall capability.</li>
+                  <li><b>Objective:</b> Move beyond conditioned patterns of thinking that limit your potential. Learn new mental models and practical skills to solve complex problems and create unseen opportunities.</li>
+                  <li><b>Transformation:</b>
+                    <ul className="ml-4 list-disc">
+                      <li>Enhanced leadership presence that commands respect naturally</li>
+                      <li>Decisive action without the paralysis of people-pleasing</li>
+                      <li>The ability to navigate AI disruption and future challenges with confidence</li>
+                      <li>Strategic thinking that anticipates change rather than reacts to it</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </motion.div>
-            {/* Provider Card */}
-            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="glass rounded-2xl p-8 flex flex-col items-center text-center shadow-xl border border-white/10 backdrop-blur-md" style={{ background: 'rgba(20,20,20,0.82)', borderRadius: 18, boxShadow: `0 8px 40px ${GOLD}22, 0 2px 16px ${BRASS}22`, border: `1.5px solid ${BRASS}` }}>
-              <img src={archetypeProvider} alt="Provider Archetype" className="w-24 h-24 object-contain mb-4" />
-              <div className="text-xl font-bold mb-2" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>Pillar 2: Wealth & Provision (The Provider)</div>
-              <div className="text-base text-[#A67C52] mb-4" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 600 }}>Remove blocks to financial growth. Build abundance. Provide with confidence.</div>
-              <ul className="text-left space-y-3 mb-2" style={{ fontFamily: 'League Spartan, sans-serif', color: TEXT_LIGHT, fontWeight: 400 }}>
-                <li><b>Assessment:</b> An honest evaluation of your relationship with money, your ability to generate it, and your mindset around wealth and being a provider.</li>
-                <li><b>Objective:</b> Identify and remove blocks to financial growth. Refine strategies for income enhancement and build a mindset of abundance that thrives regardless of economic disruption.</li>
-                <li><b>Transformation:</b>
-                  <ul className="ml-4 list-disc">
-                    <li>A clear strategy to enhance earning potential in the AI economy</li>
-                    <li>Powerful financial decision-making that creates sustainable wealth</li>
-                    <li>Freedom from scarcity thinking that keeps you trapped in survival mode</li>
-                    <li>The confidence to provide and protect in an uncertain world</li>
-                  </ul>
-                </li>
-              </ul>
+            {/* Provider Card - text left, image right */}
+            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="flex flex-col md:flex-row-reverse items-stretch rounded-2xl shadow-xl border border-[#D4AF37] bg-black overflow-hidden">
+              <div className="flex-shrink-0 w-full md:w-1/3 flex items-stretch">
+                <img src={archetypeProvider} alt="Provider Archetype" className="object-cover w-full h-full min-h-[220px]" style={{ objectPosition: 'center' }} />
+              </div>
+              <div className="flex-1 flex flex-col justify-center p-8 md:p-12 text-left">
+                <div className="text-2xl font-bold mb-4" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>Pillar 2: Wealth & Provision (The Provider)</div>
+                <ul className="space-y-3 mb-2" style={{ fontFamily: 'League Spartan, sans-serif', color: '#fff', fontWeight: 400, fontSize: '1.15rem' }}>
+                  <li><b>Assessment:</b> An honest evaluation of your relationship with money, your ability to generate it, and your mindset around wealth and being a provider.</li>
+                  <li><b>Objective:</b> Identify and remove blocks to financial growth. Refine strategies for income enhancement and build a mindset of abundance that thrives regardless of economic disruption.</li>
+                  <li><b>Transformation:</b>
+                    <ul className="ml-4 list-disc">
+                      <li>A clear strategy to enhance earning potential in the AI economy</li>
+                      <li>Powerful financial decision-making that creates sustainable wealth</li>
+                      <li>Freedom from scarcity thinking that keeps you trapped in survival mode</li>
+                      <li>The confidence to provide and protect in an uncertain world</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </motion.div>
-            {/* Lover Card */}
-            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2 }} className="glass rounded-2xl p-8 flex flex-col items-center text-center shadow-xl border border-white/10 backdrop-blur-md" style={{ background: 'rgba(20,20,20,0.82)', borderRadius: 18, boxShadow: `0 8px 40px ${GOLD}22, 0 2px 16px ${BRASS}22`, border: `1.5px solid ${BRASS}` }}>
-              <img src={archetypeLover} alt="Lover Archetype" className="w-24 h-24 object-contain mb-4" />
-              <div className="text-xl font-bold mb-2" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>Pillar 3: Relationships & Connection (The Lover)</div>
-              <div className="text-base text-[#A67C52] mb-4" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 600 }}>Deepen connection. Build relational intelligence. Lead with authenticity.</div>
-              <ul className="text-left space-y-3 mb-2" style={{ fontFamily: 'League Spartan, sans-serif', color: TEXT_LIGHT, fontWeight: 400 }}>
-                <li><b>Assessment:</b> Evaluating your current relational status—whether you're in a difficult relationship or seeking to find a healthy one.</li>
-                <li><b>Objective:</b> Provide the tools and insights needed to either repair and deepen an existing partnership or prepare for and attract a healthy, fulfilling relationship.</li>
-                <li><b>Transformation:</b>
-                  <ul className="ml-4 list-disc">
-                    <li>Improved relational intelligence that builds deeper connections</li>
-                    <li>The ability to be authentic without sacrificing respect</li>
-                    <li>Clear boundaries that protect your energy while building stronger relationships</li>
-                    <li>A thriving personal life that supports rather than drains your professional success</li>
-                  </ul>
-                </li>
-              </ul>
+            {/* Lover Card - image left, text right */}
+            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2 }} className="flex flex-col md:flex-row items-stretch rounded-2xl shadow-xl border border-[#D4AF37] bg-black overflow-hidden">
+              <div className="flex-shrink-0 w-full md:w-1/3 flex items-stretch">
+                <img src={archetypeLover} alt="Lover Archetype" className="object-cover w-full h-full min-h-[220px]" style={{ objectPosition: 'center' }} />
+              </div>
+              <div className="flex-1 flex flex-col justify-center p-8 md:p-12 text-left">
+                <div className="text-2xl font-bold mb-4" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>Pillar 3: Relationships & Connection (The Lover)</div>
+                <ul className="space-y-3 mb-2" style={{ fontFamily: 'League Spartan, sans-serif', color: '#fff', fontWeight: 400, fontSize: '1.15rem' }}>
+                  <li><b>Assessment:</b> Evaluating your current relational status—whether you're in a difficult relationship or seeking to find a healthy one.</li>
+                  <li><b>Objective:</b> Provide the tools and insights needed to either repair and deepen an existing partnership or prepare for and attract a healthy, fulfilling relationship.</li>
+                  <li><b>Transformation:</b>
+                    <ul className="ml-4 list-disc">
+                      <li>Improved relational intelligence that builds deeper connections</li>
+                      <li>The ability to be authentic without sacrificing respect</li>
+                      <li>Clear boundaries that protect your energy while building stronger relationships</li>
+                      <li>A thriving personal life that supports rather than drains your professional success</li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
             </motion.div>
           </div>
         </div>
