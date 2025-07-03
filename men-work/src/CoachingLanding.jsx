@@ -138,7 +138,7 @@ function CoachingLanding() {
       </section>
 
       {/* Disruption Section: more visible archetypes.webp, transparent black text box, gold-foil border, 100% width */}
-      <section id="disruption" className="w-full min-h-screen flex items-center justify-center relative overflow-hidden">
+      <section id="disruption" className="w-full min-h-screen flex items-center justify-center relative overflow-visible">
         <img src={archetypesImg} alt="Archetypes" className="absolute inset-0 w-full h-full object-cover z-0 opacity-40 blur-sm pointer-events-none" />
         <div className="absolute inset-0 bg-black/70 z-0" />
         <div className="relative z-10 w-full flex items-center justify-center px-4 md:px-6 py-16 min-h-[80vh]">
@@ -204,7 +204,7 @@ function CoachingLanding() {
           </motion.h2>
           <div className="flex flex-col gap-8">
             {/* Leader Card */}
-            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col md:flex-row items-stretch rounded-2xl shadow-xl border border-[#D4AF37] bg-black overflow-hidden">
+            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col md:flex-row items-stretch rounded-2xl shadow-xl border border-[#D4AF37] bg-black overflow-visible">
               <div className="flex-shrink-0 w-full md:w-1/3 flex items-stretch">
                 <img src={archetypeLeader} alt="Leader Archetype" className="object-cover w-full h-full min-h-[160px]" />
               </div>
@@ -225,7 +225,7 @@ function CoachingLanding() {
               </div>
             </motion.div>
             {/* Provider Card */}
-            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="flex flex-col md:flex-row-reverse items-stretch rounded-2xl shadow-xl border border-[#D4AF37] bg-black overflow-hidden">
+            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="flex flex-col md:flex-row-reverse items-stretch rounded-2xl shadow-xl border border-[#D4AF37] bg-black overflow-visible">
               <div className="flex-shrink-0 w-full md:w-1/3 flex items-stretch">
                 <img src={archetypeProvider} alt="Provider Archetype" className="object-cover w-full h-full min-h-[160px]" />
               </div>
@@ -246,7 +246,7 @@ function CoachingLanding() {
               </div>
             </motion.div>
             {/* Lover Card */}
-            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2 }} className="flex flex-col md:flex-row items-stretch rounded-2xl shadow-xl border border-[#D4AF37] bg-black overflow-hidden">
+            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2 }} className="flex flex-col md:flex-row items-stretch rounded-2xl shadow-xl border border-[#D4AF37] bg-black overflow-visible">
               <div className="flex-shrink-0 w-full md:w-1/3 flex items-stretch">
                 <img src={archetypeLover} alt="Lover Archetype" className="object-cover w-full h-full min-h-[160px]" />
               </div>
@@ -479,7 +479,7 @@ function CoachingLanding() {
       </section>
 
       {/* Final CTA Section */}
-      <section id="final-cta" className="py-16 w-full relative flex flex-col items-center justify-center overflow-hidden">
+      <section id="final-cta" className="py-16 w-full relative flex flex-col items-center justify-center overflow-visible">
         <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none">
           <img src={keyImg} alt="Key Symbol" className="w-full max-w-2xl opacity-20 grayscale blur-sm" />
         </div>
