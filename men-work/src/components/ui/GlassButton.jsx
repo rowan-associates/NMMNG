@@ -1,7 +1,7 @@
 import React from 'react';
 import goldFoil from '../../assets/gold-foil.webp';
 
-export default function GlassButton({ label, url, icon, goldFoil: isGoldFoil }) {
+export default function GlassButton({ label, url, icon, goldFoil: isGoldFoil, forceWhite }) {
   const baseStyle = {
     display: 'flex',
     alignItems: 'center',
@@ -10,7 +10,7 @@ export default function GlassButton({ label, url, icon, goldFoil: isGoldFoil }) 
     background: 'rgba(255,255,255,0.05)',
     backdropFilter: 'blur(16px)',
     border: '1px solid rgba(255,255,255,0.1)',
-    color: '#FFF',
+    color: forceWhite ? '#FFF' : '#FFF',
     fontWeight: 700,
     fontSize: 18,
     textTransform: 'uppercase',
@@ -24,9 +24,8 @@ export default function GlassButton({ label, url, icon, goldFoil: isGoldFoil }) 
   };
   const goldStyle = isGoldFoil
     ? {
-        background: `url(${goldFoil}) center/cover no-repeat, rgba(255,255,255,0.09)`,
-        mixBlendMode: 'overlay',
-        color: '#111',
+        background: `linear-gradient(rgba(255,255,255,0.10),rgba(255,255,255,0.10)), url(${goldFoil}) center/cover no-repeat, #D4AF37`,
+        color: forceWhite ? '#FFF' : '#111',
         boxShadow: '0 0 20px rgba(212,175,55,0.6)',
         border: '1.5px solid #D4AF37',
       }
@@ -46,11 +45,9 @@ export default function GlassButton({ label, url, icon, goldFoil: isGoldFoil }) 
         e.currentTarget.style.borderColor = isGoldFoil ? '#D4AF37' : 'rgba(255,255,255,0.1)';
       }}
     >
-      {icon && (
-        <span style={{ width: 40, height: 40, minWidth: 40, minHeight: 40, marginRight: 12, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          {typeof icon === 'string' ? <img src={icon} alt="icon" style={{ width: 40, height: 40, objectFit: 'contain', borderRadius: 8 }} /> : icon}
-        </span>
-      )}
+      <span style={{ width: 40, height: 40, minWidth: 40, minHeight: 40, marginRight: 12, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {icon && (typeof icon === 'string' ? <img src={icon} alt="icon" style={{ width: 40, height: 40, objectFit: 'contain', borderRadius: 8 }} /> : icon)}
+      </span>
       <span>{label}</span>
     </a>
   );

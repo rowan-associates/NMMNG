@@ -10,7 +10,6 @@ import linkinbioBg from './assets/linkinbio-background.webp';
 import bootcampFooter from './assets/bootcamp-footer.avif';
 import links from './link-in-bio.json';
 
-const BRASS = '#A67C52';
 const GOLD = '#D4AF37';
 
 // Sort as per prompt
@@ -43,7 +42,7 @@ const iconMap = {
 };
 
 const socialIconMap = {
-  'Youtube': <FaYoutube size={24} />, // You can adjust size as needed
+  'Youtube': <FaYoutube size={24} />,
   'X': <SiX size={24} />,
   'Instagram': <FaInstagram size={24} />,
   'Meetup': <FaMeetup size={24} />,
@@ -52,10 +51,23 @@ const socialIconMap = {
   'Web': <FaGlobe size={24} />,
 };
 
+const fallbackIcon = nmmngLogo;
+
 export default function LinkInBio() {
   return (
-    <div style={{ minHeight: '100vh', background: '#010101', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '0 16px' }}>
-      <div style={{ width: '100%', maxWidth: 400, margin: '0 auto', marginTop: 48, marginBottom: 24 }}>
+    <div style={{
+      minHeight: '100vh',
+      background: `url(${goldFoil}) center/cover no-repeat, #010101`,
+      position: 'relative',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      padding: '0 16px',
+    }}>
+      {/* Dark overlay for readability */}
+      <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.82)', zIndex: 0 }} />
+      <div style={{ width: '100%', maxWidth: 400, margin: '0 auto', marginTop: 48, marginBottom: 24, position: 'relative', zIndex: 1 }}>
         <h1 style={{ fontFamily: 'PT Serif, serif', fontSize: '2.5rem', color: GOLD, fontWeight: 700, textAlign: 'center', marginBottom: 12, letterSpacing: '-0.01em' }}>
           Reclaim Your Authentic Power
         </h1>
@@ -63,15 +75,23 @@ export default function LinkInBio() {
           EXPLORE OUR FLAGSHIP PROGRAMMES & COMMUNITY:
         </div>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 20, margin: '40px 0' }}>
-          {mainLinks.map(link => (
-            <GlassButton
-              key={link.label}
-              label={link.label}
-              url={link.url}
-              icon={link.icon ? iconMap[link.icon] || link.icon : undefined}
-              goldFoil={link.label === 'Executive Coaching'}
-            />
-          ))}
+          {mainLinks.map(link => {
+            // WhatsApp group button: show WhatsApp icon
+            let icon = link.icon || fallbackIcon;
+            if (/whatsapp/i.test(link.label)) icon = <FaWhatsapp size={40} color={GOLD} />;
+            // Executive Coaching: force white text if gold-foil is too dark
+            const forceWhite = link.label === 'Executive Coaching';
+            return (
+              <GlassButton
+                key={link.label}
+                label={link.label}
+                url={link.url}
+                icon={icon}
+                goldFoil={link.label === 'Executive Coaching'}
+                forceWhite={forceWhite}
+              />
+            );
+          })}
         </div>
         <div style={{ display: 'flex', justifyContent: 'center', gap: 18, margin: '32px 0 0 0' }}>
           {socialLinks.map(link => (
