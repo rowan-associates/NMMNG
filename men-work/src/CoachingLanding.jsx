@@ -33,6 +33,8 @@ function CoachingLanding() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const forestBgRef = useRef(null);
+  const sectionIds = ['hero','disruption','express-ticket','pillars','structure','promise','pricing','application','final-cta'];
+  const [activeSection, setActiveSection] = useState('hero');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,8 +44,21 @@ function CoachingLanding() {
         const offset = window.scrollY * 0.25;
         forestBgRef.current.style.backgroundPositionY = `-${offset}px`;
       }
+      let found = 'hero';
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= window.innerHeight * 0.33 && rect.bottom > window.innerHeight * 0.33) {
+            found = id;
+            break;
+          }
+        }
+      }
+      setActiveSection(found);
     };
     window.addEventListener('scroll', handleScroll);
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -263,29 +278,31 @@ function CoachingLanding() {
       </section>
 
       {/* Promise Section - Transformational Change, Not Surface Fixes */}
-      <section id="promise" className="min-h-screen h-screen w-full relative overflow-hidden flex flex-col md:flex-row items-center justify-center px-6 gap-12">
-        <div className="flex-1 flex flex-col justify-center max-w-xl z-10 text-left">
-          <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
-            Transformational Change, Not Surface Fixes
-          </motion.h2>
-          <div className="w-32 h-1 mb-8 rounded-full" style={{ background: 'linear-gradient(90deg, #D4E04F 0%, #A67C52 100%)', boxShadow: '0 0 16px 4px #E6F97B88' }} />
-          <p className="text-lg md:text-xl text-white mb-8" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4 }}>
-            We don't just solve surface-level problems. We rewire the underlying patterns of thinking and behaviour that created them, opening up a new sense of self and possibility.
-          </p>
-          <ul className="space-y-4 text-base md:text-lg" style={{ fontFamily: 'League Spartan, sans-serif', color: TEXT_LIGHT, fontWeight: 400 }}>
-            <li><span className="text-[#D4E04F] font-bold">Speed & Intensity:</span> Achieve profound transformation in 90 days through intensive, focused work on what matters most.</li>
-            <li><span className="text-[#D4E04F] font-bold">Bespoke Solutions:</span> The program is entirely tailored to you. We diagnose your specific problems and co-create a direct path to the solutions.</li>
-            <li><span className="text-[#D4E04F] font-bold">Vision & Strategy:</span> You will leave with a powerful, grounded vision for your future and a clear, actionable pathway to achieve it.</li>
-            <li><span className="text-[#D4E04F] font-bold">Future-Ready Leadership:</span> Skills that complement, don't compete with, AI capabilities, positioning you as irreplaceable in a rapidly changing world.</li>
-            <li><span className="text-[#D4E04F] font-bold">Authentic Confidence:</span> Confidence rooted in self-knowledge, not external validation, that allows you to lead authentically rather than perform constantly.</li>
-          </ul>
-        </div>
-        <div className="flex-1 flex items-center justify-center h-full z-10">
-          <img src={phoenixImg} alt="Phoenix" className="object-contain w-full max-w-2xl h-[60vh] md:h-[80vh] drop-shadow-2xl" style={{ filter: 'brightness(1.1) drop-shadow(0 8px 32px #D4AF3744)' }} />
-        </div>
-        {/* Optional key symbol background, now behind everything */}
-        <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none">
-          <img src={keyImg} alt="Key Symbol" className="w-full max-w-3xl opacity-10 grayscale" style={{ filter: 'blur(1px) grayscale(1)' }} />
+      <section id="promise" className="min-h-screen h-screen w-full flex items-center justify-center px-6 gap-12">
+        <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row items-center justify-center gap-12">
+          <div className="flex-1 flex flex-col justify-center max-w-xl z-10 text-left">
+            <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
+              Transformational Change, Not Surface Fixes
+            </motion.h2>
+            <div className="w-32 h-1 mb-8 rounded-full" style={{ background: 'linear-gradient(90deg, #D4E04F 0%, #A67C52 100%)', boxShadow: '0 0 16px 4px #E6F97B88' }} />
+            <p className="text-lg md:text-xl text-white mb-8" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4 }}>
+              We don't just solve surface-level problems. We rewire the underlying patterns of thinking and behaviour that created them, opening up a new sense of self and possibility.
+            </p>
+            <ul className="space-y-4 text-base md:text-lg" style={{ fontFamily: 'League Spartan, sans-serif', color: TEXT_LIGHT, fontWeight: 400 }}>
+              <li><span className="text-[#D4E04F] font-bold">Speed & Intensity:</span> Achieve profound transformation in 90 days through intensive, focused work on what matters most.</li>
+              <li><span className="text-[#D4E04F] font-bold">Bespoke Solutions:</span> The program is entirely tailored to you. We diagnose your specific problems and co-create a direct path to the solutions.</li>
+              <li><span className="text-[#D4E04F] font-bold">Vision & Strategy:</span> You will leave with a powerful, grounded vision for your future and a clear, actionable pathway to achieve it.</li>
+              <li><span className="text-[#D4E04F] font-bold">Future-Ready Leadership:</span> Skills that complement, don't compete with, AI capabilities, positioning you as irreplaceable in a rapidly changing world.</li>
+              <li><span className="text-[#D4E04F] font-bold">Authentic Confidence:</span> Confidence rooted in self-knowledge, not external validation, that allows you to lead authentically rather than perform constantly.</li>
+            </ul>
+          </div>
+          <div className="flex-1 flex items-center justify-center h-full z-10">
+            <img src={phoenixImg} alt="Phoenix" className="object-contain w-full max-w-2xl h-[60vh] md:h-[80vh] drop-shadow-2xl" style={{ filter: 'brightness(1.1) drop-shadow(0 8px 32px #D4AF3744)' }} />
+          </div>
+          {/* Optional key symbol background, now behind everything */}
+          <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none">
+            <img src={keyImg} alt="Key Symbol" className="w-full max-w-3xl opacity-10 grayscale" style={{ filter: 'blur(1px) grayscale(1)' }} />
+          </div>
         </div>
       </section>
 
@@ -555,15 +572,36 @@ function CoachingLanding() {
           pointer-events: none;
           z-index: 2;
         }
+        ::-webkit-scrollbar {
+          width: 10px;
+          background: #000;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: ${GOLD};
+          border-radius: 6px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: ${GOLD};
+        }
       `}</style>
 
       {/* Vertical dot navigation */}
-      <div className="fixed right-8 top-1/2 z-50 flex flex-col items-center gap-3" style={{ transform: 'translateY(-50%)' }}>
-        <button aria-label="Scroll Up" onClick={() => scrollToSection('hero')} className="mb-2 p-2 rounded-full bg-black/70 border border-gold-500 hover:bg-gold-700 transition-all" style={{ color: GOLD, borderColor: GOLD, fontSize: 18 }}>&uarr;</button>
-        {['hero','disruption','express-ticket','pillars','structure','pricing','application','final-cta'].map((id, idx) => (
-          <button key={id} aria-label={`Go to section ${idx+1}`} onClick={() => scrollToSection(id)} className="my-1 w-4 h-4 rounded-full border-2" style={{ borderColor: GOLD, background: isScrolled && window.location.hash === `#${id}` ? GOLD : 'transparent', transition: 'background 0.2s' }} />
+      <div className="fixed right-8 top-1/2 z-50 flex flex-col items-center gap-3" style={{ transform: 'translateY(-50%)', opacity: 0.7 }}>
+        <button aria-label="Scroll Up" onClick={() => scrollToSection('hero')} className="mb-2 p-2 rounded-full bg-black/60 border border-gold-500 hover:bg-gold-700 transition-all" style={{ color: GOLD, borderColor: GOLD, fontSize: 16, opacity: 0.6 }}>&uarr;</button>
+        {sectionIds.map((id, idx) => (
+          <button key={id} aria-label={`Go to section ${idx+1}`} onClick={() => scrollToSection(id)}
+            className="my-1 w-3 h-3 rounded-full border-2 transition-all"
+            style={{
+              borderColor: GOLD,
+              background: activeSection === id ? GOLD : 'transparent',
+              opacity: activeSection === id ? 1 : 0.35,
+              boxShadow: activeSection === id ? `0 0 8px 2px ${GOLD}55` : 'none',
+              outline: 'none',
+              transition: 'background 0.2s, opacity 0.2s, box-shadow 0.2s',
+            }}
+          />
         ))}
-        <button aria-label="Scroll Down" onClick={() => scrollToSection('final-cta')} className="mt-2 p-2 rounded-full bg-black/70 border border-gold-500 hover:bg-gold-700 transition-all" style={{ color: GOLD, borderColor: GOLD, fontSize: 18 }}>&darr;</button>
+        <button aria-label="Scroll Down" onClick={() => scrollToSection('final-cta')} className="mt-2 p-2 rounded-full bg-black/60 border border-gold-500 hover:bg-gold-700 transition-all" style={{ color: GOLD, borderColor: GOLD, fontSize: 16, opacity: 0.6 }}>&darr;</button>
       </div>
     </div>
   );
