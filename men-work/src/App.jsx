@@ -1288,7 +1288,7 @@ function Footer({ showBackToTop, scrollToTop, backToTopImg }) {
     { icon: <FaGlobe />, url: 'https://nomoremrniceguy.co.uk' },
   ];
   return (
-    <footer className="py-16 border-t border-border/20 relative z-10" style={{ background: `url(${bootcampFooter}) center bottom/cover no-repeat`, backgroundAttachment: 'fixed' }}>
+    <footer className="py-16 border-t border-border/20 relative z-10" style={{ background: '#000' }}>
       <div className="container mx-auto px-6 flex flex-col items-center">
         <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center cursor-pointer">
           <img src={nmmngLogo} alt="NMMNG Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
