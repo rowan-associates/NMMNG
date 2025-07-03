@@ -26,6 +26,7 @@ import { Routes, Route, useLocation, Link } from 'react-router-dom'
 import { FaYoutube, FaInstagram, FaMeetup, FaTiktok, FaLinkedin, FaWhatsapp, FaEnvelope, FaGlobe, FaFire, FaRocket, FaBullseye, FaBook, FaMicrophone } from 'react-icons/fa'
 import { SiX } from 'react-icons/si'
 import lionIcon from './assets/nmmng-logo.png'
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@radix-ui/react-accordion'
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -923,6 +924,89 @@ function LoverLanding() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  // --- Sectioned content from lover-brief.txt ---
+  const heroTitle = "No More Mr. Nice Guy® - The Authentic Lover Blueprint";
+  const heroSubtitle = "An intensive six-month Dating and Relationship Programme for men wanting to connect with women";
+  const heroDesc = "Are you tired of overthinking every date or every interaction with your partner or girlfriend? Do you feel fear that you won't be able to attract the woman or women you truly desire and would want a relationship with? Or are you stuck in a relationship that has never quite fulfilled it's promise?";
+  const investment = "Investment: £4,997 (full six-month programme)";
+  const joinUrl = "https://join.nmmng.co/lover";
+
+  const breakthrough = "This intensive six-month programme is designed to break the \"Nice Guy\" patterns that are get in the way of you having the intimate relationship you really want. We move you beyond theory and strategising into direct experience, helping you uncover and dismantle the limiting beliefs that condition your current approach and build the confidence in you to connect with women authentically.";
+
+  const whoTitle = "Who Is This Programme For?";
+  const whoBullets = [
+    "You experience a powerful fear of rejection that stops you from attempting to connect with women",
+    "You feel insecure and \"conservative\" in social situations, especially around women.",
+    "You tend to overthink and \"strategize\" dates and conversations to perfection, which is exhausting and prevents you from being present.",
+    "You focus more on making your date or partner comfortable and happy than on your own enjoyment and needs.",
+    "You put women on a pedestal, creating an imbalance before the interaction even begins.",
+    "You find it difficult to connect with other men and lack a supportive male community to hold you accountable on your mission to find a nourishing relationship.",
+    "You suspect your current dating behaviour patterns are not working for you."
+  ];
+
+  const philosophyTitle = "Our Philosophy: Experience Over Theory";
+  const philosophyText = [
+    "We believe that lasting change doesn't come from reading another book; it comes from rewiring your nervous system through experience. This programme is not about learning clever lines. It's about dismantling the core wounds that fuel \"Nice Guy\" behaviour. We will guide you to stop intellectualising your problems and start feeling your way to a solution.",
+    "This begins with a clear understanding of what authentic masculine energy is and the difference between that and feminine energy. We call that Polarity.",
+    "From here we show you how to communicate that masculine essence in the way you show up in texts, in calls and conversations and in physical intimacy. It's like a road map that will enable you to navigate from the mind and all it's resistance, to the body and opening it to trust and desire."
+  ];
+
+  const structureTitle = "Programme Structure & Curriculum (Six Months)";
+  const phases = [
+    {
+      phase: "Phase 1: Deconstructing The Nice Guy",
+      modules: [
+        {
+          title: "Module 1: Identifying Your Core Wounds",
+          desc: "We will explore the origins of your toxic shame, perfectionism, and the impact of your relationship with your parents on your current behaviour with women. Key to healing this conditioning is exploring the mother wound. This is a term that describes our relationship with our mothers and the ultimate problem at the core. Unpacking this deep-seated emotional wound unlocks the possibility of freedom to be who you really are in relationship with women, rather than someone projecting their neediness on women."
+        },
+        {
+          title: "Module 2: Mastering Your Emotional State",
+          desc: "Learn to identify and sit with uncomfortable feelings associated with rejection. We will guide you to bring your attention to the feeling without needing to \"solve\" it with your mind. This is about mastering your own emotions and body. With greater awareness, comes greater power, open, positive and nourishing power rather than controlling power."
+        }
+      ]
+    },
+    {
+      phase: "Phase 2: The Field Manual",
+      modules: [
+        {
+          title: "Module 3: Practical Missions",
+          desc: "The cornerstone of this programme is putting theory into practice. You will be guided to take on bespoke missions that help you integrate what you've learned and will challenge you to break through existing patterns that keep you stuck with the same results. Instead you will open up new possibilities for connection and relationship that you can put into practice in your very own dating activities whether you have already been dating or are just starting out. We guide you through it all at every point you need it. You will rapidly get comfortable trying out new ways of communicating and transmitting your natural masculine energy. These powerful exercises are designed to prove that your fears are unfounded, build confidence and resilience."
+        },
+        {
+          title: "Module 4: Dating Without a Mask",
+          desc: "You will learn to \"follow the energy\" of an interaction instead of a script. This involves dropping your mental checklist of what you should and shouldn't do and learning to be free to act or speak even when feeling vulnerable or anxious in a specific situation in the dating cycle. We guide you through this in timely interventions so that you can leverage what you are learning at every point in the programme."
+        }
+      ]
+    },
+    {
+      phase: "Phase 3: Integration & Community (Months 5–6)",
+      modules: [
+        {
+          title: "Module 5: Building Your Tribe",
+          desc: "You will be encouraged and supported to build deeper, more authentic connections with other men. Having a strong male support system is crucial for accountability and navigating challenges. Expect the feeling of deep brotherhood as you and your fellow participants give up the competitive defensive instinct and instead connect on an equal footing in the dating game."
+        },
+        {
+          title: "Module 6: Dating with Integrity",
+          desc: "Learn the art of rejecting and being rejected with grace and being okay with any outcome. We will help you develop the ability to communicate your needs and boundaries clearly, hear the other person's needs and boundaries so that you can freely move from a passive people-pleasing stance to one of authentic leadership in your dating and relational life."
+        }
+      ]
+    }
+  ];
+
+  const whatsIncludedTitle = "What's Included in The Programme:";
+  const whatsIncluded = [
+    "Weekly Group Coaching Calls: Two calls per month to share experiences, receive direct coaching from Rowan, Kevin and Matt, and learn from the journeys of other men in the group.",
+    "Direct input and feedback from women: Our female coaches are on hand to deliver invaluable insights and feedback that will accelerate your learning and growth.",
+    "Timely One-on-One Coaching Sessions and input when you need it:  Scheduled coaching calls with a seasoned coach to work on your specific requirements and track your progress.",
+    "Practical 'Missions': Real-world assignments we call them 'Games' to implement between sessions so that you get hands on practice - like a sandbox for your dating activity!",
+    "Private Accountability Group: A dedicated online forum for daily support, check-ins, and accountability with your 'tribe.'",
+    "Accountability Partner: You will be paired with another man in the programme to provide mutual support and ensure you stay on track with your missions and Rowan and his team will be your guide to ensure you get the full value of your investment.",
+    "Video, audio and text content:  Access to exclusive content to deepen your understanding and inspire you to think outside the box and grow as a lover"
+  ];
+
+  const finalCta = "This programme is an investment in a completely new way of being. It's for men who are ready to stop playing small and start creating the authentic, fulfilling dating, intimacy and relationship life they deserve. Becoming the authentic lover you are underneath the decades of conditioning.";
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Sticky Navigation */}
@@ -943,71 +1027,129 @@ function LoverLanding() {
       <section className="min-h-screen flex items-center justify-center relative hero-bg">
         <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-background/80"></div>
         <div className="max-w-7xl mx-auto w-full px-6 relative z-10 flex flex-col items-center text-center py-32">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-4 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>
-            No More Mr. Nice Guy® – The Authentic Lover Blueprint
-          </h1>
-          <div className="mb-4 text-2xl md:text-3xl" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, color: '#D4E04F' }}>
-            An intensive six-month Dating and Relationship Programme for men wanting to connect with women
-          </div>
+          <h1 className="text-5xl md:text-6xl font-extrabold mb-4 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>{heroTitle}</h1>
+          <div className="mb-4 text-2xl md:text-3xl" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, color: '#D4E04F' }}>{heroSubtitle}</div>
           <div className="glass rounded-2xl p-8 my-12 max-w-4xl mx-auto w-full px-6">
-            <p className="text-xl font-semibold text-white text-left" style={{ fontFamily: 'League Spartan, sans-serif' }}>
-              Are you tired of overthinking every date or every interaction with your partner or girlfriend? Do you feel fear that you won't be able to attract the woman or women you truly desire and would want a relationship with? Or are you stuck in a relationship that has never quite fulfilled its promise?</p>
-            <p className="mt-4">This intensive six-month programme is designed to break the "Nice Guy" patterns that get in the way of you having the intimate relationship you really want. We move you beyond theory and strategising into direct experience, helping you uncover and dismantle the limiting beliefs that condition your current approach and build the confidence in you to connect with women authentically.</p>
-            <div className="text-2xl font-bold mt-8 mb-2" style={{ color: '#D4E04F', letterSpacing: '0.08em' }}>Investment: £4,997 (full six-month programme)</div>
+            <p className="text-xl font-semibold text-white text-left" style={{ fontFamily: 'League Spartan, sans-serif' }}>{heroDesc}</p>
+            <div className="text-2xl font-bold mt-8 mb-2" style={{ color: '#D4E04F', letterSpacing: '0.08em' }}>{investment}</div>
+            <Button className="btn-primary text-xl px-8 py-6 font-bold mt-6" style={{ boxShadow: '0 0 32px 8px #E6F97B55', fontFamily: 'PT Serif, serif', minHeight: 64 }} onClick={() => window.open(joinUrl, '_blank')}>Join the Programme</Button>
           </div>
         </div>
       </section>
 
-      {/* Programme Details Section */}
-      <section className="py-32">
+      {/* Breakthrough Section */}
+      <section className="py-24 bg-secondary/30">
         <div className="max-w-7xl mx-auto w-full px-6">
-          <div className="glass rounded-2xl p-8 mb-12 text-left">
-            <h3 className="text-2xl font-bold mb-4 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif' }}>Who Is This Programme For?</h3>
-            <ul className="list-disc ml-6 mb-4">
-              <li>You experience a powerful fear of rejection that stops you from attempting to connect with women</li>
-              <li>You feel insecure and "conservative" in social situations, especially around women.</li>
-              <li>You tend to overthink and "strategize" dates and conversations to perfection, which is exhausting and prevents you from being present.</li>
-              <li>You focus more on making your date or partner comfortable and happy than on your own enjoyment and needs.</li>
-              <li>You put women on a pedestal, creating an imbalance before the interaction even begins.</li>
-              <li>You find it difficult to connect with other men and lack a supportive male community to hold you accountable on your mission to find a nourishing relationship.</li>
-              <li>You suspect your current dating behaviour patterns are not working for you.</li>
-            </ul>
-            <h3 className="mt-6 mb-2 font-bold text-lg" style={{ color: '#D4E04F' }}>Our Philosophy: Experience Over Theory</h3>
-            <p>We believe that lasting change doesn't come from reading another book; it comes from rewiring your nervous system through experience. This programme is not about learning clever lines. It's about dismantling the core wounds that fuel "Nice Guy" behaviour. We will guide you to stop intellectualising your problems and start feeling your way to a solution.</p>
-            <p className="mt-2">This begins with a clear understanding of what authentic masculine energy is and the difference between that and feminine energy. We call that Polarity.</p>
-            <p className="mt-2">From here we show you how to communicate that masculine essence in the way you show up in texts, in calls and conversations and in physical intimacy. It's like a road map that will enable you to navigate from the mind and all its resistance, to the body and opening it to trust and desire.</p>
-            <h3 className="mt-6 mb-2 font-bold text-lg" style={{ color: '#D4E04F' }}>Programme Structure & Curriculum (Six Months)</h3>
-            <p className="mt-2 font-bold">Phase 1: Deconstructing The Nice Guy</p>
-            <ul className="list-disc ml-6 mb-4">
-              <li><b>Module 1: Identifying Your Core Wounds:</b> We will explore the origins of your toxic shame, perfectionism, and the impact of your relationship with your parents on your current behaviour with women. Key to healing this conditioning is exploring the mother wound. This is a term that describes our relationship with our mothers and the ultimate problem at the core. Unpacking this deep-seated emotional wound unlocks the possibility of freedom to be who you really are in relationship with women, rather than someone projecting their neediness on women.</li>
-              <li><b>Module 2: Mastering Your Emotional State:</b> Learn to identify and sit with uncomfortable feelings associated with rejection. We will guide you to bring your attention to the feeling without needing to "solve" it with your mind. This is about mastering your own emotions and body. With greater awareness, comes greater power, open, positive and nourishing power rather than controlling power.</li>
-            </ul>
-            <p className="mt-2 font-bold">Phase 2: The Field Manual</p>
-            <ul className="list-disc ml-6 mb-4">
-              <li><b>Module 3: Practical Missions:</b> The cornerstone of this programme is putting theory into practice. You will be guided to take on bespoke missions that help you integrate what you've learned and will challenge you to break through existing patterns that keep you stuck with the same results. Instead you will open up new possibilities for connection and relationship that you can put into practice in your very own dating activities whether you have already been dating or are just starting out. We guide you through it all at every point you need it. You will rapidly get comfortable trying out new ways of communicating and transmitting your natural masculine energy. These powerful exercises are designed to prove that your fears are unfounded, build confidence and resilience.</li>
-              <li><b>Module 4: Dating Without a Mask:</b> You will learn to "follow the energy" of an interaction instead of a script. This involves dropping your mental checklist of what you should and shouldn't do and learning to be free to act or speak even when feeling vulnerable or anxious in a specific situation in the dating cycle. We guide you through this in timely interventions so that you can leverage what you are learning at every point in the programme.</li>
-            </ul>
-            <p className="mt-2 font-bold">Phase 3: Integration & Community (Months 5-6)</p>
-            <ul className="list-disc ml-6 mb-4">
-              <li><b>Module 5: Building Your Tribe:</b> You will be encouraged and supported to build deeper, more authentic connections with other men. Having a strong male support system is crucial for accountability and navigating challenges. Expect the feeling of deep brotherhood as you and your fellow participants give up the competitive defensive instinct and instead connect on an equal footing in the dating game.</li>
-              <li><b>Module 6: Dating with Integrity:</b> Learn the art of rejecting and being rejected with grace and being okay with any outcome. We will help you develop the ability to communicate your needs and boundaries clearly, hear the other person's needs and boundaries so that you can freely move from a passive people-pleasing stance to one of authentic leadership in your dating and relational life.</li>
-            </ul>
-            <h3 className="mt-6 mb-2 font-bold text-lg" style={{ color: '#D4E04F' }}>What's Included in The Programme:</h3>
-            <ul className="list-disc ml-6 mb-4">
-              <li><b>Weekly Group Coaching Calls:</b> Two calls per month to share experiences, receive direct coaching from Rowan, Kevin and Matt, and learn from the journeys of other men in the group.</li>
-              <li><b>Direct input and feedback from women:</b> Our female coaches are on hand to deliver invaluable insights and feedback that will accelerate your learning and growth.</li>
-              <li><b>Timely One-on-One Coaching Sessions and input when you need it:</b>  Scheduled coaching calls with a seasoned coach to work on your specific requirements and track your progress.</li>
-              <li><b>Practical "Missions":</b> Real-world assignments we call them 'Games' to implement between sessions so that you get hands on practice - like a sandbox for your dating activity!</li>
-              <li><b>Private Accountability Group:</b> A dedicated online forum for daily support, check-ins, and accountability with your "tribe."</li>
-              <li><b>Accountability Partner:</b> You will be paired with another man in the programme to provide mutual support and ensure you stay on track with your missions and Rowan and his team will be your guide to ensure you get the full value of your investment.</li>
-              <li><b>Video, audio and text content:</b>  Access to exclusive content to deepen your understanding and inspire you to think outside the box and grow as a lover</li>
-            </ul>
-            <p className="mt-4">This programme is an investment in a completely new way of being. It's for men who are ready to stop playing small and start creating the authentic, fulfilling dating, intimacy and relationship life they deserve. Becoming the authentic lover you are underneath the decades of conditioning.</p>
+          <div className="max-w-4xl mx-auto">
+            <Card className="glass rounded-2xl p-10">
+              <CardContent>
+                <p className="text-lg text-muted-foreground text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{breakthrough}</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* Footer Section (optional, for consistency) */}
+      {/* Who Is This For Section */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto w-full px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-headline mb-8 gradient-text">{whoTitle}</h2>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <Card className="glass rounded-2xl p-10">
+              <CardContent>
+                <ul className="space-y-6 text-lg text-left" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
+                  {whoBullets.map((b, i) => (
+                    <li key={i} className="flex items-start gap-4">
+                      <CheckCircle className="w-6 h-6 text-[#D4E04F] mt-1 flex-shrink-0" />
+                      <span>{b}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Philosophy Section */}
+      <section className="py-24 bg-secondary/30">
+        <div className="max-w-7xl mx-auto w-full px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-headline mb-8 gradient-text">{philosophyTitle}</h2>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <Card className="glass rounded-2xl p-10 bg-[#0F4F40]/80">
+              <CardContent>
+                {philosophyText.map((p, i) => (
+                  <p key={i} className="text-lg text-white mb-6" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{p}</p>
+                ))}
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Programme Structure & Curriculum Section (Accordion) */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto w-full px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-headline mb-8 gradient-text">{structureTitle}</h2>
+          </div>
+          <Accordion type="single" collapsible className="max-w-5xl mx-auto glass rounded-2xl p-8">
+            {phases.map((phase, i) => (
+              <AccordionItem key={i} value={`phase${i+1}`} className="mb-6">
+                <AccordionTrigger className="text-xl font-bold text-[#D4E04F]" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>{phase.phase}</AccordionTrigger>
+                <AccordionContent>
+                  {phase.modules.map((mod, j) => (
+                    <div key={j} className="mb-6">
+                      <h4 className="text-lg font-bold mb-2 text-white" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>{mod.title}</h4>
+                      <p className="text-base text-white" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{mod.desc}</p>
+                    </div>
+                  ))}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* What's Included Section */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-20" style={{backgroundImage: `url(${bootcampFooter})`,backgroundSize: 'cover',backgroundPosition: 'center',backgroundAttachment: 'fixed'}}></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/80 to-background/90"></div>
+        <div className="max-w-7xl mx-auto w-full px-6 relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-headline mb-8 gradient-text">{whatsIncludedTitle}</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+            {whatsIncluded.map((item, i) => (
+              <Card key={i} className="glass rounded-2xl p-8">
+                <CardContent>
+                  <p className="text-lg text-white" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{item}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final Call to Action Section */}
+      <section className="py-24">
+        <div className="max-w-7xl mx-auto w-full px-6">
+          <div className="max-w-4xl mx-auto">
+            <Card className="glass rounded-2xl p-10 bg-[#0F4F40]/90">
+              <CardContent>
+                <p className="text-2xl font-bold gradient-text mb-4" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>{finalCta}</p>
+                <Button className="btn-primary text-xl px-12 py-6 animate-pulse-glow mt-8" style={{ fontFamily: 'PT Serif, serif', minHeight: 64 }} onClick={() => window.open(joinUrl, '_blank')}>Apply Now</Button>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer Section (for consistency) */}
       <footer className="py-16 border-t border-border/20 relative z-10">
         <div className="container mx-auto px-6 flex flex-col items-center">
           <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center cursor-pointer">
