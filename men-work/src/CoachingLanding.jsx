@@ -34,6 +34,7 @@ function CoachingLanding() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const forestBgRef = useRef(null);
+  const heroRef = useRef(null); // Ref for the hero section
   const sectionIds = ['hero','disruption','express-ticket','pillars','structure','promise','pricing','application','final-cta'];
   const [activeSection, setActiveSection] = useState('hero');
 
@@ -94,14 +95,11 @@ function CoachingLanding() {
       </nav>
 
       {/* Hero Section */}
-      <section className="hero-bg w-full flex flex-col items-center justify-center relative pt-24 md:pt-0" style={{ marginTop: '56px' }}>
-        {/* Hero background image with black gradient fade and gold foil overlay */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-cover bg-center z-1" style={{ backgroundImage: `url(${heroCoaching})`, backgroundAttachment: window.innerWidth > 600 ? 'fixed' : 'scroll' }} />
-        {/* Black gradient fade at bottom */}
+      <section id="hero" ref={heroRef} className="relative w-full min-h-screen flex items-center justify-center hero-bg overflow-hidden" style={{ minHeight: '100vh', height: '100svh' }}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-cover bg-center z-1" style={{ backgroundImage: `url(${heroCoaching})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'scroll' }} />
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/60 to-black z-2" />
-        {/* Gold foil overlay, subtle and only at edges */}
         <div className="absolute inset-0 pointer-events-none bg-cover bg-center opacity-20 mix-blend-screen z-3" style={{ backgroundImage: `url(${goldFoil})` }} />
-        <div className="max-w-7xl mx-auto w-full px-4 md:px-6 relative z-10 flex flex-col items-center text-center py-10 md:py-32">
+        <div className="max-w-7xl mx-auto w-full px-4 md:px-6 relative z-10 flex flex-col items-center justify-center text-center h-full">
           <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-3xl md:text-5xl font-extrabold mb-4 break-words overflow-x-hidden" style={{ fontFamily: 'PT Serif, serif', color: GOLD, textShadow: `0 0 32px #D4AF3788, 0 0 8px #fff2` }}>
             THE EXECUTIVE TRANSFORMATION PROGRAM
           </motion.h1>
@@ -114,27 +112,6 @@ function CoachingLanding() {
             <span className="gold-shimmer-anim absolute inset-0 pointer-events-none z-3" />
           </button>
         </div>
-        {/* Scoped shimmer animation CSS */}
-        <style>{`
-          .shimmer-on-hover .gold-shimmer-anim {
-            background: linear-gradient(120deg, transparent 60%, rgba(255,255,200,0.18) 70%, transparent 80%);
-            opacity: 0;
-            transition: opacity 0.3s;
-          }
-          .shimmer-on-hover:hover .gold-shimmer-anim,
-          .shimmer-on-hover:focus .gold-shimmer-anim {
-            opacity: 1;
-            animation: goldShimmerMove 2.2s linear infinite;
-          }
-          @keyframes goldShimmerMove {
-            0% { background-position: -120% 0; }
-            100% { background-position: 220% 0; }
-          }
-          .gold-shimmer-anim {
-            background-size: 200% 100%;
-            background-repeat: no-repeat;
-          }
-        `}</style>
       </section>
 
       {/* Disruption Section: more visible archetypes.webp, transparent black text box, gold-foil border, 100% width */}

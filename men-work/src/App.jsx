@@ -289,10 +289,10 @@ function BootcampLanding() {
       )}
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative hero-bg">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-gradient-to-br from-background/35 via-background/18 to-background/35"></motion.div>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.32 }} transition={{ duration: 1.2 }} className="absolute inset-0" style={{backgroundImage: `url(${bootcampHero})`,backgroundSize: 'cover',backgroundPosition: 'center',backgroundAttachment: 'fixed', filter: 'brightness(1.18) contrast(1.18) saturate(1.18)'}}></motion.div>
-        <div className="max-w-7xl mx-auto w-full px-6 relative z-10 flex flex-col items-center text-center py-32">
+      <section id="hero" ref={bootcampHeroRef} className="relative w-full min-h-screen flex items-center justify-center hero-bg overflow-hidden" style={{ minHeight: '100vh', height: '100svh' }}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-cover bg-center z-1" style={{ backgroundImage: `url(${bootcampHero})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'scroll' }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/60 to-black z-2" />
+        <div className="max-w-7xl mx-auto w-full px-4 md:px-6 relative z-10 flex flex-col items-center justify-center text-center h-full">
           <h1 className="text-5xl md:text-6xl font-extrabold mb-4 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>
             No More Mr. Nice Guy® Bootcamp
           </h1>
@@ -304,32 +304,13 @@ function BootcampLanding() {
           </h2>
           <div className="mb-4">
             <span style={{ color: '#D4E04F', fontSize: '22px', letterSpacing: '0.04em', fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
-              6–7th September ✴ Oxford, UK – Limited Spots Available
+              6–7th September ✴️ Oxford, UK – Limited Spots Available
             </span>
           </div>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mt-8 w-full max-w-lg mx-auto">
-            <div className="relative w-full sm:w-auto flex-1 flex justify-center">
-              <span className="absolute inset-0 rounded-xl blur-xl opacity-60" style={{ background: 'radial-gradient(circle, #E6F97B 0%, transparent 80%)', zIndex: 0 }}></span>
-              <Button 
-                onClick={() => scrollToSection('pricing')}
-                className="btn-primary text-xl px-8 py-6 font-bold relative z-10 w-full sm:w-auto cursor-pointer"
-                style={{ boxShadow: '0 0 32px 8px #E6F97B55', fontFamily: 'PT Serif, serif', minHeight: 64 }}
-              >
-                SECURE YOUR PLACE TODAY
-              </Button>
-            </div>
-            <Button 
-              variant="outline"
-              className="border-2 text-lg px-8 py-6 font-bold cursor-pointer"
-              style={{ borderColor: '#E6F97B', color: '#E6F97B', background: 'transparent', fontFamily: 'PT Serif, serif', minHeight: 64 }}
-              onClick={() => {
-                const nextSection = document.querySelector('section:nth-of-type(2)');
-                if (nextSection) nextSection.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Learn More
-            </Button>
-          </div>
+          <Button onClick={() => scrollToSection('pricing')} className="btn-primary w-full md:w-auto text-base md:text-xl px-6 md:px-10 py-3 md:py-4 mt-2 md:mt-0" style={{ minWidth: 0 }}>
+            SECURE YOUR PLACE
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Button>
         </div>
       </section>
 
@@ -951,10 +932,10 @@ function LoverLanding() {
       )}
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative hero-bg">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-gradient-to-br from-background/35 via-background/18 to-background/35"></motion.div>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.32 }} transition={{ duration: 1.2 }} className="absolute inset-0" style={{backgroundImage: `url(${loverHero})`,backgroundSize: 'cover',backgroundPosition: 'center',backgroundAttachment: 'fixed', filter: 'brightness(1.18) contrast(1.18) saturate(1.18)'}}></motion.div>
-        <div className="max-w-7xl mx-auto w-full px-6 relative z-10 flex flex-col items-center text-center py-32">
+      <section id="hero" ref={loverHeroRef} className="relative w-full min-h-screen flex items-center justify-center hero-bg overflow-hidden" style={{ minHeight: '100vh', height: '100svh' }}>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-cover bg-center z-1" style={{ backgroundImage: `url(${loverHero})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'scroll' }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/60 to-black z-2" />
+        <div className="max-w-7xl mx-auto w-full px-4 md:px-6 relative z-10 flex flex-col items-center justify-center text-center h-full">
           <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-5xl md:text-6xl font-extrabold mb-2 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>
             No More Mr. Nice Guy®
           </motion.h1>
@@ -964,7 +945,10 @@ function LoverLanding() {
           <motion.p initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="my-10 mx-auto w-full max-w-4xl text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 300, fontSize: 33, color: '#fff', lineHeight: 1.22, textShadow: '0 0 32px #E6F97B55, 0 0 8px #fff2' }}>
             {invitation}
           </motion.p>
-          <button className="btn-primary text-xl px-8 py-6 font-bold mt-2 rounded-lg" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 64, borderRadius: 11, boxShadow: '0 0 32px 8px #E6F97B55' }} onClick={() => scrollToSection('investment-plan')}>Join the Programme</button>
+          <Button onClick={() => scrollToSection('investment-plan')} className="btn-primary w-full md:w-auto text-base md:text-xl px-6 md:px-10 py-3 md:py-4 mt-2 md:mt-0" style={{ minWidth: 0 }}>
+            JOIN PROGRAMME
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Button>
         </div>
       </section>
 
