@@ -64,31 +64,41 @@ export default function LinkInBio() {
       alignItems: 'center',
       justifyContent: 'flex-start',
       padding: '0 16px',
+      fontFamily: 'League Spartan, sans-serif',
+      lineHeight: 1.3,
     }}>
       {/* Dark overlay for readability */}
       <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.82)', zIndex: 0 }} />
       <div style={{ width: '100%', maxWidth: 400, margin: '0 auto', marginTop: 48, marginBottom: 24, position: 'relative', zIndex: 1 }}>
-        <h1 style={{ fontFamily: 'PT Serif, serif', fontSize: '2.5rem', color: GOLD, fontWeight: 700, textAlign: 'center', marginBottom: 12, letterSpacing: '-0.01em' }}>
+        <h1 style={{ fontFamily: 'PT Serif, serif', fontSize: '2.5rem', color: GOLD, fontWeight: 700, textAlign: 'center', marginBottom: 12, letterSpacing: '-0.01em', lineHeight: 1.2 }}>
           Reclaim Your Authentic Power
         </h1>
-        <div style={{ textAlign: 'center', color: '#EEE', fontFamily: 'League Spartan, sans-serif', fontSize: '1rem', fontWeight: 500, marginBottom: 40, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
-          EXPLORE OUR FLAGSHIP PROGRAMMES & COMMUNITY:
+        <div style={{ textAlign: 'center', color: '#EEE', fontFamily: 'League Spartan, sans-serif', fontSize: '1rem', fontWeight: 500, marginBottom: 40, letterSpacing: '0.04em', textTransform: 'uppercase', lineHeight: 1.3 }}>
+          Links to real transformation, not surface fixes.
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 20, margin: '40px 0' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 16, margin: '40px 0' }}>
           {mainLinks.map(link => {
-            // WhatsApp group button: show WhatsApp icon
-            let icon = link.icon || fallbackIcon;
+            let icon = fallbackIcon;
+            if (link.icon && iconMap[link.icon]) {
+              icon = iconMap[link.icon];
+            } else if (link.icon && typeof link.icon === 'string') {
+              // Try to use as imported asset, fallback to nmmngLogo
+              console.warn(`Missing icon asset for: ${link.label}, using fallback.`);
+            }
             if (/whatsapp/i.test(link.label)) icon = <FaWhatsapp size={40} color={GOLD} />;
-            // Executive Coaching: force white text if gold-foil is too dark
-            const forceWhite = link.label === 'Executive Coaching';
+            // Executive Coaching: force black text and dark icon
+            const isExec = link.label === 'Executive Coaching';
+            const forceWhite = !isExec;
+            const execProps = isExec ? { labelColor: '#111', iconColor: '#111', goldFoil: true } : {};
             return (
               <GlassButton
                 key={link.label}
                 label={link.label}
                 url={link.url}
                 icon={icon}
-                goldFoil={link.label === 'Executive Coaching'}
+                goldFoil={isExec}
                 forceWhite={forceWhite}
+                {...execProps}
               />
             );
           })}
@@ -130,8 +140,11 @@ export default function LinkInBio() {
             </a>
           ))}
         </div>
-        <div style={{ color: '#888', textAlign: 'center', fontFamily: 'League Spartan, sans-serif', fontSize: 15, marginTop: 40 }}>
+        <div style={{ color: '#888', textAlign: 'center', fontFamily: 'League Spartan, sans-serif', fontSize: '.875rem', marginTop: 40, lineHeight: 1.3 }}>
           Trusted by 10,000+ men in 50+ countries
+        </div>
+        <div style={{ color: '#555', textAlign: 'center', fontFamily: 'League Spartan, sans-serif', fontSize: 13, marginTop: 10, marginBottom: 10, lineHeight: 1.3 }}>
+          © 2025 No More Mr. Nice Guy®️is a registered trade mark and trading name of RA & Associates Limited
         </div>
       </div>
     </div>
