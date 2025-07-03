@@ -1166,6 +1166,10 @@ function LoverLanding() {
             </div>
             </div>
             </div>
+      {/* Full-width image below timeline boxes */}
+      <div className="w-full mt-12 flex justify-center">
+        <img src="/assets/lover-phases.webp" alt="Programme Phases" className="w-full max-w-7xl rounded-2xl shadow-xl object-cover" style={{ minHeight: 120, maxHeight: 340 }} />
+      </div>
       </section>
 
       {/* Section 6: What's Included */}
