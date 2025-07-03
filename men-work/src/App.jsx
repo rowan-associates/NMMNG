@@ -1039,9 +1039,15 @@ function LoverLanding() {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-gradient-to-br from-background/60 via-background/40 to-background/60"></motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.22 }} transition={{ duration: 1.2 }} className="absolute inset-0" style={{backgroundImage: `url(${loverHero})`,backgroundSize: 'cover',backgroundPosition: 'center',backgroundAttachment: 'fixed'}}></motion.div>
         <div className="max-w-7xl mx-auto w-full px-6 relative z-10 flex flex-col items-center text-center py-32">
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-5xl md:text-6xl font-extrabold mb-4 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>{heroTitle}</motion.h1>
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="mb-4 text-2xl md:text-3xl" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, color: '#D4E04F' }}>{heroSubtitle}</motion.div>
-          <motion.p initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="my-10 mx-auto w-full max-w-3xl text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 300, fontSize: 33, color: '#fff', lineHeight: 1.22 }}>{heroDesc}</motion.p>
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-5xl md:text-6xl font-extrabold mb-2 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>
+            No More Mr. Nice Guy®
+          </motion.h1>
+          <motion.h2 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-4xl md:text-5xl font-bold mb-6 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>
+            The Authentic Lover Blueprint
+          </motion.h2>
+          <motion.p initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="my-10 mx-auto w-full max-w-4xl text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 300, fontSize: 33, color: '#fff', lineHeight: 1.22, textShadow: '0 0 32px #E6F97B55, 0 0 8px #fff2' }}>
+            {invitation}
+          </motion.p>
           <button className="btn-primary text-xl px-8 py-6 font-bold mt-2 rounded-lg" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 64, borderRadius: 11, boxShadow: '0 0 32px 8px #E6F97B55' }} onClick={() => window.open(joinUrl, '_blank')}>Join the Programme</button>
         </div>
       </section>
