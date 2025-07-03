@@ -1194,13 +1194,15 @@ function LoverLanding() {
 
       {/* Section 6: What's Included */}
       <section className="py-16 relative w-full flex justify-center items-center overflow-hidden">
-        {/* Large blurred lion background */}
-        <img src="/assets/nmmng-logo.png" alt="NMMNG Lion Logo" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] md:w-[900px] lg:w-[1100px] max-w-none opacity-15 blur-2xl pointer-events-none select-none z-0" style={{}} />
+        {/* Large, centered, in-focus lion background */}
+        <img src="/assets/nmmng-logo.png" alt="NMMNG Lion Logo" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] md:w-[900px] lg:w-[1100px] max-w-none opacity-20 pointer-events-none select-none z-0" style={{ filter: 'none' }} />
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative z-10 w-full">
           <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{whatsIncludedTitle}</h2>
           <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
             {whatsIncluded.map((item, i) => (
               <div key={i} className="glass rounded-2xl p-8 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative overflow-hidden" style={{ borderRadius: 18, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
+                {/* Blurred lion only under the card content */}
+                <img src="/assets/nmmng-logo.png" alt="NMMNG Lion Logo" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 object-contain opacity-30 blur-2xl pointer-events-none select-none z-0" style={{}} />
                 <div className="mb-4 flex items-center justify-center relative z-10">{item.icon}</div>
                 <div className="text-xl font-bold mb-2 relative z-10" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F', letterSpacing: '0.01em' }}>{item.name}</div>
                 <div className="text-base text-white relative z-10" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{item.desc}</div>
