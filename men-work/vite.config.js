@@ -11,7 +11,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  // For GitHub Pages, uncomment the next line:
-  // base: '/men-work/',
   // For Vercel, leave base as '/'
 })
