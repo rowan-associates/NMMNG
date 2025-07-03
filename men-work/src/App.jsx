@@ -1223,15 +1223,13 @@ function LoverLanding() {
         <div className="absolute inset-0" style={{ backgroundImage: `url(${menBg})`, backgroundSize: 'cover', backgroundPosition: 'center', zIndex: 0, opacity: 0.32 }}></div>
         <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/80 to-background/90" style={{ zIndex: 1 }}></div>
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative z-10">
-          <div className="max-w-3xl mx-auto">
-            <div className="glass rounded-2xl p-10 text-center" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.88)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
-              <div className="flex justify-center items-center w-full mb-8">
-                <div className="w-full max-w-[200px] md:max-w-[260px] lg:max-w-[300px] mx-auto" style={{ filter: 'drop-shadow(0 0 32px #E6F97B55) drop-shadow(0 2px 16px #0008)' }}>
-                  <img src="/assets/key.webp" alt="Key Symbol" className="w-full h-[180px] md:h-[240px] lg:h-[300px] object-contain" style={{ background: 'transparent', display: 'block', margin: '0 auto' }} />
-                </div>
+          <div className="max-w-5xl mx-auto w-full px-6 flex flex-col items-center justify-center text-center">
+            <div className="flex justify-center items-center w-full mb-8">
+              <div className="w-full max-w-[200px] md:max-w-[260px] lg:max-w-[300px] mx-auto" style={{ filter: 'drop-shadow(0 0 32px #E6F97B55) drop-shadow(0 2px 16px #0008)' }}>
+                <img src="/assets/key.webp" alt="Key Symbol" className="w-full h-[180px] md:h-[240px] lg:h-[300px] object-contain" style={{ background: 'transparent', display: 'block', margin: '0 auto' }} />
               </div>
-              <p className="text-2xl font-bold gradient-text mb-0 text-center" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700, color: '#D4E04F' }}>{finalCta}</p>
             </div>
+            <p className="text-2xl font-bold gradient-text mb-0 text-center" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700, color: '#D4E04F', maxWidth: '100%' }}>{finalCta}</p>
           </div>
         </motion.div>
       </section>
