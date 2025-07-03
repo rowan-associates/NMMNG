@@ -71,7 +71,7 @@ function CoachingLanding() {
 
   return (
     <div className="min-h-screen text-foreground overflow-x-hidden" style={{ background: BG_BLACK, color: TEXT_LIGHT }}>
-      {/* Sticky Navigation - always visible */}
+      {/* Sticky Navigation - gold-foil background, no blue */}
       <nav className="nav-sticky" style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, background: `url(${goldFoil}), linear-gradient(rgba(0,0,0,0.96),rgba(0,0,0,0.96))`, backgroundBlendMode: 'overlay', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', boxShadow: `0 2px 24px 0 ${GOLD}33`, overflow: 'hidden' }}>
         <div style={{ position: 'absolute', inset: 0, zIndex: 0, filter: 'blur(6px)', pointerEvents: 'none' }} />
         <div className="container mx-auto px-4 py-2 flex flex-row justify-between items-center gap-2" style={{ position: 'relative', zIndex: 1 }}>
@@ -139,14 +139,14 @@ function CoachingLanding() {
         `}</style>
       </section>
 
-      {/* Disruption Section */}
+      {/* Disruption Section: more visible archetypes.webp, transparent black text box, gold-foil border, 100% width */}
       <section id="disruption" className="w-full min-h-screen flex items-center justify-center relative overflow-hidden">
-        {/* Archetypes full background */}
-        <img src={archetypesImg} alt="Archetypes" className="absolute inset-0 w-full h-full object-cover z-0" style={{ opacity: 0.22, filter: 'blur(2.5px)', objectFit: 'cover', pointerEvents: 'none' }} />
-        <div className="absolute inset-0 bg-black/80 z-0" />
+        {/* Archetypes full background, more visible */}
+        <img src={archetypesImg} alt="Archetypes" className="absolute inset-0 w-full h-full object-cover z-0" style={{ opacity: 0.38, filter: 'blur(1.2px)', objectFit: 'cover', pointerEvents: 'none' }} />
+        <div className="absolute inset-0 bg-black/70 z-0" />
         <div className="relative z-10 w-full flex items-center justify-center px-2 py-16" style={{ minHeight: '80vh' }}>
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="w-full max-w-5xl mx-auto">
-            <div className="glass gold-foil-border rounded-2xl p-10 md:p-16 flex flex-col items-center shadow-xl backdrop-blur-md w-full" style={{ background: 'rgba(0,0,0,0.68)', borderRadius: 24 }}>
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="w-full max-w-7xl mx-auto">
+            <div className="glass gold-foil-border rounded-2xl p-10 md:p-16 flex flex-col items-center shadow-xl backdrop-blur-md w-full" style={{ background: 'rgba(0,0,0,0.72)', borderRadius: 24, width: '100%' }}>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center gold-gradient-text" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.1 }}>
                 The World Has Changed. Have You?
               </h2>
