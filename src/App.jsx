@@ -1,1 +1,6 @@
-  <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground px-4 py-12 relative overflow-hidden" style={{ background: "url('/assets/linkinbio-background.webp') center/cover no-repeat" }}> 
+import LinkInBio from './LinkInBio';
+
+export default function App() {
+  return <LinkInBio />;
+}
+
