@@ -58,15 +58,20 @@ function Home() {
       url: 'https://join.nmmng.co/coaching',
       icon: <FaBook size={28} />,
     },
+    {
+      text: 'NMMNG® WhatsApp General Discussions Group',
+      url: 'https://Nmmng.co/NMMNG-General-Whatsapp',
+      icon: <FaWhatsapp size={28} />,
+    },
   ]
 
   const socials = [
     { icon: <FaYoutube />, url: 'https://www.youtube.com/@NoMoreMrNiceGuyUK' },
-    { icon: <FaInstagram />, url: 'https://instagram.com/nomoremrniceguyuk' },
-    { icon: <FaMeetup />, url: 'https://www.meetup.com/menwork-uk/' },
-    { icon: <FaLinkedin />, url: 'https://www.linkedin.com/company/menwork-uk/' },
-    { icon: <FaWhatsapp />, url: 'https://wa.me/447418351888' },
-    { icon: <FaEnvelope />, url: 'mailto:info@nomoremrniceguy.co.uk' },
+    { icon: <SiX />, url: 'https://x.com/NMMNGS' },
+    { icon: <FaInstagram />, url: 'https://www.instagram.com/NMMNGS/' },
+    { icon: <FaMeetup />, url: 'https://www.meetup.com/uk-no-more-mr-nice-guy/' },
+    { icon: <FaWhatsapp />, url: 'https://Nmmng.co/NMMNG-General-Whatsapp' },
+    { icon: <FaEnvelope />, url: 'mailto:enquire@nomoremrniceguy.co' },
     { icon: <FaGlobe />, url: 'https://nomoremrniceguy.co.uk' },
   ]
 
@@ -81,7 +86,7 @@ function Home() {
         opacity: 0.22,
         pointerEvents: 'none',
       }} />
-      <div className="glass card-modern flex flex-col items-center max-w-md w-full mx-auto px-4 pt-10 pb-8 shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(15,31,45,0.92)', borderRadius: 24, boxShadow: '0 8px 40px rgba(0,0,0,0.35)', border: '1.5px solid #1A1A1A', marginTop: '60px', marginBottom: '60px', backdropFilter: 'blur(12px)' }}>
+      <div className="glass card-modern flex flex-col items-center max-w-md w-full mx-auto px-4 pt-10 pb-8 shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(15,31,45,0.72)', borderRadius: 24, boxShadow: '0 8px 40px rgba(0,0,0,0.35)', border: '1.5px solid #1A1A1A', marginTop: '60px', marginBottom: '60px', backdropFilter: 'blur(12px)' }}>
         <div className="flex flex-col items-center mb-8">
           <span className="rounded-full border-4 border-[#D4E04F] bg-[#0F4F40] flex items-center justify-center mb-4" style={{ width: 90, height: 90 }}>
             <FaFire size={48} color="#D4E04F" />
