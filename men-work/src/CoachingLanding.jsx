@@ -83,7 +83,7 @@ function CoachingLanding() {
           </div>
           <button 
             onClick={() => scrollToSection('application')}
-            className="btn-primary w-full md:w-auto text-base md:text-xl px-5 md:px-8 py-2 md:py-3 font-bold rounded-lg gold-foil-btn shimmer-on-hover bg-black text-gold border border-gold font-bold min-w-0 leading-tight h-11 flex items-center justify-center whitespace-nowrap relative overflow-hidden mt-2 md:mt-0"
+            className="btn-primary w-auto md:w-auto text-base md:text-xl px-4 md:px-8 py-2 md:py-3 font-bold rounded-lg gold-foil-btn shimmer-on-hover bg-black text-gold border border-gold font-bold leading-tight h-11 flex items-center justify-center whitespace-nowrap relative overflow-hidden mt-2 md:mt-0"
             style={{ border: `1.5px solid ${GOLD}` }}
           >
             <span className="relative z-2">APPLY NOW</span>
