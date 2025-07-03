@@ -1228,7 +1228,7 @@ function LoverLanding() {
             <div className="glass rounded-2xl p-10 text-center" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.88)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
               <div className="flex justify-center items-center w-full mb-8">
                 <div className="w-full max-w-[200px] md:max-w-[260px] lg:max-w-[300px] mx-auto" style={{ filter: 'drop-shadow(0 0 32px #E6F97B55) drop-shadow(0 2px 16px #0008)' }}>
-                  <img src={keyImg} alt="Key Symbol" className="w-full h-[180px] md:h-[240px] lg:h-[300px] object-contain" style={{ background: 'transparent', display: 'block', margin: '0 auto' }} />
+                  <img src="/assets/key.webp" alt="Key Symbol" className="w-full h-[180px] md:h-[240px] lg:h-[300px] object-contain" style={{ background: 'transparent', display: 'block', margin: '0 auto' }} />
                 </div>
               </div>
               <p className="text-2xl font-bold gradient-text mb-0 text-center" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700, color: '#D4E04F' }}>{finalCta}</p>
