@@ -1110,16 +1110,13 @@ function LoverLanding() {
             {philosophyText.map((p, i) => (
               <p key={i} className="text-lg text-white mb-6" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{p}</p>
             ))}
-          </motion.div>
+        </motion.div>
         </div>
       </section>
 
       {/* Section 5: Programme Structure & Curriculum */}
       <section className="relative py-20 w-full min-h-[700px] flex flex-col items-center justify-center overflow-visible" style={{ zIndex: 1 }}>
-        {/* Blurred background image for the entire section */}
-        <div className="absolute inset-0 z-0 bg-cover bg-center" style={{ backgroundImage: `url(${loverPhases})`, filter: 'blur(4px) brightness(0.7)', opacity: 0.32 }}></div>
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0D212Dcc] to-[#0D212Ddd]" />
-        <div className="relative z-20 max-w-7xl mx-auto w-full px-6 flex flex-col items-center">
+        <div className="relative max-w-7xl mx-auto w-full px-6 flex flex-col items-center">
           <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-4 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{structureTitle}</motion.h2>
           <motion.p initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="text-lg md:text-xl text-center mb-12 text-white/80 max-w-3xl mx-auto" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
             This is a guided, transformational arc—from self-awareness to field testing to integration.
@@ -1255,7 +1252,7 @@ function LoverLanding() {
             <div className="flex justify-center items-center w-full mb-8">
               <div className="w-full max-w-[200px] md:max-w-[260px] lg:max-w-[300px] mx-auto" style={{ filter: 'drop-shadow(0 0 32px #E6F97B55) drop-shadow(0 2px 16px #0008)' }}>
                 <img src="/assets/key.webp" alt="Key Symbol" className="w-full h-[180px] md:h-[240px] lg:h-[300px] object-contain" style={{ background: 'transparent', display: 'block', margin: '0 auto' }} />
-              </div>
+            </div>
             </div>
             <p className="text-2xl font-bold gradient-text mb-0 text-center" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700, color: '#D4E04F', maxWidth: '100%' }}>{finalCta}</p>
           </div>
