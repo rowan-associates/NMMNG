@@ -30,6 +30,20 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@r
 import { motion } from 'framer-motion'
 import loverHero from './assets/lover-hero.webp'
 import loverPhases from './assets/lover-phases.webp'
+import polarityImg from './assets/polarity-transparent.webp'
+import { FaUsers, FaChalkboardTeacher, FaUserCheck, FaTasks, FaComments, FaHandshake, FaVideo } from 'react-icons/fa'
+import menBg from './assets/men.webp'
+
+// Socials array (move to file scope for reuse)
+const socials = [
+  { icon: <FaYoutube />, url: 'https://www.youtube.com/@NoMoreMrNiceGuyUK' },
+  { icon: <SiX />, url: 'https://x.com/NMMNGS' },
+  { icon: <FaInstagram />, url: 'https://www.instagram.com/NMMNGS/' },
+  { icon: <FaMeetup />, url: 'https://www.meetup.com/uk-no-more-mr-nice-guy/' },
+  { icon: <FaWhatsapp />, url: 'https://Nmmng.co/NMMNG-General-Whatsapp' },
+  { icon: <FaEnvelope />, url: 'mailto:enquire@nomoremrniceguy.co' },
+  { icon: <FaGlobe />, url: 'https://nomoremrniceguy.co.uk' },
+];
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -83,16 +97,6 @@ function Home() {
       url: 'https://Nmmng.co/NMMNG-General-Whatsapp',
       icon: <FaWhatsapp style={whiteIconStyle} />, whiteIcon: true,
     },
-  ];
-
-  const socials = [
-    { icon: <FaYoutube />, url: 'https://www.youtube.com/@NoMoreMrNiceGuyUK' },
-    { icon: <SiX />, url: 'https://x.com/NMMNGS' },
-    { icon: <FaInstagram />, url: 'https://www.instagram.com/NMMNGS/' },
-    { icon: <FaMeetup />, url: 'https://www.meetup.com/uk-no-more-mr-nice-guy/' },
-    { icon: <FaWhatsapp />, url: 'https://Nmmng.co/NMMNG-General-Whatsapp' },
-    { icon: <FaEnvelope />, url: 'mailto:enquire@nomoremrniceguy.co' },
-    { icon: <FaGlobe />, url: 'https://nomoremrniceguy.co.uk' },
   ];
 
   return (
@@ -873,17 +877,34 @@ function BootcampLanding() {
         </section>
 
         {/* Sexy Footer */}
-        <footer className="py-16 border-t border-border/20 relative z-10">
+        <footer className="py-16 border-t border-border/20 relative z-10" style={{ background: `url(${bootcampFooter}) center bottom/cover no-repeat`, backgroundAttachment: 'fixed' }}>
           <div className="container mx-auto px-6 flex flex-col items-center">
             <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center cursor-pointer">
-              <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
+              <img src={nmmngLogo} alt="NMMNG Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
             </a>
             <div className="flex gap-8 mb-4">
-              <a href="https://rowan-associates.com" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1 cursor-pointer" style={{ fontSize: 16 }}>rowan-associates.com</a>
+              <a href="/bootcamp" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>NMMNG® Bootcamp</a>
+              <a href="/lover" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>Authentic Lover Blueprint</a>
               <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1 cursor-pointer" style={{ fontSize: 16 }}>nomoremrniceguy.co.uk</a>
             </div>
+            <div className="flex gap-6 mb-6">
+              {socials.map((s, i) => (
+                <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: '#D4E04F', fontSize: 32, transition: 'color 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+            <div className="flex flex-col items-center gap-2 mb-2">
+              <div className="flex gap-6 text-sm mb-1">
+                <a href="https://www.nomoremrniceguy.co.uk/terms" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary" style={{ color: '#D4E04F' }}>Terms & Conditions</a>
+                <a href="https://www.nomoremrniceguy.co.uk/privacy" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary" style={{ color: '#D4E04F' }}>Privacy Policy</a>
+              </div>
+              <div className="text-xs text-center" style={{ color: '#D4E04F', fontFamily: 'League Spartan, sans-serif', fontWeight: 500 }}>
+                © 2025 No More Mr. Nice Guy®️ is a registered trademark and trading name of RA & Associates Limited
+              </div>
+            </div>
             <div className="text-muted-foreground text-sm flex flex-wrap items-center gap-2">
-              &copy; {new Date().getFullYear()} NMMNG Bootcamp. All rights reserved.
+              &copy; {new Date().getFullYear()} No More Mr. Nice Guy®. All rights reserved.
               <span>|</span>
               <span>Vibe coded by <a href="https://respira.cafe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Respira</a></span>
             </div>
@@ -928,13 +949,13 @@ function LoverLanding() {
   }
 
   // --- Sectioned content from lover-brief.txt ---
-  const heroTitle = "No More Mr. Nice Guy® - The Authentic Lover Blueprint";
+  const heroTitle = "No More Mr. Nice Guy® – The Authentic Lover Blueprint";
   const heroSubtitle = "An intensive six-month Dating and Relationship Programme for men wanting to connect with women";
   const heroDesc = "Are you tired of overthinking every date or every interaction with your partner or girlfriend? Do you feel fear that you won't be able to attract the woman or women you truly desire and would want a relationship with? Or are you stuck in a relationship that has never quite fulfilled it's promise?";
   const investment = "Investment: £4,997 (full six-month programme)";
   const joinUrl = "https://join.nmmng.co/lover";
 
-  const breakthrough = "This intensive six-month programme is designed to break the \"Nice Guy\" patterns that are get in the way of you having the intimate relationship you really want. We move you beyond theory and strategising into direct experience, helping you uncover and dismantle the limiting beliefs that condition your current approach and build the confidence in you to connect with women authentically.";
+  const invitation = "This intensive six-month programme is designed to break the \"Nice Guy\" patterns that are get in the way of you having the intimate relationship you really want. We move you beyond theory and strategising into direct experience, helping you uncover and dismantle the limiting beliefs that condition your current approach and build the confidence in you to connect with women authentically.";
 
   const whoTitle = "Who Is This Programme For?";
   const whoBullets = [
@@ -997,15 +1018,29 @@ function LoverLanding() {
     }
   ];
 
-  const whatsIncludedTitle = "What's Included in The Programme:";
+  const whatsIncludedTitle = "What's Included in The Programme";
   const whatsIncluded = [
-    "Weekly Group Coaching Calls: Two calls per month to share experiences, receive direct coaching from Rowan, Kevin and Matt, and learn from the journeys of other men in the group.",
-    "Direct input and feedback from women: Our female coaches are on hand to deliver invaluable insights and feedback that will accelerate your learning and growth.",
-    "Timely One-on-One Coaching Sessions and input when you need it:  Scheduled coaching calls with a seasoned coach to work on your specific requirements and track your progress.",
-    "Practical 'Missions': Real-world assignments we call them 'Games' to implement between sessions so that you get hands on practice - like a sandbox for your dating activity!",
-    "Private Accountability Group: A dedicated online forum for daily support, check-ins, and accountability with your 'tribe.'",
-    "Accountability Partner: You will be paired with another man in the programme to provide mutual support and ensure you stay on track with your missions and Rowan and his team will be your guide to ensure you get the full value of your investment.",
-    "Video, audio and text content:  Access to exclusive content to deepen your understanding and inspire you to think outside the box and grow as a lover"
+    {
+      icon: <FaUsers size={38} className="text-[#D4E04F]" />, name: 'Weekly Group Coaching Calls', desc: 'Two calls per month to share experiences, receive direct coaching from Rowan, Kevin and Matt, and learn from the journeys of other men in the group.'
+    },
+    {
+      icon: <FaChalkboardTeacher size={38} className="text-[#A67C52]" />, name: 'Direct input and feedback from women', desc: 'Our female coaches are on hand to deliver invaluable insights and feedback that will accelerate your learning and growth.'
+    },
+    {
+      icon: <FaUserCheck size={38} className="text-[#0F4F40]" />, name: 'One-on-One Coaching Sessions', desc: 'Scheduled coaching calls with a seasoned coach to work on your specific requirements and track your progress.'
+    },
+    {
+      icon: <FaTasks size={38} className="text-[#D4E04F]" />, name: 'Practical "Missions"', desc: 'Real-world assignments we call them "Games" to implement between sessions so that you get hands on practice - like a sandbox for your dating activity!'
+    },
+    {
+      icon: <FaComments size={38} className="text-[#A67C52]" />, name: 'Private Accountability Group', desc: 'A dedicated online forum for daily support, check-ins, and accountability with your "tribe."'
+    },
+    {
+      icon: <FaHandshake size={38} className="text-[#0F4F40]" />, name: 'Accountability Partner', desc: 'You will be paired with another man in the programme to provide mutual support and ensure you stay on track with your missions.'
+    },
+    {
+      icon: <FaVideo size={38} className="text-[#D4E04F]" />, name: 'Video, audio and text content', desc: 'Access to exclusive content to deepen your understanding and inspire you to think outside the box and grow as a lover.'
+    },
   ];
 
   const finalCta = "This programme is an investment in a completely new way of being. It's for men who are ready to stop playing small and start creating the authentic, fulfilling dating, intimacy and relationship life they deserve. Becoming the authentic lover you are underneath the decades of conditioning.";
@@ -1013,25 +1048,25 @@ function LoverLanding() {
   // Pricing options for the new section
   const pricingOptions = [
     {
-      title: 'One-Time Payment',
       price: '£4,997',
-      label: 'Full 6-month Programme',
+      subtitle: 'Full 6-Month Programme',
       cta: 'Apply Now',
       url: 'https://join.nmmng.co/lover',
+      highlight: true,
     },
     {
-      title: '2 Payments (Every 3 Months)',
-      price: '2 x £2,597',
-      label: 'Split into two payments across the programme',
+      price: '2 × £2,697',
+      subtitle: 'Split into two payments across the programme',
       cta: 'Apply Now',
       url: 'https://join.nmmng.co/lover',
+      highlight: false,
     },
     {
-      title: 'Monthly Plan (6 Payments)',
-      price: '6 x £897',
-      label: 'Monthly instalments, total £5,382',
+      price: '6 × £897',
+      subtitle: 'Monthly installments, total £5,382',
       cta: 'Apply Now',
       url: 'https://join.nmmng.co/lover',
+      highlight: false,
     },
   ];
 
@@ -1058,146 +1093,208 @@ function LoverLanding() {
         <div className="max-w-7xl mx-auto w-full px-6 relative z-10 flex flex-col items-center text-center py-32">
           <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-5xl md:text-6xl font-extrabold mb-4 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>{heroTitle}</motion.h1>
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="mb-4 text-2xl md:text-3xl" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, color: '#D4E04F' }}>{heroSubtitle}</motion.div>
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="glass rounded-2xl p-8 my-12 max-w-4xl mx-auto w-full px-6">
-            <p className="text-xl font-semibold text-white text-left" style={{ fontFamily: 'League Spartan, sans-serif' }}>{heroDesc}</p>
-            <div className="text-2xl font-bold mt-8 mb-2" style={{ color: '#D4E04F', letterSpacing: '0.08em' }}>{investment}</div>
-            <Button className="btn-primary text-xl px-8 py-6 font-bold mt-6" style={{ boxShadow: '0 0 32px 8px #E6F97B55', fontFamily: 'PT Serif, serif', minHeight: 64 }} onClick={() => window.open(joinUrl, '_blank')}>Join the Programme</Button>
+          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="glass rounded-2xl p-8 my-12 max-w-2xl mx-auto w-full px-6 shadow-xl" style={{ background: 'rgba(15,31,45,0.82)', borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.35)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(12px)' }}>
+            <p className="text-xl font-semibold text-white text-left mb-6" style={{ fontFamily: 'League Spartan, sans-serif' }}>{heroDesc}</p>
+            <button className="btn-primary text-xl px-8 py-6 font-bold mt-2 rounded-lg" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 64, borderRadius: 11, boxShadow: '0 0 32px 8px #E6F97B55' }} onClick={() => window.open(joinUrl, '_blank')}>Join the Programme</button>
           </motion.div>
         </div>
       </section>
 
-      {/* About the Programme Section */}
+      {/* Section 2: The Invitation */}
       <section className="py-16 max-w-7xl mx-auto w-full px-6">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="max-w-4xl mx-auto">
-          <Card className="glass rounded-2xl p-10">
-            <CardContent>
-              <p className="text-lg text-muted-foreground text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{breakthrough}</p>
-            </CardContent>
-          </Card>
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="max-w-3xl mx-auto">
+          <div className="glass rounded-2xl p-8 text-center" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
+            <p className="text-lg md:text-xl text-white" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 500 }}>{invitation}</p>
+          </div>
         </motion.div>
       </section>
 
-      {/* Who Is This Programme For? Section */}
+      {/* Section 3: Who Is This Programme For? */}
       <section className="py-16 max-w-7xl mx-auto w-full px-6">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-          <h2 className="text-4xl font-serif font-bold mb-8 gradient-text" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{whoTitle}</h2>
-          <Card className="glass rounded-2xl p-10">
-            <CardContent>
-              <ul className="space-y-6 text-lg text-left" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
-                {whoBullets.map((b, i) => (
-                  <li key={i} className="flex items-start gap-4">
-                    <CheckCircle className="w-6 h-6 text-[#D4E04F] mt-1 flex-shrink-0" />
-                    <span>{b}</span>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </section>
-
-      {/* Philosophy Section */}
-      <section className="py-16 max-w-7xl mx-auto w-full px-6">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-          <h2 className="text-4xl font-serif font-bold mb-8 gradient-text" style={{ fontFamily: 'PT Serif, serif', background: 'linear-gradient(90deg, #D4E04F, #0F4F40)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{philosophyTitle}</h2>
-          <Card className="glass rounded-2xl p-10 bg-[#0F4F40]/80">
-            <CardContent>
-              {philosophyText.map((p, i) => (
-                <p key={i} className="text-lg text-white mb-6" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{p}</p>
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col md:flex-row items-center gap-10 justify-center">
+          {/* Card */}
+          <div className="glass rounded-2xl p-8 max-w-3xl w-full mx-auto" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{whoTitle}</h2>
+            <ul className="space-y-6 text-lg text-left mx-auto max-w-2xl" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
+              {whoBullets.map((b, i) => (
+                <li key={i} className="flex items-start gap-4">
+                  <span className="mt-1 text-[#D4E04F]">✅</span>
+                  <span>{b}</span>
+                </li>
               ))}
-            </CardContent>
-          </Card>
+            </ul>
+          </div>
+          {/* Decorative Image */}
+          <div className="hidden md:block flex-shrink-0">
+            <img src={heroSilhouette} alt="Silhouette" className="rounded-2xl shadow-xl object-cover" style={{ width: 320, height: 320, maxWidth: 320, maxHeight: 320, borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.18)' }} />
+          </div>
+          {/* On mobile, show image above card */}
+          <div className="block md:hidden mb-8 w-full flex justify-center">
+            <img src={heroSilhouette} alt="Silhouette" className="rounded-2xl shadow-xl object-cover" style={{ width: 220, height: 220, maxWidth: 220, maxHeight: 220, borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.18)' }} />
+          </div>
         </motion.div>
       </section>
 
-      {/* Programme Structure & Curriculum Section */}
+      {/* Section 4: Our Philosophy: Experience Over Theory */}
+      <section className="py-16 max-w-7xl mx-auto w-full px-6 bg-secondary/30 rounded-2xl">
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col md:flex-row items-center gap-10 justify-center">
+          {/* On mobile, show image above */}
+          <div className="block md:hidden mb-8 w-full flex justify-center">
+            <img src={polarityImg} alt="Polarity Illustration" className="rounded-2xl object-cover" style={{ width: 220, height: 220, maxWidth: 220, maxHeight: 220, borderRadius: 11, filter: 'blur(2px) brightness(1.1)' }} />
+          </div>
+          {/* Text Card */}
+          <div className="glass rounded-2xl p-8 max-w-2xl w-full mx-auto" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center md:text-left" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{philosophyTitle}</h2>
+            {philosophyText.map((p, i) => (
+              <p key={i} className="text-lg text-white mb-6" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{p}</p>
+            ))}
+          </div>
+          {/* On desktop, image right */}
+          <div className="hidden md:block flex-shrink-0">
+            <img src={polarityImg} alt="Polarity Illustration" className="rounded-2xl object-cover" style={{ width: 320, height: 320, maxWidth: 320, maxHeight: 320, borderRadius: 11, filter: 'blur(2px) brightness(1.1)' }} />
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Section 5: Programme Structure & Curriculum */}
       <section className="py-16 max-w-7xl mx-auto w-full px-6">
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-          <h2 className="text-4xl font-serif font-bold mb-8 gradient-text" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{structureTitle}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>Programme Structure & Curriculum (Six Months)</h2>
           <img src={loverPhases} alt="Programme Roadmap" className="w-full rounded-2xl mb-10" style={{ objectFit: 'cover', maxHeight: 340 }} />
           <div className="grid md:grid-cols-3 gap-8">
-            {phases.map((phase, i) => (
-              <Card key={i} className="glass rounded-2xl p-8 flex flex-col h-full">
-                <CardContent>
-                  <h3 className="text-xl font-bold mb-6 text-[#D4E04F]" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>{phase.phase}</h3>
-                  {phase.modules.map((mod, j) => (
-                    <div key={j} className="mb-8">
-                      <h4 className="text-lg font-bold mb-2 text-white" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>{mod.title}</h4>
-                      <p className="text-base text-white" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{mod.desc}</p>
-                    </div>
-                  ))}
-                </CardContent>
-              </Card>
-            ))}
+            {/* Phase 1 */}
+            <div className="glass rounded-2xl p-8 flex flex-col h-full" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
+              <h3 className="text-xl font-bold mb-4 text-[#D4E04F] text-center" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>Phase 1: Deconstructing The Nice Guy</h3>
+              <p className="text-base text-white mb-6 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
+                This phase is about radical self-awareness. We will identify the root causes of your patterns and begin the process of dismantling them.
+              </p>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="inline-block font-bold text-[#D4E04F] mr-1">Weeks 1–2:</span>
+                  <span className="text-white"><b>Module 1: Identifying Your Core Wounds</b><br />We will explore the origins of your toxic shame, perfectionism, and the impact of your relationship with your parents on your current behaviour with women. Key to healing this conditioning is exploring the mother wound. This is a term that describes our relationship with our mothers and the ultimate problem at the core. Unpacking this deep-seated emotional wound unlocks the possibility of freedom to be who you really are in relationship with women, rather than someone projecting their neediness on women.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="inline-block font-bold text-[#D4E04F] mr-1">Weeks 3–4:</span>
+                  <span className="text-white"><b>Module 2: Mastering Your Emotional State</b><br />Learn to identify and sit with uncomfortable feelings associated with rejection. We will guide you to bring your attention to the feeling without needing to "solve" it with your mind. This is about mastering your own emotions and body. With greater awareness, comes greater power, open, positive and nourishing power rather than controlling power.</span>
+                </li>
+              </ul>
+            </div>
+            {/* Phase 2 */}
+            <div className="glass rounded-2xl p-8 flex flex-col h-full" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
+              <h3 className="text-xl font-bold mb-4 text-[#D4E04F] text-center" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>Phase 2: The Field Manual</h3>
+              <p className="text-base text-white mb-6 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
+                This is where we turn theory into practice with real-world missions designed to break your conditioning.
+              </p>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="inline-block font-bold text-[#D4E04F] mr-1">Weeks 5–8:</span>
+                  <span className="text-white"><b>Module 3: Practical Missions</b><br />The cornerstone of this programme is putting theory into practice. You will be guided to take on bespoke missions that help you integrate what you've learned and will challenge you to break through existing patterns that keep you stuck with the same results. Instead you will open up new possibilities for connection and relationship that you can put into practice in your very own dating activities whether you have already been dating or are just starting out. We guide you through it all at every point you need it. You will rapidly get comfortable trying out new ways of communicating and transmitting your natural masculine energy. These powerful exercises are designed to prove that your fears are unfounded, build confidence and resilience.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="inline-block font-bold text-[#D4E04F] mr-1">Weeks 9–12:</span>
+                  <span className="text-white"><b>Module 4: Dating Without a Mask</b><br />You will learn to "follow the energy" of an interaction instead of a script. This involves dropping your mental checklist of what you should and shouldn't do and learning to be free to act or speak even when feeling vulnerable or anxious in a specific situation in the dating cycle. We guide you through this in timely interventions so that you can leverage what you are learning at every point in the programme.</span>
+                </li>
+              </ul>
+            </div>
+            {/* Phase 3 */}
+            <div className="glass rounded-2xl p-8 flex flex-col h-full" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
+              <h3 className="text-xl font-bold mb-4 text-[#D4E04F] text-center" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>Phase 3: Integration & Community (Months 5–6)</h3>
+              <p className="text-base text-white mb-6 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
+                In the final phase, we focus on building sustainable habits and a powerful support network.
+              </p>
+              <ul className="space-y-4">
+                <li className="flex items-start gap-3">
+                  <span className="inline-block font-bold text-[#D4E04F] mr-1">Weeks 13–16:</span>
+                  <span className="text-white"><b>Module 5: Building Your Tribe</b><br />You will be encouraged and supported to build deeper, more authentic connections with other men. Having a strong male support system is crucial for accountability and navigating challenges. Expect the feeling of deep brotherhood as you and your fellow participants give up the competitive defensive instinct and instead connect on an equal footing in the dating game.</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="inline-block font-bold text-[#D4E04F] mr-1">Weeks 17–24:</span>
+                  <span className="text-white"><b>Module 6: Dating with Integrity</b><br />Learn the art of rejecting and being rejected with grace and being okay with any outcome. We will help you develop the ability to communicate your needs and boundaries clearly, hear the other person's needs and boundaries so that you can freely move from a passive people-pleasing stance to one of authentic leadership in your dating and relational life.</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </motion.div>
       </section>
 
-      {/* What's Included Section */}
-      <section className="py-16 max-w-7xl mx-auto w-full px-6 relative overflow-hidden">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-          <h2 className="text-4xl font-serif font-bold mb-8 gradient-text" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{whatsIncludedTitle}</h2>
-          <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-            {whatsIncluded.map((item, i) => (
-              <Card key={i} className="glass rounded-2xl p-8">
-                <CardContent>
-                  <p className="text-lg text-white" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{item}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Pricing Section */}
+      {/* Section 6: What's Included */}
       <section className="py-16 max-w-7xl mx-auto w-full px-6">
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-          <h2 className="text-4xl font-serif font-bold mb-8 gradient-text" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>Choose Your Investment Plan</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{whatsIncludedTitle}</h2>
+          <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+            {whatsIncluded.map((item, i) => (
+              <div key={i} className="glass rounded-2xl p-8 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.88)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
+                <div className="mb-4 flex items-center justify-center">{item.icon}</div>
+                <div className="text-xl font-bold mb-2" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F', letterSpacing: '0.01em' }}>{item.name}</div>
+                <div className="text-base text-white" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{item.desc}</div>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Section 7: Pricing Section */}
+      <section className="py-16 max-w-7xl mx-auto w-full px-6">
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>Choose Your Investment Plan</h2>
           <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-6">
             {pricingOptions.map((opt, i) => (
-              <Card key={i} className="glass rounded-2xl p-8 flex flex-col h-full items-center">
-                <CardContent className="flex flex-col items-center">
-                  <div className="text-3xl font-bold mb-2" style={{ color: '#D4E04F', fontFamily: 'PT Serif, serif' }}>{opt.price}</div>
-                  <div className="text-lg mb-4" style={{ color: '#A67C52', fontFamily: 'League Spartan, sans-serif', fontWeight: 600 }}>{opt.label}</div>
-                  <Button className="btn-primary text-lg px-8 py-4 font-bold mt-2" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56 }} onClick={() => window.open(opt.url, '_blank')}>{opt.cta}</Button>
-                </CardContent>
-              </Card>
+              <div key={i} className={`glass rounded-2xl p-8 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl ${opt.highlight ? 'border-4 border-[#D4E04F]' : ''}`} style={{ borderRadius: 11, background: 'rgba(15,31,45,0.92)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: opt.highlight ? '4px solid #D4E04F' : '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
+                <div className="text-3xl font-bold mb-2" style={{ color: '#D4E04F', fontFamily: 'PT Serif, serif' }}>{opt.price}</div>
+                <div className="text-lg mb-4" style={{ color: '#A67C52', fontFamily: 'League Spartan, sans-serif', fontWeight: 600 }}>{opt.subtitle}</div>
+                <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, boxShadow: '0 0 32px 8px #E6F97B55' }} onClick={() => window.open(opt.url, '_blank')}>{opt.cta}</button>
+              </div>
             ))}
           </div>
           <div className="text-sm text-muted-foreground text-center mt-2" style={{ fontFamily: 'League Spartan, sans-serif', color: '#A67C52' }}>
-            Payment plans include full access to the entire programme and require agreement to completion terms.
+            We accept most major cards. Secure checkout and support included.
           </div>
         </motion.div>
       </section>
 
-      {/* Final CTA / Belief Statement Section */}
-      <section className="py-16 max-w-7xl mx-auto w-full px-6">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-          <Card className="glass rounded-2xl p-10 bg-[#0F4F40]/90">
-            <CardContent className="flex flex-col items-center">
-              <p className="text-2xl font-bold gradient-text mb-4 text-center" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700, color: '#D4E04F' }}>{finalCta}</p>
-              <div className="flex flex-col md:flex-row gap-6 mt-8 w-full justify-center">
-                {pricingOptions.map((opt, i) => (
-                  <Button key={i} className="btn-primary text-lg px-8 py-4 font-bold" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56 }} onClick={() => window.open(opt.url, '_blank')}>{opt.cta}</Button>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
+      {/* Section 8: Final Commitment Section */}
+      <section className="py-16 max-w-7xl mx-auto w-full px-6 relative overflow-hidden">
+        {/* Background image with overlay */}
+        <div className="absolute inset-0" style={{ backgroundImage: `url(${menBg})`, backgroundSize: 'cover', backgroundPosition: 'center', zIndex: 0, opacity: 0.32 }}></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/80 to-background/90" style={{ zIndex: 1 }}></div>
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative z-10">
+          <div className="max-w-3xl mx-auto">
+            <div className="glass rounded-2xl p-10 text-center" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.88)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
+              <p className="text-2xl font-bold gradient-text mb-0 text-center" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700, color: '#D4E04F' }}>{finalCta}</p>
+            </div>
+          </div>
         </motion.div>
       </section>
 
       {/* Footer Section (for consistency) */}
-      <footer className="py-16 border-t border-border/20 relative z-10">
+      <footer className="py-16 border-t border-border/20 relative z-10" style={{ background: `url(${bootcampFooter}) center bottom/cover no-repeat`, backgroundAttachment: 'fixed' }}>
         <div className="container mx-auto px-6 flex flex-col items-center">
           <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center cursor-pointer">
             <img src={nmmngLogo} alt="NMMNG Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
           </a>
           <div className="flex gap-8 mb-4">
-            <a href="https://rowan-associates.com" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1 cursor-pointer" style={{ fontSize: 16 }}>rowan-associates.com</a>
+            <a href="/bootcamp" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>NMMNG® Bootcamp</a>
+            <a href="/lover" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>Authentic Lover Blueprint</a>
             <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1 cursor-pointer" style={{ fontSize: 16 }}>nomoremrniceguy.co.uk</a>
           </div>
+          <div className="flex gap-6 mb-6">
+            {socials.map((s, i) => (
+              <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: '#D4E04F', fontSize: 32, transition: 'color 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                {s.icon}
+              </a>
+            ))}
+          </div>
+          <div className="flex flex-col items-center gap-2 mb-2">
+            <div className="flex gap-6 text-sm mb-1">
+              <a href="https://www.nomoremrniceguy.co.uk/terms" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary" style={{ color: '#D4E04F' }}>Terms & Conditions</a>
+              <a href="https://www.nomoremrniceguy.co.uk/privacy" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary" style={{ color: '#D4E04F' }}>Privacy Policy</a>
+            </div>
+            <div className="text-xs text-center" style={{ color: '#D4E04F', fontFamily: 'League Spartan, sans-serif', fontWeight: 500 }}>
+              © 2025 No More Mr. Nice Guy®️ is a registered trademark and trading name of RA & Associates Limited
+            </div>
+          </div>
           <div className="text-muted-foreground text-sm flex flex-wrap items-center gap-2">
-            &copy; {new Date().getFullYear()} Authentic Lover Blueprint. All rights reserved.
+            &copy; {new Date().getFullYear()} No More Mr. Nice Guy®. All rights reserved.
             <span>|</span>
             <span>Vibe coded by <a href="https://respira.cafe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Respira</a></span>
           </div>
