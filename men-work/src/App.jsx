@@ -33,6 +33,7 @@ import loverPhases from './assets/lover-phases.webp'
 import polarityImg from './assets/polarity-transparent.webp'
 import { FaUsers, FaChalkboardTeacher, FaUserCheck, FaTasks, FaComments, FaHandshake, FaVideo } from 'react-icons/fa'
 import menBg from './assets/men.webp'
+import CoachingLanding from './CoachingLanding.jsx'
 
 // Socials array (move to file scope for reuse)
 const socials = [
@@ -89,7 +90,7 @@ function Home() {
     },
     {
       text: 'Executive Coaching',
-      url: 'https://join.nmmng.co/coaching',
+      url: '/coaching',
       icon: <FaBook style={whiteIconStyle} />, whiteIcon: true,
     },
     {
@@ -253,6 +254,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/bootcamp" element={<BootcampLanding />} />
         <Route path="/lover" element={<LoverLanding />} />
+        <Route path="/coaching" element={<CoachingLanding />} />
       </Routes>
     </>
   )
@@ -1407,6 +1409,7 @@ function Footer({ showBackToTop, scrollToTop, backToTopImg }) {
         <div className="flex gap-8 mb-4">
           <a href="/bootcamp" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>NMMNG® Bootcamp</a>
           <a href="/lover" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>Authentic Lover Blueprint</a>
+          <a href="/coaching" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>Executive Coaching</a>
           <a href="https://nomoremrniceguy.co.uk" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>No More Mr. Nice Guy®</a>
         </div>
         <div className="flex gap-6 mb-6">
