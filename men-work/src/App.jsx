@@ -41,17 +41,17 @@ function Home() {
     {
       text: 'No More Mr. Nice Guy® Community',
       url: 'https://nomoremrniceguy.co.uk',
-      icon: <FaFire size={28} />,
+      lion: true,
     },
     {
       text: 'NMMNG® Bootcamp, Oxford UK',
       url: 'https://join.nmmng.co/bootcamp',
-      icon: <FaRocket size={28} />,
+      lion: true,
     },
     {
       text: 'NMMNG® The Authentic Lover Blueprint',
       url: 'https://join.nmmng.co/lover',
-      icon: <FaBullseye size={28} />,
+      lion: true,
     },
     {
       text: 'Executive Coaching',
@@ -60,8 +60,27 @@ function Home() {
     },
   ]
 
+  const socials = [
+    { icon: <FaYoutube />, url: 'https://www.youtube.com/@NoMoreMrNiceGuyUK' },
+    { icon: <FaInstagram />, url: 'https://instagram.com/nomoremrniceguyuk' },
+    { icon: <FaMeetup />, url: 'https://www.meetup.com/menwork-uk/' },
+    { icon: <FaLinkedin />, url: 'https://www.linkedin.com/company/menwork-uk/' },
+    { icon: <FaWhatsapp />, url: 'https://wa.me/447418351888' },
+    { icon: <FaEnvelope />, url: 'mailto:info@nomoremrniceguy.co.uk' },
+    { icon: <FaGlobe />, url: 'https://nomoremrniceguy.co.uk' },
+  ]
+
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground px-4 py-12 relative overflow-hidden" style={{ background: "url('/linkinbio-background.webp') center/cover no-repeat" }}>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground px-4 py-12 relative overflow-hidden">
+      {/* Background image layer */}
+      <div style={{
+        position: 'absolute',
+        inset: 0,
+        zIndex: 0,
+        background: "url('/linkinbio-background.webp') center/cover no-repeat",
+        opacity: 0.22,
+        pointerEvents: 'none',
+      }} />
       <div className="glass card-modern flex flex-col items-center max-w-md w-full mx-auto px-4 pt-10 pb-8 shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(15,31,45,0.92)', borderRadius: 24, boxShadow: '0 8px 40px rgba(0,0,0,0.35)', border: '1.5px solid #1A1A1A', marginTop: '60px', marginBottom: '60px', backdropFilter: 'blur(12px)' }}>
         <div className="flex flex-col items-center mb-8">
           <span className="rounded-full border-4 border-[#D4E04F] bg-[#0F4F40] flex items-center justify-center mb-4" style={{ width: 90, height: 90 }}>
@@ -71,11 +90,20 @@ function Home() {
           <div className="text-base md:text-lg text-muted-foreground mb-4 text-center" style={{ color: '#F5F5F5', fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
             Links to real transformation, not surface fixes.
           </div>
+          <div className="linkinbio-socials">
+            {socials.map((s, i) => (
+              <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: '#AFFF4F', fontSize: 32, transition: 'color 0.2s' }}>
+                {s.icon}
+              </a>
+            ))}
+          </div>
         </div>
         <div className="flex flex-col gap-4 w-full items-center mb-6">
           {buttons.map((btn, i) => (
             <a key={btn.text} href={btn.url} target="_blank" rel="noopener noreferrer" className="linkinbio-btn w-full" style={{ fontSize: '1.25rem', fontWeight: 700 }}>
-              <span className="icon">{btn.icon}</span>
+              <span className="icon" style={btn.lion ? { background: '#111', border: '2px solid #D4E04F', display: 'flex', alignItems: 'center', justifyContent: 'center' } : {}}>
+                {btn.lion ? <img src={lionIcon} alt="Lion Icon" style={{ width: 36, height: 36, objectFit: 'contain', filter: 'brightness(1.2)' }} /> : btn.icon}
+              </span>
               <span>{btn.text}</span>
             </a>
           ))}
