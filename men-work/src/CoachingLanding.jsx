@@ -139,28 +139,27 @@ function CoachingLanding() {
 
       {/* Disruption Section: more visible archetypes.webp, transparent black text box, gold-foil border, 100% width */}
       <section id="disruption" className="w-full min-h-screen flex items-center justify-center relative overflow-hidden">
-        {/* Archetypes full background, more visible */}
-        <img src={archetypesImg} alt="Archetypes" className="absolute inset-0 w-full h-full object-cover z-0" style={{ opacity: 0.38, filter: 'blur(1.2px)', objectFit: 'cover', pointerEvents: 'none' }} />
+        <img src={archetypesImg} alt="Archetypes" className="absolute inset-0 w-full h-full object-cover z-0 opacity-40 blur-sm pointer-events-none" />
         <div className="absolute inset-0 bg-black/70 z-0" />
-        <div className="relative z-10 w-full flex items-center justify-center px-2 py-16" style={{ minHeight: '80vh' }}>
+        <div className="relative z-10 w-full flex items-center justify-center px-4 md:px-6 py-16 min-h-[80vh]">
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="w-full max-w-7xl mx-auto">
-            <div className="p-10 md:p-16 flex flex-col items-center shadow-xl backdrop-blur-md w-full" style={{ borderRadius: 24, width: '100%' }}>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center gold-gradient-text" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.1 }}>
+            <div className="p-6 md:p-12 flex flex-col items-center shadow-xl backdrop-blur-md w-full rounded-2xl">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center gold-gradient-text break-words overflow-x-hidden" style={{ fontFamily: 'PT Serif, serif' }}>
                 The World Has Changed. Have You?
               </h2>
-              <p className="text-lg md:text-xl mb-4 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4, color: '#F5F5F5' }}>
+              <p className="text-lg md:text-xl mb-4 text-center break-words overflow-x-hidden" style={{ fontFamily: 'League Spartan, sans-serif', color: '#F5F5F5' }}>
                 The world is shifting beneath our feet. AI is reshaping careers overnight. Traditional paths to success are disappearing. The very definition of masculinity is being questioned and redefined. Meanwhile, we're still expected to have all the answers—to be providers, protectors, and leaders in a world that's changing faster than ever.
               </p>
-              <p className="text-lg md:text-xl mb-4 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4, color: '#F5F5F5' }}>
+              <p className="text-lg md:text-xl mb-4 text-center break-words overflow-x-hidden" style={{ fontFamily: 'League Spartan, sans-serif', color: '#F5F5F5' }}>
                 Yet most of us were never taught how to navigate this complexity. We learned to be "nice guys"—to please others, avoid conflict, and hide our true needs. We adapted by putting everyone else first, secretly hoping for approval and validation in return.
               </p>
-              <p className="text-lg md:text-xl mb-4 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4, color: '#F5F5F5' }}>
+              <p className="text-lg md:text-xl mb-4 text-center break-words overflow-x-hidden" style={{ fontFamily: 'League Spartan, sans-serif', color: '#F5F5F5' }}>
                 But that survival strategy is failing us.
               </p>
-              <p className="text-lg md:text-xl mb-2 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4, color: '#F5F5F5' }}>
+              <p className="text-lg md:text-xl mb-2 text-center break-words overflow-x-hidden" style={{ fontFamily: 'League Spartan, sans-serif', color: '#F5F5F5' }}>
                 In an era where machines can outthink us and social media amplifies every mistake, the old playbook of people-pleasing and conflict avoidance isn't just limiting—it's dangerous. We're watching men around us struggle with depression, failed relationships, and a deep sense that they're living someone else's life.
               </p>
-              <p className="text-lg md:text-xl font-bold text-center mt-4 gold-gradient-text" style={{ fontFamily: 'PT Serif, serif', lineHeight: 1.3 }}>
+              <p className="text-lg md:text-xl font-bold text-center mt-4 gold-gradient-text break-words overflow-x-hidden" style={{ fontFamily: 'PT Serif, serif' }}>
                 The cost of staying stuck has never been higher.
               </p>
             </div>
@@ -169,19 +168,18 @@ function CoachingLanding() {
       </section>
 
       {/* Express Ticket Section */}
-      <section id="express-ticket" className="py-20 max-w-7xl mx-auto w-full px-6 flex flex-col md:flex-row items-center gap-12">
-        {/* Left: text */}
+      <section id="express-ticket" className="py-16 max-w-7xl mx-auto w-full px-4 md:px-6 flex flex-col md:flex-row items-center gap-8">
         <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex-1 flex flex-col items-start justify-center z-10">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: 'PT Serif, serif', color: GOLD, letterSpacing: '-0.01em', lineHeight: 1.1 }}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 break-words overflow-x-hidden" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
             This Is Your Express Ticket to Transformation
           </h2>
-          <p className="text-lg md:text-xl text-white mb-6" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4 }}>
+          <p className="text-lg md:text-xl text-white mb-6 break-words overflow-x-hidden" style={{ fontFamily: 'League Spartan, sans-serif' }}>
             This is not a slow, meandering coaching process. This is not another leadership programme teaching you to smile more and network better. This is an intensive, bespoke, three-month engagement that serves as your "express ticket" to transformation.<br/><br/>
             Achieve in three months what might otherwise take years of trial and error.
           </p>
           <div className="mb-4">
             <div className="text-lg font-bold mb-2" style={{ color: GOLD, fontFamily: 'PT Serif, serif' }}>This programme is for:</div>
-            <ul className="space-y-4 text-base md:text-lg" style={{ fontFamily: 'League Spartan, sans-serif', color: TEXT_LIGHT, fontWeight: 400 }}>
+            <ul className="space-y-4 text-base md:text-lg break-words overflow-x-hidden" style={{ fontFamily: 'League Spartan, sans-serif', color: TEXT_LIGHT }}>
               <li>Potential high-performing men who feel stuck despite their ability for success</li>
               <li>Executives facing significant challenges who need rapid, sustainable change</li>
               <li>Leaders ready to stop living someone else's life and start living their own</li>
@@ -190,32 +188,29 @@ function CoachingLanding() {
             </ul>
           </div>
         </motion.div>
-        {/* Right: blurred forest image */}
-        <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex-1 w-full flex items-center justify-center relative min-h-[320px] md:min-h-[420px]">
-          <div className="absolute inset-0 rounded-2xl overflow-hidden" style={{ zIndex: 1 }}>
-            <img src="/assets/hero_silhouette.jpeg" alt="Forest" className="w-full h-full object-cover blur-md scale-105" style={{ filter: 'blur(8px) brightness(0.8)' }} />
+        <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex-1 w-full flex items-center justify-center relative min-h-[220px] md:min-h-[320px]">
+          <div className="absolute inset-0 rounded-2xl overflow-hidden z-1">
+            <img src="/assets/hero_silhouette.jpeg" alt="Forest" className="w-full h-full object-cover blur-md scale-105" />
           </div>
-          <div className="relative z-10 w-full h-full flex items-center justify-center">
-            {/* Optionally add a subtle overlay or icon here */}
-          </div>
+          <div className="relative z-10 w-full h-full flex items-center justify-center" />
         </motion.div>
       </section>
 
       {/* Three Pillars Section */}
-      <section id="pillars" className="py-20 w-full relative overflow-visible">
-        <div className="relative z-10 max-w-7xl mx-auto w-full px-6">
-          <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-16 text-center" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
+      <section id="pillars" className="py-16 w-full relative overflow-visible">
+        <div className="relative z-10 max-w-7xl mx-auto w-full px-4 md:px-6">
+          <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-12 text-center gold-gradient-text break-words overflow-x-hidden" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
             The Three Pillars of Male Excellence
           </motion.h2>
-          <div className="flex flex-col gap-14">
-            {/* Leader Card - image left, text right */}
+          <div className="flex flex-col gap-8">
+            {/* Leader Card */}
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col md:flex-row items-stretch rounded-2xl shadow-xl border border-[#D4AF37] bg-black overflow-hidden">
               <div className="flex-shrink-0 w-full md:w-1/3 flex items-stretch">
-                <img src={archetypeLeader} alt="Leader Archetype" className="object-cover w-full h-full min-h-[220px]" style={{ objectPosition: 'center' }} />
+                <img src={archetypeLeader} alt="Leader Archetype" className="object-cover w-full h-full min-h-[160px]" />
               </div>
-              <div className="flex-1 flex flex-col justify-center p-8 md:p-12 text-left">
+              <div className="flex-1 flex flex-col justify-center p-6 md:p-10 text-left break-words overflow-x-hidden">
                 <div className="text-2xl font-bold mb-4" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>Pillar 1: Leadership & Capability (The Leader)</div>
-                <ul className="space-y-3 mb-2" style={{ fontFamily: 'League Spartan, sans-serif', color: '#fff', fontWeight: 400, fontSize: '1.15rem' }}>
+                <ul className="space-y-3 mb-2 text-base md:text-lg" style={{ fontFamily: 'League Spartan, sans-serif', color: '#fff' }}>
                   <li><b>Assessment:</b> A deep dive into your current leadership skills, decision-making processes, and overall capability.</li>
                   <li><b>Objective:</b> Move beyond conditioned patterns of thinking that limit your potential. Learn new mental models and practical skills to solve complex problems and create unseen opportunities.</li>
                   <li><b>Transformation:</b>
@@ -229,14 +224,14 @@ function CoachingLanding() {
                 </ul>
               </div>
             </motion.div>
-            {/* Provider Card - text left, image right */}
+            {/* Provider Card */}
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="flex flex-col md:flex-row-reverse items-stretch rounded-2xl shadow-xl border border-[#D4AF37] bg-black overflow-hidden">
               <div className="flex-shrink-0 w-full md:w-1/3 flex items-stretch">
-                <img src={archetypeProvider} alt="Provider Archetype" className="object-cover w-full h-full min-h-[220px]" style={{ objectPosition: 'center' }} />
+                <img src={archetypeProvider} alt="Provider Archetype" className="object-cover w-full h-full min-h-[160px]" />
               </div>
-              <div className="flex-1 flex flex-col justify-center p-8 md:p-12 text-left">
+              <div className="flex-1 flex flex-col justify-center p-6 md:p-10 text-left break-words overflow-x-hidden">
                 <div className="text-2xl font-bold mb-4" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>Pillar 2: Wealth & Provision (The Provider)</div>
-                <ul className="space-y-3 mb-2" style={{ fontFamily: 'League Spartan, sans-serif', color: '#fff', fontWeight: 400, fontSize: '1.15rem' }}>
+                <ul className="space-y-3 mb-2 text-base md:text-lg" style={{ fontFamily: 'League Spartan, sans-serif', color: '#fff' }}>
                   <li><b>Assessment:</b> An honest evaluation of your relationship with money, your ability to generate it, and your mindset around wealth and being a provider.</li>
                   <li><b>Objective:</b> Identify and remove blocks to financial growth. Refine strategies for income enhancement and build a mindset of abundance that thrives regardless of economic disruption.</li>
                   <li><b>Transformation:</b>
@@ -250,14 +245,14 @@ function CoachingLanding() {
                 </ul>
               </div>
             </motion.div>
-            {/* Lover Card - image left, text right */}
+            {/* Lover Card */}
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2 }} className="flex flex-col md:flex-row items-stretch rounded-2xl shadow-xl border border-[#D4AF37] bg-black overflow-hidden">
               <div className="flex-shrink-0 w-full md:w-1/3 flex items-stretch">
-                <img src={archetypeLover} alt="Lover Archetype" className="object-cover w-full h-full min-h-[220px]" style={{ objectPosition: 'center' }} />
+                <img src={archetypeLover} alt="Lover Archetype" className="object-cover w-full h-full min-h-[160px]" />
               </div>
-              <div className="flex-1 flex flex-col justify-center p-8 md:p-12 text-left">
+              <div className="flex-1 flex flex-col justify-center p-6 md:p-10 text-left break-words overflow-x-hidden">
                 <div className="text-2xl font-bold mb-4" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>Pillar 3: Relationships & Connection (The Lover)</div>
-                <ul className="space-y-3 mb-2" style={{ fontFamily: 'League Spartan, sans-serif', color: '#fff', fontWeight: 400, fontSize: '1.15rem' }}>
+                <ul className="space-y-3 mb-2 text-base md:text-lg" style={{ fontFamily: 'League Spartan, sans-serif', color: '#fff' }}>
                   <li><b>Assessment:</b> Evaluating your current relational status—whether you're in a difficult relationship or seeking to find a healthy one.</li>
                   <li><b>Objective:</b> Provide the tools and insights needed to either repair and deepen an existing partnership or prepare for and attract a healthy, fulfilling relationship.</li>
                   <li><b>Transformation:</b>
@@ -276,17 +271,17 @@ function CoachingLanding() {
       </section>
 
       {/* Promise Section - Transformational Change, Not Surface Fixes */}
-      <section id="promise" className="min-h-screen h-screen w-full flex items-center justify-center px-6 gap-12">
-        <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row items-center justify-center gap-12">
-          <div className="flex-1 flex flex-col justify-center max-w-xl z-10 text-left">
-            <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
+      <section id="promise" className="min-h-screen h-screen w-full flex items-center justify-center px-4 md:px-6 gap-8">
+        <div className="max-w-7xl w-full mx-auto flex flex-col md:flex-row items-center justify-center gap-8">
+          <div className="flex-1 flex flex-col justify-center max-w-xl z-10 text-left break-words overflow-x-hidden">
+            <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-6 break-words overflow-x-hidden" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
               Transformational Change, Not Surface Fixes
             </motion.h2>
-            <div className="w-32 h-1 mb-8 rounded-full" style={{ background: 'linear-gradient(90deg, #D4E04F 0%, #A67C52 100%)', boxShadow: '0 0 16px 4px #E6F97B88' }} />
-            <p className="text-lg md:text-xl text-white mb-8" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4 }}>
+            <div className="w-32 h-1 mb-8 rounded-full bg-gradient-to-r from-[#D4E04F] to-[#A67C52] shadow-lg" />
+            <p className="text-lg md:text-xl text-white mb-8 break-words overflow-x-hidden" style={{ fontFamily: 'League Spartan, sans-serif' }}>
               We don't just solve surface-level problems. We rewire the underlying patterns of thinking and behaviour that created them, opening up a new sense of self and possibility.
             </p>
-            <ul className="space-y-4 text-base md:text-lg" style={{ fontFamily: 'League Spartan, sans-serif', color: TEXT_LIGHT, fontWeight: 400 }}>
+            <ul className="space-y-4 text-base md:text-lg break-words overflow-x-hidden" style={{ fontFamily: 'League Spartan, sans-serif', color: TEXT_LIGHT }}>
               <li><span className="text-[#D4E04F] font-bold">Speed & Intensity:</span> Achieve profound transformation in 90 days through intensive, focused work on what matters most.</li>
               <li><span className="text-[#D4E04F] font-bold">Bespoke Solutions:</span> The program is entirely tailored to you. We diagnose your specific problems and co-create a direct path to the solutions.</li>
               <li><span className="text-[#D4E04F] font-bold">Vision & Strategy:</span> You will leave with a powerful, grounded vision for your future and a clear, actionable pathway to achieve it.</li>
@@ -295,23 +290,21 @@ function CoachingLanding() {
             </ul>
           </div>
           <div className="flex-1 flex items-center justify-center h-full z-10">
-            <img src={phoenixImg} alt="Phoenix" className="object-contain w-full max-w-2xl h-[60vh] md:h-[80vh] drop-shadow-2xl" style={{ filter: 'brightness(1.1) drop-shadow(0 8px 32px #D4AF3744)' }} />
+            <img src={phoenixImg} alt="Phoenix" className="object-contain w-full max-w-2xl h-[40vh] md:h-[60vh] drop-shadow-2xl" />
           </div>
-          {/* Optional key symbol background, now behind everything */}
           <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none">
-            <img src={keyImg} alt="Key Symbol" className="w-full max-w-3xl opacity-10 grayscale" style={{ filter: 'blur(1px) grayscale(1)' }} />
+            <img src={keyImg} alt="Key Symbol" className="w-full max-w-3xl opacity-10 grayscale blur-sm" />
           </div>
         </div>
       </section>
 
       {/* Structure Section */}
-      <section id="structure" className="py-20 max-w-7xl mx-auto w-full px-6 flex flex-col md:flex-row gap-12 items-center">
-        {/* Left: Bullets */}
-        <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex-1 flex flex-col items-start justify-center z-10 max-w-xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
+      <section id="structure" className="py-16 max-w-7xl mx-auto w-full px-4 md:px-6 flex flex-col md:flex-row gap-8 items-center">
+        <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex-1 flex flex-col items-start justify-center z-10 max-w-xl break-words overflow-x-hidden">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 break-words overflow-x-hidden" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
             Program Structure: 90-Day Intensive Transformation
           </h2>
-          <ul className="space-y-6 text-lg md:text-xl" style={{ fontFamily: 'League Spartan, sans-serif', color: TEXT_LIGHT, fontWeight: 400 }}>
+          <ul className="space-y-6 text-lg md:text-xl break-words overflow-x-hidden" style={{ fontFamily: 'League Spartan, sans-serif', color: TEXT_LIGHT }}>
             <li><span className="text-[#D4E04F] font-bold">Format:</span> One-on-one executive coaching with strategic group sessions</li>
             <li><span className="text-[#D4E04F] font-bold">Duration:</span> 3-Month Intensive Program</li>
             <li><span className="text-[#D4E04F] font-bold">Delivery:</span>
@@ -326,14 +319,12 @@ function CoachingLanding() {
             <li><span className="text-[#D4E04F] font-bold">Investment:</span> £4,999 for the complete 90-day transformation<br/><span className="text-xs text-white/70">Payment in full to ensure maximum commitment and results</span></li>
           </ul>
         </motion.div>
-        {/* Right: Timeline/Calendar Visual */}
         <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex-1 w-full flex items-center justify-center z-10">
           <div className="w-full max-w-xs md:max-w-sm lg:max-w-md mx-auto flex flex-col items-center">
-            {/* Timeline visual for 3 months */}
             <div className="flex flex-col items-center w-full">
               <div className="mb-8">
                 <div className="text-2xl font-bold text-[#D4E04F] mb-2" style={{ fontFamily: 'PT Serif, serif' }}>90-Day Timeline</div>
-                <div className="w-16 h-1 rounded-full mx-auto" style={{ background: 'linear-gradient(90deg, #D4E04F 0%, #A67C52 100%)', boxShadow: '0 0 8px 2px #E6F97B88' }} />
+                <div className="w-16 h-1 rounded-full mx-auto bg-gradient-to-r from-[#D4E04F] to-[#A67C52] shadow-lg" />
               </div>
               <div className="flex flex-col gap-8 w-full">
                 <div className="flex items-center gap-4">
@@ -364,14 +355,14 @@ function CoachingLanding() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="min-h-screen h-screen py-24 max-w-7xl mx-auto w-full px-6 flex flex-col justify-center">
-        <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-6 text-center" style={{ fontFamily: 'PT Serif, serif', color: GOLD, paddingTop: 24 }}>
+      <section id="pricing" className="min-h-screen h-screen py-16 max-w-7xl mx-auto w-full px-4 md:px-6 flex flex-col justify-center">
+        <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-6 text-center gold-gradient-text break-words overflow-x-hidden" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
           Choose Your Investment Plan
         </motion.h2>
-        <div className="text-base text-center mb-12" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', maxWidth: 700, margin: '0 auto', paddingBottom: 16 }}>
+        <div className="text-base text-center mb-12 break-words overflow-x-hidden" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', maxWidth: 700, margin: '0 auto' }}>
           Limited to 12 clients annually. Applications reviewed carefully to ensure mutual fit and maximum transformation potential.
         </div>
-        <div className="flex flex-col md:flex-row gap-10 max-w-5xl mx-auto mb-6 items-stretch justify-center">
+        <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto mb-6 items-stretch justify-center">
           {/* Full Payment Card */}
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-black rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative pt-14 p-10 border-2 gold-foil-border shadow-lg" style={{ borderRadius: 11, minHeight: 520, boxShadow: `0 8px 40px ${GOLD}33, 0 2px 16px ${BRASS}22`, display: 'flex' }}>
             {/* Best Value label only on this card */}
@@ -441,15 +432,15 @@ function CoachingLanding() {
             </Accordion>
           </motion.div>
         </div>
-        <div className="text-sm text-muted-foreground text-center mt-2" style={{ fontFamily: 'League Spartan, sans-serif', color: '#A67C52' }}>
+        <div className="text-sm text-muted-foreground text-center mt-2 break-words overflow-x-hidden" style={{ fontFamily: 'League Spartan, sans-serif', color: '#A67C52' }}>
           We accept most major cards. Secure checkout and support included.
         </div>
       </section>
 
       {/* Application Section */}
-      <section id="application" className="py-20 max-w-7xl mx-auto w-full px-6 flex flex-col items-center">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-full max-w-2xl mx-auto glass rounded-2xl p-10 md:p-16 flex flex-col items-center shadow-xl border border-white/10 backdrop-blur-md" style={{ background: 'rgba(20,20,20,0.82)', borderRadius: 24, boxShadow: `0 8px 40px ${GOLD}22, 0 2px 16px ${BRASS}22`, border: `1.5px solid ${BRASS}` }}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
+      <section id="application" className="py-16 max-w-7xl mx-auto w-full px-4 md:px-6 flex flex-col items-center">
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-full max-w-2xl mx-auto glass rounded-2xl p-6 md:p-12 flex flex-col items-center shadow-xl border border-white/10 backdrop-blur-md bg-black/80 break-words overflow-x-hidden">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center gold-gradient-text break-words overflow-x-hidden" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
             Apply for Your Private Consultation
           </h2>
           <form className="w-full flex flex-col gap-6">
@@ -481,23 +472,22 @@ function CoachingLanding() {
               Apply Now
             </button>
           </form>
-          <div className="text-xs text-center text-white/70 mt-6" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+          <div className="text-xs text-center text-white/70 mt-6 break-words overflow-x-hidden" style={{ fontFamily: 'League Spartan, sans-serif' }}>
             Your information is kept strictly confidential and will only be used to contact you about your application. We respect your privacy.
           </div>
         </motion.div>
       </section>
 
       {/* Final CTA Section */}
-      <section id="final-cta" className="py-20 w-full relative flex flex-col items-center justify-center overflow-hidden">
-        {/* Key image background */}
+      <section id="final-cta" className="py-16 w-full relative flex flex-col items-center justify-center overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none">
-          <img src={keyImg} alt="Key Symbol" className="w-full max-w-2xl opacity-20 grayscale" style={{ filter: 'blur(1px) grayscale(1)' }} />
+          <img src={keyImg} alt="Key Symbol" className="w-full max-w-2xl opacity-20 grayscale blur-sm" />
         </div>
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative z-10 w-full max-w-3xl mx-auto flex flex-col items-center text-center">
-          <p className="text-2xl md:text-3xl font-bold gradient-text mb-8 text-center" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700, color: GOLD, lineHeight: 1.2, textShadow: '0 0 32px #E6F97B55, 0 0 8px #fff2' }}>
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative z-10 w-full max-w-3xl mx-auto flex flex-col items-center text-center break-words overflow-x-hidden">
+          <p className="text-2xl md:text-3xl font-bold gradient-text mb-8 text-center gold-gradient-text break-words overflow-x-hidden" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
             "The question isn't whether the world will change around you—it's whether you'll change with it, or be left behind."
           </p>
-          <button className="btn-primary text-xl px-8 py-6 font-bold mt-2 rounded-lg" style={{ background: BG_BLACK, color: GOLD, fontFamily: 'PT Serif, serif', minHeight: 64, borderRadius: 11, boxShadow: `0 0 16px 2px ${GOLD}55` }} onClick={() => scrollToSection('application')}>
+          <button className="btn-primary text-xl px-8 py-6 font-bold mt-2 rounded-lg gold-foil-btn bg-black text-gold font-serif min-h-16 rounded-lg shadow-lg border-2 border-gold relative overflow-hidden" onClick={() => scrollToSection('application')}>
             Start My Application
           </button>
         </motion.div>
