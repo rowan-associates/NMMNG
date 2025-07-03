@@ -14,6 +14,8 @@ import { Input } from './components/ui/input.jsx';
 import { Textarea } from './components/ui/textarea.jsx';
 import Footer from './App.jsx';
 import backToTopImg from './assets/back-to-top.webp';
+import heroCoaching from './assets/hero-coaching.webp';
+import goldFoil from './assets/gold-foil.webp';
 // import other assets/icons as needed
 
 // Add/override styles for premium black and gold aesthetic
@@ -76,17 +78,48 @@ function CoachingLanding() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative hero-bg">
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-gradient-to-br from-background/35 via-background/18 to-background/35"></motion.div>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.32 }} transition={{ duration: 1.2 }} className="absolute inset-0" style={{backgroundImage: `url(${loverHero})`,backgroundSize: 'cover',backgroundPosition: 'center',backgroundAttachment: 'fixed', filter: 'brightness(1.18) contrast(1.18) saturate(1.18)'}}></motion.div>
+        {/* Hero background image with black gradient fade and gold foil overlay */}
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0" style={{ backgroundImage: `url(${heroCoaching})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed', zIndex: 1 }} />
+        {/* Black gradient fade at bottom */}
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.1) 60%, #000 100%)', zIndex: 2 }} />
+        {/* Gold foil overlay, subtle and only at edges */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: `url(${goldFoil}) center/cover no-repeat`, opacity: 0.18, mixBlendMode: 'screen', zIndex: 3 }} />
         <div className="max-w-7xl mx-auto w-full px-6 relative z-10 flex flex-col items-center text-center py-32">
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-5xl md:text-6xl font-extrabold mb-4 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-5xl md:text-6xl font-extrabold mb-4" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08, color: GOLD, textShadow: `0 0 32px #D4AF3788, 0 0 8px #fff2` }}>
             THE EXECUTIVE TRANSFORMATION PROGRAM
           </motion.h1>
-          <motion.h2 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-2xl md:text-3xl font-semibold mb-8 text-muted-foreground" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, lineHeight: 1.2, color: '#D4E04F' }}>
+          <motion.h2 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-2xl md:text-3xl font-semibold mb-8" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, lineHeight: 1.2, color: GOLD }}>
             Fast-Track Your Evolution. Master Your Leadership, Wealth, and Relationships in 90 Days.
           </motion.h2>
-          <button className="btn-primary text-xl px-8 py-6 font-bold mt-2 rounded-lg" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 64, borderRadius: 11, boxShadow: '0 0 32px 8px #E6F97B55' }} onClick={() => scrollToSection('application')}>Apply Now</button>
+          <button className="btn-primary text-xl px-8 py-6 font-bold mt-2 rounded-lg gold-foil-btn shimmer-on-hover" style={{ background: `linear-gradient(90deg, #D4AF37 0%, #BFA14A 100%)`, color: '#111', fontFamily: 'PT Serif, serif', minHeight: 64, borderRadius: 11, boxShadow: '0 0 32px 8px #D4AF3722', border: `2px solid ${GOLD}`, position: 'relative', overflow: 'hidden' }} onClick={() => scrollToSection('application')}>
+            <span style={{ position: 'relative', zIndex: 2 }}>Apply Now</span>
+            {/* Gold foil shimmer overlay for button */}
+            <span className="gold-foil-shimmer" style={{ position: 'absolute', inset: 0, background: `url(${goldFoil}) center/cover no-repeat`, opacity: 0.22, mixBlendMode: 'screen', pointerEvents: 'none', zIndex: 1 }} />
+            {/* Animated shimmer highlight */}
+            <span className="gold-shimmer-anim" style={{ position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 3 }} />
+          </button>
         </div>
+        {/* Scoped shimmer animation CSS */}
+        <style>{`
+          .shimmer-on-hover .gold-shimmer-anim {
+            background: linear-gradient(120deg, transparent 60%, rgba(255,255,200,0.18) 70%, transparent 80%);
+            opacity: 0;
+            transition: opacity 0.3s;
+          }
+          .shimmer-on-hover:hover .gold-shimmer-anim,
+          .shimmer-on-hover:focus .gold-shimmer-anim {
+            opacity: 1;
+            animation: goldShimmerMove 2.2s linear infinite;
+          }
+          @keyframes goldShimmerMove {
+            0% { background-position: -120% 0; }
+            100% { background-position: 220% 0; }
+          }
+          .gold-shimmer-anim {
+            background-size: 200% 100%;
+            background-repeat: no-repeat;
+          }
+        `}</style>
       </section>
 
       {/* Disruption Section */}
