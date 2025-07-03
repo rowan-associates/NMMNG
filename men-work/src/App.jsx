@@ -1099,19 +1099,19 @@ function LoverLanding() {
         {/* Background image with overlay */}
         <div className="absolute inset-0 bg-[url('/assets/polarity-transparent.webp')] bg-cover bg-center blur-sm opacity-40 z-0"></div>
         <div className="absolute inset-0 bg-gradient-to-l from-[#0D212Dcc] to-[#0D212Ddd] z-0"></div>
-        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-          {/* Text Card */}
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10 shadow flex flex-col justify-center" style={{ minHeight: 420 }}>
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch h-full">
+          {/* Foreground Image Card (left on desktop, top on mobile) */}
+          <div className="flex justify-center items-center h-full min-h-[420px] order-1 md:order-none">
+            <img src="/assets/polarity-transparent.webp" alt="Philosophy Portrait" className="object-cover h-full w-full rounded-xl border border-white/10 shadow-xl hover:scale-105 transition-transform ease-in-out duration-300" style={{ maxWidth: 300 }} />
+          </div>
+          {/* Text Card (right on desktop, bottom on mobile) */}
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10 shadow flex flex-col justify-center h-full" style={{ minHeight: 420 }}>
             <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-left md:text-center" style={{ color: '#D4E04F', fontFamily: 'PT Serif, serif' }}>{philosophyTitle}</h2>
             {philosophyText.map((p, i) => (
               <p key={i} className="text-lg text-white mb-6" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{p}</p>
             ))}
           </motion.div>
-          {/* Foreground Image Card */}
-          <div className="flex justify-center items-center w-full h-full">
-            <img src="/assets/polarity-transparent.webp" alt="Philosophy Portrait" className="h-[480px] max-w-[300px] object-cover rounded-xl border border-white/10 shadow-xl hover:scale-105 transition-transform ease-in-out duration-300" />
-          </div>
-          </div>
+        </div>
       </section>
 
       {/* Section 5: Programme Structure & Curriculum */}
