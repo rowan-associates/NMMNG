@@ -9,6 +9,9 @@ import nmmngLogo from './assets/nmmng-logo.png';
 import linkinbioBg from './assets/linkinbio-background.webp';
 import bootcampFooter from './assets/bootcamp-footer.avif';
 import links from './link-in-bio.json';
+import icoBootcamp from './assets/ico-bootcamp.webp';
+import icoCoaching from './assets/ico-coaching.webp';
+import icoLover from './assets/ico-lover.webp';
 
 const GOLD = '#D4AF37';
 
@@ -32,6 +35,9 @@ const iconMap = {
   'lover-hero.webp': nmmngLogo, // fallback or import if available
   'hero-coaching.webp': heroCoaching,
   'phoenix.webp': nmmngLogo, // fallback or import if available
+  'ico-bootcamp.webp': icoBootcamp,
+  'ico-coaching.webp': icoCoaching,
+  'ico-lover.webp': icoLover,
   'Youtube': 'youtube',
   'X': 'x',
   'Instagram': 'instagram',
