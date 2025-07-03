@@ -348,16 +348,19 @@ function CoachingLanding() {
 
       {/* Pricing Section */}
       <section id="pricing" className="py-20 max-w-7xl mx-auto w-full px-6">
-        <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-12 text-center" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
+        <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-4 text-center" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
           Choose Your Investment Plan
         </motion.h2>
-        <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto mb-6 items-stretch justify-center">
+        <div className="text-base text-center mb-10" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', maxWidth: 700, margin: '0 auto' }}>
+          Limited to 12 clients annually. Applications reviewed carefully to ensure mutual fit and maximum transformation potential.
+        </div>
+        <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto mb-6 items-stretch justify-center relative">
+          {/* Centered Best Value label above card */}
+          <div className="absolute left-0 right-0 -top-10 flex justify-center z-20" style={{ pointerEvents: 'none' }}>
+            <div className="bg-[#D4AF37] text-black px-6 py-2 rounded-full font-bold text-base shadow gold-gradient-text" style={{ fontFamily: 'League Spartan, sans-serif', letterSpacing: '0.08em', boxShadow: `0 2px 12px ${GOLD}33` }}>Best Value</div>
+          </div>
           {/* Full Payment Card */}
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-black rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative pt-14 p-10 border-2 gold-foil-border shadow-lg" style={{ borderRadius: 11, minHeight: 520, boxShadow: `0 8px 40px ${GOLD}33, 0 2px 16px ${BRASS}22`, display: 'flex' }}>
-            {/* Centered Best Value label */}
-            <div className="absolute left-0 top-0 w-full flex justify-center" style={{ transform: 'translateY(-50%)', zIndex: 2 }}>
-              <div className="bg-[#D4AF37] text-black px-6 py-2 rounded-full font-bold text-base shadow gold-gradient-text" style={{ fontFamily: 'League Spartan, sans-serif', letterSpacing: '0.08em', boxShadow: `0 2px 12px ${GOLD}33` }}>Best Value</div>
-            </div>
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-black rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative pt-10 p-10 border-2 gold-foil-border shadow-lg" style={{ borderRadius: 11, minHeight: 520, boxShadow: `0 8px 40px ${GOLD}33, 0 2px 16px ${BRASS}22`, display: 'flex' }}>
             <div className="text-lg font-bold mb-2 text-center gold-gradient-text" style={{ fontFamily: 'League Spartan, sans-serif' }}>Full Payment</div>
             <div className="text-3xl font-bold mb-2 text-center" style={{ color: TEXT_LIGHT, fontFamily: 'PT Serif, serif' }}>£4,999</div>
             <div className="text-lg mb-4 text-center" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay in full for the complete 90-day transformation</div>
@@ -551,6 +554,15 @@ function CoachingLanding() {
           z-index: 2;
         }
       `}</style>
+
+      {/* Vertical dot navigation */}
+      <div className="fixed right-8 top-1/2 z-50 flex flex-col items-center gap-3" style={{ transform: 'translateY(-50%)' }}>
+        <button aria-label="Scroll Up" onClick={() => scrollToSection('hero')} className="mb-2 p-2 rounded-full bg-black/70 border border-gold-500 hover:bg-gold-700 transition-all" style={{ color: GOLD, borderColor: GOLD, fontSize: 18 }}>&uarr;</button>
+        {['hero','disruption','express-ticket','pillars','structure','pricing','application','final-cta'].map((id, idx) => (
+          <button key={id} aria-label={`Go to section ${idx+1}`} onClick={() => scrollToSection(id)} className="my-1 w-4 h-4 rounded-full border-2" style={{ borderColor: GOLD, background: isScrolled && window.location.hash === `#${id}` ? GOLD : 'transparent', transition: 'background 0.2s' }} />
+        ))}
+        <button aria-label="Scroll Down" onClick={() => scrollToSection('final-cta')} className="mt-2 p-2 rounded-full bg-black/70 border border-gold-500 hover:bg-gold-700 transition-all" style={{ color: GOLD, borderColor: GOLD, fontSize: 18 }}>&darr;</button>
+      </div>
     </div>
   );
 }
