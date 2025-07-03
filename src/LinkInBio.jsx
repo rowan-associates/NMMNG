@@ -7,17 +7,11 @@ import bootcamp from './men-work/src/assets/bootcamp.png';
 import nmmngLogo from './men-work/src/assets/nmmng-logo.png';
 import linkinbioBg from './men-work/src/assets/linkinbio-background.webp';
 import bootcampFooter from './men-work/src/assets/bootcamp-footer.avif';
+import links from './link-in-bio.json';
 
 const BRASS = '#A67C52';
 const GOLD = '#D4AF37';
 
-// Helper: parse link-in-bio.txt at build time
-const raw = import.meta.glob(['../../link-in-bio.txt'], { as: 'raw', eager: true })['../../link-in-bio.txt'];
-const lines = raw.split('\n').map(l => l.trim()).filter(l => l && !l.startsWith('#'));
-const entries = lines.map(line => {
-  const [label, url] = line.split('|').map(s => s.trim());
-  return { label, url };
-});
 // Sort as per prompt
 const order = [
   'No More Mr. Nice Guy® Community',
@@ -27,9 +21,9 @@ const order = [
   'NMMNG® WhatsApp General Discussions Group',
   'Become an Ambassador',
 ];
-const mainLinks = order.map(label => entries.find(e => e.label === label)).filter(Boolean);
-const socialStart = entries.findIndex(e => e.label === 'Youtube');
-const socialLinks = entries.slice(socialStart);
+const mainLinks = order.map(label => links.find(e => e.label === label)).filter(Boolean);
+const socialStart = links.findIndex(e => e.label === 'Youtube');
+const socialLinks = links.slice(socialStart);
 
 // Icon mapping
 const iconMap = {
