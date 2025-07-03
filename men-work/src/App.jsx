@@ -1073,11 +1073,11 @@ function LoverLanding() {
       </section>
 
       {/* Section 3: Who Is This Programme For? */}
-      <section className="py-16 max-w-7xl mx-auto w-full px-6">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col md:flex-row items-center gap-10 justify-center" style={{ alignItems: 'stretch' }}>
-          {/* Card */}
-          <div className="glass rounded-2xl p-8 max-w-3xl w-full mx-auto flex-1 flex flex-col justify-center" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)', minHeight: 420 }}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{whoTitle}</h2>
+      <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto w-full">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          {/* Text Card */}
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="glass rounded-xl p-8 flex flex-col justify-center" style={{ minHeight: 420, background: 'rgba(15,31,45,0.82)', border: '1.5px solid #1A1A1A', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', backdropFilter: 'blur(10px)' }}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-left md:text-center" style={{ color: '#D4E04F', fontFamily: 'PT Serif, serif' }}>{whoTitle}</h2>
             <ul className="space-y-6 text-lg text-left mx-auto max-w-2xl" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
               {whoBullets.map((b, i) => (
                 <li key={i} className="flex items-start gap-4">
@@ -1086,37 +1086,32 @@ function LoverLanding() {
                 </li>
               ))}
             </ul>
+          </motion.div>
+          {/* Image Card */}
+          <div className="flex justify-center items-center w-full h-full">
+            <img src="/assets/hero_silhouette.jpeg" alt="Silhouette" className="object-cover h-full w-full max-h-[480px] rounded-xl shadow-lg border border-white/10 hover:scale-105 transition-transform ease-in-out duration-300" style={{ maxWidth: 340 }} />
           </div>
-          {/* Decorative Image */}
-          <div className="hidden md:flex flex-1 items-center justify-center" style={{ minHeight: 420 }}>
-            <img src="/assets/hero_silhouette.jpeg" alt="Silhouette" className="rounded-2xl shadow-xl object-cover" style={{ width: '100%', height: 420, maxWidth: 420, maxHeight: 420, borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.18)' }} />
-          </div>
-          {/* On mobile, show image above card */}
-          <div className="block md:hidden mb-8 w-full flex justify-center">
-            <img src="/assets/hero_silhouette.jpeg" alt="Silhouette" className="rounded-2xl shadow-xl object-cover" style={{ width: 320, height: 320, maxWidth: 320, maxHeight: 320, borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.18)' }} />
-          </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Section 4: Our Philosophy: Experience Over Theory */}
-      <section className="py-16 max-w-7xl mx-auto w-full px-6 bg-secondary/30 rounded-2xl">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col md:flex-row items-center gap-10 justify-center" style={{ alignItems: 'stretch' }}>
-          {/* On mobile, show image above */}
-          <div className="block md:hidden mb-8 w-full flex justify-center">
-            <img src="/assets/polarity-transparent.webp" alt="Polarity Illustration" className="rounded-2xl object-cover" style={{ width: 320, height: 320, maxWidth: 320, maxHeight: 320, borderRadius: 11 }} />
-          </div>
+      <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto w-full relative bg-secondary/30 rounded-2xl overflow-hidden">
+        {/* Background image with overlay */}
+        <div className="absolute inset-0 bg-[url('/assets/polarity-transparent.webp')] bg-cover bg-center blur-sm opacity-40 z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-l from-[#0D212Dcc] to-[#0D212Ddd] z-0"></div>
+        <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
           {/* Text Card */}
-          <div className="glass rounded-2xl p-8 max-w-2xl w-full mx-auto flex-1 flex flex-col justify-center" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)', minHeight: 420 }}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center md:text-left" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{philosophyTitle}</h2>
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10 shadow flex flex-col justify-center" style={{ minHeight: 420 }}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-left md:text-center" style={{ color: '#D4E04F', fontFamily: 'PT Serif, serif' }}>{philosophyTitle}</h2>
             {philosophyText.map((p, i) => (
               <p key={i} className="text-lg text-white mb-6" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{p}</p>
             ))}
+          </motion.div>
+          {/* Foreground Image Card */}
+          <div className="flex justify-center items-center w-full h-full">
+            <img src="/assets/polarity-transparent.webp" alt="Philosophy Portrait" className="h-[480px] max-w-[300px] object-cover rounded-xl border border-white/10 shadow-xl hover:scale-105 transition-transform ease-in-out duration-300" />
           </div>
-          {/* On desktop, image right */}
-          <div className="hidden md:flex flex-1 items-center justify-center" style={{ minHeight: 420 }}>
-            <img src="/assets/polarity-transparent.webp" alt="Polarity Illustration" className="rounded-2xl object-cover" style={{ width: '100%', height: 420, maxWidth: 420, maxHeight: 420, borderRadius: 11 }} />
-          </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Section 5: Programme Structure & Curriculum */}
