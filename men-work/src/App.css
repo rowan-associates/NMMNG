@@ -776,3 +776,32 @@ button[class*="Button"],
 
 /* Remove pinecone/back-to-top styles */
 .back-to-top-btn, .back-to-top-img { display: none !important; }
+
+@media (max-width: 600px) {
+  .nav-sticky-mobile {
+    min-height: 48px !important;
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
+    background: rgba(13,33,45,0.92) !important;
+    box-shadow: 0 2px 8px 0 #0002;
+  }
+  .nav-sticky-mobile h2 {
+    font-size: 1rem !important;
+    line-height: 1.1 !important;
+    padding: 0 !important;
+  }
+  .hero-bg {
+    margin-top: 48px !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  .hero-bg h1 {
+    font-size: 1.5rem !important;
+    line-height: 1.1 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  .hero-bg h2 {
+    font-size: 1rem !important;
+    margin-bottom: 1rem !important;
+  }
+}

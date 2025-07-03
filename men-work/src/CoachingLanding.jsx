@@ -73,13 +73,13 @@ function CoachingLanding() {
   return (
     <div className="min-h-screen text-foreground overflow-x-hidden" style={{ background: BG_BLACK, color: TEXT_LIGHT }}>
       {/* Sticky Navigation - gold-foil background, no blue */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-cover bg-no-repeat bg-center shadow-lg overflow-hidden" style={{ backgroundImage: `url(${goldFoil})`, backgroundBlendMode: 'overlay' }}>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-cover bg-no-repeat bg-center shadow-lg overflow-hidden nav-sticky-mobile" style={{ backgroundImage: `url(${goldFoil})`, backgroundBlendMode: 'overlay' }}>
         <div className="container mx-auto px-4 py-2 flex flex-row justify-between items-center gap-2 relative z-10">
           <div className="flex flex-row items-center gap-3">
             <a href="/" className="flex items-center justify-center relative z-10">
               <img src={nmmngLogo} alt="NMMNG Logo" className="h-10 w-auto mr-2 relative z-11 bg-none" />
             </a>
-            <h2 className="text-lg font-bold nmmng-glow text-left" style={{ color: GOLD, fontFamily: 'League Spartan, sans-serif', fontWeight: 700, textShadow: `0 0 8px ${GOLD}55` }}>Executive Transformation Program</h2>
+            <h2 className="text-lg md:text-xl font-bold nmmng-glow text-left" style={{ color: GOLD, fontFamily: 'League Spartan, sans-serif', fontWeight: 700, textShadow: `0 0 8px ${GOLD}55` }}>Executive Transformation Program</h2>
           </div>
           <button 
             onClick={() => scrollToSection('application')}
@@ -94,21 +94,21 @@ function CoachingLanding() {
       </nav>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center relative hero-bg">
+      <section className="hero-bg w-full flex flex-col items-center justify-center relative pt-24 md:pt-0" style={{ marginTop: '56px' }}>
         {/* Hero background image with black gradient fade and gold foil overlay */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-cover bg-center bg-fixed z-1" style={{ backgroundImage: `url(${heroCoaching})` }} />
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-cover bg-center z-1 md:bg-fixed" style={{ backgroundImage: `url(${heroCoaching})` }} />
         {/* Black gradient fade at bottom */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/60 to-black z-2" />
         {/* Gold foil overlay, subtle and only at edges */}
         <div className="absolute inset-0 pointer-events-none bg-cover bg-center opacity-20 mix-blend-screen z-3" style={{ backgroundImage: `url(${goldFoil})` }} />
-        <div className="max-w-7xl mx-auto w-full px-4 md:px-6 relative z-10 flex flex-col items-center text-center py-32">
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-5xl md:text-6xl font-extrabold mb-4 break-words overflow-x-hidden" style={{ fontFamily: 'PT Serif, serif', color: GOLD, textShadow: `0 0 32px #D4AF3788, 0 0 8px #fff2` }}>
+        <div className="max-w-7xl mx-auto w-full px-4 md:px-6 relative z-10 flex flex-col items-center text-center py-16 md:py-32">
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-3xl md:text-5xl font-extrabold mb-4 break-words overflow-x-hidden" style={{ fontFamily: 'PT Serif, serif', color: GOLD, textShadow: `0 0 32px #D4AF3788, 0 0 8px #fff2` }}>
             THE EXECUTIVE TRANSFORMATION PROGRAM
           </motion.h1>
-          <motion.h2 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-2xl md:text-3xl font-semibold mb-8 break-words overflow-x-hidden" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, color: GOLD }}>
+          <motion.h2 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-lg md:text-2xl font-semibold mb-8 break-words overflow-x-hidden" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, color: GOLD }}>
             Fast-Track Your Evolution. Master Your Leadership, Wealth, and Relationships in 90 Days.
           </motion.h2>
-          <button className="btn-primary text-xl px-8 py-6 font-bold mt-2 rounded-lg gold-foil-btn shimmer-on-hover bg-gradient-to-r from-gold to-brass text-black font-serif min-h-16 rounded-lg shadow-lg border-2 border-gold relative overflow-hidden" onClick={() => scrollToSection('application')}>
+          <button className="btn-primary text-base md:text-xl px-6 md:px-8 py-4 md:py-6 font-bold mt-2 rounded-lg gold-foil-btn shimmer-on-hover bg-gradient-to-r from-gold to-brass text-black font-serif min-h-12 md:min-h-16 rounded-lg shadow-lg border-2 border-gold relative overflow-hidden" onClick={() => scrollToSection('application')}>
             <span className="relative z-2">Apply Now</span>
             <span className="gold-foil-shimmer absolute inset-0 bg-cover bg-center opacity-20 mix-blend-screen pointer-events-none z-1" style={{ backgroundImage: `url(${goldFoil})` }} />
             <span className="gold-shimmer-anim absolute inset-0 pointer-events-none z-3" />
