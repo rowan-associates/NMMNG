@@ -1092,8 +1092,8 @@ function LoverLanding() {
       {/* Section 2: The Invitation */}
       <section className="py-16 max-w-7xl mx-auto w-full px-6">
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="max-w-3xl mx-auto">
-          <div className="glass rounded-2xl p-8 text-center" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
-            <p className="text-lg md:text-xl text-white" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 500 }}>{invitation}</p>
+          <div className="w-full mx-auto" style={{ maxWidth: '100%', fontSize: 33, fontFamily: 'League Spartan, sans-serif', fontWeight: 300, color: '#fff', lineHeight: 1.22, background: 'none', boxShadow: 'none', border: 'none', padding: 0 }}>
+            {invitation}
           </div>
         </motion.div>
       </section>
@@ -1102,7 +1102,7 @@ function LoverLanding() {
       <section className="py-16 max-w-7xl mx-auto w-full px-6">
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col md:flex-row items-center gap-10 justify-center" style={{ alignItems: 'stretch' }}>
           {/* Card */}
-          <div className="glass rounded-2xl p-8 max-w-3xl w-full mx-auto flex-1 flex flex-col justify-center" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)', minHeight: 320 }}>
+          <div className="glass rounded-2xl p-8 max-w-3xl w-full mx-auto flex-1 flex flex-col justify-center" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)', minHeight: 420 }}>
             <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{whoTitle}</h2>
             <ul className="space-y-6 text-lg text-left mx-auto max-w-2xl" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
               {whoBullets.map((b, i) => (
@@ -1114,12 +1114,12 @@ function LoverLanding() {
             </ul>
           </div>
           {/* Decorative Image */}
-          <div className="hidden md:flex flex-1 items-center justify-center" style={{ minHeight: 320 }}>
-            <img src={heroSilhouette} alt="Silhouette" className="rounded-2xl shadow-xl object-cover" style={{ width: '100%', height: 320, maxWidth: 320, maxHeight: 320, borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.18)' }} />
+          <div className="hidden md:flex flex-1 items-center justify-center" style={{ minHeight: 420 }}>
+            <img src={require('./assets/hero_silhouette.jpeg')} alt="Silhouette" className="rounded-2xl shadow-xl object-cover" style={{ width: '100%', height: 420, maxWidth: 420, maxHeight: 420, borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.18)' }} />
           </div>
           {/* On mobile, show image above card */}
           <div className="block md:hidden mb-8 w-full flex justify-center">
-            <img src={heroSilhouette} alt="Silhouette" className="rounded-2xl shadow-xl object-cover" style={{ width: 220, height: 220, maxWidth: 220, maxHeight: 220, borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.18)' }} />
+            <img src={require('./assets/hero_silhouette.jpeg')} alt="Silhouette" className="rounded-2xl shadow-xl object-cover" style={{ width: 320, height: 320, maxWidth: 320, maxHeight: 320, borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.18)' }} />
           </div>
         </motion.div>
       </section>
@@ -1129,18 +1129,18 @@ function LoverLanding() {
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col md:flex-row items-center gap-10 justify-center" style={{ alignItems: 'stretch' }}>
           {/* On mobile, show image above */}
           <div className="block md:hidden mb-8 w-full flex justify-center">
-            <img src={polarityImg} alt="Polarity Illustration" className="rounded-2xl object-cover" style={{ width: 220, height: 220, maxWidth: 220, maxHeight: 220, borderRadius: 11, filter: 'blur(2px) brightness(1.1)' }} />
+            <img src={require('./assets/polarity-transparent.webp')} alt="Polarity Illustration" className="rounded-2xl object-cover" style={{ width: 320, height: 320, maxWidth: 320, maxHeight: 320, borderRadius: 11 }} />
           </div>
           {/* Text Card */}
-          <div className="glass rounded-2xl p-8 max-w-2xl w-full mx-auto flex-1 flex flex-col justify-center" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)', minHeight: 320 }}>
+          <div className="glass rounded-2xl p-8 max-w-2xl w-full mx-auto flex-1 flex flex-col justify-center" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)', minHeight: 420 }}>
             <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center md:text-left" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{philosophyTitle}</h2>
             {philosophyText.map((p, i) => (
               <p key={i} className="text-lg text-white mb-6" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{p}</p>
             ))}
           </div>
           {/* On desktop, image right */}
-          <div className="hidden md:flex flex-1 items-center justify-center" style={{ minHeight: 320 }}>
-            <img src={polarityImg} alt="Polarity Illustration" className="rounded-2xl object-cover" style={{ width: '100%', height: 320, maxWidth: 320, maxHeight: 320, borderRadius: 11, filter: 'blur(2px) brightness(1.1)' }} />
+          <div className="hidden md:flex flex-1 items-center justify-center" style={{ minHeight: 420 }}>
+            <img src={require('./assets/polarity-transparent.webp')} alt="Polarity Illustration" className="rounded-2xl object-cover" style={{ width: '100%', height: 420, maxWidth: 420, maxHeight: 420, borderRadius: 11 }} />
           </div>
         </motion.div>
       </section>
@@ -1156,7 +1156,7 @@ function LoverLanding() {
             This is a guided, transformational arc—from self-awareness to field testing to integration.
           </motion.p>
           <div className="w-full flex justify-center">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-6 w-full max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-6xl mx-auto">
               {/* Month-based timeline cards */}
               {/* Month 1 */}
               <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
@@ -1220,54 +1220,27 @@ function LoverLanding() {
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
           <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>Choose Your Investment Plan</h2>
           <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto mb-6 items-stretch justify-center">
-            {pricingOptions.map((opt, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7 + i * 0.15 }}
-                className={`glass rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative ${opt.highlight ? 'ring-2 ring-[#D4E04F]' : ''}`}
-                style={{ borderRadius: 11, background: 'rgba(15,31,45,0.92)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: opt.highlight ? '2px solid #D4E04F' : '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)', minHeight: 420, padding: '2.5rem 2rem' }}
-              >
-                {opt.highlight && (
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: 18,
-                      right: -70,
-                      width: 'calc(100% + 70px)',
-                      maxWidth: 420,
-                      minWidth: 220,
-                      height: 44,
-                      background: '#E6F97B',
-                      color: '#0F4F40',
-                      fontWeight: 700,
-                      fontFamily: 'League Spartan, sans-serif',
-                      fontSize: '1.25rem',
-                      letterSpacing: '0.12em',
-                      textAlign: 'center',
-                      lineHeight: '44px',
-                      transform: 'rotate(20deg)',
-                      boxShadow: '0 2px 12px rgba(0,255,136,0.10)',
-                      borderRadius: 10,
-                      textTransform: 'uppercase',
-                      userSelect: 'none',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      zIndex: 30,
-                      pointerEvents: 'none',
-                    }}
-                  >
-                    MOST POPULAR
-                  </div>
-                )}
-                <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#D4E04F', fontFamily: 'PT Serif, serif' }}>{opt.price}</div>
-                <div className="text-lg mb-4 text-center" style={{ color: '#A67C52', fontFamily: 'League Spartan, sans-serif', fontWeight: 600 }}>{opt.subtitle}</div>
-                <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, boxShadow: opt.highlight ? '0 0 32px 8px #E6F97B99' : '0 0 16px 4px #E6F97B33', fontWeight: 700, marginTop: 'auto' }} onClick={() => window.open(opt.url, '_blank')}>{opt.cta}</button>
-              </motion.div>
-            ))}
+            {/* Card 1: Full payment */}
+            <div className="bg-white rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10" style={{ borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.10)', border: '1.5px solid #E6E6E6', minHeight: 420 }}>
+              <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif' }}>£4,997</div>
+              <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Full 6-Month Programme</div>
+              <div className="text-base mb-6 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Total: £4,997</div>
+              <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto' }} onClick={() => window.open('https://join.nmmng.co/lover', '_blank')}>Apply Now</button>
+            </div>
+            {/* Card 2: 2 installments */}
+            <div className="bg-white rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10" style={{ borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.10)', border: '1.5px solid #E6E6E6', minHeight: 420 }}>
+              <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif' }}>£500 + 2 × £2,299</div>
+              <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay £500 upfront, then 2 installments of £2,299 each (one every 3 months).</div>
+              <div className="text-base mb-6 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Total: £5,098</div>
+              <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto' }} onClick={() => window.open('https://join.nmmng.co/lover', '_blank')}>Apply Now</button>
+            </div>
+            {/* Card 3: 6 installments */}
+            <div className="bg-white rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10" style={{ borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.10)', border: '1.5px solid #E6E6E6', minHeight: 420 }}>
+              <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif' }}>£500 + 6 × £800</div>
+              <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay £500 upfront, then 6 installments of £800 each (one every month).</div>
+              <div className="text-base mb-6 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Total: £5,300</div>
+              <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto' }} onClick={() => window.open('https://join.nmmng.co/lover', '_blank')}>Apply Now</button>
+            </div>
           </div>
           <div className="text-sm text-muted-foreground text-center mt-2" style={{ fontFamily: 'League Spartan, sans-serif', color: '#A67C52' }}>
             We accept most major cards. Secure checkout and support included.
@@ -1298,7 +1271,7 @@ function LoverLanding() {
           <div className="flex gap-8 mb-4">
             <a href="/bootcamp" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>NMMNG® Bootcamp</a>
             <a href="/lover" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>Authentic Lover Blueprint</a>
-            <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1 cursor-pointer" style={{ fontSize: 16 }}>nomoremrniceguy.co.uk</a>
+            <a href="https://nomoremrniceguy.co.uk" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>No More Mr. Nice Guy®</a>
           </div>
           <div className="flex gap-6 mb-6">
             {socials.map((s, i) => (
