@@ -476,6 +476,72 @@ function CoachingLanding() {
 
       {/* Footer Section (for consistency) */}
       <Footer showBackToTop={showBackToTop} scrollToTop={scrollToTop} backToTopImg={backToTopImg} />
+
+      {/* Gold-foil CSS helpers scoped to this file */}
+      <style>{`
+        .gold-gradient-text {
+          background: linear-gradient(90deg, #D4AF37 0%, #A67C52 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          text-fill-color: transparent;
+        }
+        .gold-foil-border {
+          border-width: 2px;
+          border-style: solid;
+          border-image-source: url(${goldFoil});
+          border-image-slice: 30;
+          border-image-width: 2px;
+          border-image-repeat: round;
+        }
+        .gold-foil-divider {
+          border: 0;
+          border-top: 2px solid transparent;
+          border-image: url(${goldFoil}) 30 round;
+          margin: 2rem 0;
+        }
+        .gold-foil-btn {
+          border-width: 2px;
+          border-style: solid;
+          border-image-source: url(${goldFoil});
+          border-image-slice: 30;
+          border-image-width: 2px;
+          border-image-repeat: round;
+          background: linear-gradient(90deg, #D4AF37 0%, #A67C52 100%);
+          color: #111;
+          transition: background 0.2s, color 0.2s;
+        }
+        .gold-foil-btn:hover, .gold-foil-btn:focus {
+          background: #000;
+          color: #D4AF37;
+          outline: none;
+          box-shadow: 0 0 0 2px #D4AF37;
+        }
+        .gold-foil-outline-btn {
+          background: rgba(0,0,0,0.85);
+          color: #D4AF37;
+          border-width: 2px;
+          border-style: solid;
+          border-image-source: url(${goldFoil});
+          border-image-slice: 30;
+          border-image-width: 2px;
+          border-image-repeat: round;
+          transition: background 0.2s, color 0.2s;
+        }
+        .gold-foil-outline-btn:hover, .gold-foil-outline-btn:focus {
+          background: linear-gradient(90deg, #D4AF37 0%, #A67C52 100%);
+          color: #111;
+          outline: none;
+        }
+        .gold-foil-diagonal {
+          position: absolute;
+          top: 0; left: 0; width: 100%; height: 60px;
+          background: linear-gradient(120deg, rgba(212,175,55,0.10) 0%, rgba(166,124,82,0.10) 100%);
+          opacity: 0.7;
+          pointer-events: none;
+          z-index: 2;
+        }
+      `}</style>
     </div>
   );
 }
