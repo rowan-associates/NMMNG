@@ -1214,31 +1214,31 @@ function LoverLanding() {
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
           <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>Choose Your Investment Plan</h2>
           <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto mb-6 items-stretch justify-center">
-            {/* Card 1: Full payment */}
+            {/* Card 1: One-time Payment */}
             <div className="bg-white rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10" style={{ borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.10)', border: '1.5px solid #E6E6E6', minHeight: 420 }}>
+              <div className="text-lg font-bold mb-2 text-center" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif' }}>One-time Payment</div>
               <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif' }}>£4,997</div>
               <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Full 6-Month Programme</div>
-              <div className="text-base mb-6 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Total: £4,997</div>
               <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto' }} onClick={() => scrollToSection('investment-plan')}>Apply Now</button>
               <div className="text-base font-bold text-center mt-6" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>
                 Total: £4,997
               </div>
             </div>
-            {/* Card 2: 2 installments */}
+            {/* Card 2: Quarterly */}
             <div className="bg-white rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10" style={{ borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.10)', border: '1.5px solid #E6E6E6', minHeight: 420 }}>
+              <div className="text-lg font-bold mb-2 text-center" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif' }}>Quarterly</div>
               <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif' }}>£500 + 2 × £2,299</div>
               <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay £500 upfront, then 2 installments of £2,299 each (one every 3 months).</div>
-              <div className="text-base mb-6 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Total: £5,098</div>
               <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto' }} onClick={() => scrollToSection('investment-plan')}>Apply Now</button>
               <div className="text-base font-bold text-center mt-6" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>
                 Total: £5,098
               </div>
             </div>
-            {/* Card 3: 6 installments */}
+            {/* Card 3: Monthly */}
             <div className="bg-white rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10" style={{ borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.10)', border: '1.5px solid #E6E6E6', minHeight: 420 }}>
+              <div className="text-lg font-bold mb-2 text-center" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif' }}>Monthly</div>
               <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif' }}>£500 + 6 × £800</div>
               <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay £500 upfront, then 6 installments of £800 each (one every month).</div>
-              <div className="text-base mb-6 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Total: £5,300</div>
               <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto' }} onClick={() => scrollToSection('investment-plan')}>Apply Now</button>
               <div className="text-base font-bold text-center mt-6" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>
                 Total: £5,300
