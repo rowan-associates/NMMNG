@@ -385,17 +385,8 @@ function BootcampLanding() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative hero-bg">
-        <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-background/80"></div>
-        <div 
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage: `url(${bootcampHero})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundAttachment: 'fixed',
-            opacity: 0.6 // reduce lantern opacity
-          }}
-        ></div>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-background/80"></motion.div>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.22 }} transition={{ duration: 1.2 }} className="absolute inset-0" style={{backgroundImage: `url(${bootcampHero})`,backgroundSize: 'cover',backgroundPosition: 'center',backgroundAttachment: 'fixed'}}></motion.div>
         <div className="max-w-7xl mx-auto w-full px-6 relative z-10 flex flex-col items-center text-center py-32">
           <h1 className="text-5xl md:text-6xl font-extrabold mb-4 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>
             No More Mr. Nice Guy® Bootcamp
@@ -903,10 +894,10 @@ function BootcampLanding() {
                 © 2025 No More Mr. Nice Guy®️ is a registered trademark and trading name of RA & Associates Limited
               </div>
             </div>
-            <div className="text-muted-foreground text-sm flex flex-wrap items-center gap-2">
-              &copy; {new Date().getFullYear()} No More Mr. Nice Guy®. All rights reserved.
-              <span>|</span>
-              <span>Vibe coded by <a href="https://respira.cafe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Respira</a></span>
+            <div className="w-full flex justify-center">
+              <div className="text-[11px] text-center" style={{ color: '#D4E04F', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, marginTop: 4 }}>
+                Vibe coded by <a href="https://respira.cafe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Respira</a>
+              </div>
             </div>
           </div>
           {/* Back to Top Button */}
@@ -1093,10 +1084,8 @@ function LoverLanding() {
         <div className="max-w-7xl mx-auto w-full px-6 relative z-10 flex flex-col items-center text-center py-32">
           <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-5xl md:text-6xl font-extrabold mb-4 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>{heroTitle}</motion.h1>
           <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="mb-4 text-2xl md:text-3xl" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, color: '#D4E04F' }}>{heroSubtitle}</motion.div>
-          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="glass rounded-2xl p-8 my-12 max-w-2xl mx-auto w-full px-6 shadow-xl" style={{ background: 'rgba(15,31,45,0.82)', borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.35)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(12px)' }}>
-            <p className="text-xl font-semibold text-white text-left mb-6" style={{ fontFamily: 'League Spartan, sans-serif' }}>{heroDesc}</p>
-            <button className="btn-primary text-xl px-8 py-6 font-bold mt-2 rounded-lg" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 64, borderRadius: 11, boxShadow: '0 0 32px 8px #E6F97B55' }} onClick={() => window.open(joinUrl, '_blank')}>Join the Programme</button>
-          </motion.div>
+          <motion.p initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="my-10 mx-auto w-full max-w-3xl text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 300, fontSize: 33, color: '#fff', lineHeight: 1.22 }}>{heroDesc}</motion.p>
+          <button className="btn-primary text-xl px-8 py-6 font-bold mt-2 rounded-lg" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 64, borderRadius: 11, boxShadow: '0 0 32px 8px #E6F97B55' }} onClick={() => window.open(joinUrl, '_blank')}>Join the Programme</button>
         </div>
       </section>
 
@@ -1111,9 +1100,9 @@ function LoverLanding() {
 
       {/* Section 3: Who Is This Programme For? */}
       <section className="py-16 max-w-7xl mx-auto w-full px-6">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col md:flex-row items-center gap-10 justify-center">
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col md:flex-row items-center gap-10 justify-center" style={{ alignItems: 'stretch' }}>
           {/* Card */}
-          <div className="glass rounded-2xl p-8 max-w-3xl w-full mx-auto" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
+          <div className="glass rounded-2xl p-8 max-w-3xl w-full mx-auto flex-1 flex flex-col justify-center" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)', minHeight: 320 }}>
             <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{whoTitle}</h2>
             <ul className="space-y-6 text-lg text-left mx-auto max-w-2xl" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
               {whoBullets.map((b, i) => (
@@ -1125,8 +1114,8 @@ function LoverLanding() {
             </ul>
           </div>
           {/* Decorative Image */}
-          <div className="hidden md:block flex-shrink-0">
-            <img src={heroSilhouette} alt="Silhouette" className="rounded-2xl shadow-xl object-cover" style={{ width: 320, height: 320, maxWidth: 320, maxHeight: 320, borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.18)' }} />
+          <div className="hidden md:flex flex-1 items-center justify-center" style={{ minHeight: 320 }}>
+            <img src={heroSilhouette} alt="Silhouette" className="rounded-2xl shadow-xl object-cover" style={{ width: '100%', height: 320, maxWidth: 320, maxHeight: 320, borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.18)' }} />
           </div>
           {/* On mobile, show image above card */}
           <div className="block md:hidden mb-8 w-full flex justify-center">
@@ -1137,21 +1126,21 @@ function LoverLanding() {
 
       {/* Section 4: Our Philosophy: Experience Over Theory */}
       <section className="py-16 max-w-7xl mx-auto w-full px-6 bg-secondary/30 rounded-2xl">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col md:flex-row items-center gap-10 justify-center">
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col md:flex-row items-center gap-10 justify-center" style={{ alignItems: 'stretch' }}>
           {/* On mobile, show image above */}
           <div className="block md:hidden mb-8 w-full flex justify-center">
             <img src={polarityImg} alt="Polarity Illustration" className="rounded-2xl object-cover" style={{ width: 220, height: 220, maxWidth: 220, maxHeight: 220, borderRadius: 11, filter: 'blur(2px) brightness(1.1)' }} />
           </div>
           {/* Text Card */}
-          <div className="glass rounded-2xl p-8 max-w-2xl w-full mx-auto" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
+          <div className="glass rounded-2xl p-8 max-w-2xl w-full mx-auto flex-1 flex flex-col justify-center" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)', minHeight: 320 }}>
             <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center md:text-left" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{philosophyTitle}</h2>
             {philosophyText.map((p, i) => (
               <p key={i} className="text-lg text-white mb-6" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{p}</p>
             ))}
           </div>
           {/* On desktop, image right */}
-          <div className="hidden md:block flex-shrink-0">
-            <img src={polarityImg} alt="Polarity Illustration" className="rounded-2xl object-cover" style={{ width: 320, height: 320, maxWidth: 320, maxHeight: 320, borderRadius: 11, filter: 'blur(2px) brightness(1.1)' }} />
+          <div className="hidden md:flex flex-1 items-center justify-center" style={{ minHeight: 320 }}>
+            <img src={polarityImg} alt="Polarity Illustration" className="rounded-2xl object-cover" style={{ width: '100%', height: 320, maxWidth: 320, maxHeight: 320, borderRadius: 11, filter: 'blur(2px) brightness(1.1)' }} />
           </div>
         </motion.div>
       </section>
@@ -1237,13 +1226,54 @@ function LoverLanding() {
       <section className="py-16 max-w-7xl mx-auto w-full px-6">
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
           <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>Choose Your Investment Plan</h2>
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-6">
+          <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto mb-6 items-stretch justify-center">
             {pricingOptions.map((opt, i) => (
-              <div key={i} className={`glass rounded-2xl p-8 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl ${opt.highlight ? 'border-4 border-[#D4E04F]' : ''}`} style={{ borderRadius: 11, background: 'rgba(15,31,45,0.92)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: opt.highlight ? '4px solid #D4E04F' : '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
-                <div className="text-3xl font-bold mb-2" style={{ color: '#D4E04F', fontFamily: 'PT Serif, serif' }}>{opt.price}</div>
-                <div className="text-lg mb-4" style={{ color: '#A67C52', fontFamily: 'League Spartan, sans-serif', fontWeight: 600 }}>{opt.subtitle}</div>
-                <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, boxShadow: '0 0 32px 8px #E6F97B55' }} onClick={() => window.open(opt.url, '_blank')}>{opt.cta}</button>
-              </div>
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 + i * 0.15 }}
+                className={`glass rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative ${opt.highlight ? 'ring-2 ring-[#D4E04F]' : ''}`}
+                style={{ borderRadius: 11, background: 'rgba(15,31,45,0.92)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: opt.highlight ? '2px solid #D4E04F' : '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)', minHeight: 420, padding: '2.5rem 2rem' }}
+              >
+                {opt.highlight && (
+                  <div
+                    style={{
+                      position: 'absolute',
+                      top: 18,
+                      right: -70,
+                      width: 'calc(100% + 70px)',
+                      maxWidth: 420,
+                      minWidth: 220,
+                      height: 44,
+                      background: '#E6F97B',
+                      color: '#0F4F40',
+                      fontWeight: 700,
+                      fontFamily: 'League Spartan, sans-serif',
+                      fontSize: '1.25rem',
+                      letterSpacing: '0.12em',
+                      textAlign: 'center',
+                      lineHeight: '44px',
+                      transform: 'rotate(20deg)',
+                      boxShadow: '0 2px 12px rgba(0,255,136,0.10)',
+                      borderRadius: 10,
+                      textTransform: 'uppercase',
+                      userSelect: 'none',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      zIndex: 30,
+                      pointerEvents: 'none',
+                    }}
+                  >
+                    MOST POPULAR
+                  </div>
+                )}
+                <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#D4E04F', fontFamily: 'PT Serif, serif' }}>{opt.price}</div>
+                <div className="text-lg mb-4 text-center" style={{ color: '#A67C52', fontFamily: 'League Spartan, sans-serif', fontWeight: 600 }}>{opt.subtitle}</div>
+                <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, boxShadow: opt.highlight ? '0 0 32px 8px #E6F97B99' : '0 0 16px 4px #E6F97B33', fontWeight: 700, marginTop: 'auto' }} onClick={() => window.open(opt.url, '_blank')}>{opt.cta}</button>
+              </motion.div>
             ))}
           </div>
           <div className="text-sm text-muted-foreground text-center mt-2" style={{ fontFamily: 'League Spartan, sans-serif', color: '#A67C52' }}>
@@ -1293,10 +1323,10 @@ function LoverLanding() {
               © 2025 No More Mr. Nice Guy®️ is a registered trademark and trading name of RA & Associates Limited
             </div>
           </div>
-          <div className="text-muted-foreground text-sm flex flex-wrap items-center gap-2">
-            &copy; {new Date().getFullYear()} No More Mr. Nice Guy®. All rights reserved.
-            <span>|</span>
-            <span>Vibe coded by <a href="https://respira.cafe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Respira</a></span>
+          <div className="w-full flex justify-center">
+            <div className="text-[11px] text-center" style={{ color: '#D4E04F', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, marginTop: 4 }}>
+              Vibe coded by <a href="https://respira.cafe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Respira</a>
+            </div>
           </div>
         </div>
         {/* Back to Top Button */}
