@@ -16,6 +16,7 @@ import Footer from './App.jsx';
 import backToTopImg from './assets/back-to-top.webp';
 import heroCoaching from './assets/hero-coaching.webp';
 import goldFoil from './assets/gold-foil.webp';
+import archetypesImg from './assets/archetypes.webp';
 // import other assets/icons as needed
 
 // Add/override styles for premium black and gold aesthetic
@@ -122,32 +123,38 @@ function CoachingLanding() {
       </section>
 
       {/* Disruption Section */}
-      <section id="disruption" className="min-h-screen flex items-center justify-center relative overflow-hidden">
-        {/* Cinematic forest background with blur and overlay */}
+      <section id="disruption" className="w-full min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 z-0" style={{ background: "url('/assets/hero_silhouette.jpeg') center/cover no-repeat", filter: 'blur(4px) brightness(0.7)', opacity: 0.7 }} />
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0D212Dcc] to-[#0F4F40ee] z-0" />
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="relative z-10 w-full max-w-3xl mx-auto">
-          <div className="glass rounded-2xl p-10 md:p-16 flex flex-col items-center shadow-xl border border-white/10 backdrop-blur-md" style={{ background: 'rgba(20,20,20,0.82)', borderRadius: 24, boxShadow: `0 8px 40px ${GOLD}22, 0 2px 16px ${BRASS}22`, border: `1.5px solid ${BRASS}` }}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center" style={{ fontFamily: 'PT Serif, serif', color: GOLD, letterSpacing: '-0.01em', lineHeight: 1.1 }}>
-              The World Has Changed. Have You?
-            </h2>
-            <p className="text-lg md:text-xl text-white mb-4 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4 }}>
-              The world is shifting beneath our feet. AI is reshaping careers overnight. Traditional paths to success are disappearing. The very definition of masculinity is being questioned and redefined. Meanwhile, we're still expected to have all the answers—to be providers, protectors, and leaders in a world that's changing faster than ever.
-            </p>
-            <p className="text-lg md:text-xl text-white mb-4 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4 }}>
-              Yet most of us were never taught how to navigate this complexity. We learned to be "nice guys"—to please others, avoid conflict, and hide our true needs. We adapted by putting everyone else first, secretly hoping for approval and validation in return.
-            </p>
-            <p className="text-lg md:text-xl text-white mb-4 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4 }}>
-              But that survival strategy is failing us.
-            </p>
-            <p className="text-lg md:text-xl text-white mb-2 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4 }}>
-              In an era where machines can outthink us and social media amplifies every mistake, the old playbook of people-pleasing and conflict avoidance isn't just limiting—it's dangerous. We're watching men around us struggle with depression, failed relationships, and a deep sense that they're living someone else's life.
-            </p>
-            <p className="text-lg md:text-xl text-[#D4E04F] font-bold text-center mt-4" style={{ fontFamily: 'PT Serif, serif', lineHeight: 1.3 }}>
-              The cost of staying stuck has never been higher.
-            </p>
+        <div className="absolute inset-0 bg-black/70 z-0" />
+        <div className="relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12 px-6 py-16" style={{ minHeight: '80vh' }}>
+          {/* Text box */}
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="flex-1 flex flex-col items-center md:items-start justify-center">
+            <div className="glass gold-foil-border rounded-2xl p-10 md:p-16 flex flex-col items-center shadow-xl backdrop-blur-md w-full max-w-2xl mx-auto" style={{ background: 'rgba(20,20,20,0.82)', borderRadius: 24 }}>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center gold-gradient-text" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.1 }}>
+                The World Has Changed. Have You?
+              </h2>
+              <p className="text-lg md:text-xl mb-4 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4, color: '#F5F5F5' }}>
+                The world is shifting beneath our feet. AI is reshaping careers overnight. Traditional paths to success are disappearing. The very definition of masculinity is being questioned and redefined. Meanwhile, we're still expected to have all the answers—to be providers, protectors, and leaders in a world that's changing faster than ever.
+              </p>
+              <p className="text-lg md:text-xl mb-4 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4, color: '#F5F5F5' }}>
+                Yet most of us were never taught how to navigate this complexity. We learned to be "nice guys"—to please others, avoid conflict, and hide our true needs. We adapted by putting everyone else first, secretly hoping for approval and validation in return.
+              </p>
+              <p className="text-lg md:text-xl mb-4 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4, color: '#F5F5F5' }}>
+                But that survival strategy is failing us.
+              </p>
+              <p className="text-lg md:text-xl mb-2 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.4, color: '#F5F5F5' }}>
+                In an era where machines can outthink us and social media amplifies every mistake, the old playbook of people-pleasing and conflict avoidance isn't just limiting—it's dangerous. We're watching men around us struggle with depression, failed relationships, and a deep sense that they're living someone else's life.
+              </p>
+              <p className="text-lg md:text-xl font-bold text-center mt-4 gold-gradient-text" style={{ fontFamily: 'PT Serif, serif', lineHeight: 1.3 }}>
+                The cost of staying stuck has never been higher.
+              </p>
+            </div>
+          </motion.div>
+          {/* Archetypes image */}
+          <div className="flex-1 flex items-center justify-center w-full max-w-xl">
+            <img src={archetypesImg} alt="Archetypes" className="w-full h-auto max-h-[520px] rounded-2xl shadow-xl object-cover" style={{ objectPosition: 'center', borderRadius: 24, border: '2px solid #A67C52', background: 'rgba(0,0,0,0.7)' }} />
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Express Ticket Section */}
