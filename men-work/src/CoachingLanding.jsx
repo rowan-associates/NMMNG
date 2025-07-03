@@ -631,7 +631,7 @@ function CoachingFooter() {
     { icon: <FaGlobe />, url: 'https://nomoremrniceguy.co.uk' },
   ];
   return (
-    <footer className="py-16 border-t border-border/20 relative z-10" style={{
+    <footer className="py-10 md:py-16 border-t border-border/20 relative z-10 bg-black" style={{
       position: 'relative',
       background: `url(${blackBg}), url(${goldFoil}), url(${bootcampFooter}) center bottom/cover no-repeat`,
       backgroundBlendMode: 'overlay',
@@ -642,34 +642,33 @@ function CoachingFooter() {
     }}>
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, filter: 'blur(6px)', pointerEvents: 'none' }} />
       <div className="absolute top-0 left-0 w-full h-3" style={{ background: `url(${goldFoil}) center/cover no-repeat`, opacity: 0.7, zIndex: 2 }} />
-      <div className="container mx-auto px-6 flex flex-col items-center relative z-10">
-        <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center cursor-pointer">
-          <img src={nmmngLogo} alt="NMMNG Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
+      <div className="container mx-auto px-4 flex flex-col items-center justify-center gap-4 md:gap-6 relative z-10 text-center">
+        <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-4 flex items-center justify-center cursor-pointer">
+          <img src={nmmngLogo} alt="NMMNG Logo" className="drop-shadow-lg hover:scale-105 transition-transform duration-300" style={{ width: 120, height: 120, objectFit: 'contain' }} />
         </a>
-        <div className="flex gap-8 mb-4">
-          <a href="/bootcamp" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: GOLD }}>NMMNG® Bootcamp</a>
-          <a href="/lover" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: GOLD }}>Authentic Lover Blueprint</a>
-          <a href="/coaching" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: GOLD }}>Executive Coaching</a>
-          <a href="https://nomoremrniceguy.co.uk" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: GOLD }}>No More Mr. Nice Guy®</a>
+        <div className="flex flex-col md:flex-row flex-wrap items-center justify-center gap-4 md:gap-8 mb-2 w-full">
+          <a href="/bootcamp" className="text-primary hover:underline cursor-pointer text-base md:text-lg font-bold" style={{ color: GOLD }}>NMMNG® Bootcamp</a>
+          <a href="/lover" className="text-primary hover:underline cursor-pointer text-base md:text-lg font-bold" style={{ color: GOLD }}>Authentic Lover Blueprint</a>
+          <a href="/coaching" className="text-primary hover:underline cursor-pointer text-base md:text-lg font-bold" style={{ color: GOLD }}>Executive Coaching</a>
         </div>
-        <div className="flex gap-6 mb-6">
+        <div className="flex flex-row flex-wrap items-center justify-center gap-4 md:gap-6 mb-4 w-full">
           {socials.map((s, i) => (
-            <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: GOLD, fontSize: 32, transition: 'color 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: GOLD, fontSize: 24, transition: 'color 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               {s.icon}
             </a>
           ))}
         </div>
-        <div className="flex flex-col items-center gap-2 mb-2">
-          <div className="flex gap-6 text-sm mb-1">
+        <div className="flex flex-col items-center gap-2 mb-2 w-full">
+          <div className="flex flex-col md:flex-row gap-2 md:gap-6 text-xs md:text-sm mb-1 items-center justify-center w-full">
             <a href="https://www.nomoremrniceguy.co.uk/terms" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary" style={{ color: GOLD }}>Terms & Conditions</a>
             <a href="https://www.nomoremrniceguy.co.uk/privacy" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary" style={{ color: GOLD }}>Privacy Policy</a>
           </div>
-          <div className="text-xs text-center" style={{ color: GOLD, fontFamily: 'League Spartan, sans-serif', fontWeight: 500 }}>
+          <div className="text-[11px] md:text-xs text-center" style={{ color: GOLD, fontFamily: 'League Spartan, sans-serif', fontWeight: 500 }}>
             © 2025 No More Mr. Nice Guy®️ is a registered trademark and trading name of RA & Associates Limited
           </div>
         </div>
         <div className="w-full flex justify-center">
-          <div className="text-[11px] text-center" style={{ color: GOLD, fontFamily: 'League Spartan, sans-serif', fontWeight: 400, marginTop: 4 }}>
+          <div className="text-[10px] md:text-[11px] text-center" style={{ color: GOLD, fontFamily: 'League Spartan, sans-serif', fontWeight: 400, marginTop: 4 }}>
             Vibe coded by <a href="https://respira.cafe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Respira</a>
           </div>
         </div>

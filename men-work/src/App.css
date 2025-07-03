@@ -804,4 +804,39 @@ button[class*="Button"],
     font-size: 1rem !important;
     margin-bottom: 1rem !important;
   }
+  footer {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  footer .flex,
+  footer .flex-row,
+  footer .flex-col,
+  footer .flex-wrap {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+  }
+  footer img {
+    width: 90px !important;
+    height: 90px !important;
+    margin-bottom: 0.5rem !important;
+  }
+  footer a,
+  footer .text-base,
+  footer .text-lg,
+  footer .text-sm,
+  footer .text-xs {
+    text-align: center !important;
+    font-size: 0.95rem !important;
+    margin: 0 auto !important;
+  }
+  footer .text-[10px],
+  footer .text-[11px],
+  footer .text-xs {
+    font-size: 0.7rem !important;
+  }
+  footer svg {
+    font-size: 20px !important;
+  }
 }
