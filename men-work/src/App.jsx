@@ -868,50 +868,7 @@ function BootcampLanding() {
         </section>
 
         {/* Sexy Footer */}
-        <footer className="py-16 border-t border-border/20 relative z-10" style={{ background: `url(${bootcampFooter}) center bottom/cover no-repeat`, backgroundAttachment: 'fixed' }}>
-          <div className="container mx-auto px-6 flex flex-col items-center">
-            <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center cursor-pointer">
-              <img src={nmmngLogo} alt="NMMNG Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
-            </a>
-            <div className="flex gap-8 mb-4">
-              <a href="/bootcamp" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>NMMNG® Bootcamp</a>
-              <a href="/lover" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>Authentic Lover Blueprint</a>
-              <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="text-primary hover:underline ml-1 cursor-pointer" style={{ fontSize: 16 }}>nomoremrniceguy.co.uk</a>
-            </div>
-            <div className="flex gap-6 mb-6">
-              {socials.map((s, i) => (
-                <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: '#D4E04F', fontSize: 32, transition: 'color 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  {s.icon}
-                </a>
-              ))}
-            </div>
-            <div className="flex flex-col items-center gap-2 mb-2">
-              <div className="flex gap-6 text-sm mb-1">
-                <a href="https://www.nomoremrniceguy.co.uk/terms" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary" style={{ color: '#D4E04F' }}>Terms & Conditions</a>
-                <a href="https://www.nomoremrniceguy.co.uk/privacy" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary" style={{ color: '#D4E04F' }}>Privacy Policy</a>
-              </div>
-              <div className="text-xs text-center" style={{ color: '#D4E04F', fontFamily: 'League Spartan, sans-serif', fontWeight: 500 }}>
-                © 2025 No More Mr. Nice Guy®️ is a registered trademark and trading name of RA & Associates Limited
-              </div>
-            </div>
-            <div className="w-full flex justify-center">
-              <div className="text-[11px] text-center" style={{ color: '#D4E04F', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, marginTop: 4 }}>
-                Vibe coded by <a href="https://respira.cafe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Respira</a>
-              </div>
-            </div>
-          </div>
-          {/* Back to Top Button */}
-          {showBackToTop && (
-            <button
-              className="back-to-top-btn"
-              onClick={scrollToTop}
-              aria-label="Back to top"
-              style={{position: 'fixed', bottom: 32, right: 32, zIndex: 50, background: 'none', border: 'none', outline: 'none', cursor: 'pointer', padding: 0}}
-            >
-              <img src={backToTopImg} alt="Back to top" className="back-to-top-img float-anim" style={{width: 177, height: 177, maxWidth: 177, maxHeight: 177, opacity: 1, background: 'transparent'}} />
-            </button>
-          )}
-        </footer>
+        <Footer showBackToTop={showBackToTop} scrollToTop={scrollToTop} backToTopImg={backToTopImg} />
       </div>
     </div>
   )
@@ -1263,50 +1220,7 @@ function LoverLanding() {
       </section>
 
       {/* Footer Section (for consistency) */}
-      <footer className="py-16 border-t border-border/20 relative z-10" style={{ background: `url(${bootcampFooter}) center bottom/cover no-repeat`, backgroundAttachment: 'fixed' }}>
-        <div className="container mx-auto px-6 flex flex-col items-center">
-          <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center cursor-pointer">
-            <img src={nmmngLogo} alt="NMMNG Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
-          </a>
-          <div className="flex gap-8 mb-4">
-            <a href="/bootcamp" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>NMMNG® Bootcamp</a>
-            <a href="/lover" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>Authentic Lover Blueprint</a>
-            <a href="https://nomoremrniceguy.co.uk" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>No More Mr. Nice Guy®</a>
-          </div>
-          <div className="flex gap-6 mb-6">
-            {socials.map((s, i) => (
-              <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: '#D4E04F', fontSize: 32, transition: 'color 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                {s.icon}
-              </a>
-            ))}
-          </div>
-          <div className="flex flex-col items-center gap-2 mb-2">
-            <div className="flex gap-6 text-sm mb-1">
-              <a href="https://www.nomoremrniceguy.co.uk/terms" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary" style={{ color: '#D4E04F' }}>Terms & Conditions</a>
-              <a href="https://www.nomoremrniceguy.co.uk/privacy" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary" style={{ color: '#D4E04F' }}>Privacy Policy</a>
-            </div>
-            <div className="text-xs text-center" style={{ color: '#D4E04F', fontFamily: 'League Spartan, sans-serif', fontWeight: 500 }}>
-              © 2025 No More Mr. Nice Guy®️ is a registered trademark and trading name of RA & Associates Limited
-            </div>
-          </div>
-          <div className="w-full flex justify-center">
-            <div className="text-[11px] text-center" style={{ color: '#D4E04F', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, marginTop: 4 }}>
-              Vibe coded by <a href="https://respira.cafe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Respira</a>
-            </div>
-          </div>
-        </div>
-        {/* Back to Top Button */}
-        {showBackToTop && (
-          <button
-            className="back-to-top-btn"
-            onClick={scrollToTop}
-            aria-label="Back to top"
-            style={{position: 'fixed', bottom: 32, right: 32, zIndex: 50, background: 'none', border: 'none', outline: 'none', cursor: 'pointer', padding: 0}}
-          >
-            <img src={backToTopImg} alt="Back to top" className="back-to-top-img float-anim" style={{width: 177, height: 177, maxWidth: 177, maxHeight: 177, opacity: 1, background: 'transparent'}} />
-          </button>
-        )}
-      </footer>
+      <Footer showBackToTop={showBackToTop} scrollToTop={scrollToTop} backToTopImg={backToTopImg} />
     </div>
   )
 }
@@ -1418,6 +1332,65 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
         </Button>
       </CardContent>
     </Card>
+  );
+}
+
+// Footer component for reuse
+function Footer({ showBackToTop, scrollToTop, backToTopImg }) {
+  const socials = [
+    { icon: <FaYoutube />, url: 'https://www.youtube.com/@NoMoreMrNiceGuyUK' },
+    { icon: <SiX />, url: 'https://x.com/NMMNGS' },
+    { icon: <FaInstagram />, url: 'https://www.instagram.com/NMMNGS/' },
+    { icon: <FaMeetup />, url: 'https://www.meetup.com/uk-no-more-mr-nice-guy/' },
+    { icon: <FaWhatsapp />, url: 'https://Nmmng.co/NMMNG-General-Whatsapp' },
+    { icon: <FaEnvelope />, url: 'mailto:enquire@nomoremrniceguy.co' },
+    { icon: <FaGlobe />, url: 'https://nomoremrniceguy.co.uk' },
+  ];
+  return (
+    <footer className="py-16 border-t border-border/20 relative z-10" style={{ background: `url(${bootcampFooter}) center bottom/cover no-repeat`, backgroundAttachment: 'fixed' }}>
+      <div className="container mx-auto px-6 flex flex-col items-center">
+        <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center cursor-pointer">
+          <img src={nmmngLogo} alt="NMMNG Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
+        </a>
+        <div className="flex gap-8 mb-4">
+          <a href="/bootcamp" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>NMMNG® Bootcamp</a>
+          <a href="/lover" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>Authentic Lover Blueprint</a>
+          <a href="https://nomoremrniceguy.co.uk" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: '#D4E04F' }}>No More Mr. Nice Guy®</a>
+        </div>
+        <div className="flex gap-6 mb-6">
+          {socials.map((s, i) => (
+            <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: '#D4E04F', fontSize: 32, transition: 'color 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {s.icon}
+            </a>
+          ))}
+        </div>
+        <div className="flex flex-col items-center gap-2 mb-2">
+          <div className="flex gap-6 text-sm mb-1">
+            <a href="https://www.nomoremrniceguy.co.uk/terms" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary" style={{ color: '#D4E04F' }}>Terms & Conditions</a>
+            <a href="https://www.nomoremrniceguy.co.uk/privacy" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary" style={{ color: '#D4E04F' }}>Privacy Policy</a>
+          </div>
+          <div className="text-xs text-center" style={{ color: '#D4E04F', fontFamily: 'League Spartan, sans-serif', fontWeight: 500 }}>
+            © 2025 No More Mr. Nice Guy®️ is a registered trademark and trading name of RA & Associates Limited
+          </div>
+        </div>
+        <div className="w-full flex justify-center">
+          <div className="text-[11px] text-center" style={{ color: '#D4E04F', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, marginTop: 4 }}>
+            Vibe coded by <a href="https://respira.cafe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Respira</a>
+          </div>
+        </div>
+      </div>
+      {/* Back to Top Button */}
+      {showBackToTop && (
+        <button
+          className="back-to-top-btn"
+          onClick={scrollToTop}
+          aria-label="Back to top"
+          style={{position: 'fixed', bottom: 32, right: 32, zIndex: 50, background: 'none', border: 'none', outline: 'none', cursor: 'pointer', padding: 0}}
+        >
+          <img src={backToTopImg} alt="Back to top" className="back-to-top-img float-anim" style={{width: 177, height: 177, maxWidth: 177, maxHeight: 177, opacity: 1, background: 'transparent'}} />
+        </button>
+      )}
+    </footer>
   );
 }
 
