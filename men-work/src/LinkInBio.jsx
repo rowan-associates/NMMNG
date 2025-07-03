@@ -27,12 +27,11 @@ const socialLinks = links.slice(socialStart);
 
 // Icon mapping
 const iconMap = {
-  'No More Mr. Nice Guy® Community': nmmngLogo,
-  'Bootcamp, Oxford UK': bootcamp,
-  'Executive Coaching': heroCoaching,
-  'Lover Blueprint': nmmngLogo,
-  'NMMNG® WhatsApp General Discussions Group': nmmngLogo,
-  'Become an Ambassador': nmmngLogo,
+  'nmmng-logo.png': nmmngLogo,
+  'bootcamp.png': bootcamp,
+  'lover-hero.webp': nmmngLogo, // fallback or import if available
+  'hero-coaching.webp': heroCoaching,
+  'phoenix.webp': nmmngLogo, // fallback or import if available
   'Youtube': 'youtube',
   'X': 'x',
   'Instagram': 'instagram',
@@ -53,12 +52,12 @@ export default function LinkInBio() {
       </p>
       <div className="w-full max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
         {mainLinks.map(link => (
-          <GlassButton key={link.label} label={link.label} url={link.url} icon={iconMap[link.label]} goldFoil={link.label === 'Executive Coaching'} />
+          <GlassButton key={link.label} label={link.label} url={link.url} icon={link.icon ? iconMap[link.icon] || link.icon : undefined} goldFoil={link.label === 'Executive Coaching'} />
         ))}
       </div>
       <div className="flex gap-4 mb-8">
         {socialLinks.map(link => (
-          <GlassIcon key={link.label} label={link.label} url={link.url} icon={iconMap[link.label]} />
+          <GlassIcon key={link.label} label={link.label} url={link.url} icon={link.icon ? iconMap[link.icon] || link.icon : undefined} />
         ))}
       </div>
       <footer className="w-full max-w-2xl mx-auto mt-8 pt-8 border-t" style={{ borderColor: BRASS, background: `url(${bootcampFooter}) center/cover no-repeat` }}>

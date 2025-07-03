@@ -1,44 +1,62 @@
 [
   {
-    "label": "No More Mr. Nice Guy® Community - https://nomoremrniceguy.co.uk - nmmng.png"
+    "label": "No More Mr. Nice Guy® Community",
+    "url": "https://nomoremrniceguy.co.uk",
+    "icon": "nmmng-logo.png"
   },
   {
-    "label": "Bootcamp, Oxford UK - https://join.nmmng.co/bootcamp - bootcamp.png"
+    "label": "Bootcamp, Oxford UK",
+    "url": "https://join.nmmng.co/bootcamp",
+    "icon": "bootcamp.png"
   },
   {
-    "label": "Lover Blueprint  - https://join.nmmng.co/lover - lover-hero.webp"
+    "label": "Lover Blueprint",
+    "url": "https://join.nmmng.co/lover",
+    "icon": "lover-hero.webp"
   },
   {
-    "label": "Executive Coaching - https://join.nmmng.co/coaching - hero-coaching.webp"
+    "label": "Executive Coaching",
+    "url": "https://join.nmmng.co/coaching",
+    "icon": "hero-coaching.webp"
   },
   {
-    "label": "NMMNG® WhatsApp General Discussions Group - https://Nmmng.co/NMMNG-General-Whatsapp"
+    "label": "NMMNG® WhatsApp General Discussions Group",
+    "url": "https://Nmmng.co/NMMNG-General-Whatsapp"
   },
   {
-    "label": "Become an Ambassador - https://Nmmng.co/ambassador - phoenix.webp"
+    "label": "Become an Ambassador",
+    "url": "https://Nmmng.co/ambassador",
+    "icon": "phoenix.webp"
   },
   {
     "label": "Social Media Icons"
   },
   {
-    "label": "Youtube - https://www.youtube.com/@NoMoreMrNiceGuyUK"
+    "label": "Youtube",
+    "url": "https://www.youtube.com/@NoMoreMrNiceGuyUK"
   },
   {
-    "label": "X - https://x.com/NMMNGS"
+    "label": "X",
+    "url": "https://x.com/NMMNGS"
   },
   {
-    "label": "Instagram - https://www.instagram.com/NMMNGS/"
+    "label": "Instagram",
+    "url": "https://www.instagram.com/NMMNGS/"
   },
   {
-    "label": "Meetup - https://www.meetup.com/uk-no-more-mr-nice-guy/"
+    "label": "Meetup",
+    "url": "https://www.meetup.com/uk-no-more-mr-nice-guy/"
   },
   {
-    "label": "Whatsapp - https://Nmmng.co/NMMNG-General-Whatsapp"
+    "label": "Whatsapp",
+    "url": "https://Nmmng.co/NMMNG-General-Whatsapp"
   },
   {
-    "label": "Email - mailto:enquire@nomoremrniceguy.co"
+    "label": "Email",
+    "url": "mailto:enquire@nomoremrniceguy.co"
   },
   {
-    "label": "Web - https://nomoremrniceguy.co.uk"
+    "label": "Web",
+    "url": "https://nomoremrniceguy.co.uk"
   }
 ] 
