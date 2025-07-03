@@ -1065,8 +1065,8 @@ function LoverLanding() {
 
       {/* Section 2: The Invitation */}
       <section className="py-16 max-w-7xl mx-auto w-full px-6">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="max-w-3xl mx-auto">
-          <div className="w-full mx-auto" style={{ maxWidth: '100%', fontSize: 33, fontFamily: 'League Spartan, sans-serif', fontWeight: 300, color: '#fff', lineHeight: 1.22, background: 'none', boxShadow: 'none', border: 'none', padding: 0 }}>
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-full mx-auto">
+          <div className="w-full mx-auto max-w-4xl" style={{ fontSize: 33, fontFamily: 'League Spartan, sans-serif', fontWeight: 300, color: '#fff', lineHeight: 1.22, background: 'none', boxShadow: 'none', border: 'none', padding: 0 }}>
             {invitation}
           </div>
         </motion.div>
@@ -1074,26 +1074,24 @@ function LoverLanding() {
 
       {/* Section 3: Who Is This Programme For? */}
       <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch h-full">
            {/* Text Card */}
-           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="glass rounded-xl p-8 flex flex-col justify-center" style={{ minHeight: 420, background: 'rgba(15,31,45,0.82)', border: '1.5px solid #1A1A1A', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', backdropFilter: 'blur(10px)' }}>
+           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="glass rounded-xl p-8 flex flex-col justify-center h-full" style={{ minHeight: 420, background: 'rgba(15,31,45,0.82)', border: '1.5px solid #1A1A1A', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', backdropFilter: 'blur(10px)' }}>
              <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-left md:text-center" style={{ color: '#D4E04F', fontFamily: 'PT Serif, serif' }}>{whoTitle}</h2>
-             <ul className="space-y-6 text-lg text-left mx-auto max-w-2xl" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
-               {whoBullets.map((b, i) => (
-                 <li key={i} className="flex items-start gap-4">
-                   <span className="mt-1 text-[#D4E04F]">✅</span>
-                   <span>{b}</span>
-                 </li>
-               ))}
-             </ul>
+            <ul className="space-y-6 text-lg text-left mx-auto max-w-2xl" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
+              {whoBullets.map((b, i) => (
+                <li key={i} className="flex items-start gap-4">
+                  <span className="mt-1 text-[#D4E04F]">✅</span>
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
            </motion.div>
            {/* Image Card */}
            <div className="flex justify-center items-center h-full min-h-[420px]">
-             <div className="h-full w-full flex items-center justify-center">
-               <img src="/assets/hero_silhouette.jpeg" alt="Silhouette" className="object-cover h-full w-full max-h-[480px] rounded-xl shadow-lg border border-white/10 hover:scale-105 transition-transform ease-in-out duration-300" style={{ maxWidth: 340 }} />
-             </div>
-           </div>
-        </div>
+             <img src="/assets/hero_silhouette.jpeg" alt="Silhouette" className="object-cover h-full w-full rounded-xl shadow-lg border border-white/10 hover:scale-105 transition-transform ease-in-out duration-300" style={{ maxWidth: 340 }} />
+          </div>
+          </div>
       </section>
 
       {/* Section 4: Our Philosophy: Experience Over Theory */}
@@ -1113,7 +1111,7 @@ function LoverLanding() {
           <div className="flex justify-center items-center w-full h-full">
             <img src="/assets/polarity-transparent.webp" alt="Philosophy Portrait" className="h-[480px] max-w-[300px] object-cover rounded-xl border border-white/10 shadow-xl hover:scale-105 transition-transform ease-in-out duration-300" />
           </div>
-        </div>
+          </div>
       </section>
 
       {/* Section 5: Programme Structure & Curriculum */}
@@ -1166,8 +1164,8 @@ function LoverLanding() {
                 <div className="text-white/90 text-sm md:text-base font-medium">Learn the art of rejecting and being rejected with grace. Communicate your needs and boundaries clearly, and move from people-pleasing to authentic leadership in your dating and relational life.</div>
               </motion.div>
             </div>
-          </div>
-        </div>
+            </div>
+            </div>
       </section>
 
       {/* Section 6: What's Included */}
@@ -1197,7 +1195,7 @@ function LoverLanding() {
               <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Full 6-Month Programme</div>
               <div className="text-base mb-6 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Total: £4,997</div>
               <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto' }} onClick={() => scrollToSection('pricing')}>Apply Now</button>
-            </div>
+              </div>
             {/* Card 2: 2 installments */}
             <div className="bg-white rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10" style={{ borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.10)', border: '1.5px solid #E6E6E6', minHeight: 420 }}>
               <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif' }}>£500 + 2 × £2,299</div>
