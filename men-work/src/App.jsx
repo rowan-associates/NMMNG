@@ -36,7 +36,23 @@ function ScrollToTop() {
 }
 
 function Home() {
-  // Button data from link-in-bio.txt
+  // Button background color (same as current button background)
+  const buttonBg = '#B7C93B';
+  const buttonTextColor = '#0D212D';
+  const buttonLineHeight = 1.18;
+  const iconCircleStyle = {
+    background: buttonBg,
+    borderRadius: '50%',
+    width: 56,
+    height: 56,
+    minWidth: 56,
+    minHeight: 56,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  };
+  const whiteIconStyle = { color: '#fff', width: 28, height: 28 };
+
   const buttons = [
     {
       text: 'No More Mr. Nice Guy® Community',
@@ -56,14 +72,14 @@ function Home() {
     {
       text: 'Executive Coaching',
       url: 'https://join.nmmng.co/coaching',
-      icon: <FaBook size={28} />,
+      icon: <FaBook style={whiteIconStyle} />, whiteIcon: true,
     },
     {
       text: 'NMMNG® WhatsApp General Discussions Group',
       url: 'https://Nmmng.co/NMMNG-General-Whatsapp',
-      icon: <FaWhatsapp size={28} />,
+      icon: <FaWhatsapp style={whiteIconStyle} />, whiteIcon: true,
     },
-  ]
+  ];
 
   const socials = [
     { icon: <FaYoutube />, url: 'https://www.youtube.com/@NoMoreMrNiceGuyUK' },
@@ -73,7 +89,7 @@ function Home() {
     { icon: <FaWhatsapp />, url: 'https://Nmmng.co/NMMNG-General-Whatsapp' },
     { icon: <FaEnvelope />, url: 'mailto:enquire@nomoremrniceguy.co' },
     { icon: <FaGlobe />, url: 'https://nomoremrniceguy.co.uk' },
-  ]
+  ];
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground px-4 py-12 relative overflow-hidden">
@@ -86,7 +102,7 @@ function Home() {
         opacity: 0.22,
         pointerEvents: 'none',
       }} />
-      <div className="glass card-modern flex flex-col items-center max-w-md w-full mx-auto px-4 pt-10 pb-8 shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(15,31,45,0.72)', borderRadius: 24, boxShadow: '0 8px 40px rgba(0,0,0,0.35)', border: '1.5px solid #1A1A1A', marginTop: '60px', marginBottom: '60px', backdropFilter: 'blur(12px)' }}>
+      <div className="glass card-modern flex flex-col items-center max-w-md w-full mx-auto px-4 pt-10 pb-8 shadow-xl animate-fade-in-up relative z-10" style={{ background: 'rgba(15,31,45,0.68)', borderRadius: 24, boxShadow: '0 8px 40px rgba(0,0,0,0.35)', border: '1.5px solid #1A1A1A', marginTop: '60px', marginBottom: '60px', backdropFilter: 'blur(12px)' }}>
         <div className="flex flex-col items-center mb-8">
           <span className="rounded-full border-4 border-[#D4E04F] bg-[#0F4F40] flex items-center justify-center mb-4" style={{ width: 90, height: 90 }}>
             <FaFire size={48} color="#D4E04F" />
@@ -95,9 +111,9 @@ function Home() {
           <div className="text-base md:text-lg text-muted-foreground mb-4 text-center" style={{ color: '#F5F5F5', fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
             Links to real transformation, not surface fixes.
           </div>
-          <div className="linkinbio-socials">
+          <div className="linkinbio-socials" style={{ marginBottom: 8 }}>
             {socials.map((s, i) => (
-              <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: '#AFFF4F', fontSize: 32, transition: 'color 0.2s' }}>
+              <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: buttonBg, fontSize: 32, transition: 'color 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 {s.icon}
               </a>
             ))}
@@ -105,11 +121,11 @@ function Home() {
         </div>
         <div className="flex flex-col gap-4 w-full items-center mb-6">
           {buttons.map((btn, i) => (
-            <a key={btn.text} href={btn.url} target="_blank" rel="noopener noreferrer" className="linkinbio-btn w-full" style={{ fontSize: '1.25rem', fontWeight: 700 }}>
-              <span className="icon" style={btn.lion ? { background: '#111', border: '2px solid #D4E04F', display: 'flex', alignItems: 'center', justifyContent: 'center' } : {}}>
+            <a key={btn.text} href={btn.url} target="_blank" rel="noopener noreferrer" className="linkinbio-btn w-full" style={{ fontSize: '1.25rem', fontWeight: 700, background: buttonBg, color: buttonTextColor, lineHeight: buttonLineHeight }}>
+              <span className="icon" style={btn.lion ? { background: '#111', border: '2px solid #D4E04F', display: 'flex', alignItems: 'center', justifyContent: 'center' } : btn.whiteIcon ? { ...iconCircleStyle, background: '#0F4F40', border: '2px solid #D4E04F' } : iconCircleStyle}>
                 {btn.lion ? <img src={lionIcon} alt="Lion Icon" style={{ width: 36, height: 36, objectFit: 'contain', filter: 'brightness(1.2)' }} /> : btn.icon}
               </span>
-              <span>{btn.text}</span>
+              <span style={{ lineHeight: buttonLineHeight }}>{btn.text}</span>
             </a>
           ))}
         </div>
