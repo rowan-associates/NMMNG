@@ -1336,5 +1336,5 @@ function Footer({ showBackToTop, scrollToTop, backToTopImg }) {
   );
 }
 
-export default App
+export { BootcampLanding, LoverLanding };
 

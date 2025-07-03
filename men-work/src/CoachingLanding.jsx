@@ -74,7 +74,9 @@ function CoachingLanding() {
   return (
     <div className="min-h-screen text-foreground overflow-x-hidden" style={{ background: BG_BLACK, color: TEXT_LIGHT }}>
       {/* Sticky Navigation - gold-foil background, no blue */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-cover bg-no-repeat bg-center shadow-lg overflow-hidden nav-sticky-mobile" style={{ backgroundImage: `url(${goldFoil})`, backgroundBlendMode: 'overlay' }}>
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-cover bg-no-repeat bg-center shadow-lg overflow-hidden nav-sticky-mobile" style={{ backgroundImage: `url(${goldFoil})`, backgroundBlendMode: 'overlay', position: 'relative' }}>
+        {/* Dark overlay for sticky nav */}
+        <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.68)', zIndex: 1, pointerEvents: 'none' }} />
         <div className="container mx-auto px-4 py-2 flex flex-col md:flex-row items-center md:justify-between gap-2 md:gap-0 relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-2 md:gap-3 w-full md:w-auto">
             <a href="/" className="flex items-center justify-center relative z-10">
@@ -116,7 +118,7 @@ function CoachingLanding() {
 
       {/* Disruption Section: more visible archetypes.webp, transparent black text box, gold-foil border, 100% width */}
       <section id="disruption" className="w-full min-h-screen flex items-center justify-center relative overflow-visible">
-        <img src={archetypesImg} alt="Archetypes" className="absolute inset-0 w-full h-full object-cover z-0 opacity-40 blur-sm pointer-events-none" />
+        <img src={archetypesImg} alt="Archetypes" className="absolute inset-0 w-full h-full object-cover z-0 opacity-40 pointer-events-none" style={{ filter: 'none' }} />
         <div className="absolute inset-0 bg-black/70 z-0" />
         <div className="relative z-10 w-full flex items-center justify-center px-4 md:px-6 py-16 min-h-[80vh]">
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="w-full max-w-7xl mx-auto">
