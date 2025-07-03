@@ -1115,18 +1115,17 @@ function LoverLanding() {
       </section>
 
       {/* Section 5: Programme Structure & Curriculum */}
-      <section className="relative py-20 w-full min-h-[700px] flex items-center justify-center overflow-visible" style={{ zIndex: 1 }}>
+      <section className="relative py-20 w-full min-h-[700px] flex flex-col items-center justify-center overflow-visible" style={{ zIndex: 1 }}>
         {/* Blurred background image for the entire section */}
         <div className="absolute inset-0 z-0 bg-cover bg-center" style={{ backgroundImage: `url(${loverPhases})`, filter: 'blur(4px) brightness(0.7)', opacity: 0.32 }}></div>
         <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0D212Dcc] to-[#0D212Ddd]" />
-        <div className="relative z-20 max-w-7xl mx-auto w-full px-6">
+        <div className="relative z-20 max-w-7xl mx-auto w-full px-6 flex flex-col items-center">
           <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-4 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{structureTitle}</motion.h2>
           <motion.p initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="text-lg md:text-xl text-center mb-12 text-white/80 max-w-3xl mx-auto" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
             This is a guided, transformational arc—from self-awareness to field testing to integration.
           </motion.p>
-          <div className="w-full flex justify-center relative">
+          <div className="w-full flex justify-center relative mb-12">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-6xl mx-auto relative z-10">
-              {/* Month-based timeline cards */}
               {/* Month 1 */}
               <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
                 <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 1 · Weeks 1–2</div>
@@ -1188,7 +1187,7 @@ function LoverLanding() {
         <div className="w-full max-w-7xl" style={{ height: '180px' }}></div>
       </div>
       {/* Non-blurred, full-width image after the grid */}
-      <div className="w-full flex justify-center mt-12">
+      <div className="w-full flex justify-center mt-8">
         <img src="/assets/lover-phases.webp" alt="Programme Phases" className="w-full max-w-6xl rounded-2xl shadow-xl object-cover" style={{ minHeight: 120, maxHeight: 340 }} />
       </div>
       </section>
@@ -1199,10 +1198,12 @@ function LoverLanding() {
           <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{whatsIncludedTitle}</h2>
           <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
             {whatsIncluded.map((item, i) => (
-              <div key={i} className="glass rounded-2xl p-8 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl" style={{ borderRadius: 18, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
-                <div className="mb-4 flex items-center justify-center">{item.icon}</div>
-                <div className="text-xl font-bold mb-2" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F', letterSpacing: '0.01em' }}>{item.name}</div>
-                <div className="text-base text-white" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{item.desc}</div>
+              <div key={i} className="glass rounded-2xl p-8 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative overflow-hidden" style={{ borderRadius: 18, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
+                {/* Blurred logo background */}
+                <img src="/assets/nmmng-logo.png" alt="NMMNG Logo" className="absolute inset-0 w-full h-full object-contain opacity-20 blur-lg pointer-events-none select-none" style={{ zIndex: 1 }} />
+                <div className="mb-4 flex items-center justify-center relative z-10">{item.icon}</div>
+                <div className="text-xl font-bold mb-2 relative z-10" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F', letterSpacing: '0.01em' }}>{item.name}</div>
+                <div className="text-base text-white relative z-10" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{item.desc}</div>
               </div>
             ))}
           </div>
