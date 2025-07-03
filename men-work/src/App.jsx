@@ -167,6 +167,7 @@ function BootcampLanding() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [showBackToTop, setShowBackToTop] = useState(false)
   const forestBgRef = useRef(null)
+  const bootcampHeroRef = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -764,6 +765,7 @@ function LoverLanding() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [showBackToTop, setShowBackToTop] = useState(false)
   const forestBgRef = useRef(null)
+  const loverHeroRef = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => {
