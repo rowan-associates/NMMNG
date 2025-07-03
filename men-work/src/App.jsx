@@ -33,7 +33,6 @@ import loverPhases from './assets/lover-phases.webp'
 import polarityImg from './assets/polarity-transparent.webp'
 import { FaUsers, FaChalkboardTeacher, FaUserCheck, FaTasks, FaComments, FaHandshake, FaVideo } from 'react-icons/fa'
 import menBg from './assets/men.webp'
-import keyImg from './assets/key.webp'
 
 // Socials array (move to file scope for reuse)
 const socials = [
