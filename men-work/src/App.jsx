@@ -1166,9 +1166,26 @@ function LoverLanding() {
             </div>
             </div>
             </div>
-      {/* Full-width image below timeline boxes */}
-      <div className="w-full mt-12 flex justify-center">
-        <img src="/assets/lover-phases.webp" alt="Programme Phases" className="w-full max-w-7xl rounded-2xl shadow-xl object-cover" style={{ minHeight: 120, maxHeight: 340 }} />
+      {/* Blurred background image below timeline boxes, only as wide as the card row */}
+      <div className="relative w-full flex justify-center mt-12">
+        <div className="absolute inset-0 w-full h-full flex justify-center pointer-events-none" aria-hidden="true">
+          <div className="w-full max-w-7xl h-[180px] md:h-[260px] lg:h-[320px] mx-auto rounded-2xl overflow-hidden" style={{ position: 'relative' }}>
+            <div style={{
+              backgroundImage: "url('/assets/lover-phases.webp')",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              filter: 'blur(6px)',
+              opacity: 0.32,
+              width: '100%',
+              height: '100%',
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              zIndex: 1,
+            }} />
+          </div>
+        </div>
+        <div className="w-full max-w-7xl" style={{ height: '180px' }}></div>
       </div>
       </section>
 
