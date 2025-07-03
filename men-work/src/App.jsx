@@ -1115,11 +1115,11 @@ function LoverLanding() {
           </div>
           {/* Decorative Image */}
           <div className="hidden md:flex flex-1 items-center justify-center" style={{ minHeight: 420 }}>
-            <img src={require('./assets/hero_silhouette.jpeg')} alt="Silhouette" className="rounded-2xl shadow-xl object-cover" style={{ width: '100%', height: 420, maxWidth: 420, maxHeight: 420, borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.18)' }} />
+            <img src="/assets/hero_silhouette.jpeg" alt="Silhouette" className="rounded-2xl shadow-xl object-cover" style={{ width: '100%', height: 420, maxWidth: 420, maxHeight: 420, borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.18)' }} />
           </div>
           {/* On mobile, show image above card */}
           <div className="block md:hidden mb-8 w-full flex justify-center">
-            <img src={require('./assets/hero_silhouette.jpeg')} alt="Silhouette" className="rounded-2xl shadow-xl object-cover" style={{ width: 320, height: 320, maxWidth: 320, maxHeight: 320, borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.18)' }} />
+            <img src="/assets/hero_silhouette.jpeg" alt="Silhouette" className="rounded-2xl shadow-xl object-cover" style={{ width: 320, height: 320, maxWidth: 320, maxHeight: 320, borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.18)' }} />
           </div>
         </motion.div>
       </section>
@@ -1129,7 +1129,7 @@ function LoverLanding() {
         <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="flex flex-col md:flex-row items-center gap-10 justify-center" style={{ alignItems: 'stretch' }}>
           {/* On mobile, show image above */}
           <div className="block md:hidden mb-8 w-full flex justify-center">
-            <img src={require('./assets/polarity-transparent.webp')} alt="Polarity Illustration" className="rounded-2xl object-cover" style={{ width: 320, height: 320, maxWidth: 320, maxHeight: 320, borderRadius: 11 }} />
+            <img src="/assets/polarity-transparent.webp" alt="Polarity Illustration" className="rounded-2xl object-cover" style={{ width: 320, height: 320, maxWidth: 320, maxHeight: 320, borderRadius: 11 }} />
           </div>
           {/* Text Card */}
           <div className="glass rounded-2xl p-8 max-w-2xl w-full mx-auto flex-1 flex flex-col justify-center" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)', minHeight: 420 }}>
@@ -1140,7 +1140,7 @@ function LoverLanding() {
           </div>
           {/* On desktop, image right */}
           <div className="hidden md:flex flex-1 items-center justify-center" style={{ minHeight: 420 }}>
-            <img src={require('./assets/polarity-transparent.webp')} alt="Polarity Illustration" className="rounded-2xl object-cover" style={{ width: '100%', height: 420, maxWidth: 420, maxHeight: 420, borderRadius: 11 }} />
+            <img src="/assets/polarity-transparent.webp" alt="Polarity Illustration" className="rounded-2xl object-cover" style={{ width: '100%', height: 420, maxWidth: 420, maxHeight: 420, borderRadius: 11 }} />
           </div>
         </motion.div>
       </section>
