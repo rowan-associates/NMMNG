@@ -43,29 +43,29 @@ const iconMap = {
 
 export default function LinkInBio() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-background text-foreground px-4 py-12 relative overflow-hidden" style={{ background: `url(${linkinbioBg}) center/cover no-repeat`, backgroundColor: 'rgba(13,33,45,0.85)', border: `2px solid ${BRASS}`, boxShadow: `0 8px 40px ${BRASS}33` }}>
-      <h1 className="text-4xl md:text-5xl font-extrabold mb-4 text-center" style={{ fontFamily: 'PT Serif, serif', background: 'linear-gradient(90deg, #D4E04F 0%, #BFFF4A 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.01em' }}>
-        Reclaim Your Authentic Power
-      </h1>
-      <p className="text-gray-200 mb-2 uppercase tracking-wider text-sm">
-        Explore our flagship programmes & community:
-      </p>
-      <div className="w-full max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        {mainLinks.map(link => (
-          <GlassButton key={link.label} label={link.label} url={link.url} icon={link.icon ? iconMap[link.icon] || link.icon : undefined} goldFoil={link.label === 'Executive Coaching'} />
-        ))}
-      </div>
-      <div className="flex gap-4 mb-8">
-        {socialLinks.map(link => (
-          <GlassIcon key={link.label} label={link.label} url={link.url} icon={link.icon ? iconMap[link.icon] || link.icon : undefined} />
-        ))}
-      </div>
-      <footer className="w-full max-w-2xl mx-auto mt-8 pt-8 border-t" style={{ borderColor: BRASS, background: `url(${bootcampFooter}) center/cover no-repeat` }}>
-        <div className="text-center mb-2" style={{ color: BRASS, fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>
-          Trusted by men worldwide to transform their lives
+    <div style={{ minHeight: '100vh', background: '#010101', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '0 16px' }}>
+      <div style={{ width: '100%', maxWidth: 400, margin: '0 auto', marginTop: 48, marginBottom: 24 }}>
+        <h1 style={{ fontFamily: 'PT Serif, serif', fontSize: '2.5rem', color: GOLD, fontWeight: 700, textAlign: 'center', marginBottom: 12, letterSpacing: '-0.01em' }}>
+          Reclaim Your Authentic Power
+        </h1>
+        <div style={{ textAlign: 'center', color: '#EEE', fontFamily: 'League Spartan, sans-serif', fontSize: '1rem', fontWeight: 500, marginBottom: 40, letterSpacing: '0.04em', textTransform: 'uppercase' }}>
+          EXPLORE OUR FLAGSHIP PROGRAMMES & COMMUNITY:
         </div>
-        <div className="w-full h-px mb-2" style={{ background: BRASS, opacity: 0.7 }} />
-      </footer>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: 20, margin: '40px 0' }}>
+          {mainLinks.map(link => (
+            <GlassButton
+              key={link.label}
+              label={link.label}
+              url={link.url}
+              icon={link.icon ? iconMap[link.icon] || link.icon : undefined}
+              goldFoil={link.label === 'Executive Coaching'}
+            />
+          ))}
+        </div>
+        <div style={{ color: '#888', textAlign: 'center', fontFamily: 'League Spartan, sans-serif', fontSize: 15, marginTop: 40 }}>
+          Trusted by 10,000+ men in 50+ countries
+        </div>
+      </div>
     </div>
   );
 } 
