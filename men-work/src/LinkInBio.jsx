@@ -1,6 +1,7 @@
 import React from 'react';
 import GlassButton from './components/ui/GlassButton';
-import GlassIcon from './components/ui/GlassIcon';
+import { FaYoutube, FaInstagram, FaMeetup, FaWhatsapp, FaEnvelope, FaGlobe } from 'react-icons/fa';
+import { SiX } from 'react-icons/si';
 import goldFoil from './assets/gold-foil.webp';
 import heroCoaching from './assets/hero-coaching.webp';
 import bootcamp from './assets/bootcamp.png';
@@ -41,6 +42,16 @@ const iconMap = {
   'Web': 'web',
 };
 
+const socialIconMap = {
+  'Youtube': <FaYoutube size={24} />, // You can adjust size as needed
+  'X': <SiX size={24} />,
+  'Instagram': <FaInstagram size={24} />,
+  'Meetup': <FaMeetup size={24} />,
+  'Whatsapp': <FaWhatsapp size={24} />,
+  'Email': <FaEnvelope size={24} />,
+  'Web': <FaGlobe size={24} />,
+};
+
 export default function LinkInBio() {
   return (
     <div style={{ minHeight: '100vh', background: '#010101', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', padding: '0 16px' }}>
@@ -60,6 +71,43 @@ export default function LinkInBio() {
               icon={link.icon ? iconMap[link.icon] || link.icon : undefined}
               goldFoil={link.label === 'Executive Coaching'}
             />
+          ))}
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', gap: 18, margin: '32px 0 0 0' }}>
+          {socialLinks.map(link => (
+            <a
+              key={link.label}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                width: 44,
+                height: 44,
+                borderRadius: '50%',
+                background: 'rgba(255,255,255,0.08)',
+                backdropFilter: 'blur(16px)',
+                border: '1px solid rgba(255,255,255,0.13)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: GOLD,
+                transition: 'all 0.18s',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.10)',
+              }}
+              onMouseOver={e => {
+                e.currentTarget.style.background = 'rgba(255,255,255,0.18)';
+                e.currentTarget.style.borderColor = GOLD;
+                e.currentTarget.style.color = '#fff';
+              }}
+              onMouseOut={e => {
+                e.currentTarget.style.background = 'rgba(255,255,255,0.08)';
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.13)';
+                e.currentTarget.style.color = GOLD;
+              }}
+              aria-label={link.label}
+            >
+              {socialIconMap[link.label] || <FaGlobe size={24} />}
+            </a>
           ))}
         </div>
         <div style={{ color: '#888', textAlign: 'center', fontFamily: 'League Spartan, sans-serif', fontSize: 15, marginTop: 40 }}>
