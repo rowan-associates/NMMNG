@@ -1074,23 +1074,25 @@ function LoverLanding() {
 
       {/* Section 3: Who Is This Programme For? */}
       <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-          {/* Text Card */}
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="glass rounded-xl p-8 flex flex-col justify-center" style={{ minHeight: 420, background: 'rgba(15,31,45,0.82)', border: '1.5px solid #1A1A1A', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', backdropFilter: 'blur(10px)' }}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-left md:text-center" style={{ color: '#D4E04F', fontFamily: 'PT Serif, serif' }}>{whoTitle}</h2>
-            <ul className="space-y-6 text-lg text-left mx-auto max-w-2xl" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
-              {whoBullets.map((b, i) => (
-                <li key={i} className="flex items-start gap-4">
-                  <span className="mt-1 text-[#D4E04F]">✅</span>
-                  <span>{b}</span>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-          {/* Image Card */}
-          <div className="flex justify-center items-center w-full h-full">
-            <img src="/assets/hero_silhouette.jpeg" alt="Silhouette" className="object-cover h-full w-full max-h-[480px] rounded-xl shadow-lg border border-white/10 hover:scale-105 transition-transform ease-in-out duration-300" style={{ maxWidth: 340 }} />
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+           {/* Text Card */}
+           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="glass rounded-xl p-8 flex flex-col justify-center" style={{ minHeight: 420, background: 'rgba(15,31,45,0.82)', border: '1.5px solid #1A1A1A', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', backdropFilter: 'blur(10px)' }}>
+             <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-left md:text-center" style={{ color: '#D4E04F', fontFamily: 'PT Serif, serif' }}>{whoTitle}</h2>
+             <ul className="space-y-6 text-lg text-left mx-auto max-w-2xl" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
+               {whoBullets.map((b, i) => (
+                 <li key={i} className="flex items-start gap-4">
+                   <span className="mt-1 text-[#D4E04F]">✅</span>
+                   <span>{b}</span>
+                 </li>
+               ))}
+             </ul>
+           </motion.div>
+           {/* Image Card */}
+           <div className="flex justify-center items-center h-full min-h-[420px]">
+             <div className="h-full w-full flex items-center justify-center">
+               <img src="/assets/hero_silhouette.jpeg" alt="Silhouette" className="object-cover h-full w-full max-h-[480px] rounded-xl shadow-lg border border-white/10 hover:scale-105 transition-transform ease-in-out duration-300" style={{ maxWidth: 340 }} />
+             </div>
+           </div>
         </div>
       </section>
 
