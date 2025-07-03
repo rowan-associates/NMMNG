@@ -27,6 +27,9 @@ import { FaYoutube, FaInstagram, FaMeetup, FaTiktok, FaLinkedin, FaWhatsapp, FaE
 import { SiX } from 'react-icons/si'
 import lionIcon from './assets/nmmng-logo.png'
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@radix-ui/react-accordion'
+import { motion } from 'framer-motion'
+import loverHero from './assets/lover-hero.webp'
+import loverPhases from './assets/lover-phases.webp'
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -1007,6 +1010,31 @@ function LoverLanding() {
 
   const finalCta = "This programme is an investment in a completely new way of being. It's for men who are ready to stop playing small and start creating the authentic, fulfilling dating, intimacy and relationship life they deserve. Becoming the authentic lover you are underneath the decades of conditioning.";
 
+  // Pricing options for the new section
+  const pricingOptions = [
+    {
+      title: 'One-Time Payment',
+      price: '£4,997',
+      label: 'Full 6-month Programme',
+      cta: 'Apply Now',
+      url: 'https://join.nmmng.co/lover',
+    },
+    {
+      title: '2 Payments (Every 3 Months)',
+      price: '2 x £2,597',
+      label: 'Split into two payments across the programme',
+      cta: 'Apply Now',
+      url: 'https://join.nmmng.co/lover',
+    },
+    {
+      title: 'Monthly Plan (6 Payments)',
+      price: '6 x £897',
+      label: 'Monthly instalments, total £5,382',
+      cta: 'Apply Now',
+      url: 'https://join.nmmng.co/lover',
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Sticky Navigation */}
@@ -1025,105 +1053,90 @@ function LoverLanding() {
 
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative hero-bg">
-        <div className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-background/80"></div>
-        <div className="absolute inset-0 opacity-20" style={{backgroundImage: "url('/assets/lover-hero.webp')",backgroundSize: 'cover',backgroundPosition: 'center',backgroundAttachment: 'fixed'}}></div>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-gradient-to-br from-background/80 via-background/60 to-background/80"></motion.div>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 0.22 }} transition={{ duration: 1.2 }} className="absolute inset-0" style={{backgroundImage: `url(${loverHero})`,backgroundSize: 'cover',backgroundPosition: 'center',backgroundAttachment: 'fixed'}}></motion.div>
         <div className="max-w-7xl mx-auto w-full px-6 relative z-10 flex flex-col items-center text-center py-32">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-4 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>{heroTitle}</h1>
-          <div className="mb-4 text-2xl md:text-3xl" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, color: '#D4E04F' }}>{heroSubtitle}</div>
-          <div className="glass rounded-2xl p-8 my-12 max-w-4xl mx-auto w-full px-6">
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-5xl md:text-6xl font-extrabold mb-4 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>{heroTitle}</motion.h1>
+          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="mb-4 text-2xl md:text-3xl" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, color: '#D4E04F' }}>{heroSubtitle}</motion.div>
+          <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="glass rounded-2xl p-8 my-12 max-w-4xl mx-auto w-full px-6">
             <p className="text-xl font-semibold text-white text-left" style={{ fontFamily: 'League Spartan, sans-serif' }}>{heroDesc}</p>
             <div className="text-2xl font-bold mt-8 mb-2" style={{ color: '#D4E04F', letterSpacing: '0.08em' }}>{investment}</div>
             <Button className="btn-primary text-xl px-8 py-6 font-bold mt-6" style={{ boxShadow: '0 0 32px 8px #E6F97B55', fontFamily: 'PT Serif, serif', minHeight: 64 }} onClick={() => window.open(joinUrl, '_blank')}>Join the Programme</Button>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Breakthrough Section */}
-      <section className="py-24 bg-secondary/30">
-        <div className="max-w-7xl mx-auto w-full px-6">
-          <div className="max-w-4xl mx-auto">
-            <Card className="glass rounded-2xl p-10">
-              <CardContent>
-                <p className="text-lg text-muted-foreground text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{breakthrough}</p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
+      {/* About the Programme Section */}
+      <section className="py-16 max-w-7xl mx-auto w-full px-6">
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="max-w-4xl mx-auto">
+          <Card className="glass rounded-2xl p-10">
+            <CardContent>
+              <p className="text-lg text-muted-foreground text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{breakthrough}</p>
+            </CardContent>
+          </Card>
+        </motion.div>
       </section>
 
-      {/* Who Is This For Section */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto w-full px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-headline mb-8 gradient-text">{whoTitle}</h2>
-          </div>
-          <div className="max-w-4xl mx-auto">
-            <Card className="glass rounded-2xl p-10">
-              <CardContent>
-                <ul className="space-y-6 text-lg text-left" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
-                  {whoBullets.map((b, i) => (
-                    <li key={i} className="flex items-start gap-4">
-                      <CheckCircle className="w-6 h-6 text-[#D4E04F] mt-1 flex-shrink-0" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
+      {/* Who Is This Programme For? Section */}
+      <section className="py-16 max-w-7xl mx-auto w-full px-6">
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+          <h2 className="text-4xl font-serif font-bold mb-8 gradient-text" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{whoTitle}</h2>
+          <Card className="glass rounded-2xl p-10">
+            <CardContent>
+              <ul className="space-y-6 text-lg text-left" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
+                {whoBullets.map((b, i) => (
+                  <li key={i} className="flex items-start gap-4">
+                    <CheckCircle className="w-6 h-6 text-[#D4E04F] mt-1 flex-shrink-0" />
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+        </motion.div>
       </section>
 
       {/* Philosophy Section */}
-      <section className="py-24 bg-secondary/30">
-        <div className="max-w-7xl mx-auto w-full px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-headline mb-8 gradient-text">{philosophyTitle}</h2>
-          </div>
-          <div className="max-w-4xl mx-auto">
-            <Card className="glass rounded-2xl p-10 bg-[#0F4F40]/80">
-              <CardContent>
-                {philosophyText.map((p, i) => (
-                  <p key={i} className="text-lg text-white mb-6" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{p}</p>
-                ))}
-              </CardContent>
-            </Card>
-          </div>
-        </div>
+      <section className="py-16 max-w-7xl mx-auto w-full px-6">
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+          <h2 className="text-4xl font-serif font-bold mb-8 gradient-text" style={{ fontFamily: 'PT Serif, serif', background: 'linear-gradient(90deg, #D4E04F, #0F4F40)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>{philosophyTitle}</h2>
+          <Card className="glass rounded-2xl p-10 bg-[#0F4F40]/80">
+            <CardContent>
+              {philosophyText.map((p, i) => (
+                <p key={i} className="text-lg text-white mb-6" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{p}</p>
+              ))}
+            </CardContent>
+          </Card>
+        </motion.div>
       </section>
 
-      {/* Programme Structure & Curriculum Section (Accordion) */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto w-full px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-headline mb-8 gradient-text">{structureTitle}</h2>
-          </div>
-          <Accordion type="single" collapsible className="max-w-5xl mx-auto glass rounded-2xl p-8">
+      {/* Programme Structure & Curriculum Section */}
+      <section className="py-16 max-w-7xl mx-auto w-full px-6">
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+          <h2 className="text-4xl font-serif font-bold mb-8 gradient-text" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{structureTitle}</h2>
+          <img src={loverPhases} alt="Programme Roadmap" className="w-full rounded-2xl mb-10" style={{ objectFit: 'cover', maxHeight: 340 }} />
+          <div className="grid md:grid-cols-3 gap-8">
             {phases.map((phase, i) => (
-              <AccordionItem key={i} value={`phase${i+1}`} className="mb-6">
-                <AccordionTrigger className="text-xl font-bold text-[#D4E04F]" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>{phase.phase}</AccordionTrigger>
-                <AccordionContent>
+              <Card key={i} className="glass rounded-2xl p-8 flex flex-col h-full">
+                <CardContent>
+                  <h3 className="text-xl font-bold mb-6 text-[#D4E04F]" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>{phase.phase}</h3>
                   {phase.modules.map((mod, j) => (
-                    <div key={j} className="mb-6">
+                    <div key={j} className="mb-8">
                       <h4 className="text-lg font-bold mb-2 text-white" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>{mod.title}</h4>
                       <p className="text-base text-white" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{mod.desc}</p>
                     </div>
                   ))}
-                </AccordionContent>
-              </AccordionItem>
+                </CardContent>
+              </Card>
             ))}
-          </Accordion>
-        </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* What's Included Section */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20" style={{backgroundImage: `url(${bootcampFooter})`,backgroundSize: 'cover',backgroundPosition: 'center',backgroundAttachment: 'fixed'}}></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/80 to-background/90"></div>
-        <div className="max-w-7xl mx-auto w-full px-6 relative z-10">
-          <div className="text-center mb-12">
-            <h2 className="text-headline mb-8 gradient-text">{whatsIncludedTitle}</h2>
-          </div>
+      <section className="py-16 max-w-7xl mx-auto w-full px-6 relative overflow-hidden">
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+          <h2 className="text-4xl font-serif font-bold mb-8 gradient-text" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{whatsIncludedTitle}</h2>
           <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
             {whatsIncluded.map((item, i) => (
               <Card key={i} className="glass rounded-2xl p-8">
@@ -1133,21 +1146,44 @@ function LoverLanding() {
               </Card>
             ))}
           </div>
-        </div>
+        </motion.div>
       </section>
 
-      {/* Final Call to Action Section */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto w-full px-6">
-          <div className="max-w-4xl mx-auto">
-            <Card className="glass rounded-2xl p-10 bg-[#0F4F40]/90">
-              <CardContent>
-                <p className="text-2xl font-bold gradient-text mb-4" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>{finalCta}</p>
-                <Button className="btn-primary text-xl px-12 py-6 animate-pulse-glow mt-8" style={{ fontFamily: 'PT Serif, serif', minHeight: 64 }} onClick={() => window.open(joinUrl, '_blank')}>Apply Now</Button>
-              </CardContent>
-            </Card>
+      {/* Pricing Section */}
+      <section className="py-16 max-w-7xl mx-auto w-full px-6">
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+          <h2 className="text-4xl font-serif font-bold mb-8 gradient-text" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>Choose Your Investment Plan</h2>
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-6">
+            {pricingOptions.map((opt, i) => (
+              <Card key={i} className="glass rounded-2xl p-8 flex flex-col h-full items-center">
+                <CardContent className="flex flex-col items-center">
+                  <div className="text-3xl font-bold mb-2" style={{ color: '#D4E04F', fontFamily: 'PT Serif, serif' }}>{opt.price}</div>
+                  <div className="text-lg mb-4" style={{ color: '#A67C52', fontFamily: 'League Spartan, sans-serif', fontWeight: 600 }}>{opt.label}</div>
+                  <Button className="btn-primary text-lg px-8 py-4 font-bold mt-2" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56 }} onClick={() => window.open(opt.url, '_blank')}>{opt.cta}</Button>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        </div>
+          <div className="text-sm text-muted-foreground text-center mt-2" style={{ fontFamily: 'League Spartan, sans-serif', color: '#A67C52' }}>
+            Payment plans include full access to the entire programme and require agreement to completion terms.
+          </div>
+        </motion.div>
+      </section>
+
+      {/* Final CTA / Belief Statement Section */}
+      <section className="py-16 max-w-7xl mx-auto w-full px-6">
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+          <Card className="glass rounded-2xl p-10 bg-[#0F4F40]/90">
+            <CardContent className="flex flex-col items-center">
+              <p className="text-2xl font-bold gradient-text mb-4 text-center" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700, color: '#D4E04F' }}>{finalCta}</p>
+              <div className="flex flex-col md:flex-row gap-6 mt-8 w-full justify-center">
+                {pricingOptions.map((opt, i) => (
+                  <Button key={i} className="btn-primary text-lg px-8 py-4 font-bold" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56 }} onClick={() => window.open(opt.url, '_blank')}>{opt.cta}</Button>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </section>
 
       {/* Footer Section (for consistency) */}
