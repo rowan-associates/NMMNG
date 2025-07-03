@@ -20,6 +20,7 @@ import archetypesImg from './assets/archetypes.webp';
 import { FaYoutube, FaX, FaInstagram, FaMeetup, FaWhatsapp, FaEnvelope, FaGlobe } from 'react-icons/fa';
 import { SiX } from 'react-icons/si';
 import phoenixImg from './assets/phoenix.webp';
+import blackBg from './assets/black.webp';
 // import other assets/icons as needed
 
 // Add/override styles for premium black and gold aesthetic
@@ -506,7 +507,7 @@ function CoachingLanding() {
       </section>
 
       {/* Footer Section (for consistency) */}
-      <CoachingFooter showBackToTop={showBackToTop} scrollToTop={scrollToTop} backToTopImg={backToTopImg} />
+      <CoachingFooter />
 
       {/* Gold-foil CSS helpers scoped to this file */}
       <style>{`
@@ -583,11 +584,36 @@ function CoachingLanding() {
         ::-webkit-scrollbar-thumb:hover {
           background: ${GOLD};
         }
+        /* Responsive fixes for mobile */
+        @media (max-width: 600px) {
+          .text-5xl, .text-6xl { font-size: 2rem !important; }
+          .text-3xl, .text-4xl { font-size: 1.3rem !important; }
+          .text-2xl { font-size: 1.1rem !important; }
+          .py-32, .py-24, .py-20 { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+          .px-6, .px-4 { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+          .gap-12, .gap-14, .gap-10 { gap: 1.2rem !important; }
+          .rounded-2xl { border-radius: 0.8rem !important; }
+          .p-10, .p-12, .p-16 { padding: 1rem !important; }
+          .min-h-[320px], .min-h-[420px], .min-h-[220px], .min-h-[520px] { min-height: 120px !important; }
+          .max-w-7xl, .max-w-5xl, .max-w-xl, .max-w-2xl, .max-w-3xl { max-width: 100vw !important; }
+          .w-full { width: 100% !important; }
+          .overflow-x-hidden { overflow-x: hidden !important; }
+          .flex-row, .md\:flex-row, .md\:flex-row-reverse { flex-direction: column !important; }
+          .items-center, .justify-center { align-items: stretch !important; justify-content: flex-start !important; }
+          .text-center, .text-left { text-align: left !important; }
+          .btn-primary, .gold-foil-btn { font-size: 1rem !important; padding: 0.75rem 1.2rem !important; min-height: 44px !important; }
+          .glass, .glass-light { padding: 1rem !important; }
+          .border, .border-2 { border-width: 1px !important; }
+          .shadow-xl, .shadow-lg, .drop-shadow-lg { box-shadow: 0 2px 8px rgba(0,0,0,0.12) !important; }
+          .overflow-visible { overflow: visible !important; }
+          .vertical-dot-nav { display: none !important; }
+          .word-break, .overflow-wrap { word-break: break-word !important; overflow-wrap: break-word !important; }
+        }
       `}</style>
 
-      {/* Vertical dot navigation */}
-      <div className="fixed right-8 top-1/2 z-50 flex flex-col items-center gap-3" style={{ transform: 'translateY(-50%)', opacity: 0.7 }}>
-        <button aria-label="Scroll Up" onClick={() => scrollToSection('hero')} className="mb-2 p-2 rounded-full bg-black/60 border border-gold-500 hover:bg-gold-700 transition-all" style={{ color: GOLD, borderColor: GOLD, fontSize: 16, opacity: 0.6 }}>&uarr;</button>
+      {/* Vertical dot navigation (updated) */}
+      <div className="vertical-dot-nav fixed right-8 top-1/2 z-50 flex flex-col items-center gap-3" style={{ transform: 'translateY(-50%)', opacity: 0.7 }}>
+        <button aria-label="Scroll Up" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="mb-2 p-2 rounded-full bg-black/60 border border-gold-500 hover:bg-gold-700 transition-all" style={{ color: GOLD, borderColor: GOLD, fontSize: 16, opacity: 0.6 }}>&uarr;</button>
         {sectionIds.map((id, idx) => (
           <button key={id} aria-label={`Go to section ${idx+1}`} onClick={() => scrollToSection(id)}
             className="my-1 w-3 h-3 rounded-full border-2 transition-all"
@@ -601,13 +627,13 @@ function CoachingLanding() {
             }}
           />
         ))}
-        <button aria-label="Scroll Down" onClick={() => scrollToSection('final-cta')} className="mt-2 p-2 rounded-full bg-black/60 border border-gold-500 hover:bg-gold-700 transition-all" style={{ color: GOLD, borderColor: GOLD, fontSize: 16, opacity: 0.6 }}>&darr;</button>
+        <button aria-label="Scroll Down" onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })} className="mt-2 p-2 rounded-full bg-black/60 border border-gold-500 hover:bg-gold-700 transition-all" style={{ color: GOLD, borderColor: GOLD, fontSize: 16, opacity: 0.6 }}>&darr;</button>
       </div>
     </div>
   );
 }
 
-function CoachingFooter({ showBackToTop, scrollToTop, backToTopImg }) {
+function CoachingFooter() {
   const socials = [
     { icon: <FaYoutube />, url: 'https://www.youtube.com/@NoMoreMrNiceGuyUK' },
     { icon: <SiX />, url: 'https://x.com/NMMNGS' },
@@ -618,7 +644,15 @@ function CoachingFooter({ showBackToTop, scrollToTop, backToTopImg }) {
     { icon: <FaGlobe />, url: 'https://nomoremrniceguy.co.uk' },
   ];
   return (
-    <footer className="py-16 border-t border-border/20 relative z-10" style={{ position: 'relative', background: `url(${goldFoil}), url(${bootcampFooter}) center bottom/cover no-repeat`, backgroundBlendMode: 'overlay', backgroundAttachment: 'fixed', backgroundSize: 'cover', backgroundRepeat: 'no-repeat', overflow: 'hidden' }}>
+    <footer className="py-16 border-t border-border/20 relative z-10" style={{
+      position: 'relative',
+      background: `url(${blackBg}), url(${goldFoil}), url(${bootcampFooter}) center bottom/cover no-repeat`,
+      backgroundBlendMode: 'overlay',
+      backgroundAttachment: 'fixed',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      overflow: 'hidden',
+    }}>
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, filter: 'blur(6px)', pointerEvents: 'none' }} />
       <div className="absolute top-0 left-0 w-full h-3" style={{ background: `url(${goldFoil}) center/cover no-repeat`, opacity: 0.7, zIndex: 2 }} />
       <div className="container mx-auto px-6 flex flex-col items-center relative z-10">
@@ -653,17 +687,6 @@ function CoachingFooter({ showBackToTop, scrollToTop, backToTopImg }) {
           </div>
         </div>
       </div>
-      {/* Back to Top Button */}
-      {showBackToTop && (
-        <button
-          className="back-to-top-btn"
-          onClick={scrollToTop}
-          aria-label="Back to top"
-          style={{position: 'fixed', bottom: 32, right: 32, zIndex: 50, background: 'none', border: 'none', outline: 'none', cursor: 'pointer', padding: 0}}
-        >
-          <img src={backToTopImg} alt="Back to top" className="back-to-top-img float-anim" style={{width: 177, height: 177, maxWidth: 177, maxHeight: 177, opacity: 1, background: 'transparent'}} />
-        </button>
-      )}
     </footer>
   );
 }
