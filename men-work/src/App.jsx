@@ -1146,64 +1146,57 @@ function LoverLanding() {
       </section>
 
       {/* Section 5: Programme Structure & Curriculum */}
-      <section className="py-16 max-w-7xl mx-auto w-full px-6">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>Programme Structure & Curriculum (Six Months)</h2>
-          <img src={loverPhases} alt="Programme Roadmap" className="w-full rounded-2xl mb-10" style={{ objectFit: 'cover', maxHeight: 340 }} />
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Phase 1 */}
-            <div className="glass rounded-2xl p-8 flex flex-col h-full" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
-              <h3 className="text-xl font-bold mb-4 text-[#D4E04F] text-center" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>Phase 1: Deconstructing The Nice Guy</h3>
-              <p className="text-base text-white mb-6 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
-                This phase is about radical self-awareness. We will identify the root causes of your patterns and begin the process of dismantling them.
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <span className="inline-block font-bold text-[#D4E04F] mr-1">Weeks 1–2:</span>
-                  <span className="text-white"><b>Module 1: Identifying Your Core Wounds</b><br />We will explore the origins of your toxic shame, perfectionism, and the impact of your relationship with your parents on your current behaviour with women. Key to healing this conditioning is exploring the mother wound. This is a term that describes our relationship with our mothers and the ultimate problem at the core. Unpacking this deep-seated emotional wound unlocks the possibility of freedom to be who you really are in relationship with women, rather than someone projecting their neediness on women.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="inline-block font-bold text-[#D4E04F] mr-1">Weeks 3–4:</span>
-                  <span className="text-white"><b>Module 2: Mastering Your Emotional State</b><br />Learn to identify and sit with uncomfortable feelings associated with rejection. We will guide you to bring your attention to the feeling without needing to "solve" it with your mind. This is about mastering your own emotions and body. With greater awareness, comes greater power, open, positive and nourishing power rather than controlling power.</span>
-                </li>
-              </ul>
-            </div>
-            {/* Phase 2 */}
-            <div className="glass rounded-2xl p-8 flex flex-col h-full" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
-              <h3 className="text-xl font-bold mb-4 text-[#D4E04F] text-center" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>Phase 2: The Field Manual</h3>
-              <p className="text-base text-white mb-6 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
-                This is where we turn theory into practice with real-world missions designed to break your conditioning.
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <span className="inline-block font-bold text-[#D4E04F] mr-1">Weeks 5–8:</span>
-                  <span className="text-white"><b>Module 3: Practical Missions</b><br />The cornerstone of this programme is putting theory into practice. You will be guided to take on bespoke missions that help you integrate what you've learned and will challenge you to break through existing patterns that keep you stuck with the same results. Instead you will open up new possibilities for connection and relationship that you can put into practice in your very own dating activities whether you have already been dating or are just starting out. We guide you through it all at every point you need it. You will rapidly get comfortable trying out new ways of communicating and transmitting your natural masculine energy. These powerful exercises are designed to prove that your fears are unfounded, build confidence and resilience.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="inline-block font-bold text-[#D4E04F] mr-1">Weeks 9–12:</span>
-                  <span className="text-white"><b>Module 4: Dating Without a Mask</b><br />You will learn to "follow the energy" of an interaction instead of a script. This involves dropping your mental checklist of what you should and shouldn't do and learning to be free to act or speak even when feeling vulnerable or anxious in a specific situation in the dating cycle. We guide you through this in timely interventions so that you can leverage what you are learning at every point in the programme.</span>
-                </li>
-              </ul>
-            </div>
-            {/* Phase 3 */}
-            <div className="glass rounded-2xl p-8 flex flex-col h-full" style={{ borderRadius: 11, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
-              <h3 className="text-xl font-bold mb-4 text-[#D4E04F] text-center" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>Phase 3: Integration & Community (Months 5–6)</h3>
-              <p className="text-base text-white mb-6 text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
-                In the final phase, we focus on building sustainable habits and a powerful support network.
-              </p>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3">
-                  <span className="inline-block font-bold text-[#D4E04F] mr-1">Weeks 13–16:</span>
-                  <span className="text-white"><b>Module 5: Building Your Tribe</b><br />You will be encouraged and supported to build deeper, more authentic connections with other men. Having a strong male support system is crucial for accountability and navigating challenges. Expect the feeling of deep brotherhood as you and your fellow participants give up the competitive defensive instinct and instead connect on an equal footing in the dating game.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="inline-block font-bold text-[#D4E04F] mr-1">Weeks 17–24:</span>
-                  <span className="text-white"><b>Module 6: Dating with Integrity</b><br />Learn the art of rejecting and being rejected with grace and being okay with any outcome. We will help you develop the ability to communicate your needs and boundaries clearly, hear the other person's needs and boundaries so that you can freely move from a passive people-pleasing stance to one of authentic leadership in your dating and relational life.</span>
-                </li>
-              </ul>
+      <section className="relative py-20 w-full min-h-[700px] flex items-center justify-center overflow-hidden" style={{ zIndex: 1 }}>
+        {/* Cinematic background image and overlays */}
+        <div className="absolute inset-0 z-0 bg-cover bg-center" style={{ backgroundImage: `url(${loverPhases})`, filter: 'blur(2px) brightness(0.7)' }}></div>
+        <div className="absolute inset-0 z-10 bg-gradient-to-b from-[#0D212Dcc] to-[#0D212Ddd]" />
+        <div className="relative z-20 max-w-7xl mx-auto w-full px-6">
+          <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-4 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{structureTitle}</motion.h2>
+          <motion.p initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="text-lg md:text-xl text-center mb-12 text-white/80 max-w-3xl mx-auto" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
+            This is a guided, transformational arc—from self-awareness to field testing to integration.
+          </motion.p>
+          <div className="w-full flex justify-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-6 w-full max-w-6xl mx-auto">
+              {/* Month-based timeline cards */}
+              {/* Month 1 */}
+              <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
+                <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 1 · Weeks 1–2</div>
+                <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 1: Identifying Your Core Wounds</div>
+                <div className="text-white/90 text-sm md:text-base font-medium">Explore the origins of toxic shame, perfectionism, and the impact of your relationship with your parents on your current behaviour with women. Unpacking the mother wound unlocks the possibility of freedom to be who you really are in relationship with women.</div>
+              </motion.div>
+              {/* Month 2 */}
+              <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
+                <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 2 · Weeks 3–4</div>
+                <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 2: Mastering Your Emotional State</div>
+                <div className="text-white/90 text-sm md:text-base font-medium">Learn to identify and sit with uncomfortable feelings associated with rejection. Master your emotions and body for greater awareness and positive, nourishing power.</div>
+              </motion.div>
+              {/* Month 3 */}
+              <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
+                <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 3 · Weeks 5–6</div>
+                <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 3: Practical Missions</div>
+                <div className="text-white/90 text-sm md:text-base font-medium">Put theory into practice with bespoke missions that challenge you to break through old patterns and open new possibilities for connection and relationship.</div>
+              </motion.div>
+              {/* Month 4 */}
+              <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.0 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
+                <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 4 · Weeks 7–8</div>
+                <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 4: Dating Without a Mask</div>
+                <div className="text-white/90 text-sm md:text-base font-medium">Learn to "follow the energy" of an interaction instead of a script. Drop your mental checklist and learn to act and speak freely, even when feeling vulnerable or anxious.</div>
+              </motion.div>
+              {/* Month 5 */}
+              <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.1 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
+                <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 5 · Weeks 9–10</div>
+                <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 5: Building Your Tribe</div>
+                <div className="text-white/90 text-sm md:text-base font-medium">Build deeper, more authentic connections with other men. Develop a strong male support system for accountability and navigating challenges.</div>
+              </motion.div>
+              {/* Month 6 */}
+              <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
+                <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 6 · Weeks 11–12</div>
+                <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 6: Dating with Integrity</div>
+                <div className="text-white/90 text-sm md:text-base font-medium">Learn the art of rejecting and being rejected with grace. Communicate your needs and boundaries clearly, and move from people-pleasing to authentic leadership in your dating and relational life.</div>
+              </motion.div>
             </div>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Section 6: What's Included */}
