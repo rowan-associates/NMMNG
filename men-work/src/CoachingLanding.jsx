@@ -146,7 +146,7 @@ function CoachingLanding() {
         <div className="absolute inset-0 bg-black/70 z-0" />
         <div className="relative z-10 w-full flex items-center justify-center px-2 py-16" style={{ minHeight: '80vh' }}>
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="w-full max-w-7xl mx-auto">
-            <div className="glass gold-foil-border rounded-2xl p-10 md:p-16 flex flex-col items-center shadow-xl backdrop-blur-md w-full" style={{ background: 'rgba(0,0,0,0.72)', borderRadius: 24, width: '100%' }}>
+            <div className="p-10 md:p-16 flex flex-col items-center shadow-xl backdrop-blur-md w-full" style={{ borderRadius: 24, width: '100%' }}>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center gold-gradient-text" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.1 }}>
                 The World Has Changed. Have You?
               </h2>
