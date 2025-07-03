@@ -17,6 +17,8 @@ import backToTopImg from './assets/back-to-top.webp';
 import heroCoaching from './assets/hero-coaching.webp';
 import goldFoil from './assets/gold-foil.webp';
 import archetypesImg from './assets/archetypes.webp';
+import { FaYoutube, FaX, FaInstagram, FaMeetup, FaWhatsapp, FaEnvelope, FaGlobe } from 'react-icons/fa';
+import { SiX } from 'react-icons/si';
 // import other assets/icons as needed
 
 // Add/override styles for premium black and gold aesthetic
@@ -55,7 +57,7 @@ function CoachingLanding() {
     <div className="min-h-screen text-foreground overflow-x-hidden" style={{ background: BG_BLACK, color: TEXT_LIGHT }}>
       {/* Sticky Navigation */}
       {isScrolled && (
-        <nav className="nav-sticky" style={{ background: 'rgba(0,0,0,0.96)', boxShadow: `0 2px 24px 0 ${GOLD}33` }}>
+        <nav className="nav-sticky" style={{ background: `url(${goldFoil}), linear-gradient(rgba(0,0,0,0.96),rgba(0,0,0,0.96))`, backgroundBlendMode: 'overlay', backgroundSize: 'cover', boxShadow: `0 2px 24px 0 ${GOLD}33` }}>
           <div className="container mx-auto px-4 py-2 flex flex-row justify-between items-center gap-2">
             <div className="flex flex-row items-center gap-3">
               <a href="/" className="flex items-center justify-center" style={{ position: 'relative', zIndex: 10 }}>
@@ -482,7 +484,7 @@ function CoachingLanding() {
       </section>
 
       {/* Footer Section (for consistency) */}
-      <Footer showBackToTop={showBackToTop} scrollToTop={scrollToTop} backToTopImg={backToTopImg} />
+      <CoachingFooter showBackToTop={showBackToTop} scrollToTop={scrollToTop} backToTopImg={backToTopImg} />
 
       {/* Gold-foil CSS helpers scoped to this file */}
       <style>{`
@@ -550,6 +552,66 @@ function CoachingLanding() {
         }
       `}</style>
     </div>
+  );
+}
+
+function CoachingFooter({ showBackToTop, scrollToTop, backToTopImg }) {
+  const socials = [
+    { icon: <FaYoutube />, url: 'https://www.youtube.com/@NoMoreMrNiceGuyUK' },
+    { icon: <SiX />, url: 'https://x.com/NMMNGS' },
+    { icon: <FaInstagram />, url: 'https://www.instagram.com/NMMNGS/' },
+    { icon: <FaMeetup />, url: 'https://www.meetup.com/uk-no-more-mr-nice-guy/' },
+    { icon: <FaWhatsapp />, url: 'https://Nmmng.co/NMMNG-General-Whatsapp' },
+    { icon: <FaEnvelope />, url: 'mailto:enquire@nomoremrniceguy.co' },
+    { icon: <FaGlobe />, url: 'https://nomoremrniceguy.co.uk' },
+  ];
+  return (
+    <footer className="py-16 border-t border-border/20 relative z-10" style={{ background: `url(${goldFoil}), url(${bootcampFooter}) center bottom/cover no-repeat`, backgroundBlendMode: 'overlay', backgroundAttachment: 'fixed' }}>
+      <div className="absolute top-0 left-0 w-full h-3" style={{ background: `url(${goldFoil}) center/cover repeat-x`, opacity: 0.7, zIndex: 2 }} />
+      <div className="container mx-auto px-6 flex flex-col items-center relative z-10">
+        <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="mb-6 flex items-center justify-center cursor-pointer">
+          <img src={nmmngLogo} alt="NMMNG Logo" style={{ width: 220, height: 220, objectFit: 'contain' }} className="drop-shadow-lg hover:scale-105 transition-transform duration-300" />
+        </a>
+        <div className="flex gap-8 mb-4">
+          <a href="/bootcamp" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: GOLD }}>NMMNG® Bootcamp</a>
+          <a href="/lover" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: GOLD }}>Authentic Lover Blueprint</a>
+          <a href="/coaching" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: GOLD }}>Executive Coaching</a>
+          <a href="https://nomoremrniceguy.co.uk" className="text-primary hover:underline ml-1 cursor-pointer text-lg font-bold" style={{ color: GOLD }}>No More Mr. Nice Guy®</a>
+        </div>
+        <div className="flex gap-6 mb-6">
+          {socials.map((s, i) => (
+            <a key={i} href={s.url} target="_blank" rel="noopener noreferrer" style={{ color: GOLD, fontSize: 32, transition: 'color 0.2s', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              {s.icon}
+            </a>
+          ))}
+        </div>
+        <div className="flex flex-col items-center gap-2 mb-2">
+          <div className="flex gap-6 text-sm mb-1">
+            <a href="https://www.nomoremrniceguy.co.uk/terms" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary" style={{ color: GOLD }}>Terms & Conditions</a>
+            <a href="https://www.nomoremrniceguy.co.uk/privacy" target="_blank" rel="noopener noreferrer" className="hover:underline text-primary" style={{ color: GOLD }}>Privacy Policy</a>
+          </div>
+          <div className="text-xs text-center" style={{ color: GOLD, fontFamily: 'League Spartan, sans-serif', fontWeight: 500 }}>
+            © 2025 No More Mr. Nice Guy®️ is a registered trademark and trading name of RA & Associates Limited
+          </div>
+        </div>
+        <div className="w-full flex justify-center">
+          <div className="text-[11px] text-center" style={{ color: GOLD, fontFamily: 'League Spartan, sans-serif', fontWeight: 400, marginTop: 4 }}>
+            Vibe coded by <a href="https://respira.cafe" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline ml-1">Respira</a>
+          </div>
+        </div>
+      </div>
+      {/* Back to Top Button */}
+      {showBackToTop && (
+        <button
+          className="back-to-top-btn"
+          onClick={scrollToTop}
+          aria-label="Back to top"
+          style={{position: 'fixed', bottom: 32, right: 32, zIndex: 50, background: 'none', border: 'none', outline: 'none', cursor: 'pointer', padding: 0}}
+        >
+          <img src={backToTopImg} alt="Back to top" className="back-to-top-img float-anim" style={{width: 177, height: 177, maxWidth: 177, maxHeight: 177, opacity: 1, background: 'transparent'}} />
+        </button>
+      )}
+    </footer>
   );
 }
 
