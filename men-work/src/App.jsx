@@ -36,6 +36,7 @@ import menBg from './assets/men.webp'
 import CoachingLanding from './CoachingLanding.jsx'
 import Analytics from './components/Analytics.jsx'
 import LinkInBio from './LinkInBio'
+import { Helmet } from 'react-helmet'
 
 // Socials array (move to file scope for reuse)
 const socials = [
@@ -171,7 +172,13 @@ function BootcampLanding() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100)
+      // Show sticky nav only after hero is out of view
+      if (bootcampHeroRef.current) {
+        const heroRect = bootcampHeroRef.current.getBoundingClientRect();
+        setIsScrolled(heroRect.bottom <= 0);
+      } else {
+        setIsScrolled(window.scrollY > 100);
+      }
       setShowBackToTop(window.scrollY > 300)
       // Parallax effect for forest background
       if (forestBgRef.current) {
@@ -180,6 +187,7 @@ function BootcampLanding() {
       }
     }
     window.addEventListener('scroll', handleScroll)
+    handleScroll(); // run on mount for SSR
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -266,498 +274,516 @@ function BootcampLanding() {
   ]
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Sticky Navigation */}
-      {isScrolled && (
-        <nav className="nav-sticky">
-          <div className="container mx-auto px-4 py-3 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
-            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 w-full sm:w-auto">
-              <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="flex items-center justify-center" style={{ position: 'relative', zIndex: 10 }}>
-                <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" className="h-12 w-auto sm:h-14 mr-0 sm:mr-4" style={{ position: 'relative', top: 0, left: 0, zIndex: 11, background: 'none' }} />
-              </a>
-              <h2 className="text-lg sm:text-xl font-bold nmmng-glow text-center sm:text-left" style={{ marginLeft: 0, zIndex: 1, lineHeight: 1.1, color: '#fff', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>NMMNG Bootcamp</h2>
+    <>
+      <Helmet>
+        <title>NMMNG® Bootcamp – Transformational Men's Retreat</title>
+        <meta name="description" content="Join the No More Mr. Nice Guy® Bootcamp in Oxford, UK. A transformational weekend retreat for men ready to lead, connect, and break free from Nice Guy patterns." />
+        <meta property="og:title" content="NMMNG® Bootcamp – Transformational Men's Retreat" />
+        <meta property="og:description" content="Join the No More Mr. Nice Guy® Bootcamp in Oxford, UK. A transformational weekend retreat for men ready to lead, connect, and break free from Nice Guy patterns." />
+        <meta property="og:image" content="/assets/lover-hero.webp" />
+        <meta property="og:image:width" content="1536" />
+        <meta property="og:image:height" content="1024" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://join.nmmng.co/bootcamp" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="NMMNG® Bootcamp – Transformational Men's Retreat" />
+        <meta name="twitter:description" content="Join the No More Mr. Nice Guy® Bootcamp in Oxford, UK. A transformational weekend retreat for men ready to lead, connect, and break free from Nice Guy patterns." />
+        <meta name="twitter:image" content="/assets/lover-hero.webp" />
+        <meta property="twitter:url" content="https://join.nmmng.co/bootcamp" />
+      </Helmet>
+      <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+        {/* Sticky Navigation */}
+        {isScrolled && (
+          <nav className="nav-sticky">
+            <div className="container mx-auto px-4 py-3 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
+              <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 w-full sm:w-auto">
+                <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="flex items-center justify-center" style={{ position: 'relative', zIndex: 10 }}>
+                  <img src={nmmngLogo} alt="NMMNG Bootcamp Logo" className="h-12 w-auto sm:h-14 mr-0 sm:mr-4" style={{ position: 'relative', top: 0, left: 0, zIndex: 11, background: 'none' }} />
+                </a>
+                <h2 className="text-lg sm:text-xl font-bold nmmng-glow text-center sm:text-left" style={{ marginLeft: 0, zIndex: 1, lineHeight: 1.1, color: '#fff', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>NMMNG Bootcamp</h2>
+              </div>
+              <Button 
+                onClick={() => scrollToSection('pricing')}
+                className="btn-primary w-full sm:w-auto text-base sm:text-xl px-6 sm:px-10 py-3 sm:py-4 mt-2 sm:mt-0"
+                style={{ minWidth: 0 }}
+              >
+                SECURE YOUR PLACE
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
             </div>
-            <Button 
-              onClick={() => scrollToSection('pricing')}
-              className="btn-primary w-full sm:w-auto text-base sm:text-xl px-6 sm:px-10 py-3 sm:py-4 mt-2 sm:mt-0"
-              style={{ minWidth: 0 }}
-            >
-              SECURE YOUR PLACE
+          </nav>
+        )}
+
+        {/* Hero Section */}
+        <section id="hero" ref={bootcampHeroRef} className="relative w-full min-h-screen flex items-center justify-center hero-bg overflow-hidden" style={{ minHeight: '100vh', height: '100svh' }}>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-cover bg-center z-1" style={{ backgroundImage: `url(${bootcampHero})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'scroll' }} />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/60 to-black z-2" />
+          <div className="max-w-7xl mx-auto w-full px-4 md:px-6 relative z-10 flex flex-col items-center justify-center text-center h-full" style={{ minHeight: '60vh', justifyContent: 'center', paddingTop: '2.5rem', paddingBottom: '2.5rem' }}>
+            <h1 className="text-5xl md:text-6xl font-extrabold mb-4 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08, fontSize: '2.5rem', maxWidth: '95vw' }}>
+              No More Mr. Nice Guy® Bootcamp
+            </h1>
+            <div className="mb-4 text-2xl md:text-3xl" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, color: '#D4E04F', fontSize: '1.3rem' }}>
+              Summer 2025 🇬🇧 UK Edition
+            </div>
+            <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-muted-foreground" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, lineHeight: 1.2, fontSize: '1.1rem' }}>
+              A Transformational Weekend Retreat for <span className="font-bold" style={{ fontFamily: 'PT Serif, serif' }}>Men Ready to Lead</span>
+            </h2>
+            <div className="mb-4">
+              <span style={{ color: '#D4E04F', fontSize: '1.1rem', letterSpacing: '0.04em', fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
+                6–7th September ✴️ Oxford, UK – Limited Spots Available
+              </span>
+            </div>
+            <Button onClick={() => scrollToSection('pricing')} className="btn-primary w-full md:w-auto flex items-center justify-center text-base md:text-xl px-6 md:px-10 py-3 md:py-4 mt-2 md:mt-0" style={{ minWidth: 0, maxWidth: 340, margin: '0 auto', textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <span style={{ width: '100%', textAlign: 'center', display: 'inline-block' }}>SECURE YOUR PLACE</span>
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </div>
-        </nav>
-      )}
+        </section>
 
-      {/* Hero Section */}
-      <section id="hero" ref={bootcampHeroRef} className="relative w-full min-h-screen flex items-center justify-center hero-bg overflow-hidden" style={{ minHeight: '100vh', height: '100svh' }}>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-cover bg-center z-1" style={{ backgroundImage: `url(${bootcampHero})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'scroll' }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/60 to-black z-2" />
-        <div className="max-w-7xl mx-auto w-full px-4 md:px-6 relative z-10 flex flex-col items-center justify-center text-center h-full">
-          <h1 className="text-5xl md:text-6xl font-extrabold mb-4 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>
-            No More Mr. Nice Guy® Bootcamp
-          </h1>
-          <div className="mb-4 text-2xl md:text-3xl" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, color: '#D4E04F' }}>
-            Summer 2025 🇬🇧 UK Edition
-          </div>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-muted-foreground" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, lineHeight: 1.2 }}>
-            A Transformational Weekend Retreat for <span className="font-bold" style={{ fontFamily: 'PT Serif, serif' }}>Men Ready to Lead</span>
-          </h2>
-          <div className="mb-4">
-            <span style={{ color: '#D4E04F', fontSize: '22px', letterSpacing: '0.04em', fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
-              6–7th September ✴️ Oxford, UK – Limited Spots Available
-            </span>
-          </div>
-          <Button onClick={() => scrollToSection('pricing')} className="btn-primary w-full md:w-auto text-base md:text-xl px-6 md:px-10 py-3 md:py-4 mt-2 md:mt-0" style={{ minWidth: 0 }}>
-            SECURE YOUR PLACE
-            <ArrowRight className="w-4 h-4 ml-2" />
-          </Button>
-        </div>
-      </section>
-
-      {/* Problem Section */}
-      <section id="about" className="py-32 relative">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-20">
-            <h2 className="text-headline mb-8 gradient-text-primary">
-              What does it mean to be a man in 2025?
-            </h2>
-          </div>
-            
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div className="space-y-8">
-                <div className="text-body-large space-y-6">
-                  <p className="text-muted-foreground leading-relaxed" style={{ fontSize: '1.375rem' }}>
-                    The world is shifting beneath our feet. AI is reshaping careers overnight. Traditional paths to success are disappearing. The very definition of masculinity is being questioned and redefined. Meanwhile, we're still expected to have all the answers—to be providers, protectors, and leaders in a world that's changing faster than ever.
-                  </p>
-                  <p className="text-muted-foreground leading-relaxed" style={{ fontSize: '1.375rem' }}>
-                    Yet most of us were never taught how to navigate this complexity. We learned to be "nice guys"—to please others, avoid conflict, and hide our true needs. We adapted by putting everyone else first, secretly hoping for approval and validation in return.
-                  </p>
-                </div>
-                <div className="max-w-7xl mx-auto w-full px-6">
-                  <div className="glass-light rounded-2xl p-8">
-                    <p className="text-xl font-semibold text-primary mb-4">
-                      But that survival strategy is failing us.
+        {/* Problem Section */}
+        <section id="about" className="py-32 relative">
+          <div className="container mx-auto px-6">
+            <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-20">
+              <h2 className="text-headline mb-8 gradient-text-primary">
+                What does it mean to be a man in 2025?
+              </h2>
+            </div>
+              
+              <div className="grid lg:grid-cols-2 gap-16 items-center">
+                <div className="space-y-8">
+                  <div className="text-body-large space-y-6">
+                    <p className="text-muted-foreground leading-relaxed" style={{ fontSize: '1.375rem' }}>
+                      The world is shifting beneath our feet. AI is reshaping careers overnight. Traditional paths to success are disappearing. The very definition of masculinity is being questioned and redefined. Meanwhile, we're still expected to have all the answers—to be providers, protectors, and leaders in a world that's changing faster than ever.
                     </p>
-                    <p className="text-muted-foreground">
-                      In an era where machines can outthink us and social media amplifies every mistake, the old playbook of people-pleasing and conflict avoidance isn't just limiting—it's dangerous.
+                    <p className="text-muted-foreground leading-relaxed" style={{ fontSize: '1.375rem' }}>
+                      Yet most of us were never taught how to navigate this complexity. We learned to be "nice guys"—to please others, avoid conflict, and hide our true needs. We adapted by putting everyone else first, secretly hoping for approval and validation in return.
+                    </p>
+                  </div>
+                  <div className="max-w-7xl mx-auto w-full px-6">
+                    <div className="glass-light rounded-2xl p-8">
+                      <p className="text-xl font-semibold text-primary mb-4">
+                        But that survival strategy is failing us.
+                      </p>
+                      <p className="text-muted-foreground">
+                        In an era where machines can outthink us and social media amplifies every mistake, the old playbook of people-pleasing and conflict avoidance isn't just limiting—it's dangerous.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="text-center">
+                    <p className="text-lg text-muted-foreground">
+                      The cost of staying stuck has never been higher.
                     </p>
                   </div>
                 </div>
                 
-                <div className="text-center">
-                  <p className="text-lg text-muted-foreground">
-                    The cost of staying stuck has never been higher.
-                  </p>
+                <div className="relative">
+                  <img 
+                    src={transformationImage} 
+                    alt="Man in transformation" 
+                    className="w-full rounded-3xl shadow-2xl"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent rounded-3xl"></div>
                 </div>
               </div>
-              
-              <div className="relative">
-                <img 
-                  src={transformationImage} 
-                  alt="Man in transformation" 
-                  className="w-full rounded-3xl shadow-2xl"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent rounded-3xl"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Solution Section */}
-      <section className="py-32 bg-secondary/30">
-        <div className="max-w-7xl mx-auto w-full px-6">
-          <div className="text-center mb-20">
-            <h2 className="text-headline mb-8 gradient-text">
-              THE BREAKTHROUGH WEEKEND<br />THAT CHANGES EVERYTHING
-            </h2>
-            <div className="max-w-4xl mx-auto space-y-6">
-              <p className="text-body-large text-muted-foreground">
-                This isn't another self-help seminar. This is a deep dive into reclaiming your authentic masculine power—the kind that thrives in uncertainty, leads with integrity, and creates the life you actually want.
-              </p>
-              <p className="text-body-large text-muted-foreground">
-                Over one transformational weekend, you'll join a brotherhood of men committed to breaking free from the conditioning that's been holding them back. Together, we'll dismantle the "nice guy" programming and rebuild from your core.
-              </p>
-            </div>
-          </div>
-
-          <div className="mb-16">
-            <h3 className="text-subheading text-center mb-16 gradient-text-primary">What You'll Discover:</h3>
-            <div className="bento-grid max-w-7xl mx-auto">
-              {benefits.map((benefit, index) => {
-                // Animation class logic
-                let iconAnim = 'icon-float';
-                if (benefit.title === 'Relationship Mastery') iconAnim = 'icon-beat';
-                if (benefit.title === 'Sexual Authenticity') iconAnim = 'icon-zoom';
-                if (benefit.title === 'Emotional Intelligence') iconAnim = 'icon-rotate';
-                return (
-                  <div
-                    key={index}
-                    className={`bento-item${index === 7 ? ' lg:col-span-3' : ''} group`}
-                    style={{ animationDelay: benefit.delay }}
-                  >
-                    <div className="flex flex-col items-center" style={{ minHeight: 110, justifyContent: 'flex-start' }}>
-                      <div className={`mb-6 icon-anim ${iconAnim} group-hover:active-anim`}>
-                        {benefit.icon}
-                      </div>
-                    </div>
-                    <h4 className="text-xl font-bold mb-4 text-white" style={{ fontFamily: 'PT Serif, serif', fontSize: '33px', fontWeight: 700 }}>
-                      {benefit.title}
-                    </h4>
-                    <p className="text-muted-foreground text-center leading-relaxed" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
-                      {benefit.description}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Qualification Section */}
-      <section className="py-32 nmmng-not-for-everyone">
-        <div className="max-w-7xl mx-auto w-full px-6">
-          <div className="text-center mb-20">
-            <h2 className="text-headline mb-8 gradient-text-primary">
-              THIS INTENSIVE IS NOT FOR EVERYONE
-            </h2>
-          </div>
-                  <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-              <div>
-                <Card className="card-modern bg-destructive/10 border-destructive/30 h-full">                <CardContent className="p-10">
-                  <h3 className="text-2xl font-bold mb-8 text-destructive">Don't attend if you:</h3>
-                  <ul className="space-y-6 text-lg">
-                    <li className="flex items-start gap-4">
-                      <X className="w-6 h-6 text-[#D4E04F] mt-1 flex-shrink-0" />
-                      <span>Think you've got it all figured out</span>
-                    </li>
-                    <li className="flex items-start gap-4">
-                      <X className="w-6 h-6 text-[#D4E04F] mt-1 flex-shrink-0" />
-                      <span>Are looking for a quick fix or magic bullet</span>
-                    </li>
-                    <li className="flex items-start gap-4">
-                      <X className="w-6 h-6 text-[#D4E04F] mt-1 flex-shrink-0" />
-                      <span>Aren't willing to look honestly at your patterns</span>
-                    </li>
-                    <li className="flex items-start gap-4">
-                      <X className="w-6 h-6 text-[#D4E04F] mt-1 flex-shrink-0" />
-                      <span>Expect transformation without doing the work</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-            
-              <div>
-                <Card className="card-modern bg-primary/10 border-primary/30 h-full">
-                <CardContent className="p-10">
-                  <h3 className="text-2xl font-bold mb-8 text-primary">This is perfect for you if you:</h3>
-                  <ul className="space-y-6 text-lg">
-                    <li className="flex items-start gap-4">
-                      <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                      <span>Know something needs to change but aren't sure how</span>
-                    </li>
-                    <li className="flex items-start gap-4">
-                      <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                      <span>Feel stuck in patterns that no longer serve you</span>
-                    </li>
-                    <li className="flex items-start gap-4">
-                      <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                      <span>Want genuine connection and purpose in your life</span>
-                    </li>
-                    <li className="flex items-start gap-4">
-                      <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                      <span>Are ready to do the deep work of real transformation</span>
-                    </li>
-                    <li className="flex items-start gap-4">
-                      <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                      <span>Recognize that the old ways of being a man aren't working in today's world</span>
-                    </li>
-                    <li className="flex items-start gap-4">
-                      <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
-                      <span>If you're ready to step on the path of personal growth and development</span>
-                    </li>
-                  </ul>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-          
-          <div className="text-center mt-16">
-            <div className="max-w-7xl mx-auto w-full px-6">
-              <div className="glass rounded-2xl p-8">
-                <p className="text-body-large text-muted-foreground">
-                  This process requires courage, vulnerability, and commitment. If that excites you, you're in the right place. If it terrifies you but you know you need it, you're definitely in the right place.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Authority Section */}
-      <section className="py-32 bg-secondary/30">
-        <div className="max-w-7xl mx-auto w-full px-6">
-          <div className="text-center mb-20">
-            <h2 className="text-headline mb-8 gradient-text">
-              YOUR GUIDE THROUGH THE TRANSFORMATION
-            </h2>
-          </div>
-          <div className="max-w-7xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-              <div className="flex flex-col items-center md:items-start gap-6 w-full">
-                <div className="glass-light rounded-2xl p-6 w-full">
-                  <div className="font-bold text-lg mb-1" style={{ color: '#D4E04F', fontFamily: 'League Spartan, sans-serif' }}>
-                    Rowan Andrews with Dr. Robert Glover
-                  </div>
-                  <div className="text-sm text-muted-foreground mb-4">Author of "No More Mr. Nice Guy"</div>
-                  <img src={rowanAndRobert} alt="Rowan and Dr. Robert Glover" className="rounded-2xl w-full object-cover" style={{ aspectRatio: '4/5', background: '#0D212D', objectFit: 'cover' }} />
-                </div>
-              </div>
-              <div className="flex flex-col gap-8 w-full">
-                <p className="text-lg text-muted-foreground leading-relaxed" style={{ fontFamily: 'League Spartan, sans-serif' }}>
-                  Rowan Andrews has spent over twelve years guiding men through this exact journey. After his own awakening from the "nice guy" trap following his marriage breakdown, he trained with Dr. Robert Glover (author of "No More Mr. Nice Guy"), spiritual teachers David Deida and Rupert Spira, and created one of the UK's most successful men's groups.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed" style={{ fontFamily: 'League Spartan, sans-serif' }}>
-                  As one of Dr. Glover's close associates and an endorsed facilitator, Rowan brings both professional expertise and lived experience to this work. He understands the challenges modern men face because he's navigated them himself.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed" style={{ fontFamily: 'League Spartan, sans-serif' }}>
-                  Rowan is joined by Matt and Kev, who have spent the last eight years developing their own expertise and now bring their unique experience to support men in this workshop.
-                </p>
-                <div className="glass rounded-2xl p-6 mt-4 w-full">
-                  <Quote className="w-8 h-8 mb-2 text-primary" />
-                  <p className="italic text-lg mb-2">"To become the man you were born to be requires taking full responsibility for where you are today and choosing who you want to become tomorrow."</p>
-                  <div className="font-bold text-primary text-lg">- Rowan Andrews</div>
-                </div>
-                <p className="text-lg text-muted-foreground leading-relaxed mt-2" style={{ fontFamily: 'League Spartan, sans-serif' }}>
-                  Rowan is supported by Matt and Kev, who have been trained over the last eight years and walked their own path and bring their own experience to support men in the workshop.
-                </p>
-              </div>
-            </div>
-            {/* Workshop Gallery */}
-            <div className="mt-24">
-              <h3 className="text-subheading text-center mb-12 gradient-text-primary">Real Workshop Experiences</h3>
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-                {[
-                  { img: groupWorkshop, caption: "Collective growth and shared experiences" },
-                  { img: workshopScene2, caption: "Guided exercises for personal transformation" },
-                  { img: workshopScene3, caption: "Brotherhood support and connection" },
-                  { img: workshopScene1, caption: "Authentic conversations and breakthrough moments" }
-                ].map((scene, index) => (
-                  <div key={index} className="group cursor-pointer">
-                    <div className="relative overflow-hidden rounded-2xl">
-                      <img 
-                        src={scene.img} 
-                        alt={scene.caption}
-                        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p className="text-sm text-white font-medium">{scene.caption}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials Section */}
-      <section className="py-32">
-        <div className="max-w-7xl mx-auto w-full px-6">
-          <div className="text-center mb-20">
-            <h2 className="text-headline mb-8 gradient-text">
-              WHAT PARTICIPANTS SAY
-            </h2>
-          </div>
-          <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
-            {testimonials.map((testimonial, index) => (
-              <div key={index}>
-                <Card className={`testimonial-card h-full${testimonial.featured ? ' border-primary/50' : ''}`}>
-                  <CardContent className="p-8">
-                    <blockquote className="text-lg italic mb-6 text-muted-foreground leading-relaxed">
-                      "{testimonial.quote}"
-                    </blockquote>
-                    <footer>
-                      <div className="font-semibold text-primary">{testimonial.author}</div>
-                      {testimonial.title && (
-                        <div className="text-sm text-muted-foreground mt-1">{testimonial.title}</div>
-                      )}
-                    </footer>
-                  </CardContent>
-                </Card>
-              </div>
-            ))}
-          </div>
-          <div className="text-center">
-            <div className="max-w-7xl mx-auto w-full px-6 flex justify-center">
-              <div className="glass rounded-2xl p-6 text-center w-full">
-                <p className="text-lg font-medium text-white">
-                  Join a brotherhood of men committed to authentic transformation and mutual support
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Urgency Section */}
-      <section className="py-32 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20" style={{backgroundImage: `url(${transformationImage})`,backgroundSize: 'cover',backgroundPosition: 'center',backgroundAttachment: 'fixed'}}></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/80 to-background/90"></div>
-        <div className="max-w-7xl mx-auto w-full px-6 relative z-10">
-          <div className="text-center max-w-5xl mx-auto">
-            <h2 className="text-headline mb-12 gradient-text">
-              THE TIME IS NOW
-            </h2>
-            <div className="space-y-8 text-body-large">
-              <p className="text-muted-foreground leading-relaxed">
-                The world isn't slowing down. Technology will continue disrupting everything we thought we knew about work, relationships, and success. You can either adapt from a place of authentic strength or continue reacting from old patterns of fear and people-pleasing.
-              </p>
-              <p className="text-muted-foreground leading-relaxed">
-                The men who thrive in the coming decades won't be the ones who resist change—they'll be the ones who know themselves deeply enough to navigate any storm.
-              </p>
-              <div className="glass rounded-2xl p-8 my-12 max-w-7xl mx-auto w-full px-6">
-                <p className="text-2xl font-bold gradient-text mb-4">
-                  Your journey to authentic masculine power starts with a single weekend.
-                </p>
-                <p className="text-xl font-semibold text-white">
-                  Are you ready to break free?
-                </p>
-              </div>
-              <Button onClick={() => scrollToSection("pricing")} className="btn-primary text-xl px-12 py-6 animate-pulse-glow">
-                YES, I'M READY
-                <ArrowRight className="w-6 h-6 ml-3" />
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Section */}
-      <section id="pricing" className="py-32 bg-secondary/30">
-        <div className="max-w-7xl mx-auto w-full px-6">
-          <div className="text-center mb-20">
-            <h2 className="text-headline mb-4 gradient-text">SECURE YOUR PLACE TODAY</h2>
-            <div className="text-2xl font-extrabold mb-2" style={{ color: '#D4E04F', letterSpacing: '0.08em' }}>FIRST MOVER ADVANTAGE</div>
-            <div className="max-w-4xl mx-auto space-y-4">
-              <p className="text-body-large text-muted-foreground">
-                This workshop runs over one intensive weekend and includes all materials and ongoing support resources. <b>Limited capacity</b> to ensure deep, personal attention.
-              </p>
-              <div className="text-2xl font-bold gradient-text">Dates: 6-7th September</div>
-            </div>
-          </div>
-          {/* Pricing Cards */}
-          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
-            {/* Standard Package */}
-            <PriceCard
-              title="Standard Package"
-              price={347}
-              original={397}
-              offerLabel="First Mover Advantage"
-              offerDeadline="Offer ends July 16th"
-              features={[
-                'Full weekend workshop access',
-                'Preparation and ongoing integration support for three months via our Core community programme, meeting every Thursday evening for three months to support the integration of what you\'ve learned.',
-                'All materials included',
-                'Ongoing support resources',
-                'Brotherhood community access',
-              ]}
-              ctaText="BOOK STANDARD"
-              ctaColor="#0F4F40"
-              ctaTextColor="#D4E04F"
-              bgColor="#F6FCD9"
-              ctaUrl="https://www.nomoremrniceguy.co.uk/offers/CS5Y6BTF"
-            />
-            {/* VIP Package */}
-            <PriceCard
-              title="VIP Package"
-              price={597}
-              original={697}
-              offerLabel="First Mover Advantage"
-              offerDeadline="Offer ends July 16th"
-              features={[
-                'Everything in Standard Package',
-                'Preparation and integration support for three months via our Advanced group and its scheduled meetings.',
-                'Dinner on Saturday night',
-                'Priority support access',
-              ]}
-              ctaText="BOOK VIP"
-              ctaColor="#0F4F40"
-              ctaTextColor="#D4E04F"
-              featured
-              bgColor="#F3F7C0"
-              ctaUrl="https://www.nomoremrniceguy.co.uk/offers/TYF4zF5z"
-            />
-            {/* Member Discount Card - Redesigned */}
-            <Card
-              className="pricing-card"
-              style={{
-                border: '1px solid #A67C52',
-                background: '#EFF7E1',
-                color: '#0D212D',
-                minHeight: 'unset',
-                height: 'auto',
-                padding: 0,
-                boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
-                transition: 'box-shadow 0.3s, transform 0.3s',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-start',
-                justifyContent: 'flex-start',
-                textAlign: 'left',
-              }}
-              onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.12)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
-              onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.08)'; e.currentTarget.style.transform = 'none'; }}
-            >
-              <CardContent className="p-8 flex flex-col h-full w-full pricing-card-body" style={{ padding: '2.5rem 2rem', lineHeight: 1.25 }}>
-                <img src={nmmngCommunity} alt="NMMNG Community" className="pricing-card-img-edge" />
-                <h4 className="text-2xl font-bold mb-2" style={{ color: '#0F4F40', fontFamily: 'PT Serif, serif', fontWeight: 700, fontSize: '1.5rem', lineHeight: 1.15, letterSpacing: '0.06em', textAlign: 'left' }}>
-                  No More Mr. Nice Guy® Membership Benefits.
-                </h4>
-                <p className="text-lg mb-4" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, fontSize: '22px', lineHeight: 1.25 }}>
-                  If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <b style={{ fontWeight: 700 }}>ten per cent discount</b> as part of your membership.
-                </p>
-                <Button
-                  variant="outline"
-                  className="w-full text-xl py-4 mt-2 rounded-xl font-bold border-[#0F4F40] text-[#0F4F40] hover:bg-[#F6FCD9] hover:border-[#A67C52]"
-                  style={{ borderWidth: 2, background: 'transparent', color: '#0F4F40', fontSize: '1.1rem', minHeight: 56, fontFamily: 'League Spartan, sans-serif', fontWeight: 700, marginTop: 'auto' }}
-                  onClick={() => window.open('https://nomoremrniceguy.co.uk?UTM_SOURCE=bootcamp', '_blank')}
-                >
-                  Learn More about Membership
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Forest background for both venue and footer */}
-      <div className="relative overflow-hidden forest-bg-parent" style={{width: '100%', minHeight: 0, backgroundImage: `url(${bootcampFooter})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed'}}>
-        {/* Optional: subtle overlay for readability */}
-        <div className="absolute inset-0" style={{background: 'linear-gradient(to bottom, rgba(13,33,45,0.18) 0%, rgba(13,33,45,0.33) 100%)', zIndex: 1, pointerEvents: 'none'}}></div>
-        {/* Venue/Location Section - Restored */}
-        <section className="py-20 relative z-10">
-          <div className="max-w-7xl mx-auto w-full px-6 flex flex-col md:flex-row items-center gap-10 max-w-5xl">
-            <img src={venueImage} alt="Workshop Venue" className="rounded-2xl shadow-xl w-full md:w-1/2 object-cover" style={{ aspectRatio: '4/3', maxHeight: 320 }} />
-            <div className="flex-1 text-left md:pl-10 mt-8 md:mt-0">
-              <h3 className="text-2xl font-bold mb-4 gradient-text" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>Venue: Oxford, UK</h3>
-              <p className="text-lg text-muted-foreground" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, fontSize: '22px' }}>
-                The retreat takes place at a beautiful, private conference hotel in Oxford, UK—chosen for comfort, privacy, and easy access from London and the Midlands. Full details provided upon registration.
-              </p>
             </div>
           </div>
         </section>
 
-        {/* Sexy Footer */}
-        <Footer showBackToTop={showBackToTop} scrollToTop={scrollToTop} backToTopImg={backToTopImg} />
+        {/* Solution Section */}
+        <section className="py-32 bg-secondary/30">
+          <div className="max-w-7xl mx-auto w-full px-6">
+            <div className="text-center mb-20">
+              <h2 className="text-headline mb-8 gradient-text">
+                THE BREAKTHROUGH WEEKEND<br />THAT CHANGES EVERYTHING
+              </h2>
+              <div className="max-w-4xl mx-auto space-y-6">
+                <p className="text-body-large text-muted-foreground">
+                  This isn't another self-help seminar. This is a deep dive into reclaiming your authentic masculine power—the kind that thrives in uncertainty, leads with integrity, and creates the life you actually want.
+                </p>
+                <p className="text-body-large text-muted-foreground">
+                  Over one transformational weekend, you'll join a brotherhood of men committed to breaking free from the conditioning that's been holding them back. Together, we'll dismantle the "nice guy" programming and rebuild from your core.
+                </p>
+              </div>
+            </div>
+
+            <div className="mb-16">
+              <h3 className="text-subheading text-center mb-16 gradient-text-primary">What You'll Discover:</h3>
+              <div className="bento-grid max-w-7xl mx-auto">
+                {benefits.map((benefit, index) => {
+                  // Animation class logic
+                  let iconAnim = 'icon-float';
+                  if (benefit.title === 'Relationship Mastery') iconAnim = 'icon-beat';
+                  if (benefit.title === 'Sexual Authenticity') iconAnim = 'icon-zoom';
+                  if (benefit.title === 'Emotional Intelligence') iconAnim = 'icon-rotate';
+                  return (
+                    <div
+                      key={index}
+                      className={`bento-item${index === 7 ? ' lg:col-span-3' : ''} group`}
+                      style={{ animationDelay: benefit.delay }}
+                    >
+                      <div className="flex flex-col items-center" style={{ minHeight: 110, justifyContent: 'flex-start' }}>
+                        <div className={`mb-6 icon-anim ${iconAnim} group-hover:active-anim`}>
+                          {benefit.icon}
+                        </div>
+                      </div>
+                      <h4 className="text-xl font-bold mb-4 text-white" style={{ fontFamily: 'PT Serif, serif', fontSize: '33px', fontWeight: 700 }}>
+                        {benefit.title}
+                      </h4>
+                      <p className="text-muted-foreground text-center leading-relaxed" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
+                        {benefit.description}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Qualification Section */}
+        <section className="py-32 nmmng-not-for-everyone">
+          <div className="max-w-7xl mx-auto w-full px-6">
+            <div className="text-center mb-20">
+              <h2 className="text-headline mb-8 gradient-text-primary">
+                THIS INTENSIVE IS NOT FOR EVERYONE
+              </h2>
+            </div>
+                    <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <div>
+                  <Card className="card-modern bg-destructive/10 border-destructive/30 h-full">                <CardContent className="p-10">
+                    <h3 className="text-2xl font-bold mb-8 text-destructive">Don't attend if you:</h3>
+                    <ul className="space-y-6 text-lg">
+                      <li className="flex items-start gap-4">
+                        <X className="w-6 h-6 text-[#D4E04F] mt-1 flex-shrink-0" />
+                        <span>Think you've got it all figured out</span>
+                      </li>
+                      <li className="flex items-start gap-4">
+                        <X className="w-6 h-6 text-[#D4E04F] mt-1 flex-shrink-0" />
+                        <span>Are looking for a quick fix or magic bullet</span>
+                      </li>
+                      <li className="flex items-start gap-4">
+                        <X className="w-6 h-6 text-[#D4E04F] mt-1 flex-shrink-0" />
+                        <span>Aren't willing to look honestly at your patterns</span>
+                      </li>
+                      <li className="flex items-start gap-4">
+                        <X className="w-6 h-6 text-[#D4E04F] mt-1 flex-shrink-0" />
+                        <span>Expect transformation without doing the work</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+              
+                <div>
+                  <Card className="card-modern bg-primary/10 border-primary/30 h-full">
+                  <CardContent className="p-10">
+                    <h3 className="text-2xl font-bold mb-8 text-primary">This is perfect for you if you:</h3>
+                    <ul className="space-y-6 text-lg">
+                      <li className="flex items-start gap-4">
+                        <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                        <span>Know something needs to change but aren't sure how</span>
+                      </li>
+                      <li className="flex items-start gap-4">
+                        <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                        <span>Feel stuck in patterns that no longer serve you</span>
+                      </li>
+                      <li className="flex items-start gap-4">
+                        <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                        <span>Want genuine connection and purpose in your life</span>
+                      </li>
+                      <li className="flex items-start gap-4">
+                        <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                        <span>Are ready to do the deep work of real transformation</span>
+                      </li>
+                      <li className="flex items-start gap-4">
+                        <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                        <span>Recognize that the old ways of being a man aren't working in today's world</span>
+                      </li>
+                      <li className="flex items-start gap-4">
+                        <CheckCircle className="w-6 h-6 text-primary mt-1 flex-shrink-0" />
+                        <span>If you're ready to step on the path of personal growth and development</span>
+                      </li>
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+            
+            <div className="text-center mt-16">
+              <div className="max-w-7xl mx-auto w-full px-6">
+                <div className="glass rounded-2xl p-8">
+                  <p className="text-body-large text-muted-foreground">
+                    This process requires courage, vulnerability, and commitment. If that excites you, you're in the right place. If it terrifies you but you know you need it, you're definitely in the right place.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Authority Section */}
+        <section className="py-32 bg-secondary/30">
+          <div className="max-w-7xl mx-auto w-full px-6">
+            <div className="text-center mb-20">
+              <h2 className="text-headline mb-8 gradient-text">
+                YOUR GUIDE THROUGH THE TRANSFORMATION
+              </h2>
+            </div>
+            <div className="max-w-7xl mx-auto">
+              <div className="grid md:grid-cols-2 gap-12 items-start">
+                <div className="flex flex-col items-center md:items-start gap-6 w-full">
+                  <div className="glass-light rounded-2xl p-6 w-full">
+                    <div className="font-bold text-lg mb-1" style={{ color: '#D4E04F', fontFamily: 'League Spartan, sans-serif' }}>
+                      Rowan Andrews with Dr. Robert Glover
+                    </div>
+                    <div className="text-sm text-muted-foreground mb-4">Author of "No More Mr. Nice Guy"</div>
+                    <img src={rowanAndRobert} alt="Rowan and Dr. Robert Glover" className="rounded-2xl w-full object-cover" style={{ aspectRatio: '4/5', background: '#0D212D', objectFit: 'cover' }} />
+                  </div>
+                </div>
+                <div className="flex flex-col gap-8 w-full">
+                  <p className="text-lg text-muted-foreground leading-relaxed" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+                    Rowan Andrews has spent over twelve years guiding men through this exact journey. After his own awakening from the "nice guy" trap following his marriage breakdown, he trained with Dr. Robert Glover (author of "No More Mr. Nice Guy"), spiritual teachers David Deida and Rupert Spira, and created one of the UK's most successful men's groups.
+                  </p>
+                  <p className="text-lg text-muted-foreground leading-relaxed" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+                    As one of Dr. Glover's close associates and an endorsed facilitator, Rowan brings both professional expertise and lived experience to this work. He understands the challenges modern men face because he's navigated them himself.
+                  </p>
+                  <p className="text-lg text-muted-foreground leading-relaxed" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+                    Rowan is joined by Matt and Kev, who have spent the last eight years developing their own expertise and now bring their unique experience to support men in this workshop.
+                  </p>
+                  <div className="glass rounded-2xl p-6 mt-4 w-full">
+                    <Quote className="w-8 h-8 mb-2 text-primary" />
+                    <p className="italic text-lg mb-2">"To become the man you were born to be requires taking full responsibility for where you are today and choosing who you want to become tomorrow."</p>
+                    <div className="font-bold text-primary text-lg">- Rowan Andrews</div>
+                  </div>
+                  <p className="text-lg text-muted-foreground leading-relaxed mt-2" style={{ fontFamily: 'League Spartan, sans-serif' }}>
+                    Rowan is supported by Matt and Kev, who have been trained over the last eight years and walked their own path and bring their own experience to support men in the workshop.
+                  </p>
+                </div>
+              </div>
+              {/* Workshop Gallery */}
+              <div className="mt-24">
+                <h3 className="text-subheading text-center mb-12 gradient-text-primary">Real Workshop Experiences</h3>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                  {[
+                    { img: groupWorkshop, caption: "Collective growth and shared experiences" },
+                    { img: workshopScene2, caption: "Guided exercises for personal transformation" },
+                    { img: workshopScene3, caption: "Brotherhood support and connection" },
+                    { img: workshopScene1, caption: "Authentic conversations and breakthrough moments" }
+                  ].map((scene, index) => (
+                    <div key={index} className="group cursor-pointer">
+                      <div className="relative overflow-hidden rounded-2xl">
+                        <img 
+                          src={scene.img} 
+                          alt={scene.caption}
+                          className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <p className="text-sm text-white font-medium">{scene.caption}</p>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Testimonials Section */}
+        <section className="py-32">
+          <div className="max-w-7xl mx-auto w-full px-6">
+            <div className="text-center mb-20">
+              <h2 className="text-headline mb-8 gradient-text">
+                WHAT PARTICIPANTS SAY
+              </h2>
+            </div>
+            <div className="grid lg:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
+              {testimonials.map((testimonial, index) => (
+                <div key={index}>
+                  <Card className={`testimonial-card h-full${testimonial.featured ? ' border-primary/50' : ''}`}>
+                    <CardContent className="p-8">
+                      <blockquote className="text-lg italic mb-6 text-muted-foreground leading-relaxed">
+                        "{testimonial.quote}"
+                      </blockquote>
+                      <footer>
+                        <div className="font-semibold text-primary">{testimonial.author}</div>
+                        {testimonial.title && (
+                          <div className="text-sm text-muted-foreground mt-1">{testimonial.title}</div>
+                        )}
+                      </footer>
+                    </CardContent>
+                  </Card>
+                </div>
+              ))}
+            </div>
+            <div className="text-center">
+              <div className="max-w-7xl mx-auto w-full px-6 flex justify-center">
+                <div className="glass rounded-2xl p-6 text-center w-full">
+                  <p className="text-lg font-medium text-white">
+                    Join a brotherhood of men committed to authentic transformation and mutual support
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Urgency Section */}
+        <section className="py-32 relative overflow-hidden">
+          <div className="absolute inset-0 opacity-20" style={{backgroundImage: `url(${transformationImage})`,backgroundSize: 'cover',backgroundPosition: 'center',backgroundAttachment: 'fixed'}}></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/80 to-background/90"></div>
+          <div className="max-w-7xl mx-auto w-full px-6 relative z-10">
+            <div className="text-center max-w-5xl mx-auto">
+              <h2 className="text-headline mb-12 gradient-text">
+                THE TIME IS NOW
+              </h2>
+              <div className="space-y-8 text-body-large">
+                <p className="text-muted-foreground leading-relaxed">
+                  The world isn't slowing down. Technology will continue disrupting everything we thought we knew about work, relationships, and success. You can either adapt from a place of authentic strength or continue reacting from old patterns of fear and people-pleasing.
+                </p>
+                <p className="text-muted-foreground leading-relaxed">
+                  The men who thrive in the coming decades won't be the ones who resist change—they'll be the ones who know themselves deeply enough to navigate any storm.
+                </p>
+                <div className="glass rounded-2xl p-8 my-12 max-w-7xl mx-auto w-full px-6">
+                  <p className="text-2xl font-bold gradient-text mb-4">
+                    Your journey to authentic masculine power starts with a single weekend.
+                  </p>
+                  <p className="text-xl font-semibold text-white">
+                    Are you ready to break free?
+                  </p>
+                </div>
+                <Button onClick={() => scrollToSection("pricing")} className="btn-primary text-xl px-12 py-6 animate-pulse-glow">
+                  YES, I'M READY
+                  <ArrowRight className="w-6 h-6 ml-3" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Pricing Section */}
+        <section id="pricing" className="py-32 bg-secondary/30">
+          <div className="max-w-7xl mx-auto w-full px-6">
+            <div className="text-center mb-20">
+              <h2 className="text-headline mb-4 gradient-text">SECURE YOUR PLACE TODAY</h2>
+              <div className="text-2xl font-extrabold mb-2" style={{ color: '#D4E04F', letterSpacing: '0.08em' }}>FIRST MOVER ADVANTAGE</div>
+              <div className="max-w-4xl mx-auto space-y-4">
+                <p className="text-body-large text-muted-foreground">
+                  This workshop runs over one intensive weekend and includes all materials and ongoing support resources. <b>Limited capacity</b> to ensure deep, personal attention.
+                </p>
+                <div className="text-2xl font-bold gradient-text">Dates: 6-7th September</div>
+              </div>
+            </div>
+            {/* Pricing Cards */}
+            <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-16">
+              {/* Standard Package */}
+              <PriceCard
+                title="Standard Package"
+                price={347}
+                original={397}
+                offerLabel="First Mover Advantage"
+                offerDeadline="Offer ends July 16th"
+                features={[
+                  'Full weekend workshop access',
+                  'Preparation and ongoing integration support for three months via our Core community programme, meeting every Thursday evening for three months to support the integration of what you\'ve learned.',
+                  'All materials included',
+                  'Ongoing support resources',
+                  'Brotherhood community access',
+                ]}
+                ctaText="BOOK STANDARD"
+                ctaColor="#0F4F40"
+                ctaTextColor="#D4E04F"
+                bgColor="#F6FCD9"
+                ctaUrl="https://www.nomoremrniceguy.co.uk/offers/CS5Y6BTF"
+              />
+              {/* VIP Package */}
+              <PriceCard
+                title="VIP Package"
+                price={597}
+                original={697}
+                offerLabel="First Mover Advantage"
+                offerDeadline="Offer ends July 16th"
+                features={[
+                  'Everything in Standard Package',
+                  'Preparation and integration support for three months via our Advanced group and its scheduled meetings.',
+                  'Dinner on Saturday night',
+                  'Priority support access',
+                ]}
+                ctaText="BOOK VIP"
+                ctaColor="#0F4F40"
+                ctaTextColor="#D4E04F"
+                featured
+                bgColor="#F3F7C0"
+                ctaUrl="https://www.nomoremrniceguy.co.uk/offers/TYF4zF5z"
+              />
+              {/* Member Discount Card - Redesigned */}
+              <Card
+                className="pricing-card"
+                style={{
+                  border: '1px solid #A67C52',
+                  background: '#EFF7E1',
+                  color: '#0D212D',
+                  minHeight: 'unset',
+                  height: 'auto',
+                  padding: 0,
+                  boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
+                  transition: 'box-shadow 0.3s, transform 0.3s',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  justifyContent: 'flex-start',
+                  textAlign: 'left',
+                }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow = '0 8px 32px rgba(0,0,0,0.12)'; e.currentTarget.style.transform = 'translateY(-2px)'; }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.08)'; e.currentTarget.style.transform = 'none'; }}
+              >
+                <CardContent className="p-8 flex flex-col h-full w-full pricing-card-body" style={{ padding: '2.5rem 2rem', lineHeight: 1.25 }}>
+                  <img src={nmmngCommunity} alt="NMMNG Community" className="pricing-card-img-edge" />
+                  <h4 className="text-2xl font-bold mb-2" style={{ color: '#0F4F40', fontFamily: 'PT Serif, serif', fontWeight: 700, fontSize: '1.5rem', lineHeight: 1.15, letterSpacing: '0.06em', textAlign: 'left' }}>
+                    No More Mr. Nice Guy® Membership Benefits.
+                  </h4>
+                  <p className="text-lg mb-4" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, fontSize: '22px', lineHeight: 1.25 }}>
+                    If you are already part of the NMMNG community, Advanced or Growth Plus, you benefit from <b style={{ fontWeight: 700 }}>ten per cent discount</b> as part of your membership.
+                  </p>
+                  <Button
+                    variant="outline"
+                    className="w-full text-xl py-4 mt-2 rounded-xl font-bold border-[#0F4F40] text-[#0F4F40] hover:bg-[#F6FCD9] hover:border-[#A67C52]"
+                    style={{ borderWidth: 2, background: 'transparent', color: '#0F4F40', fontSize: '1.1rem', minHeight: 56, fontFamily: 'League Spartan, sans-serif', fontWeight: 700, marginTop: 'auto' }}
+                    onClick={() => window.open('https://nomoremrniceguy.co.uk?UTM_SOURCE=bootcamp', '_blank')}
+                  >
+                    Learn More about Membership
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Forest background for both venue and footer */}
+        <div className="relative overflow-hidden forest-bg-parent" style={{width: '100%', minHeight: 0, backgroundImage: `url(${bootcampFooter})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed'}}>
+          {/* Optional: subtle overlay for readability */}
+          <div className="absolute inset-0" style={{background: 'linear-gradient(to bottom, rgba(13,33,45,0.18) 0%, rgba(13,33,45,0.33) 100%)', zIndex: 1, pointerEvents: 'none'}}></div>
+          {/* Venue/Location Section - Restored */}
+          <section className="py-20 relative z-10">
+            <div className="max-w-7xl mx-auto w-full px-6 flex flex-col md:flex-row items-center gap-10 max-w-5xl">
+              <img src={venueImage} alt="Workshop Venue" className="rounded-2xl shadow-xl w-full md:w-1/2 object-cover" style={{ aspectRatio: '4/3', maxHeight: 320 }} />
+              <div className="flex-1 text-left md:pl-10 mt-8 md:mt-0">
+                <h3 className="text-2xl font-bold mb-4 gradient-text" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700 }}>Venue: Oxford, UK</h3>
+                <p className="text-lg text-muted-foreground" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400, fontSize: '22px' }}>
+                  The retreat takes place at a beautiful, private conference hotel in Oxford, UK—chosen for comfort, privacy, and easy access from London and the Midlands. Full details provided upon registration.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Sexy Footer */}
+          <Footer showBackToTop={showBackToTop} scrollToTop={scrollToTop} backToTopImg={backToTopImg} />
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
@@ -910,258 +936,276 @@ function LoverLanding() {
   ];
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      {/* Sticky Navigation */}
-      {isScrolled && (
-        <nav className="nav-sticky">
-          <div className="container mx-auto px-4 py-3 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
-            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 w-full sm:w-auto">
-              <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="flex items-center justify-center" style={{ position: 'relative', zIndex: 10 }}>
-                <img src={nmmngLogo} alt="NMMNG Logo" className="h-12 w-auto sm:h-14 mr-0 sm:mr-4" style={{ position: 'relative', top: 0, left: 0, zIndex: 11, background: 'none' }} />
-              </a>
-              <h2 className="text-lg sm:text-xl font-bold nmmng-glow text-center sm:text-left" style={{ marginLeft: 0, zIndex: 1, lineHeight: 1.1, color: '#fff', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>Authentic Lover Blueprint</h2>
+    <>
+      <Helmet>
+        <title>The Authentic Lover Blueprint – No More Mr. Nice Guy®</title>
+        <meta name="description" content="Six-month dating and relationship programme for men ready to break free from Nice Guy patterns and create the relationships they truly desire." />
+        <meta property="og:title" content="The Authentic Lover Blueprint – No More Mr. Nice Guy®" />
+        <meta property="og:description" content="Six-month dating and relationship programme for men ready to break free from Nice Guy patterns and create the relationships they truly desire." />
+        <meta property="og:image" content="/assets/lover-hero.webp" />
+        <meta property="og:image:width" content="1536" />
+        <meta property="og:image:height" content="1024" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://join.nmmng.co/lover" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="The Authentic Lover Blueprint – No More Mr. Nice Guy®" />
+        <meta name="twitter:description" content="Six-month dating and relationship programme for men ready to break free from Nice Guy patterns and create the relationships they truly desire." />
+        <meta name="twitter:image" content="/assets/lover-hero.webp" />
+        <meta property="twitter:url" content="https://join.nmmng.co/lover" />
+      </Helmet>
+      <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
+        {/* Sticky Navigation */}
+        {isScrolled && (
+          <nav className="nav-sticky">
+            <div className="container mx-auto px-4 py-3 flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 sm:gap-0">
+              <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 w-full sm:w-auto">
+                <a href="https://nomoremrniceguy.co.uk" target="_blank" rel="noreferrer" className="flex items-center justify-center" style={{ position: 'relative', zIndex: 10 }}>
+                  <img src={nmmngLogo} alt="NMMNG Logo" className="h-12 w-auto sm:h-14 mr-0 sm:mr-4" style={{ position: 'relative', top: 0, left: 0, zIndex: 11, background: 'none' }} />
+                </a>
+                <h2 className="text-lg sm:text-xl font-bold nmmng-glow text-center sm:text-left" style={{ marginLeft: 0, zIndex: 1, lineHeight: 1.1, color: '#fff', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>Authentic Lover Blueprint</h2>
+              </div>
+              <Button 
+                onClick={() => scrollToSection('investment-plan')}
+                className="btn-primary w-full sm:w-auto text-base sm:text-xl px-6 sm:px-10 py-3 sm:py-4 mt-2 sm:mt-0"
+                style={{ minWidth: 0 }}
+              >
+                JOIN PROGRAMME
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Button>
             </div>
-            <Button 
-              onClick={() => scrollToSection('investment-plan')}
-              className="btn-primary w-full sm:w-auto text-base sm:text-xl px-6 sm:px-10 py-3 sm:py-4 mt-2 sm:mt-0"
-              style={{ minWidth: 0 }}
-            >
+          </nav>
+        )}
+
+        {/* Hero Section */}
+        <section id="hero" ref={loverHeroRef} className="relative w-full min-h-screen flex items-center justify-center hero-bg overflow-hidden" style={{ minHeight: '100vh', height: '100svh' }}>
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-cover bg-center z-1" style={{ backgroundImage: `url(${loverHero})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'scroll' }} />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/60 to-black z-2" />
+          <div className="max-w-7xl mx-auto w-full px-4 md:px-6 relative z-10 flex flex-col items-center justify-center text-center h-full">
+            <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-5xl md:text-6xl font-extrabold mb-2 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>
+              No More Mr. Nice Guy®
+            </motion.h1>
+            <motion.h2 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-4xl md:text-5xl font-bold mb-6 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>
+              The Authentic Lover Blueprint
+            </motion.h2>
+            <motion.p initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="my-10 mx-auto w-full max-w-4xl text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 300, fontSize: 33, color: '#fff', lineHeight: 1.22, textShadow: '0 0 32px #E6F97B55, 0 0 8px #fff2' }}>
+              {invitation}
+            </motion.p>
+            <Button onClick={() => scrollToSection('investment-plan')} className="btn-primary w-full md:w-auto text-base md:text-xl px-6 md:px-10 py-3 md:py-4 mt-2 md:mt-0" style={{ minWidth: 0 }}>
               JOIN PROGRAMME
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </div>
-        </nav>
-      )}
+        </section>
 
-      {/* Hero Section */}
-      <section id="hero" ref={loverHeroRef} className="relative w-full min-h-screen flex items-center justify-center hero-bg overflow-hidden" style={{ minHeight: '100vh', height: '100svh' }}>
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }} className="absolute inset-0 bg-cover bg-center z-1" style={{ backgroundImage: `url(${loverHero})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'scroll' }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/60 to-black z-2" />
-        <div className="max-w-7xl mx-auto w-full px-4 md:px-6 relative z-10 flex flex-col items-center justify-center text-center h-full">
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-5xl md:text-6xl font-extrabold mb-2 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>
-            No More Mr. Nice Guy®
-          </motion.h1>
-          <motion.h2 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-4xl md:text-5xl font-bold mb-6 gradient-text-primary" style={{ fontFamily: 'PT Serif, serif', letterSpacing: '-0.01em', lineHeight: 1.08 }}>
-            The Authentic Lover Blueprint
-          </motion.h2>
-          <motion.p initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2 }} className="my-10 mx-auto w-full max-w-4xl text-center" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 300, fontSize: 33, color: '#fff', lineHeight: 1.22, textShadow: '0 0 32px #E6F97B55, 0 0 8px #fff2' }}>
-            {invitation}
-          </motion.p>
-          <Button onClick={() => scrollToSection('investment-plan')} className="btn-primary w-full md:w-auto text-base md:text-xl px-6 md:px-10 py-3 md:py-4 mt-2 md:mt-0" style={{ minWidth: 0 }}>
-            JOIN PROGRAMME
-            <ArrowRight className="w-4 h-4 ml-2" />
-          </Button>
-        </div>
-      </section>
+        {/* Section 2: The Invitation */}
+        <section className="py-16 max-w-7xl mx-auto w-full px-6">
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-full mx-auto">
+            <div className="w-full mx-auto max-w-4xl" style={{ fontSize: 33, fontFamily: 'League Spartan, sans-serif', fontWeight: 300, color: '#fff', lineHeight: 1.22, background: 'none', boxShadow: 'none', border: 'none', padding: 0 }}>
+              {invitation}
+            </div>
+          </motion.div>
+        </section>
 
-      {/* Section 2: The Invitation */}
-      <section className="py-16 max-w-7xl mx-auto w-full px-6">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-full mx-auto">
-          <div className="w-full mx-auto max-w-4xl" style={{ fontSize: 33, fontFamily: 'League Spartan, sans-serif', fontWeight: 300, color: '#fff', lineHeight: 1.22, background: 'none', boxShadow: 'none', border: 'none', padding: 0 }}>
-            {invitation}
-          </div>
-        </motion.div>
-      </section>
+        {/* Section 3: Who Is This Programme For? */}
+        <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch h-full">
+             {/* Text Card */}
+             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="glass rounded-xl p-8 flex flex-col justify-center h-full" style={{ minHeight: 420, background: 'rgba(15,31,45,0.82)', border: '1.5px solid #1A1A1A', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', backdropFilter: 'blur(10px)' }}>
+               <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-left md:text-center" style={{ color: '#D4E04F', fontFamily: 'PT Serif, serif' }}>{whoTitle}</h2>
+              <ul className="space-y-6 text-lg text-left mx-auto max-w-2xl" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
+                {whoBullets.map((b, i) => (
+                  <li key={i} className="flex items-start gap-4">
+                    <span className="mt-1 text-[#D4E04F]">✅</span>
+                    <span>{b}</span>
+                  </li>
+                ))}
+              </ul>
+             </motion.div>
+             {/* Image Card */}
+             <div className="flex justify-center items-center h-full min-h-[420px]">
+               <img src="/assets/hero_silhouette.jpeg" alt="Silhouette" className="object-cover h-full w-full rounded-xl shadow-lg border border-white/10 hover:scale-105 transition-transform ease-in-out duration-300" style={{ maxWidth: 340 }} />
+            </div>
+            </div>
+        </section>
 
-      {/* Section 3: Who Is This Programme For? */}
-      <section className="py-16 px-6 md:px-12 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch h-full">
-           {/* Text Card */}
-           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="glass rounded-xl p-8 flex flex-col justify-center h-full" style={{ minHeight: 420, background: 'rgba(15,31,45,0.82)', border: '1.5px solid #1A1A1A', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', backdropFilter: 'blur(10px)' }}>
-             <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-left md:text-center" style={{ color: '#D4E04F', fontFamily: 'PT Serif, serif' }}>{whoTitle}</h2>
-            <ul className="space-y-6 text-lg text-left mx-auto max-w-2xl" style={{ fontFamily: 'League Spartan, sans-serif', fontSize: '22px', fontWeight: 400 }}>
-              {whoBullets.map((b, i) => (
-                <li key={i} className="flex items-start gap-4">
-                  <span className="mt-1 text-[#D4E04F]">✅</span>
-                  <span>{b}</span>
-                </li>
+        {/* Section 4: Our Philosophy: Experience Over Theory */}
+        <section className="py-16 px-6 md:px-12 w-full relative overflow-hidden">
+          {/* Background image with overlay */}
+          <div className="absolute inset-0 bg-[url('/assets/polarity-transparent.webp')] bg-cover bg-center blur-sm opacity-40 z-0"></div>
+          <div className="absolute inset-0 bg-gradient-to-l from-[#0D212Dcc] to-[#0D212Ddd] z-0"></div>
+          <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch h-full">
+            {/* Foreground Image Card (left on desktop, top on mobile) */}
+            <div className="flex justify-center items-center h-full min-h-[420px] order-1 md:order-none">
+              <img src="/assets/polarity-transparent.webp" alt="Philosophy Portrait" className="object-cover h-full w-full rounded-xl border border-white/10 shadow-xl hover:scale-105 transition-transform ease-in-out duration-300" style={{ maxWidth: 300 }} />
+            </div>
+            {/* Text Card (right on desktop, bottom on mobile) */}
+            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10 shadow flex flex-col justify-center h-full" style={{ minHeight: 420 }}>
+              <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-left md:text-center" style={{ color: '#D4E04F', fontFamily: 'PT Serif, serif' }}>{philosophyTitle}</h2>
+              {philosophyText.map((p, i) => (
+                <p key={i} className="text-lg text-white mb-6" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{p}</p>
               ))}
-            </ul>
-           </motion.div>
-           {/* Image Card */}
-           <div className="flex justify-center items-center h-full min-h-[420px]">
-             <img src="/assets/hero_silhouette.jpeg" alt="Silhouette" className="object-cover h-full w-full rounded-xl shadow-lg border border-white/10 hover:scale-105 transition-transform ease-in-out duration-300" style={{ maxWidth: 340 }} />
+          </motion.div>
           </div>
-          </div>
-      </section>
+        </section>
 
-      {/* Section 4: Our Philosophy: Experience Over Theory */}
-      <section className="py-16 px-6 md:px-12 w-full relative overflow-hidden">
-        {/* Background image with overlay */}
-        <div className="absolute inset-0 bg-[url('/assets/polarity-transparent.webp')] bg-cover bg-center blur-sm opacity-40 z-0"></div>
-        <div className="absolute inset-0 bg-gradient-to-l from-[#0D212Dcc] to-[#0D212Ddd] z-0"></div>
-        <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch h-full">
-          {/* Foreground Image Card (left on desktop, top on mobile) */}
-          <div className="flex justify-center items-center h-full min-h-[420px] order-1 md:order-none">
-            <img src="/assets/polarity-transparent.webp" alt="Philosophy Portrait" className="object-cover h-full w-full rounded-xl border border-white/10 shadow-xl hover:scale-105 transition-transform ease-in-out duration-300" style={{ maxWidth: 300 }} />
+        {/* Section 5: Programme Structure & Curriculum */}
+        <section className="relative py-20 w-full min-h-[700px] flex flex-col items-center justify-center overflow-visible" style={{ zIndex: 1 }}>
+          <div className="relative max-w-7xl mx-auto w-full px-6 flex flex-col items-center">
+            <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-4 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{structureTitle}</motion.h2>
+            <motion.p initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="text-lg md:text-xl text-center mb-12 text-white/80 max-w-3xl mx-auto" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
+              This is a guided, transformational arc—from self-awareness to field testing to integration.
+            </motion.p>
+            <div className="w-full flex justify-center relative mb-12">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-6xl mx-auto relative z-10">
+                {/* Month 1 */}
+                <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
+                  <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 1 · Weeks 1–2</div>
+                  <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 1: Identifying Your Core Wounds</div>
+                  <div className="text-white/90 text-sm md:text-base font-medium">Explore the origins of toxic shame, perfectionism, and the impact of your relationship with your parents on your current behaviour with women. Unpacking the mother wound unlocks the possibility of freedom to be who you really are in relationship with women.</div>
+                </motion.div>
+                {/* Month 2 */}
+                <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
+                  <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 2 · Weeks 3–4</div>
+                  <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 2: Mastering Your Emotional State</div>
+                  <div className="text-white/90 text-sm md:text-base font-medium">Learn to identify and sit with uncomfortable feelings associated with rejection. Master your emotions and body for greater awareness and positive, nourishing power.</div>
+                </motion.div>
+                {/* Month 3 */}
+                <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
+                  <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 3 · Weeks 5–6</div>
+                  <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 3: Practical Missions</div>
+                  <div className="text-white/90 text-sm md:text-base font-medium">Put theory into practice with bespoke missions that challenge you to break through old patterns and open new possibilities for connection and relationship.</div>
+                </motion.div>
+                {/* Month 4 */}
+                <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.0 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
+                  <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 4 · Weeks 7–8</div>
+                  <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 4: Dating Without a Mask</div>
+                  <div className="text-white/90 text-sm md:text-base font-medium">Learn to "follow the energy" of an interaction instead of a script. Drop your mental checklist and learn to act and speak freely, even when feeling vulnerable or anxious.</div>
+                </motion.div>
+                {/* Month 5 */}
+                <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.1 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
+                  <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 5 · Weeks 9–10</div>
+                  <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 5: Building Your Tribe</div>
+                  <div className="text-white/90 text-sm md:text-base font-medium">Build deeper, more authentic connections with other men. Develop a strong male support system for accountability and navigating challenges.</div>
+                </motion.div>
+                {/* Month 6 */}
+                <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
+                  <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 6 · Weeks 11–12</div>
+                  <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 6: Dating with Integrity</div>
+                  <div className="text-white/90 text-sm md:text-base font-medium">Learn the art of rejecting and being rejected with grace. Communicate your needs and boundaries clearly, and move from people-pleasing to authentic leadership in your dating and relational life.</div>
+                </motion.div>
+              </div>
+              </div>
+              </div>
+        {/* Blurred background image below timeline boxes, only as wide as the card row */}
+        <div className="relative w-full flex justify-center mt-12">
+          <div className="absolute inset-0 w-full h-full flex justify-center pointer-events-none" aria-hidden="true">
+            <div className="w-full max-w-7xl h-[180px] md:h-[260px] lg:h-[320px] mx-auto rounded-2xl overflow-hidden" style={{ position: 'relative' }}>
+              <div style={{
+                backgroundImage: "url('/assets/lover-phases.webp')",
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                filter: 'blur(6px)',
+                opacity: 0.32,
+                width: '100%',
+                height: '100%',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                zIndex: 1,
+              }} />
+            </div>
           </div>
-          {/* Text Card (right on desktop, bottom on mobile) */}
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-white/5 backdrop-blur-md rounded-xl p-6 border border-white/10 shadow flex flex-col justify-center h-full" style={{ minHeight: 420 }}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-left md:text-center" style={{ color: '#D4E04F', fontFamily: 'PT Serif, serif' }}>{philosophyTitle}</h2>
-            {philosophyText.map((p, i) => (
-              <p key={i} className="text-lg text-white mb-6" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{p}</p>
-            ))}
-        </motion.div>
+          <div className="w-full max-w-7xl" style={{ height: '180px' }}></div>
         </div>
-      </section>
-
-      {/* Section 5: Programme Structure & Curriculum */}
-      <section className="relative py-20 w-full min-h-[700px] flex flex-col items-center justify-center overflow-visible" style={{ zIndex: 1 }}>
-        <div className="relative max-w-7xl mx-auto w-full px-6 flex flex-col items-center">
-          <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-4 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{structureTitle}</motion.h2>
-          <motion.p initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="text-lg md:text-xl text-center mb-12 text-white/80 max-w-3xl mx-auto" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>
-            This is a guided, transformational arc—from self-awareness to field testing to integration.
-          </motion.p>
-          <div className="w-full flex justify-center relative mb-12">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-full max-w-6xl mx-auto relative z-10">
-              {/* Month 1 */}
-              <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
-                <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 1 · Weeks 1–2</div>
-                <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 1: Identifying Your Core Wounds</div>
-                <div className="text-white/90 text-sm md:text-base font-medium">Explore the origins of toxic shame, perfectionism, and the impact of your relationship with your parents on your current behaviour with women. Unpacking the mother wound unlocks the possibility of freedom to be who you really are in relationship with women.</div>
-              </motion.div>
-              {/* Month 2 */}
-              <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
-                <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 2 · Weeks 3–4</div>
-                <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 2: Mastering Your Emotional State</div>
-                <div className="text-white/90 text-sm md:text-base font-medium">Learn to identify and sit with uncomfortable feelings associated with rejection. Master your emotions and body for greater awareness and positive, nourishing power.</div>
-              </motion.div>
-              {/* Month 3 */}
-              <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.9 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
-                <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 3 · Weeks 5–6</div>
-                <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 3: Practical Missions</div>
-                <div className="text-white/90 text-sm md:text-base font-medium">Put theory into practice with bespoke missions that challenge you to break through old patterns and open new possibilities for connection and relationship.</div>
-              </motion.div>
-              {/* Month 4 */}
-              <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.0 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
-                <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 4 · Weeks 7–8</div>
-                <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 4: Dating Without a Mask</div>
-                <div className="text-white/90 text-sm md:text-base font-medium">Learn to "follow the energy" of an interaction instead of a script. Drop your mental checklist and learn to act and speak freely, even when feeling vulnerable or anxious.</div>
-              </motion.div>
-              {/* Month 5 */}
-              <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.1 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
-                <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 5 · Weeks 9–10</div>
-                <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 5: Building Your Tribe</div>
-                <div className="text-white/90 text-sm md:text-base font-medium">Build deeper, more authentic connections with other men. Develop a strong male support system for accountability and navigating challenges.</div>
-              </motion.div>
-              {/* Month 6 */}
-              <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2 }} className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 shadow-md text-light flex flex-col items-start hover:scale-[1.01] transition-transform duration-300 group">
-                <div className="uppercase text-[12px] tracking-wide text-yellow-300 mb-2">Month 6 · Weeks 11–12</div>
-                <div className="font-bold text-lg md:text-xl mb-2 text-[#D4E04F]">Module 6: Dating with Integrity</div>
-                <div className="text-white/90 text-sm md:text-base font-medium">Learn the art of rejecting and being rejected with grace. Communicate your needs and boundaries clearly, and move from people-pleasing to authentic leadership in your dating and relational life.</div>
-              </motion.div>
-            </div>
-            </div>
-            </div>
-      {/* Blurred background image below timeline boxes, only as wide as the card row */}
-      <div className="relative w-full flex justify-center mt-12">
-        <div className="absolute inset-0 w-full h-full flex justify-center pointer-events-none" aria-hidden="true">
-          <div className="w-full max-w-7xl h-[180px] md:h-[260px] lg:h-[320px] mx-auto rounded-2xl overflow-hidden" style={{ position: 'relative' }}>
-            <div style={{
-              backgroundImage: "url('/assets/lover-phases.webp')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-              filter: 'blur(6px)',
-              opacity: 0.32,
-              width: '100%',
-              height: '100%',
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              zIndex: 1,
-            }} />
-          </div>
+        {/* Standalone, fully visible image after the grid */}
+        <div className="w-full flex justify-center mt-12">
+          <img src="/assets/lover-phases.webp" alt="Programme Phases" className="block w-full max-w-6xl h-auto" style={{ display: 'block', margin: '0 auto', borderRadius: 0, boxShadow: 'none', filter: 'none', opacity: 1 }} />
         </div>
-        <div className="w-full max-w-7xl" style={{ height: '180px' }}></div>
+        </section>
+
+        {/* Section 6: What's Included */}
+        <section className="py-16 relative w-full flex justify-center items-center overflow-hidden">
+          {/* Large, centered, in-focus lion background */}
+          <img src="/assets/nmmng-logo.png" alt="NMMNG Lion Logo" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] md:w-[900px] lg:w-[1100px] max-w-none opacity-20 pointer-events-none select-none z-0" style={{ filter: 'none' }} />
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative z-10 w-full">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{whatsIncludedTitle}</h2>
+            <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+              {whatsIncluded.map((item, i) => (
+                <div key={i} className="glass rounded-2xl p-8 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative overflow-hidden" style={{ borderRadius: 18, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
+                  {/* Blurred lion only under the card content */}
+                  <img src="/assets/nmmng-logo.png" alt="NMMNG Lion Logo" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 object-contain opacity-30 blur-2xl pointer-events-none select-none z-0" style={{}} />
+                  <div className="mb-4 flex items-center justify-center relative z-10">{item.icon}</div>
+                  <div className="text-xl font-bold mb-2 relative z-10" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F', letterSpacing: '0.01em' }}>{item.name}</div>
+                  <div className="text-base text-white relative z-10" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{item.desc}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Section 7: Pricing Section */}
+        <section className="py-16 max-w-7xl mx-auto w-full px-6" id="investment-plan">
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>Choose Your Investment Plan</h2>
+            <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto mb-6 items-stretch justify-center">
+              {/* Card 1: One-time Payment */}
+              <div className="bg-white rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10" style={{ borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.10)', border: '1.5px solid #E6E6E6', minHeight: 420 }}>
+                <div className="text-lg font-bold mb-2 text-center" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif' }}>One-time Payment</div>
+                <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif' }}>£4,997</div>
+                <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Full 6-Month Programme</div>
+                <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto' }} onClick={() => scrollToSection('investment-plan')}>Apply Now</button>
+                <div className="text-base font-bold text-center mt-6" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>
+                  Total: £4,997
+                </div>
+              </div>
+              {/* Card 2: Quarterly */}
+              <div className="bg-white rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10" style={{ borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.10)', border: '1.5px solid #E6E6E6', minHeight: 420 }}>
+                <div className="text-lg font-bold mb-2 text-center" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif' }}>Quarterly</div>
+                <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif' }}>£500 + 2 × £2,299</div>
+                <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay £500 upfront, then 2 installments of £2,299 each (one every 3 months).</div>
+                <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto' }} onClick={() => scrollToSection('investment-plan')}>Apply Now</button>
+                <div className="text-base font-bold text-center mt-6" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>
+                  Total: £5,098
+                </div>
+              </div>
+              {/* Card 3: Monthly */}
+              <div className="bg-white rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10" style={{ borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.10)', border: '1.5px solid #E6E6E6', minHeight: 420 }}>
+                <div className="text-lg font-bold mb-2 text-center" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif' }}>Monthly</div>
+                <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif' }}>£500 + 6 × £800</div>
+                <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay £500 upfront, then 6 installments of £800 each (one every month).</div>
+                <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto' }} onClick={() => scrollToSection('investment-plan')}>Apply Now</button>
+                <div className="text-base font-bold text-center mt-6" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>
+                  Total: £5,300
+                </div>
+              </div>
+            </div>
+            <div className="text-sm text-muted-foreground text-center mt-2" style={{ fontFamily: 'League Spartan, sans-serif', color: '#A67C52' }}>
+              We accept most major cards. Secure checkout and support included.
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Section 8: Final Commitment Section */}
+        <section className="py-16 max-w-7xl mx-auto w-full px-6 relative overflow-hidden">
+          {/* Background image with overlay */}
+          <div className="absolute inset-0" style={{ backgroundImage: `url(${menBg})`, backgroundSize: 'cover', backgroundPosition: 'center', zIndex: 0, opacity: 0.32 }}></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/80 to-background/90" style={{ zIndex: 1 }}></div>
+          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative z-10">
+            <div className="max-w-5xl mx-auto w-full px-6 flex flex-col items-center justify-center text-center">
+              <div className="flex justify-center items-center w-full mb-8">
+                <div className="w-full max-w-[200px] md:max-w-[260px] lg:max-w-[300px] mx-auto" style={{ filter: 'drop-shadow(0 0 32px #E6F97B55) drop-shadow(0 2px 16px #0008)' }}>
+                  <img src="/assets/key.webp" alt="Key Symbol" className="w-full h-[180px] md:h-[240px] lg:h-[300px] object-contain" style={{ background: 'transparent', display: 'block', margin: '0 auto' }} />
+              </div>
+              </div>
+              <p className="text-2xl font-bold gradient-text mb-0 text-center" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700, color: '#D4E04F', maxWidth: '100%' }}>{finalCta}</p>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* Footer Section (for consistency) */}
+        <Footer showBackToTop={showBackToTop} scrollToTop={scrollToTop} backToTopImg={backToTopImg} />
       </div>
-      {/* Standalone, fully visible image after the grid */}
-      <div className="w-full flex justify-center mt-12">
-        <img src="/assets/lover-phases.webp" alt="Programme Phases" className="block w-full max-w-6xl h-auto" style={{ display: 'block', margin: '0 auto', borderRadius: 0, boxShadow: 'none', filter: 'none', opacity: 1 }} />
-      </div>
-      </section>
-
-      {/* Section 6: What's Included */}
-      <section className="py-16 relative w-full flex justify-center items-center overflow-hidden">
-        {/* Large, centered, in-focus lion background */}
-        <img src="/assets/nmmng-logo.png" alt="NMMNG Lion Logo" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] md:w-[900px] lg:w-[1100px] max-w-none opacity-20 pointer-events-none select-none z-0" style={{ filter: 'none' }} />
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative z-10 w-full">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>{whatsIncludedTitle}</h2>
-          <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-            {whatsIncluded.map((item, i) => (
-              <div key={i} className="glass rounded-2xl p-8 flex flex-col items-center text-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative overflow-hidden" style={{ borderRadius: 18, background: 'rgba(15,31,45,0.82)', boxShadow: '0 8px 40px rgba(0,0,0,0.18)', border: '1.5px solid #1A1A1A', backdropFilter: 'blur(10px)' }}>
-                {/* Blurred lion only under the card content */}
-                <img src="/assets/nmmng-logo.png" alt="NMMNG Lion Logo" className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 object-contain opacity-30 blur-2xl pointer-events-none select-none z-0" style={{}} />
-                <div className="mb-4 flex items-center justify-center relative z-10">{item.icon}</div>
-                <div className="text-xl font-bold mb-2 relative z-10" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F', letterSpacing: '0.01em' }}>{item.name}</div>
-                <div className="text-base text-white relative z-10" style={{ fontFamily: 'League Spartan, sans-serif', fontWeight: 400 }}>{item.desc}</div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Section 7: Pricing Section */}
-      <section className="py-16 max-w-7xl mx-auto w-full px-6" id="investment-plan">
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>Choose Your Investment Plan</h2>
-          <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto mb-6 items-stretch justify-center">
-            {/* Card 1: One-time Payment */}
-            <div className="bg-white rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10" style={{ borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.10)', border: '1.5px solid #E6E6E6', minHeight: 420 }}>
-              <div className="text-lg font-bold mb-2 text-center" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif' }}>One-time Payment</div>
-              <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif' }}>£4,997</div>
-              <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Full 6-Month Programme</div>
-              <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto' }} onClick={() => scrollToSection('investment-plan')}>Apply Now</button>
-              <div className="text-base font-bold text-center mt-6" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>
-                Total: £4,997
-              </div>
-            </div>
-            {/* Card 2: Quarterly */}
-            <div className="bg-white rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10" style={{ borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.10)', border: '1.5px solid #E6E6E6', minHeight: 420 }}>
-              <div className="text-lg font-bold mb-2 text-center" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif' }}>Quarterly</div>
-              <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif' }}>£500 + 2 × £2,299</div>
-              <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay £500 upfront, then 2 installments of £2,299 each (one every 3 months).</div>
-              <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto' }} onClick={() => scrollToSection('investment-plan')}>Apply Now</button>
-              <div className="text-base font-bold text-center mt-6" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>
-                Total: £5,098
-              </div>
-            </div>
-            {/* Card 3: Monthly */}
-            <div className="bg-white rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10" style={{ borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.10)', border: '1.5px solid #E6E6E6', minHeight: 420 }}>
-              <div className="text-lg font-bold mb-2 text-center" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif' }}>Monthly</div>
-              <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif' }}>£500 + 6 × £800</div>
-              <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay £500 upfront, then 6 installments of £800 each (one every month).</div>
-              <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto' }} onClick={() => scrollToSection('investment-plan')}>Apply Now</button>
-              <div className="text-base font-bold text-center mt-6" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>
-                Total: £5,300
-              </div>
-            </div>
-          </div>
-          <div className="text-sm text-muted-foreground text-center mt-2" style={{ fontFamily: 'League Spartan, sans-serif', color: '#A67C52' }}>
-            We accept most major cards. Secure checkout and support included.
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Section 8: Final Commitment Section */}
-      <section className="py-16 max-w-7xl mx-auto w-full px-6 relative overflow-hidden">
-        {/* Background image with overlay */}
-        <div className="absolute inset-0" style={{ backgroundImage: `url(${menBg})`, backgroundSize: 'cover', backgroundPosition: 'center', zIndex: 0, opacity: 0.32 }}></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/80 to-background/90" style={{ zIndex: 1 }}></div>
-        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="relative z-10">
-          <div className="max-w-5xl mx-auto w-full px-6 flex flex-col items-center justify-center text-center">
-            <div className="flex justify-center items-center w-full mb-8">
-              <div className="w-full max-w-[200px] md:max-w-[260px] lg:max-w-[300px] mx-auto" style={{ filter: 'drop-shadow(0 0 32px #E6F97B55) drop-shadow(0 2px 16px #0008)' }}>
-                <img src="/assets/key.webp" alt="Key Symbol" className="w-full h-[180px] md:h-[240px] lg:h-[300px] object-contain" style={{ background: 'transparent', display: 'block', margin: '0 auto' }} />
-            </div>
-            </div>
-            <p className="text-2xl font-bold gradient-text mb-0 text-center" style={{ fontFamily: 'PT Serif, serif', fontWeight: 700, color: '#D4E04F', maxWidth: '100%' }}>{finalCta}</p>
-          </div>
-        </motion.div>
-      </section>
-
-      {/* Footer Section (for consistency) */}
-      <Footer showBackToTop={showBackToTop} scrollToTop={scrollToTop} backToTopImg={backToTopImg} />
-    </div>
+    </>
   )
 }
 
