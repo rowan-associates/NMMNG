@@ -365,19 +365,20 @@ function CoachingLanding() {
           <div className="text-base text-center mb-12 break-words overflow-x-hidden" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', maxWidth: 700, margin: '0 auto' }}>
             Limited to 12 clients annually. Applications reviewed carefully to ensure mutual fit and maximum transformation potential.
           </div>
-          {/* Best Value label above cards, not in a flex row */}
-          <div className="w-full flex justify-start md:justify-center mb-[-1.5rem] z-20" style={{ position: 'relative' }}>
-            <div className="bg-[#D4AF37] text-black px-6 py-2 rounded-full font-bold text-base shadow gold-gradient-text" style={{ fontFamily: 'League Spartan, sans-serif', letterSpacing: '0.08em', boxShadow: `0 2px 12px ${GOLD}33`, opacity: 1, position: 'absolute', left: 0, top: 0, transform: 'translateY(-60%)', zIndex: 10 }}>Best Value</div>
-          </div>
           <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto mb-6 items-stretch justify-center" style={{ marginTop: '2.5rem' }}>
-            {/* Full Payment Card */}
-            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-black rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative pt-14 p-10 border-2 gold-foil-border shadow-lg" style={{ borderRadius: 11, minHeight: undefined, paddingTop: '2.5rem', boxShadow: `0 8px 40px ${GOLD}33, 0 2px 16px ${BRASS}22`, display: 'flex', overflow: 'hidden' }}>
-              <div className="text-lg font-bold mb-2 text-center gold-gradient-text" style={{ fontFamily: 'League Spartan, sans-serif', paddingTop: 8 }}>Full Payment</div>
-              <div className="text-3xl font-bold mb-2 text-center" style={{ color: TEXT_LIGHT, fontFamily: 'PT Serif, serif' }}>£4,999</div>
-              <div className="text-lg mb-4 text-center" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay in full for the complete 90-day transformation</div>
-              <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full shimmer-on-hover" style={{ background: `url(${goldFoil}) center/cover no-repeat, linear-gradient(90deg, #D4AF37 0%, #A67C52 100%)`, color: BG_BLACK, fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto', boxShadow: `0 0 16px 2px ${GOLD}33`, border: `2px solid ${GOLD}` }} onClick={() => scrollToSection('pricing')}>INVEST NOW</button>
-              <div className="text-base font-bold text-center mt-6" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>Total: £4,999</div>
-            </motion.div>
+            {/* First card with Best Value label above */}
+            <div className="relative flex-1 flex flex-col items-center">
+              <div className="absolute -top-8 left-1/2 -translate-x-1/2 z-20">
+                <div className="bg-[#D4AF37] text-black px-6 py-2 rounded-full font-bold text-base shadow gold-gradient-text" style={{ fontFamily: 'League Spartan, sans-serif', letterSpacing: '0.08em', boxShadow: `0 2px 12px ${GOLD}33`, opacity: 1 }}>Best Value</div>
+              </div>
+              <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-black rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative pt-14 p-10 border-2 gold-foil-border shadow-lg" style={{ borderRadius: 11, minHeight: undefined, paddingTop: '2.5rem', boxShadow: `0 8px 40px ${GOLD}33, 0 2px 16px ${BRASS}22`, display: 'flex', overflow: 'hidden' }}>
+                <div className="text-lg font-bold mb-2 text-center gold-gradient-text" style={{ fontFamily: 'League Spartan, sans-serif', paddingTop: 8 }}>Full Payment</div>
+                <div className="text-3xl font-bold mb-2 text-center" style={{ color: TEXT_LIGHT, fontFamily: 'PT Serif, serif' }}>£4,999</div>
+                <div className="text-lg mb-4 text-center" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay in full for the complete 90-day transformation</div>
+                <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full shimmer-on-hover" style={{ background: `url(${goldFoil}) center/cover no-repeat, linear-gradient(90deg, #D4AF37 0%, #A67C52 100%)`, color: BG_BLACK, fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto', boxShadow: `0 0 16px 2px ${GOLD}33`, border: `2px solid ${GOLD}` }} onClick={() => scrollToSection('pricing')}>INVEST NOW</button>
+                <div className="text-base font-bold text-center mt-6" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>Total: £4,999</div>
+              </motion.div>
+            </div>
             {/* Split in 2 Card */}
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="bg-black rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10 border-2 gold-foil-border shadow-lg" style={{ borderRadius: 11, minHeight: undefined, boxShadow: `0 8px 40px ${GOLD}33, 0 2px 16px ${BRASS}22`, display: 'flex', overflow: 'hidden' }}>
               <div className="text-lg font-bold mb-2 text-center gold-gradient-text" style={{ fontFamily: 'League Spartan, sans-serif', paddingTop: 8 }}>Split in 2</div>
