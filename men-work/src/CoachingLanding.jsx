@@ -377,20 +377,6 @@ function CoachingLanding() {
               <div className="text-lg mb-4 text-center" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay in full for the complete 90-day transformation</div>
               <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full shimmer-on-hover" style={{ background: `url(${goldFoil}) center/cover no-repeat, linear-gradient(90deg, #D4AF37 0%, #A67C52 100%)`, color: BG_BLACK, fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto', boxShadow: `0 0 16px 2px ${GOLD}33`, border: `2px solid ${GOLD}` }} onClick={() => scrollToSection('application')}>INVEST NOW</button>
               <div className="text-base font-bold text-center mt-6" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>Total: £4,999</div>
-              {/* Accordion for Why This Investment Level */}
-              <Accordion type="single" collapsible className="w-full mt-6">
-                <AccordionItem value="why-full">
-                  <AccordionTrigger className="text-lg font-bold" style={{ color: BRASS, fontFamily: 'PT Serif, serif' }}>Why This Investment Level?</AccordionTrigger>
-                  <AccordionContent className="text-base" style={{ fontFamily: 'League Spartan, sans-serif', color: TEXT_LIGHT }}>
-                    <ul className="list-disc ml-6 space-y-2">
-                      <li>Quality Assurance: It ensures we work only with clients who are fully committed to profound change, not those seeking quick fixes.</li>
-                      <li>Resource Allocation: It allows us to provide the intensive, high-touch experience necessary for rapid transformation.</li>
-                      <li>Serious Commitment: It acts as a filter, ensuring only people serious about transformational change apply.</li>
-                      <li>Results Guarantee: At this level, we can guarantee the depth of attention and customisation needed for breakthrough results.</li>
-                    </ul>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
             </motion.div>
             {/* Split in 2 Card */}
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="bg-black rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10 border-2 gold-foil-border shadow-lg" style={{ borderRadius: 11, minHeight: 520, boxShadow: `0 8px 40px ${GOLD}33, 0 2px 16px ${BRASS}22`, display: 'flex', overflow: 'hidden' }}>
@@ -399,19 +385,6 @@ function CoachingLanding() {
               <div className="text-lg mb-4 text-center" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay in two installments across the programme</div>
               <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full shimmer-on-hover" style={{ background: `url(${goldFoil}) center/cover no-repeat, linear-gradient(90deg, #D4AF37 0%, #A67C52 100%)`, color: BG_BLACK, fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto', boxShadow: `0 0 16px 2px ${GOLD}33`, border: `2px solid ${GOLD}` }} onClick={() => scrollToSection('application')}>INVEST NOW</button>
               <div className="text-base font-bold text-center mt-6" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>Total: £5,200</div>
-              <Accordion type="single" collapsible className="w-full mt-6">
-                <AccordionItem value="why-2">
-                  <AccordionTrigger className="text-lg font-bold" style={{ color: BRASS, fontFamily: 'PT Serif, serif' }}>Why This Investment Level?</AccordionTrigger>
-                  <AccordionContent className="text-base" style={{ fontFamily: 'League Spartan, sans-serif', color: TEXT_LIGHT }}>
-                    <ul className="list-disc ml-6 space-y-2">
-                      <li>Quality Assurance: It ensures we work only with clients who are fully committed to profound change, not those seeking quick fixes.</li>
-                      <li>Resource Allocation: It allows us to provide the intensive, high-touch experience necessary for rapid transformation.</li>
-                      <li>Serious Commitment: It acts as a filter, ensuring only people serious about transformational change apply.</li>
-                      <li>Results Guarantee: At this level, we can guarantee the depth of attention and customisation needed for breakthrough results.</li>
-                    </ul>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
             </motion.div>
             {/* Monthly Plan Card */}
             <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2 }} className="bg-black rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10 border-2 gold-foil-border shadow-lg" style={{ borderRadius: 11, minHeight: 520, boxShadow: `0 8px 40px ${GOLD}33, 0 2px 16px ${BRASS}22`, display: 'flex', overflow: 'hidden' }}>
@@ -420,21 +393,19 @@ function CoachingLanding() {
               <div className="text-lg mb-4 text-center" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay in three monthly installments</div>
               <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full shimmer-on-hover" style={{ background: `url(${goldFoil}) center/cover no-repeat, linear-gradient(90deg, #D4AF37 0%, #A67C52 100%)`, color: BG_BLACK, fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto', boxShadow: `0 0 16px 2px ${GOLD}33`, border: `2px solid ${GOLD}` }} onClick={() => scrollToSection('application')}>INVEST NOW</button>
               <div className="text-base font-bold text-center mt-6" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>Total: £5,250</div>
-              <Accordion type="single" collapsible className="w-full mt-6">
-                <AccordionItem value="why-3">
-                  <AccordionTrigger className="text-lg font-bold" style={{ color: BRASS, fontFamily: 'PT Serif, serif' }}>Why This Investment Level?</AccordionTrigger>
-                  <AccordionContent className="text-base" style={{ fontFamily: 'League Spartan, sans-serif', color: TEXT_LIGHT }}>
-                    <ul className="list-disc ml-6 space-y-2">
-                      <li>Quality Assurance: It ensures we work only with clients who are fully committed to profound change, not those seeking quick fixes.</li>
-                      <li>Resource Allocation: It allows us to provide the intensive, high-touch experience necessary for rapid transformation.</li>
-                      <li>Serious Commitment: It acts as a filter, ensuring only people serious about transformational change apply.</li>
-                      <li>Results Guarantee: At this level, we can guarantee the depth of attention and customisation needed for breakthrough results.</li>
-                    </ul>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
             </motion.div>
           </div>
+          <motion.section initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="max-w-5xl mx-auto w-full px-4 md:px-6 py-12">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center gold-gradient-text" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
+              Why This Investment Level?
+            </h2>
+            <ul className="list-disc ml-6 space-y-4 text-base md:text-lg" style={{ fontFamily: 'League Spartan, sans-serif', color: TEXT_LIGHT, maxWidth: 800, margin: '0 auto' }}>
+              <li><b>Quality Assurance:</b> It ensures we work only with clients who are fully committed to profound change, not those seeking quick fixes.</li>
+              <li><b>Resource Allocation:</b> It allows us to provide the intensive, high-touch experience necessary for rapid transformation.</li>
+              <li><b>Serious Commitment:</b> It acts as a filter, ensuring only people serious about transformational change apply.</li>
+              <li><b>Results Guarantee:</b> At this level, we can guarantee the depth of attention and customisation needed for breakthrough results.</li>
+            </ul>
+          </motion.section>
           <div className="text-sm text-muted-foreground text-center mt-2 break-words overflow-x-hidden" style={{ fontFamily: 'League Spartan, sans-serif', color: '#A67C52' }}>
             We accept most major cards. Secure checkout and support included.
           </div>
