@@ -109,7 +109,7 @@ function CoachingLanding() {
               <h2 className="text-lg md:text-xl font-bold nmmng-glow text-center md:text-left" style={{ color: GOLD, fontFamily: 'League Spartan, sans-serif', fontWeight: 700, textShadow: `0 0 8px ${GOLD}55` }}>Executive Transformation Program</h2>
             </div>
             <button 
-              onClick={() => scrollToSection('application')}
+              onClick={() => scrollToSection('pricing')}
               className="btn-primary w-auto md:w-auto text-base md:text-xl px-4 md:px-8 py-2 md:py-3 font-bold rounded-lg gold-foil-btn shimmer-on-hover bg-black text-gold border border-gold font-bold leading-tight h-11 flex items-center justify-center whitespace-nowrap relative overflow-hidden mt-2 md:mt-0"
               style={{ border: `1.5px solid ${GOLD}` }}
             >
@@ -132,7 +132,7 @@ function CoachingLanding() {
             <motion.h2 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} className="text-lg md:text-2xl font-semibold mb-8 break-words overflow-x-hidden" style={{ fontFamily: 'PT Serif, serif', fontWeight: 500, color: GOLD }}>
               Fast-Track Your Evolution. Master Your Leadership, Wealth, and Relationships in 90 Days.
             </motion.h2>
-            <button className="btn-primary w-full md:w-auto text-base md:text-xl px-6 md:px-8 py-4 md:py-6 font-bold mt-2 rounded-lg gold-foil-btn shimmer-on-hover bg-gradient-to-r from-gold to-brass text-black font-serif min-h-12 md:min-h-16 rounded-lg shadow-lg border-2 border-gold relative overflow-hidden" onClick={() => scrollToSection('application')}>
+            <button className="btn-primary w-full md:w-auto text-base md:text-xl px-6 md:px-8 py-4 md:py-6 font-bold mt-2 rounded-lg gold-foil-btn shimmer-on-hover bg-gradient-to-r from-gold to-brass text-black font-serif min-h-12 md:min-h-16 rounded-lg shadow-lg border-2 border-gold relative overflow-hidden" onClick={() => scrollToSection('pricing')}>
               <span className="relative z-2">INVEST NOW</span>
               <span className="gold-foil-shimmer absolute inset-0 bg-cover bg-center opacity-20 mix-blend-screen pointer-events-none z-1" style={{ backgroundImage: `url(${goldFoil})` }} />
               <span className="gold-shimmer-anim absolute inset-0 pointer-events-none z-3" />
@@ -358,7 +358,7 @@ function CoachingLanding() {
         </section>
 
         {/* Pricing Section */}
-        <section id="pricing" className="min-h-screen h-screen py-16 max-w-7xl mx-auto w-full px-4 md:px-6 flex flex-col justify-center">
+        <section id="pricing" className="py-16 max-w-7xl mx-auto w-full px-4 md:px-6 flex flex-col justify-center">
           <motion.h2 initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="text-3xl md:text-4xl font-bold mb-6 text-center gold-gradient-text break-words overflow-x-hidden" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
             Choose Your Investment Plan
           </motion.h2>
@@ -366,12 +366,12 @@ function CoachingLanding() {
             Limited to 12 clients annually. Applications reviewed carefully to ensure mutual fit and maximum transformation potential.
           </div>
           <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto mb-6 items-stretch justify-center">
+            {/* Best Value label above first card */}
+            <div className="w-full flex justify-center mb-[-2.5rem] z-20">
+              <div className="bg-[#D4AF37] text-black px-6 py-2 rounded-full font-bold text-base shadow gold-gradient-text" style={{ fontFamily: 'League Spartan, sans-serif', letterSpacing: '0.08em', boxShadow: `0 2px 12px ${GOLD}33`, opacity: 1 }}>Best Value</div>
+            </div>
             {/* Full Payment Card */}
-            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-black rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative pt-14 p-10 border-2 gold-foil-border shadow-lg" style={{ borderRadius: 11, minHeight: 520, boxShadow: `0 8px 40px ${GOLD}33, 0 2px 16px ${BRASS}22`, display: 'flex', overflow: 'hidden' }}>
-              {/* Best Value label only on this card */}
-              <div className="absolute left-0 top-0 w-full flex justify-center" style={{ transform: 'translateY(-50%)', zIndex: 2 }}>
-                <div className="bg-[#D4AF37] text-black px-6 py-2 rounded-full font-bold text-base shadow gold-gradient-text" style={{ fontFamily: 'League Spartan, sans-serif', letterSpacing: '0.08em', boxShadow: `0 2px 12px ${GOLD}33`, opacity: 1 }}>Best Value</div>
-              </div>
+            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="bg-black rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative pt-14 p-10 border-2 gold-foil-border shadow-lg" style={{ borderRadius: 11, minHeight: undefined, paddingTop: '2.5rem', boxShadow: `0 8px 40px ${GOLD}33, 0 2px 16px ${BRASS}22`, display: 'flex', overflow: 'hidden' }}>
               <div className="text-lg font-bold mb-2 text-center gold-gradient-text" style={{ fontFamily: 'League Spartan, sans-serif', paddingTop: 8 }}>Full Payment</div>
               <div className="text-3xl font-bold mb-2 text-center" style={{ color: TEXT_LIGHT, fontFamily: 'PT Serif, serif' }}>£4,999</div>
               <div className="text-lg mb-4 text-center" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay in full for the complete 90-day transformation</div>
@@ -379,7 +379,7 @@ function CoachingLanding() {
               <div className="text-base font-bold text-center mt-6" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>Total: £4,999</div>
             </motion.div>
             {/* Split in 2 Card */}
-            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="bg-black rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10 border-2 gold-foil-border shadow-lg" style={{ borderRadius: 11, minHeight: 520, boxShadow: `0 8px 40px ${GOLD}33, 0 2px 16px ${BRASS}22`, display: 'flex', overflow: 'hidden' }}>
+            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1 }} className="bg-black rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10 border-2 gold-foil-border shadow-lg" style={{ borderRadius: 11, minHeight: undefined, boxShadow: `0 8px 40px ${GOLD}33, 0 2px 16px ${BRASS}22`, display: 'flex', overflow: 'hidden' }}>
               <div className="text-lg font-bold mb-2 text-center gold-gradient-text" style={{ fontFamily: 'League Spartan, sans-serif', paddingTop: 8 }}>Split in 2</div>
               <div className="text-3xl font-bold mb-2 text-center" style={{ color: TEXT_LIGHT, fontFamily: 'PT Serif, serif' }}>£2,600 x 2</div>
               <div className="text-lg mb-4 text-center" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay in two installments across the programme</div>
@@ -387,7 +387,7 @@ function CoachingLanding() {
               <div className="text-base font-bold text-center mt-6" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>Total: £5,200</div>
             </motion.div>
             {/* Monthly Plan Card */}
-            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2 }} className="bg-black rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10 border-2 gold-foil-border shadow-lg" style={{ borderRadius: 11, minHeight: 520, boxShadow: `0 8px 40px ${GOLD}33, 0 2px 16px ${BRASS}22`, display: 'flex', overflow: 'hidden' }}>
+            <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 1.2 }} className="bg-black rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10 border-2 gold-foil-border shadow-lg" style={{ borderRadius: 11, minHeight: undefined, boxShadow: `0 8px 40px ${GOLD}33, 0 2px 16px ${BRASS}22`, display: 'flex', overflow: 'hidden' }}>
               <div className="text-lg font-bold mb-2 text-center gold-gradient-text" style={{ fontFamily: 'League Spartan, sans-serif', paddingTop: 8 }}>Monthly Plan</div>
               <div className="text-3xl font-bold mb-2 text-center" style={{ color: TEXT_LIGHT, fontFamily: 'PT Serif, serif' }}>£1,750 x 3</div>
               <div className="text-lg mb-4 text-center" style={{ color: TEXT_LIGHT, fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay in three monthly installments</div>
