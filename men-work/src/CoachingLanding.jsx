@@ -411,48 +411,6 @@ function CoachingLanding() {
           </div>
         </section>
 
-        {/* Application Section */}
-        <section id="application" className="py-16 max-w-7xl mx-auto w-full px-4 md:px-6 flex flex-col items-center">
-          <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }} className="w-full max-w-2xl mx-auto rounded-2xl p-6 md:p-12 flex flex-col items-center shadow-xl border border-white/10 relative z-10" style={{ background: `url(${blackBg}) center/cover no-repeat, rgba(0,0,0,0.92)`, backgroundBlendMode: 'overlay', marginTop: 32, marginBottom: 32, borderRadius: 11, overflow: 'hidden' }}>
-            <div className="absolute inset-0 bg-black/80 rounded-2xl z-0" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center gold-gradient-text break-words overflow-x-hidden relative z-10" style={{ fontFamily: 'PT Serif, serif', color: GOLD }}>
-              Apply for Your Private Consultation
-            </h2>
-            <form className="w-full flex flex-col gap-6 relative z-10">
-              <div>
-                <label className="block mb-2 text-lg font-bold" style={{ fontFamily: 'League Spartan, sans-serif', color: GOLD }}>Name</label>
-                <Input type="text" placeholder="Your Name" required className="w-full" />
-              </div>
-              <div>
-                <label className="block mb-2 text-lg font-bold" style={{ fontFamily: 'League Spartan, sans-serif', color: GOLD }}>Address</label>
-                <Input type="text" placeholder="Your Address" required className="w-full" />
-              </div>
-              <div>
-                <label className="block mb-2 text-lg font-bold" style={{ fontFamily: 'League Spartan, sans-serif', color: GOLD }}>Phone Number</label>
-                <Input type="tel" placeholder="Your Phone Number" required className="w-full" />
-              </div>
-              <div>
-                <label className="block mb-2 text-lg font-bold" style={{ fontFamily: 'League Spartan, sans-serif', color: GOLD }}>Employment Status</label>
-                <Input type="text" placeholder="e.g. Self employed, full time, part time employed etc." required className="w-full" />
-              </div>
-              <div>
-                <label className="block mb-2 text-lg font-bold" style={{ fontFamily: 'League Spartan, sans-serif', color: GOLD }}>What do you want to get from joining this programme?</label>
-                <Textarea placeholder="Describe your current circumstances and what you wish to transform..." required className="w-full" rows={4} />
-              </div>
-              <div>
-                <label className="block mb-2 text-lg font-bold" style={{ fontFamily: 'League Spartan, sans-serif', color: GOLD }}>Call Preference</label>
-                <Input type="text" placeholder="Morning, Afternoon, Evening, Weekday/Weekend" required className="w-full" />
-              </div>
-              <button type="submit" className="btn-primary text-xl px-8 py-6 font-bold mt-4 rounded-lg w-full" style={{ background: BG_BLACK, color: GOLD, fontFamily: 'PT Serif, serif', minHeight: 64, borderRadius: 11, boxShadow: `0 0 16px 2px ${GOLD}55` }}>
-                Apply Now
-              </button>
-            </form>
-            <div className="text-xs text-center text-white/70 mt-6 break-words overflow-x-hidden relative z-10" style={{ fontFamily: 'League Spartan, sans-serif' }}>
-              Your information is kept strictly confidential and will only be used to contact you about your application. We respect your privacy.
-            </div>
-          </motion.div>
-        </section>
-
         {/* Final CTA Section */}
         <section id="final-cta" className="py-16 w-full relative flex flex-col items-center justify-center overflow-visible">
           <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none select-none">
