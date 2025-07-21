@@ -1191,7 +1191,7 @@ function LoverLanding() {
             </div>
             <div className="max-w-2xl mx-auto mt-4">
               <div className="glass rounded-xl p-5 text-base text-center font-semibold" style={{ background: 'rgba(255,255,255,0.25)', color: '#0D212D', border: '1.5px solid #D4E04F', boxShadow: '0 4px 24px rgba(0,0,0,0.10)', backdropFilter: 'blur(12px)', fontFamily: 'League Spartan, sans-serif' }}>
-                ✻ If the investment level is prohibitve for you at this moment, please <a href="mailto:enquire@nomoremrniceguy.co?Subject=need%20help%20to%20join%20Lover" style={{ color: '#0F4F40', textDecoration: 'underline', fontWeight: 700 }}>arrange a discussion</a> with us to review options and explore alternative pricing.
+                ✻ If the investment level is prohibitve for you at this moment, please <a href="mailto:enquire@nomoremrniceguy.co?Subject=need%20help%20to%20join%20Lover" style={{ color: '#D4E04F', textDecoration: 'underline', fontWeight: 700 }}>arrange a discussion</a> with us to review options and explore alternative pricing.
               </div>
             </div>
           </motion.div>
