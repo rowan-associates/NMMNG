@@ -90,6 +90,7 @@ function CoachingLanding() {
         <meta property="og:image:height" content="1024" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://join.nmmng.co/coaching" />
+        <meta property="og:logo" content="https://join.nmmng.co/assets/nmmng-logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Executive Coaching – NMMNG® Transformation Program" />
         <meta name="twitter:description" content="Fast-Track Your Evolution. Master Your Leadership, Wealth, and Relationships in 90 Days." />
