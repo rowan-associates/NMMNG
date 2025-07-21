@@ -288,7 +288,7 @@ function BootcampLanding() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="NMMNG® Bootcamp – Transformational Men's Retreat" />
         <meta name="twitter:description" content="Join the No More Mr. Nice Guy® Bootcamp in Oxford, UK. A transformational weekend retreat for men ready to lead, connect, and break free from Nice Guy patterns." />
-        <meta name="twitter:image" content="/assets/lover-hero.webp" />
+        <meta name="twitter:image" content="https://join.nmmng.co/assets/lover-hero.webp" />
         <meta property="twitter:url" content="https://join.nmmng.co/bootcamp" />
       </Helmet>
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
@@ -949,7 +949,7 @@ function LoverLanding() {
         <meta name="description" content="Six-month dating and relationship programme for men ready to break free from Nice Guy patterns and create the relationships they truly desire." />
         <meta property="og:title" content="The Authentic Lover Blueprint – No More Mr. Nice Guy®" />
         <meta property="og:description" content="Six-month dating and relationship programme for men ready to break free from Nice Guy patterns and create the relationships they truly desire." />
-        <meta property="og:image" content="/assets/lover-hero.webp" />
+        <meta property="og:image" content="https://join.nmmng.co/assets/lover-hero.webp" />
         <meta property="og:image:width" content="1536" />
         <meta property="og:image:height" content="1024" />
         <meta property="og:type" content="website" />
@@ -957,7 +957,7 @@ function LoverLanding() {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="The Authentic Lover Blueprint – No More Mr. Nice Guy®" />
         <meta name="twitter:description" content="Six-month dating and relationship programme for men ready to break free from Nice Guy patterns and create the relationships they truly desire." />
-        <meta name="twitter:image" content="/assets/lover-hero.webp" />
+        <meta name="twitter:image" content="https://join.nmmng.co/assets/lover-hero.webp" />
         <meta property="twitter:url" content="https://join.nmmng.co/lover" />
       </Helmet>
       <div className="min-h-screen bg-background text-foreground overflow-x-hidden">

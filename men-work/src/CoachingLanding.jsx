@@ -17,7 +17,7 @@ import backToTopImg from './assets/back-to-top.webp';
 import heroCoaching from './assets/hero-coaching.webp';
 import goldFoil from './assets/gold-foil.webp';
 import archetypesImg from './assets/archetypes.webp';
-import { FaYoutube, FaX, FaInstagram, FaMeetup, FaWhatsapp, FaEnvelope, FaGlobe } from 'react-icons/fa';
+import { FaYoutube, FaInstagram, FaMeetup, FaWhatsapp, FaEnvelope, FaGlobe } from 'react-icons/fa';
 import { SiX } from 'react-icons/si';
 import phoenixImg from './assets/phoenix.webp';
 import blackBg from './assets/black.webp';
