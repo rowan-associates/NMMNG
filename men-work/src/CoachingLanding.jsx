@@ -84,16 +84,16 @@ function CoachingLanding() {
         <title>Executive Coaching – NMMNG® Transformation Program</title>
         <meta name="description" content="Fast-track your evolution with the Executive Coaching program. Master leadership, wealth, and relationships in 90 days. For high-performing men ready for real change." />
         <meta property="og:title" content="Executive Coaching – NMMNG® Transformation Program" />
-        <meta property="og:description" content="Fast-track your evolution with the Executive Coaching program. Master leadership, wealth, and relationships in 90 days. For high-performing men ready for real change." />
-        <meta property="og:image" content="/assets/hero-coaching.webp" />
+        <meta property="og:description" content="Fast-Track Your Evolution. Master Your Leadership, Wealth, and Relationships in 90 Days." />
+        <meta property="og:image" content="https://join.nmmng.co/assets/hero-coaching.webp" />
         <meta property="og:image:width" content="1536" />
         <meta property="og:image:height" content="1024" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://join.nmmng.co/coaching" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Executive Coaching – NMMNG® Transformation Program" />
-        <meta name="twitter:description" content="Fast-track your evolution with the Executive Coaching program. Master leadership, wealth, and relationships in 90 days. For high-performing men ready for real change." />
-        <meta name="twitter:image" content="/assets/hero-coaching.webp" />
+        <meta name="twitter:description" content="Fast-Track Your Evolution. Master Your Leadership, Wealth, and Relationships in 90 Days." />
+        <meta name="twitter:image" content="https://join.nmmng.co/assets/hero-coaching.webp" />
         <meta property="twitter:url" content="https://join.nmmng.co/coaching" />
       </Helmet>
       <div className="min-h-screen text-foreground overflow-x-hidden" style={{ background: BG_BLACK, color: TEXT_LIGHT }}>

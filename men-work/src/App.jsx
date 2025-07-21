@@ -280,7 +280,7 @@ function BootcampLanding() {
         <meta name="description" content="Join the No More Mr. Nice Guy® Bootcamp in Oxford, UK. A transformational weekend retreat for men ready to lead, connect, and break free from Nice Guy patterns." />
         <meta property="og:title" content="NMMNG® Bootcamp – Transformational Men's Retreat" />
         <meta property="og:description" content="Join the No More Mr. Nice Guy® Bootcamp in Oxford, UK. A transformational weekend retreat for men ready to lead, connect, and break free from Nice Guy patterns." />
-        <meta property="og:image" content="/assets/lover-hero.webp" />
+        <meta property="og:image" content="https://join.nmmng.co/assets/lover-hero.webp" />
         <meta property="og:image:width" content="1536" />
         <meta property="og:image:height" content="1024" />
         <meta property="og:type" content="website" />
