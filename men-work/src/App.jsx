@@ -1153,41 +1153,46 @@ function LoverLanding() {
         {/* Section 7: Pricing Section */}
         <section className="py-16 max-w-7xl mx-auto w-full px-6" id="investment-plan">
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#D4E04F' }}>Choose Your Investment Plan</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 gradient-text text-center" style={{ fontFamily: 'PT Serif, serif', color: '#0D212D' }}>Choose Your Investment Plan</h2>
             <div className="flex flex-col md:flex-row gap-8 max-w-5xl mx-auto mb-6 items-stretch justify-center">
               {/* Card 1: One-time Payment */}
               <div className="bg-white rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10" style={{ borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.10)', border: '1.5px solid #E6E6E6', minHeight: 420 }}>
                 <div className="text-lg font-bold mb-2 text-center" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif' }}>One-time Payment</div>
                 <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif' }}>£5,997</div>
                 <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Full 3-Month Programme</div>
-                <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto' }} onClick={() => scrollToSection('investment-plan')}>APPLY NOW</button>
+                <a href="https://www.nomoremrniceguy.co.uk/offers/oDpeAu3W" target="_blank" rel="noopener noreferrer" className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto', textAlign: 'center', display: 'block' }}>APPLY NOW</a>
                 <div className="text-base font-bold text-center mt-6" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>
-                  Total: £5,997
+                  Total: £5,997 ✻
                 </div>
               </div>
-              {/* Card 2: Month x2 */}
+              {/* Card 2: Two Monthly Payments */}
               <div className="bg-white rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10" style={{ borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.10)', border: '1.5px solid #E6E6E6', minHeight: 420 }}>
-                <div className="text-lg font-bold mb-2 text-center" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif' }}>Month x2</div>
+                <div className="text-lg font-bold mb-2 text-center" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif' }}>Two Monthly Payments</div>
                 <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif' }}>£3,050 x2</div>
-                <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay £3,500 in month one and only pay month two if you want to continue.</div>
-                <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto' }} onClick={() => scrollToSection('investment-plan')}>APPLY NOW</button>
+                <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay £3,050 in month one and only pay month two if you want to continue.</div>
+                <a href="https://www.nomoremrniceguy.co.uk/offers/2pogiMwt" target="_blank" rel="noopener noreferrer" className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto', textAlign: 'center', display: 'block' }}>APPLY NOW</a>
                 <div className="text-base font-bold text-center mt-6" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>
-                  Total: £6,100
+                  Total: £6,100 ✻
                 </div>
               </div>
-              {/* Card 3: Premium */}
+              {/* Card 3: Three Monthly Payments */}
               <div className="bg-white rounded-2xl flex-1 flex flex-col h-full items-center transition-transform duration-300 hover:scale-105 hover:shadow-2xl relative p-10" style={{ borderRadius: 11, boxShadow: '0 8px 40px rgba(0,0,0,0.10)', border: '1.5px solid #E6E6E6', minHeight: 420 }}>
-                <div className="text-lg font-bold mb-2 text-center" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif' }}>Premium</div>
-                <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif' }}>£14,997</div>
-                <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Lover + Leader + Provider & Executive Coaching - Programmes, for 1 year + Live Events.</div>
-                <button className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto' }} onClick={() => scrollToSection('investment-plan')}>APPLY NOW</button>
+                <div className="text-lg font-bold mb-2 text-center" style={{ color: '#0F4F40', fontFamily: 'League Spartan, sans-serif' }}>Three Monthly Payments</div>
+                <div className="text-3xl font-bold mb-2 text-center" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif' }}>£2,100 x3</div>
+                <div className="text-lg mb-4 text-center" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 400, lineHeight: 1.3 }}>Pay £2,100 in month one and only pay month two and three if you want to continue.</div>
+                <a href="https://www.nomoremrniceguy.co.uk/offers/SmGZ2qe6" target="_blank" rel="noopener noreferrer" className="btn-primary text-lg px-8 py-4 font-bold mt-2 rounded-lg w-full" style={{ background: '#D4E04F', color: '#0F4F40', fontFamily: 'PT Serif, serif', minHeight: 56, borderRadius: 11, fontWeight: 700, marginTop: 'auto', textAlign: 'center', display: 'block' }}>APPLY NOW</a>
                 <div className="text-base font-bold text-center mt-6" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>
-                  Total: £14,997
+                  Total: £6,300 ✻
                 </div>
               </div>
             </div>
-            <div className="text-sm text-muted-foreground text-center mt-2" style={{ fontFamily: 'League Spartan, sans-serif', color: '#A67C52' }}>
+            <div className="text-sm text-muted-foreground text-center mt-2" style={{ fontFamily: 'League Spartan, sans-serif', color: '#0D212D' }}>
               All prices include VAT. We accept most major cards. Secure checkout and support included.
+            </div>
+            <div className="max-w-2xl mx-auto mt-4">
+              <div className="glass rounded-xl p-5 text-base text-center font-semibold" style={{ background: 'rgba(255,255,255,0.25)', color: '#0D212D', border: '1.5px solid #D4E04F', boxShadow: '0 4px 24px rgba(0,0,0,0.10)', backdropFilter: 'blur(12px)', fontFamily: 'League Spartan, sans-serif' }}>
+                ✻ If the investment level is prohibitve for you at this moment, please <a href="mailto:enquire@nomoremrniceguy.co?Subject=need%20help%20to%20join%20Lover" style={{ color: '#0F4F40', textDecoration: 'underline', fontWeight: 700 }}>arrange a discussion</a> with us to review options and explore alternative pricing.
+              </div>
             </div>
           </motion.div>
         </section>
