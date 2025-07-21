@@ -1,7 +1,7 @@
 OG Images for each page
 join.nmmng.co - men.webp
 join.nmmng.co/lover - lover-hero.webp
-join.nmmng.co/bootcamp - lover-hero.webp
+join.nmmng.co/bootcamp - bootcamp-hero.png
 join.nmmng.co/coaching - hero-coaching.webp
 
 /bootcamp buy links
