@@ -1287,31 +1287,10 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
         <h3 className="text-2xl font-bold mb-6" style={{ color: '#0F4F40', letterSpacing: '0.06em', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>{title}</h3>
         <div className="mb-6 flex flex-col items-start">
           <div className="flex items-center gap-3 mb-2">
-            <span className="text-5xl price-pt-serif-bold" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif', fontWeight: 700 }}>
+            <span className="text-6xl price-pt-serif-bold" style={{ color: '#0D212D', fontFamily: 'PT Serif, serif', fontWeight: 700 }}>
               £{price}
             </span>
-            <span
-              ref={priceRef}
-              className="text-2xl price-slash price-original"
-              style={{
-                color: '#FF4C4C',
-                opacity: 0.6,
-                marginLeft: 4,
-                textDecoration: 'line-through',
-                textDecorationThickness: 3,
-                textDecorationColor: '#FF4C4C',
-                textDecorationLine: 'line-through',
-                fontWeight: 400,
-                fontFamily: 'League Spartan, sans-serif',
-                position: 'relative',
-                top: 0
-              }}
-              onMouseEnter={() => setSlashAnimated(true)}
-            >
-              £{original}
-            </span>
           </div>
-          <div className="text-xs font-bold" style={{ color: '#FF4C4C', marginTop: 2, fontFamily: 'League Spartan, sans-serif', fontWeight: 700, fontSize: 16 }}>{offerDeadline}</div>
         </div>
         <ul className="text-left space-y-4 mb-8 flex-1">
           {features.map((feature, i) => (
