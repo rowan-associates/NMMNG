@@ -683,7 +683,7 @@ function BootcampLanding() {
               {/* Standard Package */}
               <PriceCard
                 title="Standard Package"
-                price={347}
+                price={397}
                 original={397}
                 offerLabel="First Mover Advantage"
                 offerDeadline="Offer ends July 16th"
@@ -703,7 +703,7 @@ function BootcampLanding() {
               {/* VIP Package */}
               <PriceCard
                 title="VIP Package"
-                price={597}
+                price={697}
                 original={697}
                 offerLabel="First Mover Advantage"
                 offerDeadline="Offer ends July 16th"
@@ -1307,7 +1307,7 @@ function PriceCard({ title, price, original, offerLabel, offerDeadline, features
         >
           {ctaText}
         </Button>
-        <div className="text-base font-bold text-center mt-6" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>
+        <div className="text-base font-bold text-center mt-4" style={{ color: '#0D212D', fontFamily: 'League Spartan, sans-serif', fontWeight: 700 }}>
           Total: £{price}
         </div>
       </CardContent>
